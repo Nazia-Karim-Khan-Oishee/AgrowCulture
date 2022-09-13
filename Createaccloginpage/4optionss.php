@@ -12,8 +12,8 @@
               
                 <nav>
                     <ul>
-                        <li><a href="getstartedpage.html">HOME</a></li>
-                        <li><a href="about us.html">ABOUT US</a></li>
+                        <li><a href="getstartedpage.php">HOME</a></li>
+                        <li><a href="about us.php">ABOUT US</a></li>
                     </ul>
                 </nav>
             </div>
