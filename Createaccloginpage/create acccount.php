@@ -11,9 +11,9 @@ if (isset($_SESSION['user_name'])) {
 }
 
 if (isset($_POST['submit'])) {
+    
 	//$id = $_POST['id'];
 	//$user_id = $_POST['user_id'];
-    $Name = $_POST['Name'];
 	$user_name = $_POST['user_name'];
 	$Just_Set=false;
 	$MobileNumber = $_POST['MobileNumber'];
@@ -25,8 +25,8 @@ if (isset($_POST['submit'])) {
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
 		{
-			$sql = "INSERT INTO users (Name, user_name, MobileNumber, password)
-					VALUES ('$Name', '$user_name', '$MobileNumber', '$password')";
+			$sql = "INSERT INTO users (user_name, MobileNumber, password)
+					VALUES ('$user_name', '$MobileNumber', '$password')";
 			$result = mysqli_query($Conn, $sql);
 			if ($result) {
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 			}
 		} 
 		else {
-			echo "<script>alert('Woops! Name Already Exists.')</script>";
+			echo "<p class='er'><strong>user_name already exists.</strong></p>";
 		}
 		
 	} else {
