@@ -271,8 +271,9 @@ text-align: center;
 
 .er
 {
-    /*background-color: lightgrey; */
+   /* background-color: lightgrey;
    /*text-size: 500px;
+   // margin:center;
    size: 40px;*/
    color: red;
    margin:auto;
