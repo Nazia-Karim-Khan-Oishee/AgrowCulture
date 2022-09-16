@@ -10,45 +10,50 @@ if (isset($_SESSION['user_name'])) {
     header("Location: Welcome.php");
 }
 
-if (isset($_POST['submit'])) {
-    
-	//$id = $_POST['id'];
-	//$user_id = $_POST['user_id'];
+if (isset($_POST['submit'])) 
+{
 	$user_name = $_POST['user_name'];
-	$Just_Set=false;
+	$Just_Set = false;
 	$MobileNumber = $_POST['MobileNumber'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
-	//echo "<script>alert(\"Hello World\");</script>";
-	if ($password == $cpassword) {
-		$sql = "SELECT * FROM users WHERE user_name='$user_name'";
+	if ($password == $cpassword) 
+    {
+		$sql = "SELECT * FROM users WHERE user_name = '$user_name'";
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
 		{
 			$sql = "INSERT INTO users (user_name, MobileNumber, password)
 					VALUES ('$user_name', '$MobileNumber', '$password')";
 			$result = mysqli_query($Conn, $sql);
-			if ($result) {
+			if ($result)
+            {
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
 				$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 				$row_fetch = mysqli_query($Conn, $sql);
-				if ($row_fetch->num_rows > 0) {
+				if ($row_fetch->num_rows > 0) 
+                {
 					$row = mysqli_fetch_assoc($row_fetch);
 					$_SESSION['user_name'] = $row['user_name'];
-					$_SESSION['Just_Set']=true;
+					$_SESSION['Just_Set'] = true;
 					header("Location: Welcome.php");
 				}
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
-			} else {
+			} 
+            else 
+            {
 				echo "<script>alert('Woops! Something Wrong Went.')</script>";
 			}
 		} 
-		else {
+		else 
+        {
 			echo "<p class='er'><strong>user_name already exists.</strong></p>";
 		}
 		
-	} else {
+	} 
+    else 
+    {
 		echo "<script>alert('Password Not Matched.')</script>";
 	}
 }

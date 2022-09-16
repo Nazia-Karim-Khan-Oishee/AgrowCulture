@@ -2,13 +2,16 @@
 
 session_start();
 
-if (!isset($_SESSION['user_name'])) {
+if (!isset($_SESSION['user_name'])) 
+{
     header("Location: INDEX.php");
 }
-if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true){
+if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
+{
     echo "<script>alert('Wow! User Registration Completed.')</script>";
-    $SESSION['Just_Set']=false;
+    $SESSION['Just_Set'] = false;
 }
+
 ?>
 
 <!DOCTYPE html>
