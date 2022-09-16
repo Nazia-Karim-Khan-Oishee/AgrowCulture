@@ -9,7 +9,8 @@
 {
     width: 100%;
     height: 100vh;
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(reg.jpg);
+    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(pexel.jpg
+    );
     background-position: center;
     background-size: cover;
     padding-left: 8%;
@@ -180,7 +181,7 @@ h3
 }
 .col h5
 {
- width: fit-content;
+ /*width: fit-content;*/
  margin-bottom: 30px;
  position: relative;
  font-size: 20px;
@@ -265,6 +266,19 @@ text-align: center;
  {
    left: 100%;  
  }
+
+}
+
+.er
+{
+   /* background-color: lightgrey;
+   /*text-size: 500px;
+   // margin:center;
+   size: 40px;*/
+   color: red;
+   margin:auto;
+    margin-left: 700px;
+    margin-right: 100px;
 
 }
 

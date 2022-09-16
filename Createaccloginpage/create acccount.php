@@ -10,44 +10,55 @@ if (isset($_SESSION['user_name'])) {
     header("Location: Welcome.php");
 }
 
-if (isset($_POST['submit'])) {
+//if (isset($_POST['submit'])) {
+    
 	//$id = $_POST['id'];
 	//$user_id = $_POST['user_id'];
+    if (isset($_POST['submit'])) 
+    {
+    $Name = $_POST['Name'];
 	$user_name = $_POST['user_name'];
-	$Just_Set=false;
+	$Just_Set = false;
 	$MobileNumber = $_POST['MobileNumber'];
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
-	echo "<script>alert(\"Hello World\");</script>";
-	if ($password == $cpassword) {
-		$sql = "SELECT * FROM users WHERE user_name='$user_name'";
+	if ($password == $cpassword) 
+    {
+		$sql = "SELECT * FROM users WHERE user_name = '$user_name'";
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
 		{
-			$sql = "INSERT INTO users (user_name, MobileNumber, password)
-					VALUES ('$user_name', '$MobileNumber', '$password')";
+			$sql = "INSERT INTO users (Name, user_name, MobileNumber, password)
+					VALUES ('$Name', '$user_name', '$MobileNumber', '$password')";
 			$result = mysqli_query($Conn, $sql);
-			if ($result) {
+			if ($result)
+            {
 				echo "<script>alert('Wow! User Registration Completed.')</script>";
 				$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 				$row_fetch = mysqli_query($Conn, $sql);
-				if ($row_fetch->num_rows > 0) {
+				if ($row_fetch->num_rows > 0) 
+                {
 					$row = mysqli_fetch_assoc($row_fetch);
 					$_SESSION['user_name'] = $row['user_name'];
-					$_SESSION['Just_Set']=true;
+					$_SESSION['Just_Set'] = true;
 					header("Location: Welcome.php");
 				}
 				$_POST['password'] = "";
 				$_POST['cpassword'] = "";
-			} else {
+			} 
+            else 
+            {
 				echo "<script>alert('Woops! Something Wrong Went.')</script>";
 			}
 		} 
-		else {
-			echo "<script>alert('Woops! Name Already Exists.')</script>";
+		else 
+        {
+			echo "<p class='er'><strong>user_name already exists.</strong></p>";
 		}
 		
-	} else {
+	} 
+    else 
+    {
 		echo "<script>alert('Password Not Matched.')</script>";
 	}
 }
@@ -69,6 +80,10 @@ if (isset($_POST['submit'])) {
         <form class="form" action="" method="POST" id="createAccount">
             <h1 class="form__title">Create Account</h1>
             <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" name="Name" autofocus placeholder="Name" value="<?php echo $Name; ?>" required>
+                <div class="form__input-error-message"></div>
+            </div>
             <div class="form__input-group">
                 <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required>
                 <div class="form__input-error-message"></div>
