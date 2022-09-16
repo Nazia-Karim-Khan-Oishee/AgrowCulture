@@ -10,16 +10,13 @@ if (isset($_SESSION['user_name'])) {
     header("Location: Welcome.php");
 }
 
-<<<<<<< HEAD
-if (isset($_POST['submit'])) {
+//if (isset($_POST['submit'])) {
     
 	//$id = $_POST['id'];
 	//$user_id = $_POST['user_id'];
+    if (isset($_POST['submit'])) 
+    {
     $Name = $_POST['Name'];
-=======
-if (isset($_POST['submit'])) 
-{
->>>>>>> dafa1b7af6e3561d1b17fd06aabe758bdab081af
 	$user_name = $_POST['user_name'];
 	$Just_Set = false;
 	$MobileNumber = $_POST['MobileNumber'];
