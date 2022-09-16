@@ -20,28 +20,35 @@ if (isset($_SESSION['user_name'])) {
     $Name = $_POST['Name'];
 	$user_name = $_POST['user_name'];
 	$Just_Set = false;
+    $Validate = true;
 	$MobileNumber = $_POST['MobileNumber'];
-	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
-	if ($password == $cpassword) 
-    {
-    $uppercase = preg_match('@[A-Z]@', $password);
-    $lowercase = preg_match('@[a-z]@', $password);
-    $number    = preg_match('@[0-9]@', $password);
-    $specialChars = preg_match('@[^\w]@', $password);
+	$checkpassword = ($_POST['password']);
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
+    $uppercase = preg_match('@[A-Z]@', $checkpassword);
+    $lowercase = preg_match('@[a-z]@', $checkpassword);
+    $number    = preg_match('@[0-9]@', $checkpassword);
+    $specialchars = preg_match('@[^\w]@', $checkpassword);
+    if(!$uppercase || !$lowercase || !$number || !$specialchars ) {
+        $Validate= false;
+      }
 
-    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 6)
-     {
-        unset($Name);
-        unset($user_name);
-        unset($MobileNumber);
-        $_POST['password'] = "";
-        $_POST['cpassword'] = "";
-        echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
-    }
-    else
+    if($Validate)
+	{
+        if ($password == $cpassword) 
     {
-        $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+        if(strlen($MobileNumber)<11)
+        {
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            echo "<p class='er'><big>Invalid MobileNumber.</big></p>";
+
+        }
+        else{
+		$sql = "SELECT * FROM users WHERE user_name = '$user_name'";
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
 		{
@@ -66,16 +73,15 @@ if (isset($_SESSION['user_name'])) {
             else 
             {
                 unset($Name);
-            unset($user_name);
-            unset($MobileNumber);
-            $_POST['password'] = "";
-            $_POST['cpassword'] = "";
+                unset($user_name);
+                unset($MobileNumber);
+                $_POST['password'] = "";
+                $_POST['cpassword'] = "";
+                echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
 				//echo "<script>alert('Something Wrong Went.Please try again later')</script>";
-                echo "<p class='er'><big>Something Wrong Went.Please try again later</big></p>";
 			}
-				
-        } 
-        else
+		} 
+		else 
         {
             unset($Name);
             unset($user_name);
@@ -87,23 +93,33 @@ if (isset($_SESSION['user_name'])) {
             //unset($cpassword);
             //$_POST['Name']="";
 	        //$_POST['user_name']="";
-	        //$_POST['MobileNumber']="";
             //echo "<div>This is a div.</div>";
+	        //$_POST['MobileNumber']="";
             //die("user_name already exists.");
 		}
 		
-	  } 
-    }   
+	} 
+}
     else 
     {
-        unset($Name);
+            unset($Name);
             unset($user_name);
             unset($MobileNumber);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
-		//echo "<script>alert('Password Not Matched.')</script>";
-        echo "<p class='er'><big>Password Not Matched.</big></p>";
+		    echo "<script>alert('Password Not Matched.')</script>";
 	}
+}
+else 
+{   
+    unset($Name);
+    unset($user_name);
+    unset($MobileNumber);
+    $_POST['password'] = "";
+    $_POST['cpassword'] = "";
+    echo "<p class='er'><big>Password should contain at least one 
+    uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+}
 }
 
 ?>
