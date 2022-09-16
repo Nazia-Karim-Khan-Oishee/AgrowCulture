@@ -16,13 +16,13 @@ if (isset($_SESSION['user_name'])) {
 }
 
 if (isset($_POST['submit'])) {
-    echo "<script>alert(\"Hello World\");</script>";
+    //echo "<script>alert(\"Hello World\");</script>";
 	//$id = $_POST['id'];
 	//$user_id = $_POST['user_id'];
 	$user_name = $_POST['user_name'];
-    echo "<script>alert(\"Hello World\");</script>";
+    //echo "<script>alert(\"Hello World\");</script>";
 	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
+	//$cpassword = md5($_POST['cpassword']);
 	$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 	$result = mysqli_query($Conn, $sql);
 	if ($result->num_rows > 0) {
@@ -30,7 +30,9 @@ if (isset($_POST['submit'])) {
 		$_SESSION['user_name'] = $row['user_name'];
 		header("Location: Welcome.php");
 	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+        $_POST['password'] = "";
+        unset($user_name);
+        echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
 
@@ -78,7 +80,7 @@ if (isset($_POST['submit'])) {
                 <button class="form__button" type="submit" id="submitBtn" name="submit" value="Login" requied>Continue</button>
                 </form>
                 <p class="form__text">
-                    <a href="#" class="form__link">Forgot your password</a>
+                    <a href="ChangePassword.php" class="form__link">Forgot your password</a>
                 </p>
 
                 <p class="form__text">Don't have an account?
