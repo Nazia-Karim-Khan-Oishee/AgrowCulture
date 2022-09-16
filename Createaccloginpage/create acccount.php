@@ -6,6 +6,7 @@ error_reporting(0);
 
 session_start();
 
+
 if (isset($_SESSION['user_name'])) {
     header("Location: Welcome.php");
 }
@@ -24,7 +25,23 @@ if (isset($_SESSION['user_name'])) {
 	$cpassword = md5($_POST['cpassword']);
 	if ($password == $cpassword) 
     {
-		$sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+    $uppercase = preg_match('@[A-Z]@', $password);
+    $lowercase = preg_match('@[a-z]@', $password);
+    $number    = preg_match('@[0-9]@', $password);
+    $specialChars = preg_match('@[^\w]@', $password);
+
+    if(!$uppercase || !$lowercase || !$number || !$specialChars || strlen($password) < 6)
+     {
+        unset($Name);
+        unset($user_name);
+        unset($MobileNumber);
+        $_POST['password'] = "";
+        $_POST['cpassword'] = "";
+        echo 'Password should be at least 8 characters in length and should include at least one upper case letter, one number, and one special character.';
+    }
+    else
+    {
+        $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
 		{
@@ -33,7 +50,7 @@ if (isset($_SESSION['user_name'])) {
 			$result = mysqli_query($Conn, $sql);
 			if ($result)
             {
-				echo "<script>alert('Wow! User Registration Completed.')</script>";
+				echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
 				$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 				$row_fetch = mysqli_query($Conn, $sql);
 				if ($row_fetch->num_rows > 0) 
@@ -48,18 +65,44 @@ if (isset($_SESSION['user_name'])) {
 			} 
             else 
             {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+                unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+				//echo "<script>alert('Something Wrong Went.Please try again later')</script>";
+                echo "<p class='er'><big>Something Wrong Went.Please try again later</big></p>";
 			}
-		} 
-		else 
+				
+        } 
+        else
         {
-			echo "<p class='er'><strong>user_name already exists.</strong></p>";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            echo "<p class='er'><big>user_name already exists.</big></p>";
+            //unset($password);
+            //unset($cpassword);
+            //$_POST['Name']="";
+	        //$_POST['user_name']="";
+	        //$_POST['MobileNumber']="";
+            //echo "<div>This is a div.</div>";
+            //die("user_name already exists.");
 		}
 		
-	} 
+	  } 
+    }   
     else 
     {
-		echo "<script>alert('Password Not Matched.')</script>";
+        unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+		//echo "<script>alert('Password Not Matched.')</script>";
+        echo "<p class='er'><big>Password Not Matched.</big></p>";
 	}
 }
 
