@@ -29,7 +29,7 @@ if (isset($_SESSION['user_name'])) {
     $lowercase = preg_match('@[a-z]@', $checkpassword);
     $number    = preg_match('@[0-9]@', $checkpassword);
     $specialchars = preg_match('@[^\w]@', $checkpassword);
-    if(!$uppercase || !$lowercase || !$number || !$specialchars ) {
+    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) {
         $Validate= false;
       }
 
@@ -45,6 +45,18 @@ if (isset($_SESSION['user_name'])) {
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
             echo "<p class='er'><big>Invalid MobileNumber.</big></p>";
+
+        }
+        else{
+            
+            if(strlen($user_name)<6)
+        {
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
 
         }
         else{
@@ -97,6 +109,7 @@ if (isset($_SESSION['user_name'])) {
 	        //$_POST['MobileNumber']="";
             //die("user_name already exists.");
 		}
+    }
 		
 	} 
 }
