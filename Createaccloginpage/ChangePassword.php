@@ -26,36 +26,38 @@ if (isset($_POST['submit']))
     $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
     $result = mysqli_query($Conn, $sql);
     if ($result->num_rows > 0) 
-    //{
-       // $sql3 = "SELECT password FROM users WHERE user_name = '$user_name'";
+    {
+       // echo "<script>alert('match')</script>";
+      $sql3 = "SELECT password FROM users WHERE user_name = '$user_name'";
+       $result3 = mysqli_query($Conn , $sql3);
        // $verify = password_verify($checkpassword, $sql3);
-
-       // $result3 = mysqli_query($Conn , $sql3);
-       // if($verify)
+       //if($row['password'] == '$newpassword')
+       $row=mysqli_fetch_assoc($result3);
+      $hash = password_hash($row['password'], PASSWORD_DEFAULT);
+      if(password_verify(md5($_POST['currentpass']),  $hash))
        {
-        
-        if($new_password == $cpassword)
-           {
-            $sql2 = "UPDATE users SET password = '$new_password' WHERE user_name = '$user_name' ";
-            $result2 = mysqli_query($Conn , $sql2);
-            header("Location: INDEX.php");
-           } 
-           else
-           {
-            echo "<script>alert('Password does not match')</script>";
-           }
-        }
-       // else
-        //{
-        //    echo "<script>alert('Current Password does not match')</script>";
-       // }
 
-   // }
-            else 
+            if($new_password == $cpassword)
             {
+                $sql2 = "UPDATE users SET password = '$new_password' WHERE user_name = '$user_name' ";
+                $result2 = mysqli_query($Conn , $sql2);
+                header("Location: INDEX.php");
+            } 
+            else
+            {
+                echo "<script>alert('Password does not match')</script>";
+            }
+       }
+     else
+        {
+              echo "<script>alert('Current Password does not match')</script>";
+         }
+        }
+     else 
+      {
                 echo "<p class='er'><big>User not found.</big>.</big></p>";
 
-            }
+      }
         }
         else{
             echo "<p class='er'><big>Password should contain at least one 
