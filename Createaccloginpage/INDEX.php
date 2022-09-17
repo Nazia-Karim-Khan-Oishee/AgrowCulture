@@ -28,9 +28,13 @@ if (isset($_POST['submit'])) {
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['user_name'] = $row['user_name'];
+        $_POST['password'] = "";
+        $_POST['user_name'] = "";
+        unset($user_name);
 		header("Location: Welcome.php");
 	} else {
         $_POST['password'] = "";
+        $_POST['user_name'] = "";
         unset($user_name);
         echo "<p class='er'>Wrong Password.</big></p>";
 	}
@@ -80,7 +84,7 @@ if (isset($_POST['submit'])) {
                 <button class="form__button" type="submit" id="submitBtn" name="submit" value="Login" requied>Continue</button>
                 </form>
                 <p class="form__text">
-                    <a href="ChangePassword.php" class="form__link">Forgot your password</a>
+                    <a href="#" class="form__link">Forgot your password</a>
                 </p>
 
                 <p class="form__text">Don't have an account?

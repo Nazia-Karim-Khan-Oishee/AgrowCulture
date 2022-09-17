@@ -33,7 +33,7 @@
                </div>
                <div class="des">
                 <p>Support the farmers.</p>
-              <a href="FundinInfo.php"><button>Read More...</button></a>
+              <a href="FundingInfo.php"><button>Read More...</button></a>
                </div>
                </div>
 
