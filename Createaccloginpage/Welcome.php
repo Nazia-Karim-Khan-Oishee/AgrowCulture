@@ -9,6 +9,7 @@ $currentpass = "";
 $checkpassword = "";
 $new_password = "";
 $cpassword = "";
+//$MobileNumber = "";
 if (!isset($_SESSION['user_name'])) 
 {
     header("Location: INDEX.php");
@@ -66,11 +67,13 @@ if (isset($_POST['submit']))
     uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
 
         }
+        unset($currpass);
+        unset($new_password);
+        unset($cpassword);
+        //unset($_SESSION['user_name']);
     }
-    unset($currpass);
-    unset($new_password);
-    unset($cpassword);
-    unset($_SESSION['user_name']);
+
+    
 ?>
 
 <!DOCTYPE html>
@@ -101,7 +104,7 @@ if (isset($_POST['submit']))
             </div>
 			<input type="submit" name="submit" class="form__button" value="Continue"/> 
         </form> 
-
+       
     <p><a href="logout.php">Logout</a></p>
 </body>
 </html>
