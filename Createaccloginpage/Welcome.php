@@ -72,7 +72,32 @@ if (isset($_POST['submit']))
         unset($cpassword);
         //unset($_SESSION['user_name']);
     }
+    if (isset($_POST['submit2'])) 
+    {    
+        $user_name = $_SESSION['user_name'];
+        $MobileNumber = $_POST['MobileNumber'];
+        if(strlen($MobileNumber) != 11 )
+       {
+        echo "<script>alert('Invalid Mobile Number.')</script>";
 
+        }
+        elseif(strlen($MobileNumber) == 11 ) 
+        {
+
+            $sql4 = "UPDATE users SET MobileNumber = '$MobileNumber' WHERE user_name = '$user_name' ";
+             $result4 = mysqli_query($Conn , $sql4);
+             if($result4)
+             {           
+                 echo "<script>alert('Mobile Number Changed.')</script>";
+    
+             }
+             else 
+             {
+            echo "<script>alert('Something went wrong.')</script>";
+             }
+        }
+         unset($MobileNumber);
+    }
     
 ?>
 
@@ -105,6 +130,16 @@ if (isset($_POST['submit']))
 			<input type="submit" name="submit" class="form__button" value="Continue"/> 
         </form> 
        
+        <form class="form" action="" method="POST" id="createAccount">
+            <h1 class="form__title">Change Mobile Number</h1>
+            <div class="form__message form__message--error"></div>
+            <div class="form__input-group">
+                <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="MobileNumber" onfocus="this.value=''" value="<?php echo $MobileNumber; ?>" required>
+                <div class="form__input-error-message"></div>
+            </div>
+            <input type="submit" name="submit2" class="form__button" value="Continue"/> 
+
+</form>
     <p><a href="logout.php">Logout</a></p>
 </body>
 </html>
