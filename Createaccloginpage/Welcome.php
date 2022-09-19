@@ -70,34 +70,34 @@ if (isset($_POST['submit']))
         unset($currpass);
         unset($new_password);
         unset($cpassword);
-        //unset($_SESSION['user_name']);
     }
     if (isset($_POST['submit2'])) 
     {    
         $user_name = $_SESSION['user_name'];
         $MobileNumber = $_POST['MobileNumber'];
         if(strlen($MobileNumber) != 11 )
-       {
+        {
         echo "<script>alert('Invalid Mobile Number.')</script>";
 
-        }
-        elseif(strlen($MobileNumber) == 11 ) 
-        {
-
-            $sql4 = "UPDATE users SET MobileNumber = '$MobileNumber' WHERE user_name = '$user_name' ";
-             $result4 = mysqli_query($Conn , $sql4);
-             if($result4)
-             {           
-                 echo "<script>alert('Mobile Number Changed.')</script>";
-    
-             }
-             else 
-             {
-            echo "<script>alert('Something went wrong.')</script>";
-             }
-        }
-         unset($MobileNumber);
     }
+    elseif(strlen($MobileNumber) == 11 ) 
+    {
+        
+        $sql4 = "UPDATE users SET MobileNumber = '$MobileNumber' WHERE user_name = '$user_name' ";
+        $result4 = mysqli_query($Conn , $sql4);
+        if($result4)
+        {           
+            echo "<script>alert('Mobile Number Changed.')</script>";
+            
+        }
+        else 
+        {
+            echo "<script>alert('Something went wrong.')</script>";
+        }
+    }
+    unset($MobileNumber);
+}
+//session_destroy();
     
 ?>
 
