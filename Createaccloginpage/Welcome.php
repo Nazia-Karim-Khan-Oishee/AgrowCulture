@@ -5,38 +5,18 @@ error_reporting(0);
 
 session_start();
 
-
-
-// printing column name above the data
-/*echo 'ID'.' '.'User Name'.' '.'Mobile Number'.' <br>';
-
-// sql query to fetch all the data
-$query = "SELECT * FROM users";
-// mysql_query will execute the query to fetch data
-if ($is_query_run = mysqli_query($Conn, $query))
-{
-	// echo "Query Executed";
-	// loop will iterate until all data is fetched
-	while ($query_executed = mysqli_fetch_assoc ($is_query_run))
-	{
-		// these four line is for four column
-		echo $query_executed['Name'].' ';
-		echo $query_executed['user_name'].' ';
-		echo $query_executed['MobileNumber'].' ';
-		//echo $query_executed['gfg_username'].'<br>';
-	}
-}
-else
-{
-	echo "Error in execution!";
-}
-*/
+$user_name = $_SESSION['user_name'];
+$query = "SELECT * FROM users WHERE user_name = '$user_name'";
+$req = mysqli_query($Conn , $query);
+$row = mysqli_fetch_assoc($req);
+$Name= $row['Name'];
+$Username = $row['user_name'];
+$Mobilenumber = $row['MobileNumber'];
 
 $currentpass = "";
 $checkpassword = "";
 $new_password = "";
 $cpassword = "";
-//$MobileNumber = "";
 if (!isset($_SESSION['user_name'])) 
 {
     header("Location: INDEX.php");
@@ -139,45 +119,18 @@ if (isset($_POST['submit']))
 </head>
 <body>
     <?php echo "<h1>Welcome " . $_SESSION['user_name'] . "</h1>"; ?>
-    <div class="container mt-2">
-    <div class="row">
-        <div class="col-md-12">
-
-            <table class="table">
-              <thead>
-                <tr>
-                  
-                  <th scope="col">Name</th>
-                  <th scope="col">User Name</th>
-                  <th scope="col">MobileNumber</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php include 'Retrieve-data.php'; ?>
-
-                <?php if ($result): ?>
-                    
-                    <tr>                 
-                        
-                    <?php while ($query_executed = mysqli_fetch_assoc ($result))?>
-                    {
-
-                        <td><?php echo $query_executed['Name'].' ';?></td>
-                        <td><?php echo $query_executed['user_name'].' ';?></td>
-                        <td><?php echo $query_executed['MobileNumber'].' ';?></td>
-                    }
-                    </tr>
-                    
-                    <?php endif; ?>
-                    <?php echo "here";?>
-
-              </tbody>
-            </table>
-        </div>
-    </div>        
-</div>
-
-
+                <div>
+                    <label>Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $Name ?>" value="<?php echo $Name ?>">
+                  </div>
+                  <div>
+                    <label>User Name</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="<?php echo $Username ?>" value="<?php echo $Username ?>">
+                  </div>
+                <div>
+                    <label>Mobile Number</label>
+                    <input type="text" class="form-control" id="mobile" name="mobile" placeholder="<?php echo $Mobilenumber ?>" value="<?php echo $Mobilenumber ?>">
+                  </div>
     <form class="form" action="" method="POST" id="createAccount">
             <h1 class="form__title">Change Password</h1>
             <div class="form__message form__message--error"></div>
@@ -200,7 +153,7 @@ if (isset($_POST['submit']))
             <h1 class="form__title">Change Mobile Number</h1>
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="MobileNumber" onfocus="this.value=''" value="<?php echo $MobileNumber; ?>" required>
+                <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="MobileNumber" onfocus="this.value=''"  required>
                 <div class="form__input-error-message"></div>
             </div>
             <input type="submit" name="submit2" class="form__button" value="Continue"/> 

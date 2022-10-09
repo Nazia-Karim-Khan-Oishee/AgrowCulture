@@ -2,9 +2,11 @@
 
 
 include 'Config.php';
-$query = "SELECT * FROM users";
+$user_name = $_SESSION['user_name'];
+
+$query = "SELECT Name,user_name,MobileNumber FROM users where user_name = '$user_name'";
 
 
-$result=mysqli_query($Conn,$query);
+$row=mysqli_query($dbCon,$query);
 
 ?>
