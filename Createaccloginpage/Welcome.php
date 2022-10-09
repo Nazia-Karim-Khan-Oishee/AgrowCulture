@@ -5,6 +5,33 @@ error_reporting(0);
 
 session_start();
 
+
+
+// printing column name above the data
+/*echo 'ID'.' '.'User Name'.' '.'Mobile Number'.' <br>';
+
+// sql query to fetch all the data
+$query = "SELECT * FROM users";
+// mysql_query will execute the query to fetch data
+if ($is_query_run = mysqli_query($Conn, $query))
+{
+	// echo "Query Executed";
+	// loop will iterate until all data is fetched
+	while ($query_executed = mysqli_fetch_assoc ($is_query_run))
+	{
+		// these four line is for four column
+		echo $query_executed['Name'].' ';
+		echo $query_executed['user_name'].' ';
+		echo $query_executed['MobileNumber'].' ';
+		//echo $query_executed['gfg_username'].'<br>';
+	}
+}
+else
+{
+	echo "Error in execution!";
+}
+*/
+
 $currentpass = "";
 $checkpassword = "";
 $new_password = "";
@@ -112,6 +139,45 @@ if (isset($_POST['submit']))
 </head>
 <body>
     <?php echo "<h1>Welcome " . $_SESSION['user_name'] . "</h1>"; ?>
+    <div class="container mt-2">
+    <div class="row">
+        <div class="col-md-12">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  
+                  <th scope="col">Name</th>
+                  <th scope="col">User Name</th>
+                  <th scope="col">MobileNumber</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php include 'Retrieve-data.php'; ?>
+
+                <?php if ($result): ?>
+                    
+                    <tr>                 
+                        
+                    <?php while ($query_executed = mysqli_fetch_assoc ($result))?>
+                    {
+
+                        <td><?php echo $query_executed['Name'].' ';?></td>
+                        <td><?php echo $query_executed['user_name'].' ';?></td>
+                        <td><?php echo $query_executed['MobileNumber'].' ';?></td>
+                    }
+                    </tr>
+                    
+                    <?php endif; ?>
+                    <?php echo "here";?>
+
+              </tbody>
+            </table>
+        </div>
+    </div>        
+</div>
+
+
     <form class="form" action="" method="POST" id="createAccount">
             <h1 class="form__title">Change Password</h1>
             <div class="form__message form__message--error"></div>
