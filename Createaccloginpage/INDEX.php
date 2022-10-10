@@ -2,10 +2,6 @@
 
 include 'Config.php';
 
-
-
-//include_path='F:\XAMPP\php\PEAR';
-
 error_reporting(0);
 
 session_start();
@@ -16,27 +12,36 @@ if (isset($_SESSION['user_name'])) {
 }
 
 if (isset($_POST['submit'])) {
-    //echo "<script>alert(\"Hello World\");</script>";
-	//$id = $_POST['id'];
-	//$user_id = $_POST['user_id'];
 	$user_name = $_POST['user_name'];
-    //echo "<script>alert(\"Hello World\");</script>";
 	$password = md5($_POST['password']);
 	//$cpassword = md5($_POST['cpassword']);
-	$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
+	$sql = "SELECT * FROM users WHERE user_name='$user_name'";// AND password='$password'";
 	$result = mysqli_query($Conn, $sql);
 	if ($result->num_rows > 0) {
 		$row = mysqli_fetch_assoc($result);
-		$_SESSION['user_name'] = $row['user_name'];
+        if($row['password']==$password)
+        {
+
+            $_SESSION['user_name'] = $row['user_name'];
+            $_POST['password'] = "";
+            $_POST['user_name'] = "";
+            unset($user_name);
+            header("Location: Welcome.php");
+        }
+        else 
+        {
+            $WrongPass="Wrong Password.";
         $_POST['password'] = "";
         $_POST['user_name'] = "";
         unset($user_name);
-		header("Location: Welcome.php");
+       // echo "<p class='er'>Wrong Password.</big></p>";
+        }
 	} else {
+        $WrongUser="Invalid User Name.";
         $_POST['password'] = "";
         $_POST['user_name'] = "";
         unset($user_name);
-        echo "<p class='er'>Wrong Password.</big></p>";
+       // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
 
@@ -72,11 +77,13 @@ if (isset($_POST['submit'])) {
 
             <div class="form__input-group">
                 <input type="text" class="form__input"  name="user_name" id="username" autofocus placeholder="Enter username" value="<?php echo $user_name; ?>" required>
+                <span class="error"> <?php echo $WrongUser;?></span>
                 <div class="form__input-error-message"></div>
             </div>
 
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" id="password" autofocus placeholder="Enter password" value="<?php echo $_POST['password']; ?>" required>
+                <span class="error"> <?php echo $WrongPass;?></span>
                 <div class="form__input-error-message"></div>
             </div>
 
