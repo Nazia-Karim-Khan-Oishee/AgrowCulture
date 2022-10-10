@@ -11,7 +11,6 @@ if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
     echo "<script>alert('Wow! User Registration Completed.')</script>";
     $SESSION['Just_Set'] = false;
 }
-
 ?>
 
 <!DOCTYPE html>

@@ -2,39 +2,35 @@
 
 include 'Config.php';
 
-
-
-//include_path='F:\XAMPP\php\PEAR';
-
 error_reporting(0);
 
 session_start();
 
-
-if (isset($_SESSION['user_name'])) {
+if (isset($_SESSION['user_name'])) 
+{
     header("Location: Welcome.php");
 }
 
-if (isset($_POST['submit'])) {
-    echo "<script>alert(\"Hello World\");</script>";
-	//$id = $_POST['id'];
-	//$user_id = $_POST['user_id'];
+if (isset($_POST['submit'])) 
+{
+    //echo "<script>alert(\"Hello World\");</script>";
 	$user_name = $_POST['user_name'];
     echo "<script>alert(\"Hello World\");</script>";
 	$password = md5($_POST['password']);
 	$cpassword = md5($_POST['cpassword']);
 	$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 	$result = mysqli_query($Conn, $sql);
-	if ($result->num_rows > 0) {
+	if ($result->num_rows > 0) 
+    {
 		$row = mysqli_fetch_assoc($result);
 		$_SESSION['user_name'] = $row['user_name'];
 		header("Location: Welcome.php");
-	} else {
-		echo "<script>alert('Woops! Email or Password is Wrong.')</script>";
+	} 
+    else 
+    {
+		echo "<script>alert('Woops! Username or Password is Wrong.')</script>";
 	}
 }
-
-
 ?>
 
 <!DOCTYPE html>

@@ -6,7 +6,8 @@ error_reporting(0);
 
 session_start();
 
-if (isset($_SESSION['user_name'])) {
+if (isset($_SESSION['user_name'])) 
+{
     header("Location: Welcome.php");
 }
 
@@ -105,7 +106,7 @@ if (isset($_POST['submit']))
 	</div>
 	
 	<footer>
-            <div class="row">
+        <div class="row">
                 <div class="col">
                     <h3>AGROWCULTURE</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
@@ -125,20 +126,19 @@ if (isset($_POST['submit']))
 
                     </ul>
                 </div>
-
-                <ul class="social_icon">
-                    <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                    <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                    <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                    <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                  </ul>
+                <div>
+                    <ul class="social_icon">
+                        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+                        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+                    </ul>
                 </div>
                 <hr>
                 <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
-
-            </div> 
-            </footer>
-			<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </div> 
+    </footer>
+	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
