@@ -6,24 +6,58 @@ error_reporting(0);
 
 session_start();
 
+
 if (isset($_SESSION['user_name'])) {
     header("Location: Welcome.php");
 }
 
-//if (isset($_POST['submit'])) {
-    
-	//$id = $_POST['id'];
-	//$user_id = $_POST['user_id'];
     if (isset($_POST['submit'])) 
     {
     $Name = $_POST['Name'];
 	$user_name = $_POST['user_name'];
 	$Just_Set = false;
+    $Validate = true;
 	$MobileNumber = $_POST['MobileNumber'];
-	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
-	if ($password == $cpassword) 
+	$checkpassword = ($_POST['password']);
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
+    $uppercase = preg_match('@[A-Z]@', $checkpassword);
+    $lowercase = preg_match('@[a-z]@', $checkpassword);
+    $number    = preg_match('@[0-9]@', $checkpassword);
+    $specialchars = preg_match('@[^\w]@', $checkpassword);
+    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) {
+        $Validate= false;
+      }
+
+    if($Validate)
+	{
+        if ($password == $cpassword) 
     {
+        if(strlen($MobileNumber)<11)
+        {
+            $MobileNumberErr ="Invalid Mobile Number.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+           // echo "<p class='er'><big>Invalid Mobile Number.</big></p>";
+
+        }
+        else{
+            
+            if(strlen($user_name)<6)
+        {
+            $usernameErr = "Length of username should be at least 6 characters.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            //echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
+
+        }
+        else{
 		$sql = "SELECT * FROM users WHERE user_name = '$user_name'";
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
@@ -33,7 +67,7 @@ if (isset($_SESSION['user_name'])) {
 			$result = mysqli_query($Conn, $sql);
 			if ($result)
             {
-				echo "<script>alert('Wow! User Registration Completed.')</script>";
+				//echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
 				$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 				$row_fetch = mysqli_query($Conn, $sql);
 				if ($row_fetch->num_rows > 0) 
@@ -48,19 +82,50 @@ if (isset($_SESSION['user_name'])) {
 			} 
             else 
             {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+                unset($Name);
+                unset($user_name);
+                unset($MobileNumber);
+                $_POST['password'] = "";
+                $_POST['cpassword'] = "";
+                echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
 			}
 		} 
 		else 
         {
-			echo "<p class='er'><strong>user_name already exists.</strong></p>";
+            $usernameErr="user_name already exists.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+           // echo "<p class='er'><big>user_name already exists.</big></p>";
 		}
+    }
 		
 	} 
+}
     else 
     {
-		echo "<script>alert('Password Not Matched.')</script>";
+            $ConfirmErr="Password Not Matched.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+		    //echo "<script>alert('Password Not Matched.')</script>";
 	}
+}
+else 
+{   
+    $PassErr="Password should contain at least one uppercase letter, one lowercase letter, one special character and one number";
+    unset($Name);
+    unset($user_name);
+    unset($MobileNumber);
+    $_POST['password'] = "";
+    $_POST['cpassword'] = "";
+    //echo "<p class='er'><big>Password should contain at least one 
+    //uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+}
 }
 
 ?>
@@ -85,19 +150,26 @@ if (isset($_SESSION['user_name'])) {
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required>
+                <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required> 
+                <span class="error"> <?php echo $usernameErr;?></span>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" value="<?php echo $MobileNumber; ?>" required>
+                <span class="error"> <?php echo $MobileNumberErr;?></span>
+                <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" autofocus placeholder="Password" value="<?php echo $_POST['password']; ?>" required>
+                <span class="error"> <?php echo $PassErr;?></span>
+                <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" value="<?php echo $_POST['cpassword']; ?>" required>
+                <span class="error"> <?php echo $ConfirmErr;?></span>
+                <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
 			<input type="submit" name="submit" class="form__button" value="Continue"/>

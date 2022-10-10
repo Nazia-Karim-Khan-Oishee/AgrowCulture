@@ -14,6 +14,7 @@
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
                         <li><a href="about us.php">ABOUT US</a></li>
+                        <li><a href="INDEX.php">LOG IN</a></li>
                     </ul>
                 </nav>
             </div>
@@ -33,7 +34,7 @@
                </div>
                <div class="des">
                 <p>Support the farmers.</p>
-              <a href="FundinInfo.html"><button>Read More...</button></a>
+              <a href="FundingInfo.php"><button>Read More...</button></a>
                </div>
                </div>
 
@@ -47,7 +48,7 @@
                 </div>
                 <div class="des">
                  <p>Support the farmers.</p>
-                 <a href="ExposureInfo.html"><button>Read More...</button></a>
+                 <a href="ExposureInfo.php"><button>Read More...</button></a>
                 </div>
                 </div>
                 <div class="card">
@@ -60,7 +61,7 @@
                     </div>
                     <div class="des">
                      <p>Support the farmers.</p>
-                     <a href="InvestmentInfo.html"><button>Read More...</button></a>
+                     <a href="InvestmentInfo.php"><button>Read More...</button></a>
                     </div>
                     </div>
                     <div class="card">
@@ -73,7 +74,7 @@
                         </div>
                         <div class="des">
                          <p>Support the farmers.</p>
-                         <a href="purchaseInfo.html"><button>Read More...</button></a>
+                         <a href="purchaseInfo.php"><button>Read More...</button></a>
                         </div>
                         </div>
                         <div class="cont">

@@ -1,7 +1,7 @@
 <html>
     <head>
     
-        <title>Fundinginfo</title>
+        <title>Exposureinfo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
         <!-- Your own stylesheet -->
-        <link rel="stylesheet" type="text/css" href="FundingInfo.css">
+        <link rel="stylesheet" type="text/css" href="ExposureInfo.css">
       </head>
       <body>
         <header>
@@ -37,22 +37,18 @@
                         </div>
                         <div class="decoration-right anim"> </div>
                         <div class="overlay anim"></div>
-                        <img src="funding1.jpg" alt="funding" class="slider-img"/>
+                        <img src="exposure1.jpg" alt="funding" class="slider-img"/>
                         </div>
                         <div class="text">
                             <div>
                                 <h1>
-                                    FUNDING <br /> 
+                                    EXPOSURE <br /> 
                                 </h1>
                                 <p>
-                                    Are you looking for financial or substantiantial help to grow your farm? Then you have come to the right place. AgrowCulture is one stop solution for your problem.
-Provide your information,desired amount of money or other materials you are looking for and submit your request.<br>
-<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
-What else do we provide?<br><a href="ExposureInfo.html"><b>Exposure</b></a><br><a href="InvestmentInfo.html"><b>Investment</b></a><br><a href="purchaseInfo.html"><b>Purchase</b></a><br><a href="create acccount.html">
-Join AgrowCulture community to avail our services.</a>
-========
-What else do we provide?<br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
->>>>>>>> f5b1d29c0202a356a2c9d937a3a66e71d8248323:Createaccloginpage/FundingInfo.php
+                                    Are you tired of worrying upon pursuing vendors to sell your cultivation? Are you afraid of getting scammed by an intermediary ? Do you want a reliable source to put your crops on display?
+                                    AgrowCulture is one stop solution for your problem.
+                                     Click pictures of your products and submit them to us. We will introduce your products to customers<br>
+What else do we provide?<br><br><u><a href="FundingInfo.php"><b>Funding</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
                                 </p>
                             </div>
                         </div>

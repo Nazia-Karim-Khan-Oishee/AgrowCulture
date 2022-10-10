@@ -1,7 +1,7 @@
 <html>
     <head>
     
-        <title>Exposureinfo</title>
+        <title>Purchaseinfo</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
         <!-- Your own stylesheet -->
-        <link rel="stylesheet" type="text/css" href="ExposureInfo.css">
+        <link rel="stylesheet" type="text/css" href="PurchaseInfo.css">
       </head>
       <body>
         <header>
@@ -37,18 +37,17 @@
                         </div>
                         <div class="decoration-right anim"> </div>
                         <div class="overlay anim"></div>
-                        <img src="exposure1.jpg" alt="funding" class="slider-img"/>
+                        <img src="purchase1.jpg" alt="funding" class="slider-img"/>
                         </div>
                         <div class="text">
                             <div>
                                 <h1>
-                                    EXPOSURE <br /> 
+                                    PURCHASE<br /> 
                                 </h1>
                                 <p>
-                                    Are you tired of worrying upon pursuing vendors to sell your cultivation? Are you afraid of getting scammed by an intermediary ? Do you want a reliable source to put your crops on display?
-                                    AgrowCulture is one stop solution for your problem.
-                                     Click pictures of your products and submit them to us. We will introduce your products to customers<br>
-What else do we provide?<br><b>Funding</b><br><b>Investment</b><br><b>Purchase</b><br>Join AgrowCulture community to avail our services.
+                                    Are you tired of buying contaminated food? Do you want fresh,organic food coming directly from its producer?
+Then you are at the right palace. Get your fresh crops,vegetables,fish etc from us.<br>
+What else do we provide?<br><br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="FundingInfo.php"><b>Funding</b></a></u><br>Join AgrowCulture community to avail our services.
                                 </p>
                             </div>
                         </div>

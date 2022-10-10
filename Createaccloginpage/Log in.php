@@ -14,7 +14,7 @@
 
         <div class="titleDiv">
             <h1 class="form__title">Login</h1>
-            <p class="form__text">Welcome back!</p>
+            <p class="form__text"><b>Welcome back!</b></p>
         </div>
             <form class="form" id="login" action="" method="POST"></form>
 
