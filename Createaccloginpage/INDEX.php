@@ -26,7 +26,7 @@ if (isset($_POST['submit'])) {
             $_POST['password'] = "";
             $_POST['user_name'] = "";
             unset($user_name);
-            header("Location: Welcome.php");
+            header("Location: dashboard.php");
         }
         else 
         {
