@@ -47,7 +47,7 @@
                                 <p>
                                     Are you looking for financial or substantiantial help to grow your farm? Then you have come to the right place. AgrowCulture is one stop solution for your problem.
 Provide your information,desired amount of money or other materials you are looking for and submit your request.<br>
-What else do we provide?<br><b>Exposure</b><br><b>Investment</b><br><b>Purchase</b><br>Join AgrowCulture community to avail our services.
+What else do we provide?<br><a href="ExposureInfo.php"><b>Exposure</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br>Join AgrowCulture community to avail our services.
                                 </p>
                             </div>
                         </div>

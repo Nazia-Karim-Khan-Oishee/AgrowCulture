@@ -26,16 +26,16 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="getstartedpage.php">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="getstartedpage.php"><b>Home </b><span class="sr-only">(current)</span></a>
           </li>
           
         
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-expanded="false"><b>
               SignUp/LogIn
-            </a>
+           </b> </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="create acccount.php">Sign-Up</a>
+              <a class="dropdown-item" href="create acccount.php"><b>Sign-Up</b></a>
               <a class="dropdown-item" href="INDEX.php">log-in</a>
              
               <div class="dropdown-divider"></div>
