@@ -11,25 +11,65 @@ if (isset($_SESSION['user_name']))
     header("Location: Welcome.php");
 }
 
-if (isset($_POST['submit'])) 
-{
+//if (isset($_POST['submit'])) {
+    
+	//$id = $_POST['id'];
+	//$user_id = $_POST['user_id'];
+    if (isset($_POST['submit'])) 
+    {
+    $Name = $_POST['Name'];
 	$user_name = $_POST['user_name'];
 	$Just_Set = false;
+    $Validate = true;
 	$MobileNumber = $_POST['MobileNumber'];
-	$password = md5($_POST['password']);
-	$cpassword = md5($_POST['cpassword']);
-	if ($password == $cpassword) 
+	$checkpassword = ($_POST['password']);
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
+    $uppercase = preg_match('@[A-Z]@', $checkpassword);
+    $lowercase = preg_match('@[a-z]@', $checkpassword);
+    $number    = preg_match('@[0-9]@', $checkpassword);
+    $specialchars = preg_match('@[^\w]@', $checkpassword);
+    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) {
+        $Validate= false;
+      }
+
+    if($Validate)
+	{
+        if ($password == $cpassword) 
     {
+        if(strlen($MobileNumber)<11)
+        {
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            echo "<p class='er'><big>Invalid MobileNumber.</big></p>";
+
+        }
+        else{
+            
+            if(strlen($user_name)<6)
+        {
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
+
+        }
+        else{
 		$sql = "SELECT * FROM users WHERE user_name = '$user_name'";
 		$result = mysqli_query($Conn, $sql);
 		if (!$result->num_rows > 0) 
 		{
-			$sql = "INSERT INTO users (user_name, MobileNumber, password)
-					VALUES ('$user_name', '$MobileNumber', '$password')";
+			$sql = "INSERT INTO users (Name, user_name, MobileNumber, password)
+					VALUES ('$Name', '$user_name', '$MobileNumber', '$password')";
 			$result = mysqli_query($Conn, $sql);
 			if ($result)
             {
-				echo "<script>alert('Wow! User Registration Completed.')</script>";
+				echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
 				$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 				$row_fetch = mysqli_query($Conn, $sql);
 				if ($row_fetch->num_rows > 0) 
@@ -44,19 +84,55 @@ if (isset($_POST['submit']))
 			} 
             else 
             {
-				echo "<script>alert('Woops! Something Wrong Went.')</script>";
+                unset($Name);
+                unset($user_name);
+                unset($MobileNumber);
+                $_POST['password'] = "";
+                $_POST['cpassword'] = "";
+                echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
+				//echo "<script>alert('Something Wrong Went.Please try again later')</script>";
 			}
 		} 
 		else 
         {
-			echo "<p class='er'><strong>user_name already exists.</strong></p>";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            echo "<p class='er'><big>user_name already exists.</big></p>";
+            //unset($password);
+            //unset($cpassword);
+            //$_POST['Name']="";
+	        //$_POST['user_name']="";
+            //echo "<div>This is a div.</div>";
+	        //$_POST['MobileNumber']="";
+            //die("user_name already exists.");
 		}
+    }
 		
 	} 
+}
     else 
     {
-		echo "<script>alert('Password Not Matched.')</script>";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+		    echo "<script>alert('Password Not Matched.')</script>";
 	}
+}
+else 
+{   
+    unset($Name);
+    unset($user_name);
+    unset($MobileNumber);
+    $_POST['password'] = "";
+    $_POST['cpassword'] = "";
+    echo "<p class='er'><big>Password should contain at least one 
+    uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+}
 }
 
 ?>

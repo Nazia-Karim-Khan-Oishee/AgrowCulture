@@ -33,7 +33,7 @@
                </div>
                <div class="des">
                 <p>Support the farmers.</p>
-               <button>Read More...</button>
+              <a href="FundingInfo.php"><button>Read More...</button></a>
                </div>
                </div>
 
@@ -47,7 +47,7 @@
                 </div>
                 <div class="des">
                  <p>Support the farmers.</p>
-                <button>Read More...</button>
+                 <a href="ExposureInfo.php"><button>Read More...</button></a>
                 </div>
                 </div>
                 <div class="card">
@@ -60,7 +60,7 @@
                     </div>
                     <div class="des">
                      <p>Support the farmers.</p>
-                    <button>Read More...</button>
+                     <a href="InvestmentInfo.php"><button>Read More...</button></a>
                     </div>
                     </div>
                     <div class="card">
@@ -73,13 +73,14 @@
                         </div>
                         <div class="des">
                          <p>Support the farmers.</p>
-                        <button>Read More...</button>
+                         <a href="purchaseInfo.php"><button>Read More...</button></a>
                         </div>
                         </div>
                         <div class="cont">
                         <a href="create acccount.php"><button class="btn btn1"><strong>CREATE ACCOUNT</strong></button></a>
                         </div>
                     </div>
+                    
                     
                     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
                     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
