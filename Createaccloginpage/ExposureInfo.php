@@ -48,7 +48,7 @@
                                     Are you tired of worrying upon pursuing vendors to sell your cultivation? Are you afraid of getting scammed by an intermediary ? Do you want a reliable source to put your crops on display?
                                     AgrowCulture is one stop solution for your problem.
                                      Click pictures of your products and submit them to us. We will introduce your products to customers<br>
-What else do we provide?<br><b><a href="FundingInfo.php">Funding</a></b><br><b>Investment</b><br><b>Purchase</b><br>Join AgrowCulture community to avail our services.
+What else do we provide?<br><br><u><a href="FundingInfo.php"><b>Funding</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
                                 </p>
                             </div>
                         </div>

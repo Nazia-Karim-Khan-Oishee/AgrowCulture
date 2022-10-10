@@ -26,7 +26,8 @@
     margin: auto;
     padding: 2em;
     border-radius: 25px;
-    box-shadow: 5px 5px 50px white;    background-color: rgba(0, 0, 0, 0.1);
+    box-shadow: 5px 5px 30px white;  background-color: rgba(0, 0, 0, 0.1);
+    background:linear-gradient(to right,#000000,#14522f);
  
 }
 
@@ -115,7 +116,7 @@
 }
 
 .form__button:hover, input:hover{
-    box-shadow: 8px 8px 8px lightgoldenrodyellow;
+    box-shadow: 2px 2px 2px lightgoldenrodyellow;
 }
 
 .form__button:active{
@@ -131,6 +132,7 @@
     text-decoration: none;
     cursor: pointer;
     color: white;
+    margin-top:50px;
 }
 
 .form__link:hover {
@@ -280,4 +282,4 @@ text-align: center;
     margin-right: 550px;*/
 
 }
-
+.error {color: #FF0000;}

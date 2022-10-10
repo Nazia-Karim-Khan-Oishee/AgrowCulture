@@ -11,10 +11,6 @@ if (isset($_SESSION['user_name']))
     header("Location: Welcome.php");
 }
 
-//if (isset($_POST['submit'])) {
-    
-	//$id = $_POST['id'];
-	//$user_id = $_POST['user_id'];
     if (isset($_POST['submit'])) 
     {
     $Name = $_POST['Name'];
@@ -39,24 +35,26 @@ if (isset($_SESSION['user_name']))
     {
         if(strlen($MobileNumber)<11)
         {
+            $MobileNumberErr ="Invalid Mobile Number.";
             unset($Name);
             unset($user_name);
             unset($MobileNumber);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
-            echo "<p class='er'><big>Invalid MobileNumber.</big></p>";
+           // echo "<p class='er'><big>Invalid Mobile Number.</big></p>";
 
         }
         else{
             
             if(strlen($user_name)<6)
         {
+            $usernameErr = "Length of username should be at least 6 characters.";
             unset($Name);
             unset($user_name);
             unset($MobileNumber);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
-            echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
+            //echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
 
         }
         else{
@@ -69,7 +67,7 @@ if (isset($_SESSION['user_name']))
 			$result = mysqli_query($Conn, $sql);
 			if ($result)
             {
-				echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
+				//echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
 				$sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
 				$row_fetch = mysqli_query($Conn, $sql);
 				if ($row_fetch->num_rows > 0) 
@@ -90,24 +88,17 @@ if (isset($_SESSION['user_name']))
                 $_POST['password'] = "";
                 $_POST['cpassword'] = "";
                 echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
-				//echo "<script>alert('Something Wrong Went.Please try again later')</script>";
 			}
 		} 
 		else 
         {
+            $usernameErr="user_name already exists.";
             unset($Name);
             unset($user_name);
             unset($MobileNumber);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
-            echo "<p class='er'><big>user_name already exists.</big></p>";
-            //unset($password);
-            //unset($cpassword);
-            //$_POST['Name']="";
-	        //$_POST['user_name']="";
-            //echo "<div>This is a div.</div>";
-	        //$_POST['MobileNumber']="";
-            //die("user_name already exists.");
+           // echo "<p class='er'><big>user_name already exists.</big></p>";
 		}
     }
 		
@@ -115,23 +106,25 @@ if (isset($_SESSION['user_name']))
 }
     else 
     {
+            $ConfirmErr="Password Not Matched.";
             unset($Name);
             unset($user_name);
             unset($MobileNumber);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
-		    echo "<script>alert('Password Not Matched.')</script>";
+		    //echo "<script>alert('Password Not Matched.')</script>";
 	}
 }
 else 
 {   
+    $PassErr="Password should contain at least one uppercase letter, one lowercase letter, one special character and one number";
     unset($Name);
     unset($user_name);
     unset($MobileNumber);
     $_POST['password'] = "";
     $_POST['cpassword'] = "";
-    echo "<p class='er'><big>Password should contain at least one 
-    uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+    //echo "<p class='er'><big>Password should contain at least one 
+    //uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
 }
 }
 
@@ -157,19 +150,26 @@ else
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required>
+                <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required> 
+                <span class="error"> <?php echo $usernameErr;?></span>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" value="<?php echo $MobileNumber; ?>" required>
+                <span class="error"> <?php echo $MobileNumberErr;?></span>
+                <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" autofocus placeholder="Password" value="<?php echo $_POST['password']; ?>" required>
+                <span class="error"> <?php echo $PassErr;?></span>
+                <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
                 <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" value="<?php echo $_POST['cpassword']; ?>" required>
+                <span class="error"> <?php echo $ConfirmErr;?></span>
+                <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
 			<input type="submit" name="submit" class="form__button" value="Continue"/>

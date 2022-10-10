@@ -14,6 +14,7 @@
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
                         <li><a href="about us.php">ABOUT US</a></li>
+                        <li><a href="INDEX.php">LOG IN</a></li>
                     </ul>
                 </nav>
             </div>

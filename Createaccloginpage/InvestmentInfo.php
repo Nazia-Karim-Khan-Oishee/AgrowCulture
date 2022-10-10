@@ -47,7 +47,7 @@
                                 <p>
                                     Do you  want to invest in agriculture  but scared of losses? Don't you have a huge budget for a whole startup? Then you have come to the right place.
 Start by investing through our website. <br>
-What else do we provide?<br><b>Funding</b><br><b>Exposure</b><br><b>Purchase</b><br>Join AgrowCulture community to avail our services.
+What else do we provide?<br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="FundingInfo.php"><b>Funding</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
                                 </p>
                             </div>
                         </div>

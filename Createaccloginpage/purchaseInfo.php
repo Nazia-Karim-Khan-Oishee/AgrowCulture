@@ -47,7 +47,7 @@
                                 <p>
                                     Are you tired of buying contaminated food? Do you want fresh,organic food coming directly from its producer?
 Then you are at the right palace. Get your fresh crops,vegetables,fish etc from us.<br>
-What else do we provide?<br><b>Funding</b><br><b>Exposure</b><br><b>Investment</b><br><br>Join AgrowCulture community to avail our services.
+What else do we provide?<br><br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="FundingInfo.php"><b>Funding</b></a></u><br>Join AgrowCulture community to avail our services.
                                 </p>
                             </div>
                         </div>
