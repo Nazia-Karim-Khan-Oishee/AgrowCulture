@@ -1,3 +1,12 @@
+<?php 
+
+include 'Config.php';
+error_reporting(0);
+
+session_start();
+
+$user_name = $_SESSION['user_name'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,21 +21,21 @@
 </head>
 
 <body>
+
     <div class="d-flex" id="wrapper">
+        
         <!-- Sidebar -->
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">AGROWCULTURE</div>
             <div class="list-group list-group-flush my-3">
-                <a href="dashboard.html" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                <a href="dashboard.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                        <a href="getstartedpage.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-house-user"></i>Home</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-user"></i>Profile</a>
-                <a href="INDEX.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-right-to-bracket"></i>Log In</a>
-    
+                        <a href="getstartedpage.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-house-user"></i> Home</a>
+                        
                
-                <a href="4optionss.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-list"></i>Services</a>
-                <a href="about us.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-address-card"></i>About Us</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="4optionss.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-list"></i> Services</a>
+                <a href="about us.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-address-card"></i> About Us</a>
+                <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
                         
             </div>
@@ -52,23 +61,23 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Profile
+                                <i class="fas fa-user me-2"></i><?php echo $_SESSION['user_name']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </nav>
-
+        
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                               <a href="fundingform.html" class="Link"><h2>Funding</h2></a>
+                               <a href="fundingform.php" class="Link"><h2>Funding</h2></a>
                             </div>
                             <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>

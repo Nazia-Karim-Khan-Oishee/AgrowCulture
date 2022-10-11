@@ -1,5 +1,36 @@
-<?php session_start() ?>
 
+<?php 
+    include('Config.php');
+    error_reporting(0);
+
+session_start();
+
+    if(isset($_POST["verify"])){
+                               // echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
+
+        $otp = $_SESSION['otp'];
+        $EMail = $_SESSION['EMail'];
+        $otp_code = $_POST['otp_code'];
+
+        if($otp != $otp_code){
+            ?>
+           <script>
+               alert("Invalid OTP code");
+           </script>
+           <?php
+        }else{
+            mysqli_query($connect, "UPDATE users SET status = 1 WHERE EMail = '$EMail'");
+            ?>
+             <script>
+                 alert("Verfiy account done, you may sign in now");
+                   window.location.replace("Welcome.php");
+             </script>
+             <?php
+        }
+
+    }
+
+?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -65,29 +96,3 @@
 </main>
 </body>
 </html>
-<?php 
-    include('connect/connection.php');
-    if(isset($_POST["verify"])){
-        $otp = $_SESSION['otp'];
-        $email = $_SESSION['mail'];
-        $otp_code = $_POST['otp_code'];
-
-        if($otp != $otp_code){
-            ?>
-           <script>
-               alert("Invalid OTP code");
-           </script>
-           <?php
-        }else{
-            mysqli_query($connect, "UPDATE login SET status = 1 WHERE email = '$email'");
-            ?>
-             <script>
-                 alert("Verfiy account done, you may sign in now");
-                   window.location.replace("index.php");
-             </script>
-             <?php
-        }
-
-    }
-
-?>
