@@ -4,40 +4,44 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width-device-width, Initial-scale-1.0">
-        
-    <script src="https://kit.fontawesome.com/0ba00a17f9.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="profile.css">
+        <link rel="stylesheet" href="changepass&num.css">
         <title>Profile Page</title>
     </head>
     <body>
+       
         
         <div class="profile-page"> 
+       
         <div class="wrapper">
-            <h1>PROFILE</h1>
-            <form action=""method="post">
-                <div class="inputBox">
-                    <label for="full_name">Full Name:</label>
-                    <input type ="text" id="full_name" name="Name" >
+            
+            <form class="form" action="" method="POST" id="createAccount">
+                <h3 class="form__title">Change Password</h3>
+                <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                    <input type="password" class="form__input" name="currentpass" autofocus placeholder="Current Password" onfocus="this.value=''" value="<?php echo $currentpass; ?>" required>
+                    <div class="form__input-error-message"></div>
                 </div>
-                <div class="inputBox">
-                    <label for="full_name">User Name:</label>
-                    <input type ="text" id="user_name" name="user_name" >
+                <div class="form__input-group">
+                    <input type="password" class="form__input" name="new_password" autofocus placeholder="NewPassword" onfocus="this.value=''" value="<?php echo $new_password; ?>" required>
+                    <div class="form__input-error-message"></div>
                 </div>
-                <!--<div class="inputBox">
-                    <label for="email">Email:</label>
-                    <input type ="email" id="email" name="email" > 
+                <div class="form__input-group">
+                    <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" onfocus="this.value=''" value="<?php echo $cpassword; ?>" required>
+                    <div class="form__input-error-message"></div>
                 </div>
-            -->
-                <div class="inputBox">
-                    <label for="MobileNum">Mobile Number:</label>
-                    <input type ="number" id="MobileNum" name="MobileNumber" >
+                <input type="submit" name="submit" class="form__button" value="Continue"/> 
+            </form> 
+           
+            <form class="form" action="" method="POST" id="createAccount">
+                <h3 class="form__title">Change Mobile Number</h3>
+                <div class="form__message form__message--error"></div>
+                <div class="form__input-group">
+                    <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="MobileNumber" onfocus="this.value=''"  required>
+                    <div class="form__input-error-message"></div>
                 </div>
-                <div>
-                    <a href="ChangePass&num.html"><button class="button button1">Update Profile</button></a>
-                </div>
-                <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
-                    class="fas fa-power-off me-2"></i>Logout</a>
-            </form>
+                <input type="submit" name="submit2" class="form__button" value="Continue"/> 
+    
+    </form>
         </div>
         </div>
         <footer>
