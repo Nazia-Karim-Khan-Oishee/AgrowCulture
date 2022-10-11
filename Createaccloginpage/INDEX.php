@@ -6,8 +6,8 @@ error_reporting(0);
 
 session_start();
 
-
-if (isset($_SESSION['user_name'])) {
+if (isset($_SESSION['user_name'])) 
+{
     header("Location: Welcome.php");
 }
 
@@ -17,7 +17,8 @@ if (isset($_POST['submit'])) {
 	//$cpassword = md5($_POST['cpassword']);
 	$sql = "SELECT * FROM users WHERE user_name='$user_name'";// AND password='$password'";
 	$result = mysqli_query($Conn, $sql);
-	if ($result->num_rows > 0) {
+	if ($result->num_rows > 0) 
+    {
 		$row = mysqli_fetch_assoc($result);
         if($row['password']==$password)
         {
@@ -44,8 +45,6 @@ if (isset($_POST['submit'])) {
        // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
-
-
 ?>
 
 <!DOCTYPE html>
