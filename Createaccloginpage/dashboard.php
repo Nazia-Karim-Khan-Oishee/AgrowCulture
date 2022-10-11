@@ -1,3 +1,12 @@
+<?php 
+
+include 'Config.php';
+error_reporting(0);
+
+session_start();
+
+$user_name = $_SESSION['user_name'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,12 +21,14 @@
 </head>
 
 <body>
+
     <div class="d-flex" id="wrapper">
+        
         <!-- Sidebar -->
         <div class="bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading text-center py-4 primary-text fs-4 fw-bold text-uppercase border-bottom">AGROWCULTURE</div>
             <div class="list-group list-group-flush my-3">
-                <a href="dashboard.html" class="list-group-item list-group-item-action bg-transparent second-text active"><i
+                <a href="dashboard.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
                         <a href="getstartedpage.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-house-user"></i> Home</a>
                         
@@ -50,7 +61,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle second-text fw-bold" href="#" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-user me-2"></i>Profile
+                                <i class="fas fa-user me-2"></i><?php echo $_SESSION['user_name']; ?>
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="profile.php">Profile</a></li>
@@ -60,13 +71,13 @@
                     </ul>
                 </div>
             </nav>
-
+        
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                               <a href="fundingform.html" class="Link"><h2>Funding</h2></a>
+                               <a href="fundingform.php" class="Link"><h2>Funding</h2></a>
                             </div>
                             <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>

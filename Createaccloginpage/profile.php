@@ -142,17 +142,6 @@ $MobileNumber = $row['MobileNumber'];
                     <span class="error"> <?php echo $MobileNumber;?></span> 
                    <!-- <input type ="text" id="MobileNum" name="MobileNumber" required>-->
                 </div>
-                <!--<div class="inputBox">
-                <label for="password">Change Password:</label>
-                </div>
-                <div class="inputBox">
-                    <label for="password">Current Password:</label>
-                    <input type ="password" id="password" name="password" required>
-                </div>
-                <div class="inputBox">
-                    <label for="cpassword">Confirm Password:</label>
-                    <input type ="password" id="password" name="cpassword" required>
-                </div>-->
             
             </form>
          
