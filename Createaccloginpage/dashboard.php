@@ -4,7 +4,16 @@ include 'Config.php';
 error_reporting(0);
 
 session_start();
-
+if (!isset($_SESSION['user_name'])) 
+{
+    header("Location: INDEX.php");
+}
+if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
+{
+    //echo "<script>alert('Wow! User Registration Completed.')</script>";
+    header("Location: dashboard.php");
+    $SESSION['Just_Set'] = false;
+}
 $user_name = $_SESSION['user_name'];
 ?>
 <!DOCTYPE html>
