@@ -105,15 +105,16 @@ $MobileNumber = $row['MobileNumber'];
 //     unset($MobileNumber);
 // }
 //session_destroy();
-    
-?>
+    ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE-edge">
         <meta name="viewport" content="width-device-width, Initial-scale-1.0">
-        <link rel="stylesheet" href="profile.css">
+        
+    <script src="https://kit.fontawesome.com/0ba00a17f9.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="profile2.css">
         <title>Profile Page</title>
     </head>
     <body>
@@ -125,29 +126,28 @@ $MobileNumber = $row['MobileNumber'];
                 <div class="inputBox">
                     <label for="full_name">Full Name:</label>
                     <span class="error"> <?php echo $Name;?></span> <br>
-                  <!--  <input type ="text" id="full_name" name="Name" required>-->
                 </div>
                 <div class="inputBox">
                     <label for="full_name">User Name:</label>
                     <span class="error"> <?php echo $user_name;?></span>
-                    <br>
-                    <!--<input type ="text" id="user_name" name="user_name" required>-->
                 </div>
-               <!-- <div class="inputBox">
+                <!--<div class="inputBox">
                     <label for="email">Email:</label>
-                    <input type ="email" id="email" name="email" required> 
-                </div>-->
+                    <input type ="email" id="email" name="email" > 
+                </div>
+            -->
                 <div class="inputBox">
                     <label for="MobileNum">Mobile Number:</label>
                     <span class="error"> <?php echo $MobileNumber;?></span> 
-                   <!-- <input type ="text" id="MobileNum" name="MobileNumber" required>-->
                 </div>
-            
+                <div>
+                    <a href="Change.php"><button class="button button1">Update Profile</button></a>
+                </div>
+                <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                    class="fas fa-power-off me-2"></i>Logout</a>
             </form>
-         
         </div>
         </div>
-        
         <footer>
             <div class="row">
                 <div class="col">
