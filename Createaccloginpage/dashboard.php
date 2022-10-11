@@ -19,14 +19,12 @@
             <div class="list-group list-group-flush my-3">
                 <a href="dashboard.html" class="list-group-item list-group-item-action bg-transparent second-text active"><i
                         class="fas fa-tachometer-alt me-2"></i>Dashboard</a>
-                        <a href="getstartedpage.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-house-user"></i>Home</a>
-                        <a href="#" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-user"></i>Profile</a>
-                <a href="INDEX.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-right-to-bracket"></i>Log In</a>
-    
+                        <a href="getstartedpage.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-house-user"></i> Home</a>
+                        
                
-                <a href="4optionss.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-list"></i>Services</a>
-                <a href="about us.php" class="list-group-item list-group-item-action bg-transparent second-text fw-bold"><i class="fa-solid fa-address-card"></i>About Us</a>
-                <a href="#" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
+                <a href="4optionss.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-list"></i> Services</a>
+                <a href="about us.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-address-card"></i> About Us</a>
+                <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
                         
             </div>
@@ -55,8 +53,8 @@
                                 <i class="fas fa-user me-2"></i>Profile
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="#">Profile</a></li>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                                <li><a class="dropdown-item" href="profile.php">Profile</a></li>
+                                <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
