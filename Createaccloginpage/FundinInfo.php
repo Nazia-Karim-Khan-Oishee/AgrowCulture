@@ -47,11 +47,12 @@
                                 <p>
                                     Are you looking for financial or substantiantial help to grow your farm? Then you have come to the right place. AgrowCulture is one stop solution for your problem.
 Provide your information,desired amount of money or other materials you are looking for and submit your request.<br>
-<!--<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
-What else do we provide?<br><a href="ExposureInfo.php"><b>Exposure</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br><a href="create acccount.php">
-Join AgrowCulture community to avail our services.</a>-->
+<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
+What else do we provide?<br><a href="ExposureInfo.html"><b>Exposure</b></a><br><a href="InvestmentInfo.html"><b>Investment</b></a><br><a href="purchaseInfo.html"><b>Purchase</b></a><br><a href="create acccount.html">
+Join AgrowCulture community to avail our services.</a>
+========
 What else do we provide?<br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
-<!-- f5b1d29c0202a356a2c9d937a3a66e71d8248323:Createaccloginpage/FundingInfo.php-->
+>>>>>>>> f5b1d29c0202a356a2c9d937a3a66e71d8248323:Createaccloginpage/FundingInfo.php
                                 </p>
                             </div>
                         </div>
