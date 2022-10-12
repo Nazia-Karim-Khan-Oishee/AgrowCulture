@@ -90,15 +90,15 @@ if (isset($_SESSION['user_name']))
                         $mail = new PHPMailer;
         
                         $mail->isSMTP();
-                        $mail->Host='smtp-relay.sendinblue.com';
+                        $mail->Host='';
                         $mail->Port=587;
                         $mail->SMTPAuth=true;
                         $mail->SMTPSecure='tls';
         
-                        $mail->Username='malihazaman@iut-dhaka.edu';
-                        $mail->Password='VDUEk8dvO630ajmN';
+                        $mail->Username='';
+                        $mail->Password='';
         
-                        $mail->setFrom('malihazaman@iut-dhaka.edu', 'OTP Verification');
+                        $mail->setFrom('', '');
                         $mail->addAddress($_POST["email"]);
                         echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
        
