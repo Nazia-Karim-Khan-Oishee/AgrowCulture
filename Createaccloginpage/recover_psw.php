@@ -18,6 +18,8 @@
                   // alert("Sorry, your account must verify first, before you recover your password !");
                    $Message = "Sorry, your account must verify first, before you recover your password !";
                    //window.location.replace("INDEX.php");
+                   $Message1 = "Go to verification.";
+
                
         }else{
             // generate token by binaryhexa 
@@ -131,7 +133,7 @@
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                 <div class="col-md-6">
                                     <input type="text" id="email_address" class="form-control" name="email" required autofocus>
-                                    <span class="error"> <?php echo $Message?></span>
+                                    <span class="error"> <?php echo $Message?> <a href="verification.php"><?php echo $Message1?></a></span>
                                 </div>
                             </div>
 
