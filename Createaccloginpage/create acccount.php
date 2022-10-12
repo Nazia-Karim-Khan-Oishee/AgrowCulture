@@ -93,7 +93,7 @@ if (isset($_SESSION['user_name']))
                         $mail->Host='';
                         $mail->Port=587;
                         $mail->SMTPAuth=true;
-                        $mail->SMTPSecure='tls';
+                        $mail->SMTPSecure='';
         
                         $mail->Username='';
                         $mail->Password='';

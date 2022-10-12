@@ -34,7 +34,7 @@
             $mail->Host='';
             $mail->Port=587;
             $mail->SMTPAuth=true;
-            $mail->SMTPSecure='tls';
+            $mail->SMTPSecure='';
 
             // h-hotel account
             $mail->Username='';
