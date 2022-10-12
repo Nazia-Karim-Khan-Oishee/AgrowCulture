@@ -1,29 +1,52 @@
 
 <?php 
+    session_start();
     include('Config.php');
     error_reporting(0);
 
-session_start();
 
-    if(isset($_POST["verify"])){
-                               // echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
-
+    if(isset($_POST["verify"]))
+    {
+        //echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
         $otp = $_SESSION['otp'];
-        $EMail = $_SESSION['EMail'];
+        $email = $_SESSION['mail'];
+        $Email = $_SESSION['email'];
         $otp_code = $_POST['otp_code'];
+        $user_name = $_SESSION['user_name'];
+        if($otp != $otp_code)
+        {
+            
+                $Message ="Invalid OTP.";
 
-        if($otp != $otp_code){
-            ?>
-           <script>
-               alert("Invalid OTP code");
-           </script>
-           <?php
-        }else{
-            mysqli_query($connect, "UPDATE users SET status = 1 WHERE EMail = '$EMail'");
+        }
+        else
+        {
+           // echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
+            $sql="UPDATE users SET status = 1 WHERE email = '$Email'";
+          $result= mysqli_query($Conn,$sql );
+          if($result)
+          {            //echo "<script>alert('Verify account done, you may sign in now')</script>"; 
+             header("Location: dashboard.php");
+         }
+         else 
+         {
+            $Message ="Something went wrong, please try again.";
+            //echo "<script>alert('Something went wrong, please try again.')</script>"; 
+         }
             ?>
              <script>
-                 alert("Verfiy account done, you may sign in now");
-                   window.location.replace("Welcome.php");
+                // $sql2 = mysqli_query($Conn, "SELECT * FROM users WHERE user_name='$user_name'");
+                // $rowCount = mysqli_num_rows($sql);
+                // $row = mysqli_fetch_assoc(mysqli_query($Conn, $sql));
+                        //$row_fetch = mysqli_query($Conn, $sql);
+                    //    if ($rowCount > 0) 
+                    //     {
+                    //        $row = mysqli_fetch_assoc($row_fetch);
+                    //         $_SESSION['user_name'] = $row['user_name'];
+                    //        $_SESSION['Just_Set'] = true;
+                   //window.location.replace("dashboard.php");
+                        // }
+                       
              </script>
              <?php
         }
@@ -46,7 +69,9 @@ session_start();
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
-
+<style>
+    .error {color:red;}
+</style>
     <link rel="stylesheet" href="style.css">
 
     <link rel="icon" href="Favicon.png">
@@ -76,9 +101,12 @@ session_start();
                     <div class="card-body">
                         <form action="#" method="POST">
                             <div class="form-group row">
+                            <!--<label for="Message" class="col-md-4 col-form-label text-md-right">Please verify your account and log in to continue.</label>
+                            <br>-->
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">OTP Code</label>
                                 <div class="col-md-6">
                                     <input type="text" id="otp" class="form-control" name="otp_code" required autofocus>
+                                    <span class="error"> <?php echo $Message;?></span>
                                 </div>
                             </div>
 

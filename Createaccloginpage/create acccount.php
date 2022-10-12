@@ -15,7 +15,7 @@ if (isset($_SESSION['user_name']))
     {
     $Name = $_POST['Name'];
 	$user_name = $_POST['user_name']; 
-     $EMail = $_POST["EMail"];
+     $email = $_POST["email"];
 	$Just_Set = false;
     $Validate = true;
 	$MobileNumber = $_POST['MobileNumber'];
@@ -40,7 +40,7 @@ if (isset($_SESSION['user_name']))
             unset($Name);
             unset($user_name);
             unset($MobileNumber);
-            unset($EMail);
+            unset($email);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
            // echo "<p class='er'><big>Invalid Mobile Number.</big></p>";
@@ -54,92 +54,92 @@ if (isset($_SESSION['user_name']))
             unset($Name);
             unset($user_name);
             unset($MobileNumber);
-            unset($EMail);
+            unset($email);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
             //echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
 
         }
         else{
-            // $check_query = mysqli_query($Conn, "SELECT * FROM users where EMail ='$EMail'");
-            // $rowCount = mysqli_num_rows($check_query);
-            // if($rowCount > 0){
+            $check_query = mysqli_query($Conn, "SELECT * FROM users where email ='$email'");
+            $rowCount = mysqli_num_rows($check_query);
+            if($rowCount > 0){
                
-            //         $EMailErr="User with email already exists!";
-            //         unset($Name);
-            //         unset($user_name);
-            //         unset($MobileNumber);
-            //         unset($EMail);
-            //         $_POST['password'] = "";
-            //         $_POST['cpassword'] = "";  
-            // }
-            // else{ 
+                    $emailErr="User with email already exists!";
+                    unset($Name);
+                    unset($user_name);
+                    unset($MobileNumber);
+                    unset($email);
+                    $_POST['password'] = "";
+                    $_POST['cpassword'] = "";  
+            }
+            else{ 
                 $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
                 $result = mysqli_query($Conn, $sql);
                 if (!$result->num_rows > 0) 
                 {
-                    $sql = "INSERT INTO users (Name, user_name, MobileNumber,EMail, password)
-                            VALUES ('$Name', '$user_name', '$MobileNumber', '$EMail', '$password')";
+                    $sql = "INSERT INTO users (Name, user_name, MobileNumber,email, password)
+                            VALUES ('$Name', '$user_name', '$MobileNumber', '$email', '$password')";
                     $result = mysqli_query($Conn, $sql);
                     if ($result)
                     {
-                        // $otp = rand(100000,999999);
-                        // $_SESSION['otp'] = $otp;
-                        // $_SESSION['EMail'] = $EMail;
-                        // require "Mail/phpmailer/PHPMailerAutoload.php";
-                        // $mail = new PHPMailer;
+                        $otp = rand(100000,999999);
+                        $_SESSION['otp'] = $otp;
+                        $_SESSION['email'] = $email;
+                        require "Mail/phpmailer/PHPMailerAutoload.php";
+                        $mail = new PHPMailer;
         
-                        // $mail->isSMTP();
-                        // $mail->Host='smtp-relay.sendinblue.com';
-                        // $mail->Port=587;
-                        // $mail->SMTPAuth=true;
-                        // $mail->SMTPSecure='tls';
+                        $mail->isSMTP();
+                        $mail->Host='smtp-relay.sendinblue.com';
+                        $mail->Port=587;
+                        $mail->SMTPAuth=true;
+                        $mail->SMTPSecure='tls';
         
-                        // $mail->Username='ittehadrahman@iut-dhaka.edu';
-                        // $mail->Password='PChntNXyG9gJ5Ba0';
+                        $mail->Username='malihazaman@iut-dhaka.edu';
+                        $mail->Password='VDUEk8dvO630ajmN';
         
-                        // $mail->setFrom('ittehadrahman@iut-dhaka.edu', 'OTP Verification');
-                        // $mail->addAddress($_POST["EMail"]);
-                        // echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
+                        $mail->setFrom('malihazaman@iut-dhaka.edu', 'OTP Verification');
+                        $mail->addAddress($_POST["email"]);
+                        echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
        
-                        // $mail->isHTML(true);
-                        // $mail->Subject="Your verify code";
-                        // $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
-                        // <br><br>
-                        // <p>With regrads,</p>
-                        // <b>Programming with Lam</b>
-                        // https://www.youtube.com/channel/UCKRZp3mkvL1CBYKFIlxjDdg";
+                        $mail->isHTML(true);
+                        $mail->Subject="Your verify code";
+                        $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
+                        <br><br>
+                        <p>With regrads,</p>
+                        <b>Programming with Lam</b>
+                        https://www.youtube.com/channel/UCKRZp3mkvL1CBYKFIlxjDdg";
         
-                        //         if(!$mail->send()){
+                                if(!$mail->send()){
                                 
-                        //             $EMailErr="Invalid Email";
-                        //             $delsql = "DELETE FROM users WHERE user_name = '$user_name'";
-                        //             $result = mysqli_query($Conn, $delsql);
-                        //                 unset($Name);
-                        //                 unset($user_name);
-                        //                 unset($MobileNumber);
-                        //                 unset($EMail);
-                        //                 $_POST['password'] = "";
-                        //                 $_POST['cpassword'] = "";  
-                        //             }else{ 
-                        // unset($Name);
-                        // unset($user_name);
-                        // unset($MobileNumber);
-                        // unset($EMail);
-                        // $_POST['password'] = "";
-                        // $_POST['cpassword'] = ""; 
-                        // header('Location: verification.php');     
-                        //         }
+                                    $emailErr="Invalid email";
+                                    $delsql = "DELETE FROM users WHERE user_name = '$user_name'";
+                                    $result = mysqli_query($Conn, $delsql);
+                                        unset($Name);
+                                        unset($user_name);
+                                        unset($MobileNumber);
+                                        unset($email);
+                                        $_POST['password'] = "";
+                                        $_POST['cpassword'] = "";  
+                                    }else{ 
+                        unset($Name);
+                        unset($user_name);
+                        unset($MobileNumber);
+                        unset($email);
+                        $_POST['password'] = "";
+                        $_POST['cpassword'] = ""; 
+                        header('Location: verification.php');     
+                                }
                         //echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
-                       $sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
-                        $row_fetch = mysqli_query($Conn, $sql);
-                       if ($row_fetch->num_rows > 0) 
-                        {
-                           $row = mysqli_fetch_assoc($row_fetch);
-                            $_SESSION['user_name'] = $row['user_name'];
-                           $_SESSION['Just_Set'] = true;
-                           header("Location: dashboard.php");
-                       }
+                    //    $sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
+                    //     $row_fetch = mysqli_query($Conn, $sql);
+                    //    if ($row_fetch->num_rows > 0) 
+                    //     {
+                    //        $row = mysqli_fetch_assoc($row_fetch);
+                    //         $_SESSION['user_name'] = $row['user_name'];
+                    //        $_SESSION['Just_Set'] = true;
+                    //        header("Location: dashboard.php");
+                    //    }
                        $_POST['password'] = "";
                        $_POST['cpassword'] = "";
                     } 
@@ -148,7 +148,7 @@ if (isset($_SESSION['user_name']))
                         unset($Name);
                         unset($user_name);
                         unset($MobileNumber);
-                        unset($EMail);
+                        unset($email);
                         $_POST['password'] = "";
                         $_POST['cpassword'] = "";
                         echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
@@ -160,7 +160,7 @@ if (isset($_SESSION['user_name']))
                     unset($Name);
                     unset($user_name);
                     unset($MobileNumber);
-                    unset($EMail);
+                    unset($email);
                     $_POST['password'] = "";
                     $_POST['cpassword'] = "";
                    // echo "<p class='er'><big>user_name already exists.</big></p>";
@@ -170,13 +170,13 @@ if (isset($_SESSION['user_name']))
             }
 		
 	} 
-
+    }
     else 
     {
             $ConfirmErr="Password Not Matched.";
             unset($Name);
             unset($user_name);
-            unset($MobileNumber);  unset($EMail);
+            unset($MobileNumber);  unset($email);
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
 		    //echo "<script>alert('Password Not Matched.')</script>";
@@ -188,7 +188,7 @@ else
     unset($Name);
     unset($user_name);
     unset($MobileNumber);
-    unset($EMail);
+    unset($email);
     $_POST['password'] = "";
     $_POST['cpassword'] = "";
     //echo "<p class='er'><big>Password should contain at least one 
@@ -228,13 +228,13 @@ else
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
-            <!--<div class="form__input-group">
-                <input type="text" class="form__input" name="EMail" autofocus placeholder="EMail ID" value="<?php echo $EMail; ?>" required>
-                <span class="error"> <?php echo $EMailErr;?></span>
+            <div class="form__input-group">
+                <input type="text" class="form__input" name="email" autofocus placeholder="email ID" value="<?php echo $email; ?>" required>
+                <span class="error"> <?php echo $emailErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
--->
+
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" autofocus placeholder="Password" value="<?php echo $_POST['password']; ?>" required>
                 <i class="bi bi-eye-slash" id="togglePassword"></i>

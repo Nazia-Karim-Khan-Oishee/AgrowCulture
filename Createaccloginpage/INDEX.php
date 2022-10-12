@@ -63,6 +63,16 @@ if (isset($_POST['submit'])) {
     <title>Log In</title>
 </head>
 <body>
+   
+
+<ul class="navigation">
+<li><a href="#"><h1>AGROWCULTURE</h1></a></li>
+  <li><a class="active" href="getstartedpage.php">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#about">About</a></li>
+</ul>
+    
     <div class="container1">
         <div class="container">
 
@@ -90,7 +100,7 @@ if (isset($_POST['submit'])) {
                 <button class="form__button" type="submit" id="submitBtn" name="submit" value="Login" requied>Continue</button>
                 </form>
                 <p class="form__text">
-                    <a href="#" class="form__link">Forgot your password</a>
+                    <a href="recover_psw.php" class="form__link">Forgot your password</a>
                 </p>
 
                 <p class="form__text">Don't have an account?
