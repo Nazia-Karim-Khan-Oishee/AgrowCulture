@@ -32,7 +32,7 @@
                 <div class="header-body">
                     <div class="slider">
                         <div class="decoration-left anim">
-                            DISCOVER
+                            <h3>DISCOVER</h3>
                             
                         </div>
                         <div class="decoration-right anim"> </div>
@@ -50,7 +50,7 @@ Provide your information,desired amount of money or other materials you are look
 <!--<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
 What else do we provide?<br><a href="ExposureInfo.php"><b>Exposure</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br><a href="create acccount.php">
 Join AgrowCulture community to avail our services.</a>-->
-What else do we provide?<br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="InvestmentInfo.php"><b>Investment</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
+What else do we provide?<br><a href="ExposureInfo.php"><b>Selling</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br>Join AgrowCulture community to avail our services.
 <!-- f5b1d29c0202a356a2c9d937a3a66e71d8248323:Createaccloginpage/FundingInfo.php-->
                                 </p>
                             </div>

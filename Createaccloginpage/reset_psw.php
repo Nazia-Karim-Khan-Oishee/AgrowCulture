@@ -1,6 +1,75 @@
-<?php session_start() ;
-include('connect/connection.php');
-?>
+<?php 
+include('Config.php');
+error_reporting(0);
+
+session_start() ;
+
+if(isset($_POST["reset"])){
+
+    //$user_name = $_SESSION['user_name'];
+    //$password = $_POST["password"];
+    $Message="";
+    $checkpassword = $_POST['password'];
+    $password = md5($_POST['password']);
+    $cpassword = md5($_POST['cpassword']);
+    $uppercase = preg_match('@[A-Z]@', $checkpassword);
+    $lowercase = preg_match('@[a-z]@', $checkpassword);
+    $number    = preg_match('@[0-9]@', $checkpassword);
+    $specialchars = preg_match('@[^\w]@', $checkpassword);
+    $Validate= true;
+    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) {
+        $Validate= false;
+    }
+    $token = $_SESSION['token'];
+    $email = $_SESSION['email'];
+if($Validate)
+   {
+    if($password==$cpassword)
+    {
+
+        $sql3 = "SELECT password FROM users WHERE email = '$email'";
+        $result3 = mysqli_query($Conn , $sql3);
+        $row=mysqli_fetch_assoc($result3);
+       $hash = password_hash($row['password'], PASSWORD_DEFAULT);
+        //$hash = password_hash( $password , PASSWORD_DEFAULT );
+
+        // $sql = mysqli_query($Conn, "SELECT * FROM users WHERE email='$email'");
+        // $query = mysqli_num_rows($sql);
+        //   $fetch = mysqli_fetch_assoc($sql);
+
+        if($email){
+            //$new_pass = $hash;
+            $sql="UPDATE users SET password ='$password' WHERE email='$email'";
+            $result=mysqli_query($Conn, $sql);
+            if($result)
+           {?>
+            <script>
+                window.location.replace("INDEX.php");
+                //alert("<?php echo "your password has been succesful reset"?>");
+            </script>
+            <?php
+            }
+            else 
+            {                $ShowMessage ="Something went wrong.Please Try again.";
+               // $Message="Something went wrong.Please Try again.";
+ 
+            }
+        }else{
+                         $ShowMessage ="Something went wrong.Please Try again.";
+            }
+    }
+    else {
+        $ShowMessage ="Password does not match";
+    }
+}
+else 
+{
+    $ShowMessage="Password should contain at least one 
+    uppercase letter, one lowercase letter, one special character and one number";
+}
+}
+    ?>
+
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -46,12 +115,18 @@ include('connect/connection.php');
                     <div class="card-header">Reset Your Password</div>
                     <div class="card-body">
                         <form action="#" method="POST" name="login">
-
                             <div class="form-group row">
+                           <!-- <label for="password" class="col-md-4 col-form-label text-md-right">Rest Password and log in to Continue.</label>-->
                                 <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" class="form-control" name="password" required autofocus>
-                                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                                    <span class="error"> <?php echo $ShowMessage;?></span>
+                                    <!--<i class="bi bi-eye-slash" id="togglePassword"></i>-->
+                                </div>
+                                <label for="Confirmpassword" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                <div class="col-md-6">
+                                    <input type="password" id="password" class="form-control" name="cpassword" required autofocus>
+                                   <!-- <i class="bi bi-eye-slash" id="togglePassword"></i>-->
                                 </div>
                             </div>
 
@@ -69,49 +144,4 @@ include('connect/connection.php');
 </main>
 </body>
 </html>
-<?php
-    if(isset($_POST["reset"])){
-        include('connect/connection.php');
-        $psw = $_POST["password"];
 
-        $token = $_SESSION['token'];
-        $Email = $_SESSION['email'];
-
-        $hash = password_hash( $psw , PASSWORD_DEFAULT );
-
-        $sql = mysqli_query($connect, "SELECT * FROM login WHERE email='$Email'");
-        $query = mysqli_num_rows($sql);
-  	    $fetch = mysqli_fetch_assoc($sql);
-
-        if($Email){
-            $new_pass = $hash;
-            mysqli_query($connect, "UPDATE login SET password='$new_pass' WHERE email='$Email'");
-            ?>
-            <script>
-                window.location.replace("index.php");
-                alert("<?php echo "your password has been succesful reset"?>");
-            </script>
-            <?php
-        }else{
-            ?>
-            <script>
-                alert("<?php echo "Please try again"?>");
-            </script>
-            <?php
-        }
-    }
-
-?>
-<script>
-    const toggle = document.getElementById('togglePassword');
-    const password = document.getElementById('password');
-
-    toggle.addEventListener('click', function(){
-        if(password.type === "password"){
-            password.type = 'text';
-        }else{
-            password.type = 'password';
-        }
-        this.classList.toggle('bi-eye');
-    });
-</script>

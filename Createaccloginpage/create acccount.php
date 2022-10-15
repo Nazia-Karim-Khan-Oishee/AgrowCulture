@@ -8,15 +8,14 @@ session_start();
 
 if (isset($_SESSION['user_name'])) 
 {
-    header("Location: Welcome.php");
+    header("Location: dashboard.php");
 }
 
 if (isset($_POST['submit'])) 
 {
     $Name = $_POST['Name'];
-    $Name = $_POST['Name'];
-	$user_name = $_POST['user_name'];
-    $email = $_POST['email'];
+	$user_name = $_POST['user_name']; 
+     $email = $_POST["email"];
 	$Just_Set = false;
     $Validate = true;
 	$MobileNumber = $_POST['MobileNumber'];
@@ -34,106 +33,169 @@ if (isset($_POST['submit']))
     }
 
     if($Validate)
-	{
+	{                        //echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
         if ($password == $cpassword) 
+    {
+        if(strlen($MobileNumber)<11)
         {
-            if(strlen($MobileNumber)<11)
-            {
-                $MobileNumberErr ="Invalid Mobile Number.";
-                unset($Name);
-                unset($user_name);
-                unset($MobileNumber);
-                unset($email);
-                $_POST['password'] = "";
-                $_POST['cpassword'] = "";
-                // echo "<p class='er'><big>Invalid Mobile Number.</big></p>";
-            }
-            else
-            {  
-                if(strlen($user_name)<6)
-                {
-                    $usernameErr = "Length of username should be at least 6 characters.";
+            $MobileNumberErr ="Invalid Mobile Number.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            unset($email);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+           // echo "<p class='er'><big>Invalid Mobile Number.</big></p>";
+
+        }
+        else{
+            
+            if(strlen($user_name)<6)
+        {
+            $usernameErr = "Length of username should be at least 6 characters.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);
+            unset($email);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+            //echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
+
+        }
+        else{
+            $check_query = mysqli_query($Conn, "SELECT * FROM users where email ='$email'");
+            $rowCount = mysqli_num_rows($check_query);
+            if($rowCount > 0){
+               
+                    $emailErr="User with email already exists!";
                     unset($Name);
                     unset($user_name);
                     unset($MobileNumber);
                     unset($email);
                     $_POST['password'] = "";
-                    $_POST['cpassword'] = "";
-                    //echo "<p class='er'><big>Length of username should be at least 6 characters.</big></p>";
-                }
-                else
+                    $_POST['cpassword'] = "";  
+            }
+            else{ 
+                $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+                $result = mysqli_query($Conn, $sql);
+                if (!$result->num_rows > 0) 
                 {
-                    $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+                    $sql = "INSERT INTO users (Name, user_name, MobileNumber,email, password)
+                            VALUES ('$Name', '$user_name', '$MobileNumber', '$email', '$password')";
                     $result = mysqli_query($Conn, $sql);
-                    if (!$result->num_rows > 0) 
+                    if ($result)
                     {
-                        $sql = "INSERT INTO users (Name, user_name, email, MobileNumber, password)
-                        VALUES ('$Name', '$user_name', '$email', '$MobileNumber', '$password')";
-                        $result = mysqli_query($Conn, $sql);
-                        if ($result)
-                        {
-                            //echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
-                            $sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
-                            $row_fetch = mysqli_query($Conn, $sql);
-                            if ($row_fetch->num_rows > 0) 
-                            {
-                                $row = mysqli_fetch_assoc($row_fetch);
-                                $_SESSION['user_name'] = $row['user_name'];
-                                $_SESSION['Just_Set'] = true;
-                                header("Location: Welcome.php");
-                            }
-                            $_POST['password'] = "";
-                            $_POST['cpassword'] = "";
-                        } 
-                        else 
-                        {
-                            unset($Name);
-                            unset($user_name);
-                            unset($MobileNumber);
-                            unset($email);
-                            $_POST['password'] = "";
-                            $_POST['cpassword'] = "";
-                            echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
-                        }
+                        $otp = rand(100000,999999);
+                        $_SESSION['otp'] = $otp;
+                        $_SESSION['email'] = $email;
+                        require "Mail/phpmailer/PHPMailerAutoload.php";
+                        $mail = new PHPMailer;
+        
+                        $mail->isSMTP();
+                        $mail->Host='';
+                        $mail->Port=587;
+                        $mail->SMTPAuth=true;
+                        $mail->SMTPSecure='';
+        
+                        $mail->Username='';
+                        $mail->Password='';
+        
+                        $mail->setFrom('', '');
+                        $mail->addAddress($_POST["email"]);
+                        echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
+       
+                        $mail->isHTML(true);
+                        $mail->Subject="Your verify code";
+                        $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
+                        <br><br>
+                        <p>With regrads,</p>
+                        <b>Programming with Lam</b>
+                        https://www.youtube.com/channel/UCKRZp3mkvL1CBYKFIlxjDdg";
+        
+                                if(!$mail->send()){
+                                
+                                    $emailErr="Invalid email";
+                                    $delsql = "DELETE FROM users WHERE user_name = '$user_name'";
+                                    $result = mysqli_query($Conn, $delsql);
+                                        unset($Name);
+                                        unset($user_name);
+                                        unset($MobileNumber);
+                                        unset($email);
+                                        $_POST['password'] = "";
+                                        $_POST['cpassword'] = "";  
+                                    }else{ 
+                        unset($Name);
+                        unset($user_name);
+                        unset($MobileNumber);
+                        unset($email);
+                        $_POST['password'] = "";
+                        $_POST['cpassword'] = ""; 
+                        header('Location: verification.php');     
+                                }
+                        //echo "<script>alert('Registration Completed.Welcome to Agrowculture')</script>";
+                    //    $sql = "SELECT * FROM users WHERE user_name='$user_name' AND password='$password'";
+                    //     $row_fetch = mysqli_query($Conn, $sql);
+                    //    if ($row_fetch->num_rows > 0) 
+                    //     {
+                    //        $row = mysqli_fetch_assoc($row_fetch);
+                    //         $_SESSION['user_name'] = $row['user_name'];
+                    //        $_SESSION['Just_Set'] = true;
+                    //        header("Location: dashboard.php");
+                    //    }
+                       $_POST['password'] = "";
+                       $_POST['cpassword'] = "";
                     } 
                     else 
                     {
-                        $usernameErr="user_name already exists.";
                         unset($Name);
                         unset($user_name);
                         unset($MobileNumber);
                         unset($email);
                         $_POST['password'] = "";
                         $_POST['cpassword'] = "";
-                        // echo "<p class='er'><big>user_name already exists.</big></p>";
+                        echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
                     }
-                }    
-            } 
-        }
-        else 
-        {
-                $ConfirmErr="Password Not Matched.";
-                unset($Name);
-                unset($user_name);
-                unset($MobileNumber);
-                unset($email);
-                $_POST['password'] = "";
-                $_POST['cpassword'] = "";
-                //echo "<script>alert('Password Not Matched.')</script>";
-        }
+                } 
+                else 
+                {
+                    $usernameErr="user_name already exists.";
+                    unset($Name);
+                    unset($user_name);
+                    unset($MobileNumber);
+                    unset($email);
+                    $_POST['password'] = "";
+                    $_POST['cpassword'] = "";
+                   // echo "<p class='er'><big>user_name already exists.</big></p>";
+                }
+            }
+                
+            }
+		
+	} 
     }
     else 
-    {   
-        $PassErr="Password should contain at least one uppercase letter, one lowercase letter, one special character and one number";
-        unset($Name);
-        unset($user_name);
-        unset($MobileNumber);
-        unset($email);
-        $_POST['password'] = "";
-        $_POST['cpassword'] = "";
-        //echo "<p class='er'><big>Password should contain at least one 
-        //uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+    {
+            $ConfirmErr="Password Not Matched.";
+            unset($Name);
+            unset($user_name);
+            unset($MobileNumber);  unset($email);
+            $_POST['password'] = "";
+            $_POST['cpassword'] = "";
+		    //echo "<script>alert('Password Not Matched.')</script>";
+	}
     }
+else 
+{   
+    $PassErr="Password should contain at least one uppercase letter, one lowercase letter, one special character and one number";
+    unset($Name);
+    unset($user_name);
+    unset($MobileNumber);
+    unset($email);
+    $_POST['password'] = "";
+    $_POST['cpassword'] = "";
+    //echo "<p class='er'><big>Password should contain at least one 
+    //uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+}
 }
 
 ?>
@@ -177,9 +239,16 @@ if (isset($_POST['submit']))
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
-            <!-- Password -->
+            <div class="form__input-group">
+                <input type="text" class="form__input" name="email" autofocus placeholder="email ID" value="<?php echo $email; ?>" required>
+                <span class="error"> <?php echo $emailErr;?></span>
+                <div class="form__input-error-message"></div>
+                <div class="form__input-error-message"></div>
+            </div>
+
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" autofocus placeholder="Password" value="<?php echo $_POST['password']; ?>" required>
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
                 <span class="error"> <?php echo $PassErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
@@ -187,7 +256,8 @@ if (isset($_POST['submit']))
             <!-- Confirm Password -->
             <div class="form__input-group">
                 <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" value="<?php echo $_POST['cpassword']; ?>" required>
-                <span class="error"> <?php echo $ConfirmErr;?></span>
+                <i class="bi bi-eye-slash" id="togglePassword"></i>
+               <span class="error"> <?php echo $ConfirmErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
@@ -236,3 +306,16 @@ if (isset($_POST['submit']))
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+<script>
+    const toggle = document.getElementById('togglePassword');
+    const password = document.getElementById('password');
+
+    toggle.addEventListener('click', function(){
+        if(password.type === "password"){
+            password.type = 'text';
+        }else{
+            password.type = 'password';
+        }
+        this.classList.toggle('bi-eye');
+    });
+</script>

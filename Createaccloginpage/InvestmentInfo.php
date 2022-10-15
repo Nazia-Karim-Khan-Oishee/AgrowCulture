@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
         
         <!-- Your own stylesheet -->
-        <link rel="stylesheet" type="text/css" href="InvestmentInfo.css">
+        <link rel="stylesheet" type="text/css" href="FundingInfo.css">
       </head>
       <body>
         <header>
@@ -32,22 +32,26 @@
                 <div class="header-body">
                     <div class="slider">
                         <div class="decoration-left anim">
-                            DISCOVER
+                            <h3>DISCOVER</h3>
                             
                         </div>
                         <div class="decoration-right anim"> </div>
                         <div class="overlay anim"></div>
-                        <img src="invest1.jpg" alt="funding" class="slider-img"/>
+                        <img src="funding1.jpg" alt="funding" class="slider-img"/>
                         </div>
                         <div class="text">
                             <div>
                                 <h1>
-                                    INVESTMENT <br /> 
+                                    Investment <br /> 
                                 </h1>
                                 <p>
-                                    Do you  want to invest in agriculture  but scared of losses? Don't you have a huge budget for a whole startup? Then you have come to the right place.
-Start by investing through our website. <br>
-What else do we provide?<br><u><a href="ExposureInfo.php"><b>Exposure</b></a></u><br><u><a href="FundingInfo.php"><b>Funding</b></a></u><br><u><a href="purchaseInfo.php"><b>Purchase</b></a></u><br>Join AgrowCulture community to avail our services.
+                                Do you  want to invest in agriculture  but scared of losses? Don't you have a huge budget for a whole startup? Then you have come to the right place.
+Start by investing through our website.<br>
+<!--<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
+What else do we provide?<br><a href="ExposureInfo.php"><b>Exposure</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br><a href="create acccount.php">
+Join AgrowCulture community to avail our services.</a>-->
+What else do we provide?<br><a href="ExposureInfo.php"><b>Seller</b></a><br><a href="fundingInfo.php"><b>Funding</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br>Join AgrowCulture community to avail our services.
+<!-- f5b1d29c0202a356a2c9d937a3a66e71d8248323:Createaccloginpage/FundingInfo.php-->
                                 </p>
                             </div>
                         </div>

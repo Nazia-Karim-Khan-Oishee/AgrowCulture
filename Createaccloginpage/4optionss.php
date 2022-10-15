@@ -44,7 +44,7 @@
                    <img src="exposure.jpg">
                 </div>
                 <div class="title">
-                 <h1>EXPOSURE</h1>
+                 <h1>SELLING</h1>
                 </div>
                 <div class="des">
                  <p>Support the farmers.</p>
