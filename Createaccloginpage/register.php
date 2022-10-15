@@ -34,10 +34,10 @@
                     $mail->SMTPAuth=true;
                     $mail->SMTPSecure='tls';
     
-                    $mail->Username='ittehadrahman@iut-dhaka.edu';
-                    $mail->Password='PChntNXyG9gJ5Ba0';
+                    $mail->Username='malihazaman@iut-dhaka.edu';
+                    $mail->Password='VDUEk8dvO630ajmN';
     
-                    $mail->setFrom('ittehadrahman@iut-dhaka.edu', 'OTP Verification');
+                    $mail->setFrom('malihazaman@iut-dhaka.edu', 'OTP Verification');
                     $mail->addAddress($_POST["email"]);
     
                     $mail->isHTML(true);

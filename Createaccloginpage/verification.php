@@ -75,7 +75,7 @@
         if($otp != $otp_code){
             ?>
            <script>
-               alert("Invalid OTP code");
+                alert("Invalid OTP code");
            </script>
            <?php
         }else{

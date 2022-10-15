@@ -68,7 +68,7 @@
 
 <?php 
     if(isset($_POST["recover"])){
-        include('connect/connection.php');
+        include('Config.php');
         $email = $_POST["email"];
 
         $sql = mysqli_query($connect, "SELECT * FROM login WHERE email='$email'");
@@ -85,7 +85,7 @@
             ?>
                <script>
                    alert("Sorry, your account must verify first, before you recover your password !");
-                   window.location.replace("index.php");
+                   window.location.replace("index2.php");
                </script>
            <?php
         }else{
@@ -106,11 +106,11 @@
             $mail->SMTPSecure='tls';
 
             // h-hotel account
-            $mail->Username='ittehadrahman@iut-dhaka.edu';
-            $mail->Password='PChntNXyG9gJ5Ba0';
+            $mail->Username='malihazaman@iut-dhaka.edu';
+            $mail->Password='VDUEk8dvO630ajmN';
 
             // send by h-hotel email
-            $mail->setFrom('ittehadrahman@iut-dhaka.edu', 'Password Reset');
+            $mail->setFrom('malihazaman@iut-dhaka.edu', 'Password Reset');
             // get email from input
             $mail->addAddress($_POST["email"]);
             //$mail->addReplyTo('lamkaizhe16@gmail.com');
