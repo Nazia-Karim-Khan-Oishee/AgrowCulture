@@ -1,12 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
+  <?php
+  include('Config.php');
+  error_reporting(0);
+
+  session_start();
+  
+  echo "<script>alert('Verify account done, you may sign in now')</script>";
+  if (isset($_POST['submit'])) {
+    $user_name = $_POST['user_name'];
+    $Field = $_POST['Field'];
+    $Bank_Acc = $_POST['Bank_Acc'];
+    $Requested_Amount = $_POST['Requested_Amount'];
+    $Date = $_POST['Date'];
+    $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
+    $result = mysqli_query($Conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    $sum = $row['value_sum'];
+    echo "<script>alert('$sum')</script>"; 
+
+    if ($Requested_Amount - $sum >= 0) {
+      $sql1 = "SELECT * FROM  investment WHERE Status='p'";
+      // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+      $result = mysqli_query($Conn, $sql1);
+      // $result2 = mysqli_query($Conn, $sql1);
+      // if ($result2) {
+      //  // $row = mysqli_fetch_row($result2);
+      //   for ($i = 0; $i <= mysqli_num_rows($result2)-1; $i--) {
+      //     if ($row1=mysqli_data_seek($result2, $i)) {
+      //     // if($row['2'] == "tomato")
+      //       $row = mysqli_fetch_assoc($result2);
+      //      //{
+      //      echo "<script>alert('$row[2]')</script>";
+      //     // }
+
+      //       // Free result set
+      //      // mysqli_free_result($result);
+      //       echo "Cannot seek to row $i:  \n";
+      //       continue;
+      //     }
+      //   }
+      // }
+      while ($row = mysqli_fetch_array($result)) {
+
+        if ($row['Status'] == 'p') {
+          echo "<script>alert('you may sign in now')</script>";
+          $Investment_id = $row['Investment_id'];
+          //$sql2 = "UPDATE investment set Status='C' WHERE Investment_id='$Investment_id' ";
+          //$result2 = mysqli_query($Conn, $sql2);
+          $Money = $row['Provided_Amount'];
+          $NewMoney = $Money - 1;
+          $sql3 = "UPDATE investment set Provided_Amount='$NewMoney' WHERE Investment_id='$Investment_id'";
+          $result3 = mysqli_query($Conn, $sql3);
+        }
+        echo $row['Field'];
+        $Money = "";
+        $NewMoney = "";
+        echo "<script>alert('Verify account done, you may sign in now')</script>";
+      }
+    } else {
+      $Message = "Sorry!We can not accept your request now.Please try again later.";
+      $user_name = "";
+      $Field = "";
+      $Bank_Acc = "";
+      $Requested_Amount = "";
+      $Date = "";
+    }
+  }
+  ?>
+  <!DOCTYPE html>
+  <html lang="en">
+
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Funding Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="fundingform.css" />
   </head>
+
   <body>
     <main>
       <div class="box">
@@ -14,44 +85,44 @@
           <div class="forms-wrap">
             <form action="index.html" autocomplete="off" class="sign-in-form">
               <div class="logo">
-            
 
-              <div class="heading">
-                <h2>Welcome!</h2>
-                <h4>Apply now and get funded</h4>
-                
-              </div>
 
-              <div class="actual-form">
+                <div class="heading">
+                  <h2>Welcome!</h2>
+                  <h4>Apply now and get funded</h4>
+
+                </div>
+
+                <div class="actual-form">
                 </div>
               </div>
-              <a href="#" class="toggle"><h3>APPLY NOW!</h3></a>
+              <a href="#" class="toggle">
+                <h3>APPLY NOW!</h3>
+              </a>
             </form>
 
-            <form action="index.html" autocomplete="off" class="sign-up-form">
+            <form action="" method="POST" autocomplete="off" class="sign-up-form">
               <div class="logo">
-               
-                <h4>AGROWCULTURE</h4>
+
+
               </div>
+              <h4>AGROWCULTURE</h4>
 
               <div class="heading">
-                <h2>Get Started</h2>
+
                 <a href="#" class="toggle">GO BACK</a>
               </div>
 
+              <br>
               <div class="actual-form">
                 <div class="input-wrap">
-                  <input
-                    type="text"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Name</label>
+                  <b>NAME : </b>
+                  <span class="error"> <?php echo $Message;?></span>
+                  <input type="text" name="user_name" minlength="4" class="input-field" autocomplete="off" required />
+
                 </div>
 
-                <div class="input-wrap">
+                <!--  <div class="input-wrap">
                   <input
                     type="email"
                     class="input-field"
@@ -59,45 +130,59 @@
                     required
                   />
                   <label>Email</label>
-                </div>
+                </div> -->
+                <script>
+                  $(document).ready(function() {
+
+                    var dtToday = new Date();
+                    var month = dtToday.getMonth() + 1;
+                    var day = dtToday.getDate();
+                    var year = dtToday.getFullYear();
+                    if (month < 10)
+                      month = '0' + month.toString();
+                    if (day < 10)
+                      day = '0' + day.toString;
+                    var maxDate = year + '-' + month + '-' + day;
+                    $('#dateControl').attr('min', maxDate);
+
+                  })
+                </script>
 
                 <div class="input-wrap">
-                  
-                  <input
-                    type="date"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Date of Birth</label>
-                </div>
-                <div class="input-wrap">
-                  <input
-                    type="number"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>ID/Passport number</label>
-                </div>
-                <div class="input-wrap">
-                  <input
-                    type="text"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Purpose of Funding</label>
+                  <b>DATE : </b>
+                  <input type="date" name="Date" id="dateControl" minlength="4" class="input-field" autocomplete="off" required />
+                  <label></label>
                 </div>
 
-                <input type="submit" value="Apply" class="sign-btn" />
+
+
+                <div class="input-wrap">
+                  <b>Bank Account : </b>
+                  <input type="number" name="Bank_Acc" class="input-field" autocomplete="off" required />
+
+                </div>
+                <div class="input-wrap">
+                  <b>Requested Amount : </b>
+                  <input type="number" name="Requested_Amount" minlength="4" class="input-field" autocomplete="off" required />
+                  <br>
+
+                  <h6>lkjigydt</h6>
+                  <h6>klahd</h6>
+                  <div class="input-wrap">
+                    <b>FIELD : </b><br>
+                    <h6>lhk</h6>
+                    <input type="radio" name="Field" name="Field" value="Crops" required /> Crops
+                    <input type="radio" name="Field" value="Machinaries" required /> Machineries<br>
+                    <h6>kkhs</h6>
+                    <h6>klahd</h6>
+                  </div>
+                </div>
+
+
+                <br><br> <br> <input type="submit" value="Apply" class="sign-btn" />
 
                 <p class="text">
-                  By Applying, I agree to the
-                  <a href="#">Terms of Services</a> and
+                  By Applying, I agree to the <a href="#">Terms of Services</a> and
                   <a href="#">Privacy Policy</a>
                 </p>
               </div>
@@ -134,43 +219,54 @@
     <!-- Javascript file -->
     <footer>
       <div class="row">
-          <div class="col">
-              <h1>AGROWCULTURE</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
-          </div>
-          <div class="col">
-              <h5>Address <div class="underline"><span></span></div></h5>
-              <p>Islamic University of Technology</p>
-              <p>Boardbazar,Gazipur</p>
-          </div>
-          <div class="col">
-              <h5>Links <div class="underline"><span></span></div></h5>
-              <ul>
-                  <li><a href="getstartedpage.php">HOME</a></li>
-                  <li><a href="4optionss.php">SERVICES</a></li>
-                  <li><a href="about us.php"></a>ABOUT US</li>
-                  <li><a href="#"></a>CONTACTS</li>
+        <div class="col">
+          <h1>AGROWCULTURE</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+        </div>
+        <div class="col">
+          <h5>Address <div class="underline"><span></span></div>
+          </h5>
+          <p>Islamic University of Technology</p>
+          <p>Boardbazar,Gazipur</p>
+        </div>
+        <div class="col">
+          <h5>Links <div class="underline"><span></span></div>
+          </h5>
+          <ul>
+            <li><a href="getstartedpage.php">HOME</a></li>
+            <li><a href="4optionss.php">SERVICES</a></li>
+            <li><a href="about us.php"></a>ABOUT US</li>
+            <li><a href="#"></a>CONTACTS</li>
 
-              </ul>
-          </div>
-      
-          <ul class="social_icon">
-              <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-              <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-              <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-              <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-            </ul>
-          </div>
-          <hr>
-          <div class="copyright">
-          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
-          </div>
-         
-          
-      </div> 
-      </footer> 
-      <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-      <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+          </ul>
+        </div>
+
+        <ul class="social_icon">
+          <li><a href="#">
+              <ion-icon name="logo-facebook"></ion-icon>
+            </a></li>
+          <li><a href="#">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a></li>
+          <li><a href="#">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a></li>
+          <li><a href="#">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a></li>
+        </ul>
+      </div>
+      <hr>
+      <div class="copyright">
+        <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+      </div>
+
+
+      </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="fundinform.js"></script>
   </body>
-</html>
+
+  </html>

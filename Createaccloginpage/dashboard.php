@@ -95,7 +95,7 @@ $user_name = $_SESSION['user_name'];
                     <div class="col-md-3">
                         <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h2>Exposure</h2>
+                                <h2>Selling</h2>
                             </div>
                             <i
                                 class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>

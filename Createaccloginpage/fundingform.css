@@ -118,22 +118,23 @@ form.sign-up-form {
 
 .input-wrap {
   position: relative;
-  height: 37px;
-  margin-bottom: 2rem;
+  height: 20px;
+  margin-bottom: 4rem;
 }
 
 .input-field {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 90%;
   background: none;
   border: none;
   outline: none;
   border-bottom: 1px solid #bbb;
-  padding: 0;
+  padding: -50px;
   font-size: 0.95rem;
   color: #151111;
   transition: 0.4s;
+  margin-left: 10px;
 }
 
 label {
@@ -177,11 +178,13 @@ label {
 .text {
   color: #bbb;
   font-size: 0.7rem;
+  margin-top: -10%;
 }
 
 .text a {
   color: #bbb;
   transition: 0.3s;
+
 }
 
 .text a:hover {
@@ -565,3 +568,13 @@ text-align: center;
    color: black;
   }
   
+.actual-form
+{
+  margin-top: -60%;
+  margin: auto;
+}
+h6
+{
+  color: white;
+}
+.error {color:red;}
