@@ -11,8 +11,8 @@ if (isset($_SESSION['user_name']))
     header("Location: dashboard.php");
 }
 
-    if (isset($_POST['submit'])) 
-    {
+if (isset($_POST['submit'])) 
+{
     $Name = $_POST['Name'];
 	$user_name = $_POST['user_name']; 
      $email = $_POST["email"];
@@ -26,9 +26,11 @@ if (isset($_SESSION['user_name']))
     $lowercase = preg_match('@[a-z]@', $checkpassword);
     $number    = preg_match('@[0-9]@', $checkpassword);
     $specialchars = preg_match('@[^\w]@', $checkpassword);
-    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) {
+    
+    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) 
+    {
         $Validate= false;
-      }
+    }
 
     if($Validate)
 	{                        //echo "<p class='er'><big>Something Wrong Went.Please try again later.</big></p>";
@@ -212,16 +214,25 @@ else
     <div class="container">
         <form class="form" action="" method="POST" id="createAccount">
             <h1 class="form__title">Create Account</h1>
+            <!-- Name -->
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
                 <input type="text" class="form__input" name="Name" autofocus placeholder="Name" value="<?php echo $Name; ?>" required>
                 <div class="form__input-error-message"></div>
             </div>
+            <!-- Username -->
             <div class="form__input-group">
                 <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required> 
                 <span class="error"> <?php echo $usernameErr;?></span>
                 <div class="form__input-error-message"></div>
             </div>
+            <!-- Email -->
+            <div class="form__input-group">
+                <input type="text" class="form__input" name="email" autofocus placeholder="Email" value="<?php echo $email; ?>" required> 
+                <span class="error"> <?php echo $emailErr;?></span>
+                <div class="form__input-error-message"></div>
+            </div>
+            <!-- Mobile Number -->
             <div class="form__input-group">
                 <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" value="<?php echo $MobileNumber; ?>" required>
                 <span class="error"> <?php echo $MobileNumberErr;?></span>
@@ -242,6 +253,7 @@ else
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
+            <!-- Confirm Password -->
             <div class="form__input-group">
                 <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" value="<?php echo $_POST['cpassword']; ?>" required>
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
@@ -253,7 +265,6 @@ else
             <p class="form__text">
                 <a class="form__link" href="INDEX.php" id="linkLogin">Already have an account? Sign in</a>
             </p>
-            
         </form>         
     </div>
 	</div>

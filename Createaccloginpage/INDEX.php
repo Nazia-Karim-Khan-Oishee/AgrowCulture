@@ -11,7 +11,8 @@ if (isset($_SESSION['user_name']))
     header("Location: dashboard.php");
 }
 
-if (isset($_POST['submit'])) {
+if (isset($_POST['submit'])) 
+{
 	$user_name = $_POST['user_name'];
 	$password = md5($_POST['password']);
 	//$cpassword = md5($_POST['cpassword']);
@@ -22,7 +23,6 @@ if (isset($_POST['submit'])) {
 		$row = mysqli_fetch_assoc($result);
         if($row['password']==$password)
         {
-
             $_SESSION['user_name'] = $row['user_name'];
             $_POST['password'] = "";
             $_POST['user_name'] = "";
@@ -32,17 +32,19 @@ if (isset($_POST['submit'])) {
         else 
         {
             $WrongPass="Wrong Password.";
-        $_POST['password'] = "";
-        $_POST['user_name'] = "";
-        unset($user_name);
-       // echo "<p class='er'>Wrong Password.</big></p>";
+            $_POST['password'] = "";
+            $_POST['user_name'] = "";
+            unset($user_name);
+            // echo "<p class='er'>Wrong Password.</big></p>";
         }
-	} else {
+	} 
+    else 
+    {
         $WrongUser="Invalid User Name.";
         $_POST['password'] = "";
         $_POST['user_name'] = "";
         unset($user_name);
-       // echo "<p class='er'>Wrong Password.</big></p>";
+        // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
 ?>
@@ -75,54 +77,48 @@ if (isset($_POST['submit'])) {
     
     <div class="container1">
         <div class="container">
-
         <div class="titleDiv">
             <h1 class="form__title">Login</h1>
             <p class="form__text">Welcome back!</p>
         </div>
             <form action="" method="POST" class="form" id="login">
-
             <div class="form__message form__message--error"></div>
-
+            <!-- Username -->
             <div class="form__input-group">
                 <input type="text" class="form__input"  name="user_name" id="username" autofocus placeholder="Enter username" value="<?php echo $user_name; ?>" required>
                 <span class="error"> <?php echo $WrongUser;?></span>
                 <div class="form__input-error-message"></div>
             </div>
-
+            <!-- Password -->
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" id="password" autofocus placeholder="Enter password" value="<?php echo $_POST['password']; ?>" required>
                 <span class="error"> <?php echo $WrongPass;?></span>
                 <div class="form__input-error-message"></div>
             </div>
 
-                
-                <button class="form__button" type="submit" id="submitBtn" name="submit" value="Login" requied>Continue</button>
-                </form>
+            <button class="form__button" type="submit" id="submitBtn" name="submit" value="Login" requied>Continue</button>
+            </form>
                 <p class="form__text">
                     <a href="recover_psw.php" class="form__link">Forgot your password</a>
                 </p>
-
                 <p class="form__text">Don't have an account?
                     <a href="create acccount.php">Create account</a>
                 </p>
             </form>         
         </div>
     </div>
-
-   
-            <footer>
-            <div class="row">
-                <div class="col">
-                    <h3>AGROWCULTURE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
-                </div>
-                <div class="col">
+        <footer>
+        <div class="row">
+            <div class="col">
+                <h3>AGROWCULTURE</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+            </div>
+            <div class="col">
                     <h5>Address <div class="underline"><span></span></div></h5>
                     <p>Islamic University of Technology</p>
                     <p>Boardbazar,Gazipur</p>
-                </div>
-                <div class="col">
+            </div>
+            <div class="col">
                     <h5>Links <div class="underline"><span></span></div></h5>
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
@@ -131,8 +127,7 @@ if (isset($_POST['submit'])) {
                         <li><a href=""></a>CONTACTS</li>
 
                     </ul>
-                </div>
-
+            </div>
                 <ul class="social_icon">
                     <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
                     <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
@@ -142,7 +137,6 @@ if (isset($_POST['submit'])) {
                 </div>
                 <hr>
                 <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
-
             </div> 
             </footer>
 </body>
