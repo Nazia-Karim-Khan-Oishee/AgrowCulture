@@ -36,7 +36,7 @@
         // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
         $result = mysqli_query($Conn, $sql1);
         while ($row = mysqli_fetch_array($result)) {
-          $checkbalance = $row['Current_Amount	'] - $Requested_Amount;
+          $checkbalance = $row['Current_Amount'] - $Requested_Amount;
           if ($checkbalance <= 0) {
             $Investment_id = $row['Investment_id'];
             $rem_request = $Requested_Amount - $row['Current_Amount	']; //0/greater than 0

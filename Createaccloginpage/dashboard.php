@@ -1,21 +1,98 @@
-<?php 
+    <?php 
 
-include 'Config.php';
-error_reporting(0);
+    include 'Config.php';
+    error_reporting(0);
 
-session_start();
-if (!isset($_SESSION['user_name'])) 
-{
-    header("Location: INDEX.php");
-}
-if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
-{
-    //echo "<script>alert('Wow! User Registration Completed.')</script>";
-    header("Location: dashboard.php");
-    $SESSION['Just_Set'] = false;
-}
-$user_name = $_SESSION['user_name'];
-?>
+    session_start();
+    if (!isset($_SESSION['user_name'])) 
+    {
+        header("Location: INDEX.php");
+    }
+    if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
+    {
+        //echo "<script>alert('Wow! User Registration Completed.')</script>";
+        header("Location: dashboard.php");
+        $SESSION['Just_Set'] = false;
+    }
+    $user_name = $_SESSION['user_name'];
+    $sql = "SELECT * FROM  funding WHERE user_name= '$user_name'";
+    $result =mysqli_query($Conn,$sql);
+    if($result->num_rows <= 0)
+    {
+        $Message = "No Records To Show";
+    }
+    else{
+        $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
+    $con3 = mysqli_query($Conn, $query3);
+    $rows3 = mysqli_fetch_assoc($con3);
+    $sum3 = $rows3['valuesum'];
+        // $Message="\n";
+        //     while($row3 = mysqli_fetch_array($result))
+        //     {
+                // $amount=$row['Requested_Amount'];$date=$row['Date'];
+                $Message= "You requested for $sum3"." \n";
+
+           // }
+    }
+    $sql2 = "SELECT * FROM  investment WHERE user_name= '$user_name'";
+    $result2 =mysqli_query($Conn,$sql2);
+    if($result2->num_rows <= 0)
+    {
+        $Message2 = "No Records To Show";
+    }
+    else{
+    $query = "SELECT SUM(Current_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
+    $con = mysqli_query($Conn, $query);
+    $rows = mysqli_fetch_assoc($con);
+    $sum = $rows['value_sum'];
+    $query2 = "SELECT SUM(Provided_Amount) AS balance FROM investment WHERE user_name= '$user_name'";
+    $con2 = mysqli_query($Conn, $query2);
+    $rows2 = mysqli_fetch_assoc($con2);
+    $sum2 = $rows2['balance'];
+    $invested=$sum2-$sum;
+        // $Message2="\n";
+        //     while($row2 = mysqli_fetch_array($result2))
+        //     {
+                //$amount=$row2['Requested_Amount']-$row2['Current_Amount'];$
+                $Message2= "$invested has been invested from your balance $sum2"."<br>"."your current balance is $sum";
+
+           // }
+    }
+    $sql3 = "SELECT * FROM  sell WHERE user_name= '$user_name'";
+    $result3 =mysqli_query($Conn,$sql3);
+    if($result3->num_rows <= 0)
+    {
+        $Message3 = "No Records To Show";
+    }
+    else{
+        $Message3="\n";
+            while($row3 = mysqli_fetch_array($result3))
+            {
+
+                $quantity=$row3['Quantity'];$product=$row['Produuct'];$date=$row3['Date'];
+                $Message3= $Message3."<br>"."You provided  $quantity kg of  $product on  $date"." \n";
+
+            }
+    }
+    $sql4 = "SELECT * FROM  purchase WHERE user_name= '$user_name'";
+    $result4 =mysqli_query($Conn,$sql4);
+    if($result4->num_rows <= 0)
+    {
+        $Message4 = "No Records To Show";
+    }
+    else{
+       // $Message4="\n";
+       // $row4 = mysqli_fetch_array($result4);
+
+            while($row4 = mysqli_fetch_array($result4))
+            {
+
+                $date=$row4['Date'];
+                $Message4= "<br>"."You last purchased from us on $date"." \n";
+
+           }
+    }
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -124,7 +201,7 @@ $user_name = $_SESSION['user_name'];
                         </a>
                     </div>
                 </div>
-
+<!-- 
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Recent Orders</h3>
                     <div class="col">
@@ -166,7 +243,13 @@ $user_name = $_SESSION['user_name'];
                             </tbody>
                         </table>
                     </div>
-                </div>
+                </div> -->
+                    <h4>Funding<h4>  <span > <p><?php echo $Message; ?></p></span>
+                    <h4>Investment<h4>  <span > <p><?php echo $Message2; ?></p></span>
+                    <h4>Sell<h4>  <span > <p><?php echo $Message3; ?></p></span>
+                    <h4>Purchase<h4>  <span > <p><?php echo $Message4; ?></p></span>
+
+
 
             </div>
         </div>
