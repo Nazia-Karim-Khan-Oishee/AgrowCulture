@@ -104,23 +104,22 @@ $user_name = $_SESSION['user_name'];
                     </div>
 
                     <div class="col-md-3">
-                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                
-                                <h2>Purchase</h2>
-                            </div>
-                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                        </a>
-                    </div>
-
-                    <div class="col-md-3">
                         <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 
                                 <h2>Investment</h2>
                             </div>
                             <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                
+                                <h2>Purchase</h2>
+                            </div>
+                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                         </a>
                     </div>
