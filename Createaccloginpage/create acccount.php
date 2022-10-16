@@ -210,6 +210,7 @@ else
     <title>Create Account</title>
 </head>
 <body>
+    
 	<div class="container1">
     <div class="container">
         <form class="form" action="" method="POST" id="createAccount">

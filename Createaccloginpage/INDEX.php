@@ -73,7 +73,7 @@ if (isset($_POST['submit']))
             <ul>
                  <li><div class="zoom"><a href="getstartedpage.php">HOME</a></div></li> 
                   <li><div class="zoom"><a href="4optionss.php">SERVICES</a></div></li> 
-                    <li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> 
+                    <!--<li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> -->
             </ul>
            
         </nav>
