@@ -1,3 +1,60 @@
+<?php
+  include('Config.php');
+  error_reporting(0);
+
+  session_start();
+
+  if (isset($_POST['submit'])) {
+    $user_name = $_POST['user_name'];
+    $Date = $_POST['Date'];
+    $user_name = $_POST['user_name'];
+$Bank_Acc = $_POST['Bank_Acc'];
+$Provided_Amount = $_POST['Provided_Amount'];
+$Field = $_POST['Field'];
+$check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
+$rowCount = mysqli_num_rows($check_query);
+if ($rowCount <= 0) {
+  echo "<script>alert(' invalid')</script>";
+
+  //$UserErr = "Invalid User";
+  $_POST['user_name'] = "";
+  $_POST['Field'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Provided_Amount'] = "";
+  $_POST['Date'] = "";
+}
+else 
+{
+  $query = "INSERT INTO investment (Investment_id, user_name, Field, Bank_Acc, Provided_Amount, Current_Amount, Status, Date) 
+VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Provided_Amount', '$Provided_Amount', 'p', '$Date')";
+ $connect = mysqli_query($Conn,$query);
+ if($connect)
+ {
+   echo "<script>alert('Verify account done, you may sign in now')</script>";
+   $_POST['user_name'] = "";
+  $_POST['Field'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Provided_Amount'] = "";
+  $_POST['Date'] = "";
+}
+else{
+  echo "<script>alert(' in now')</script>";
+  $_POST['user_name'] = "";
+  $_POST['Field'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Provided_Amount'] = "";
+  $_POST['Date'] = "";
+}
+}
+}
+  ?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +86,7 @@
               <a href="#" class="toggle"><h3>APPLY NOW!</h3></a>
             </form>
 
-            <form action="index.html" autocomplete="off" class="sign-up-form">
+            <form action="" method="POST" autocomplete="off" class="sign-up-form">
               <div class="logo">
                
                
@@ -43,9 +100,9 @@
 
              <br> <div class="actual-form">
                 <div class="input-wrap">
-                  <b>NAME : </b>
+                  <b>USER_NAME : </b>
                   <input
-                    type="text"
+                    type="text" name="user_name"
                     minlength="4"
                     class="input-field"
                     autocomplete="off"
@@ -63,42 +120,13 @@
                   />
                   <label>Email</label>
                 </div> -->
-               <script>
-                $(document).ready(function(){
-                  
-                    var dtToday = new Date();
-                    var month = dtToday.getMonth() +1;
-                    var day = dtToday.getDate();
-                    var year = dtToday.getFullYear();
-                    if(month<10)
-                    month='0' + month.toString();
-                    if(day<10)
-                    day='0' + day.toString;
-                    var maxDate= year + '-'+ month + '-' +day;
-                    $('#dateControl').attr('min',maxDate);
-                  
-                })
-               </script>
                
-
-                <div class="input-wrap">
-                  <b>DATE : </b>
-                  <input
-                    type="date"
-                    id="dateControl"
-                    minlength="4"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label></label>
-                </div>
 
                 <div class="input-wrap">
                   <b>Bank Account : </b>
                   <input
                     type="number"
-                   
+                   name="Bank_Acc"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -108,7 +136,7 @@
                   <div class="input-wrap">
                     <b>Provided Amount : </b>
                     <input
-                      type="number"
+                      type="number" name="Provided_Amount"
                       minlength="4"
                       class="input-field"
                       autocomplete="off"
@@ -136,16 +164,17 @@
                 <input
                 type="radio"
                  name= "Field"
-                 value="Machinaries"
+                 value="Poultry"
                 required
               />   Poultry<br>
+              
               <h6>kkhs</h6>
               <h6>klahd</h6>
                 </div>
                 </div>
              
 
-              <br><br> <br> <input type="submit" value="Apply" class="sign-btn" />
+              <br><br> <br> <input type="submit" name="submit" value="Apply" class="sign-btn" />
 
                 <p class="text">
                   By Applying, I agree to the <a href="#">Terms of Services</a> and

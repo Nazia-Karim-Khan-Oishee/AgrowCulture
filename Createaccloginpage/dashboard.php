@@ -82,11 +82,20 @@ $user_name = $_SESSION['user_name'];
                             <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                     </div>
-
                     <div class="col-md-3">
-                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <a href="investmentform.php"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h2>Exposure</h2>
+                                
+                                <h2>Investment</h2>
+                            </div>
+                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                            <a href="sell.php"><h2>Sell</h2>
                             </div>
                             <i
                                 class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -105,16 +114,7 @@ $user_name = $_SESSION['user_name'];
                         </a>
                     </div>
 
-                    <div class="col-md-3">
-                        <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                
-                                <h2>Investment</h2>
-                            </div>
-                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                        </a>
-                    </div>
+                   
                 </div>
 
                 <div class="row my-5">

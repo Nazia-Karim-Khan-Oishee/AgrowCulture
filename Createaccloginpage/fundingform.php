@@ -155,7 +155,7 @@
               <br>
               <div class="actual-form">
                 <div class="input-wrap">
-                  <b>NAME : </b>
+                  <b>USER_NAME : </b>
                   <span class="error"> <?php echo $Message; ?></span>
                   
                   <input type="text" name="user_name" minlength="4" class="input-field" autocomplete="off" required />
