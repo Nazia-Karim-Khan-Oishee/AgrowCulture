@@ -1,4 +1,4 @@
-<?php 
+<!--<?php 
 
 include 'Config.php';
 
@@ -47,7 +47,7 @@ if (isset($_POST['submit']))
         // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
-?>
+?>-->
 
 <!DOCTYPE html>
 <html lang="en">
@@ -65,17 +65,20 @@ if (isset($_POST['submit']))
     <title>Log In</title>
 </head>
 <body>
+    <div class="navbar">
+        <nav>
    
-
-<ul class="navigation">
-<li><a href="#"><h1>AGROWCULTURE</h1></a></li>
-  <li><a class="active" href="getstartedpage.php">Home</a></li>
-  <li><a href="#news">News</a></li>
-  <li><a href="#contact">Contact</a></li>
-  <li><a href="#about">About</a></li>
-</ul>
+            <ul>
+                 <li><div class="zoom"><a href="getstartedpage.php">HOME</a></div></li> 
+                  <li><div class="zoom"><a href="4optionss.php">SERVICES</a></div></li> 
+                    <li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> 
+            </ul>
+           
+        </nav>
+        </div>
     
     <div class="container1">
+ 
         <div class="container">
         <div class="titleDiv">
             <h1 class="form__title">Login</h1>
