@@ -4,16 +4,7 @@ include 'Config.php';
 error_reporting(0);
 
 session_start();
-if (!isset($_SESSION['user_name'])) 
-{
-    header("Location: INDEX.php");
-}
-if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
-{
-    //echo "<script>alert('Wow! User Registration Completed.')</script>";
-    header("Location: dashboard.php");
-    $SESSION['Just_Set'] = false;
-}
+
 $user_name = $_SESSION['user_name'];
 ?>
 <!DOCTYPE html>
@@ -95,12 +86,23 @@ $user_name = $_SESSION['user_name'];
                     <div class="col-md-3">
                         <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h2>Selling</h2>
+                                <h2>Exposure</h2>
                             </div>
                             <i
                                 class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                     </a>
+                    </div>
+
+                    <div class="col-md-3">
+                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                                
+                                <h2>Purchase</h2>
+                            </div>
+                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                        </a>
                     </div>
 
                     <div class="col-md-3">
@@ -113,58 +115,74 @@ $user_name = $_SESSION['user_name'];
                         </div>
                         </a>
                     </div>
-                    <div class="col-md-3">
-                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                
-                                <h2>Purchase</h2>
-                            </div>
-                            <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                        </a>
-                    </div>
                 </div>
 
                 <div class="row my-5">
-                    <h3 class="fs-4 mb-3">Recent Orders</h3>
+                   
                     <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col" width="50">#</th>
-                                    <th scope="col">Product</th>
-                                    <th scope="col">Customer</th>
-                                    <th scope="col">Price</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Potatoe</td>
-                                    <td>Jonny</td>
-                                    <td>$12</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Tomato</td>
-                                    <td>Kenny</td>
-                                    <td>$50</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Lemon</td>
-                                    <td>Jenny</td>
-                                    <td>$6</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Mango</td>
-                                    <td>Killy</td>
-                                    <td>$30</td>
-                                </tr>
-                                
-                            </tbody>
-                        </table>
+                        <div class="container">
+                            <div class="title">User History</div>
+                        <div class="table bg-white rounded shadow-sm  table-hover">
+                     
+             
+                  
+                </div>
+                <div class="input-wrap">
+                    Funding : 
+                    <input
+                      type="text"
+                      minlength="4"
+                      id="funding"
+                      name="funding"
+                      class="input-field"
+                      autocomplete="off"
+                      required
+                    />
+                    
+                  </div>
+                  <div class="input-wrap">
+                    Selling : 
+                    <input
+                      type="text"
+                      minlength="4"
+                      id="Info"
+                      name="Info"
+                      class="input-field"
+                      autocomplete="off"
+                      required
+                    />
+                    
+                  </div>
+                  <div class="input-wrap">
+                    Purchase : 
+                    <input
+                      type="text"
+                      minlength="4"
+                      id="Info"
+                      name="Info"
+                      class="input-field"
+                      autocomplete="off"
+                      required
+                    />
+                    
+                  </div>
+                  <div class="input-wrap">
+                   Investment : 
+                    <input
+                      type="text"
+                      minlength="4"
+                      id="Info"
+                      name="Info"
+                      class="input-field"
+                      autocomplete="off"
+                      required
+                    />
+                    
+                  </div>
+                              
+                            </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
 

@@ -244,3 +244,84 @@ hr
   }
 
 }
+.container
+{
+  max-width: 1500px;
+  width: 100%;
+  padding: 25px 30px;
+  border-radius: 5px;
+  background-color: white;
+
+}
+.container .title
+{
+  font-size: 28px;
+  font-weight: bold;
+  position: relative;
+  margin-bottom: 10px;
+}
+.container .title::before
+{
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 4px;
+  width: 50px;
+  background:#009d63;
+
+}
+input
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 1200px;
+}
+b
+{
+  font-size: 18px;
+}
+.input-wrap {
+  position: relative;
+  height: 20px;
+  margin-bottom: 4rem;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.input-field {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #bbb;
+  padding: -50px;
+  font-size: 0.95rem;
+  color: #151111;
+  transition: 0.4s;
+  margin-left: 0px;
+  margin-top: 20px;
+}
+
+label {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 0.95rem;
+  color: #bbb;
+  pointer-events: none;
+  transition: 0.4s;
+
+}
+.input-field.active {
+  border-bottom-color: #151111;
+}
+
+.input-field.active + label {
+  font-size: 0.75rem;
+  top: -2px;
+}

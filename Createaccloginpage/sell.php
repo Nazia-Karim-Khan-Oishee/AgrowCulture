@@ -3,19 +3,24 @@
   error_reporting(0);
 
   session_start();
-
+  
   if(isset($_POST['submit']))
   {
     $user_name = $_POST['user_name'];
     $Field = $_POST['Field'];
     $Bank_Acc = $_POST['Bank_Acc'];
-    $var = $_POST['Date'];
-    $date = str_replace('/', '-', $var);
-    $Date =  date('Y-m-d', strtotime($date));
+    $Quantity =$_POST['Quantity'];
+    
+    // echo "<script>alert('Wow! User Registration Completed.')</script>";
+    // $var = $_POST['Date'];
+    // $date = str_replace('/', '-', $var);
+    // $Date =  date('Y-m-d', strtotime($date));
     $file = addslashes(file_get_contents($_FILES["image"]["tmp_name"]));
-    $result = mysqli_query($Conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $sum = $row['value_sum'];
+    //echo "<script>alert('Wow! User Registration Completed.')</script>";
+    
+    //$result = mysqli_query($Conn, $sql);
+    //$row = mysqli_fetch_assoc($result);
+    //$sum = $row['value_sum'];
     $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
     $rowCount = mysqli_num_rows($check_query);
     if($rowCount <= 0)
@@ -24,15 +29,15 @@
       $_POST['user_name'] = "";
       $_POST['Field'] = "";
       $_POST['Bank_Acc'] = "";
-      $_POST['Requested_Amount'] = "";
+      $_POST['Quantity'] = "";
       $_POST['Date'] = "";
       $_POST['image'] = "";
     }
     else
     {
-      $sql1 = "SELECT * FROM sell WHERE Status='p'";
-      $result = mysqli_query($Conn, $sql1);
-      $query = mysqli_query($Conn, "INSERT INTO sell (Selling_id, user_name, Field, image, Quantity, Bank_Acc, Date) VALUES (NULL, '$user_name', '$Field', "$file",'$Bank_Acc', '$Requested_Amount', '$Date'");
+      //$sql1 = "SELECT * FROM sell WHERE Status='p'";
+      //$result = mysqli_query($Conn, $sql1);
+      $query = mysqli_query($Conn, "INSERT INTO sell (Seller_id, user_name, Field, image, Quantity, Bank_Acc, ,Status,Date) VALUES (NULL, '$user_name', '$Field', '$file','$Quantity','$Bank_Acc', 'p','$Date'");
       if($query)
       {
         $ACMessage="Your request is accepted. We will display it to our Purchase page soon!";
@@ -50,7 +55,7 @@
         $_POST['Field'] = "";
         $_POST['Bank_Acc'] = "";
         $_POST['image'] = "";
-        $_POST['Requested_Amount'] = "";
+        $_POST['Quantity'] = "";
         $_POST['Date'] = "";
       }
     }
@@ -95,8 +100,13 @@
               <div class="actual-form">
                 <!-- username -->
                 <div class="input-wrap"> 
-                  <b>PRODUCT : </b>    
+                  <b>user_name : </b>    
                   <input type="text" name = "user_name" minlength="4" class="input-field" autocomplete="off" required/>                
+                </div>
+                 <!-- Product -->
+                 <div class="input-wrap">
+                  <b>Product: </b>
+                  <input type="text" name="Field" minlength="4" class="input-field" autocomplete="off" required>
                 </div>
                 <!-- Image -->
                 <div class="input-wrap">
@@ -109,7 +119,7 @@
                     <input type="text" name="Quantity" minlength="4" class="input-field" autocomplete="off" required>  
                 </div>
                 <!-- Date -->
-                <script>
+                <!-- <script>
                 $(document).ready(function()
                 {
                   var dtToday = new Date();
@@ -129,18 +139,14 @@
                     <b>DATE : </b>
                     <input type="date" name="Date" id="dateControl" minlength="4" class="input-field" autocomplete="off" required />
                     <label></label>
-                </div>
+                </div> -->
                 <!-- Bank Account -->
                 <div class="input-wrap">
                   <b>Bank Account : </b>
                   <input type="number" name = "Bank_Acc" class="input-field" autocomplete="off" required>
                 </div>
-                <!-- Product -->
-                <div class="input-wrap">
-                  <b>Provided Amount : </b>
-                  <input type="number" name="Field" minlength="4" class="input-field" autocomplete="off" required>
-                </div>
-              <input type="submit" value="Apply" class="sign-btn" />
+               
+              <input type="submit" name="submit" value="Apply" class="sign-btn" />
               </div>
             </form>
           </div>

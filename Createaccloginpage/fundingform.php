@@ -6,15 +6,15 @@
 
   echo "<script>alert('Verify account done, you may sign in now')</script>";
   if (isset($_POST['submit'])) {
-    echo "<script>alert('you may sign in now')</script>";
+    //echo "<script>alert('you may sign in now')</script>";
     $user_name = $_POST['user_name'];
     $Field = $_POST['Field'];
     $Bank_Acc = $_POST['Bank_Acc'];
     $Requested_Amount = $_POST['Requested_Amount'];
-    $var = $_POST['Date'];
-    $date = str_replace('/', '-', $var);
-    //echo date('Y-m-d', strtotime($date));
-    $Date =  date('Y-m-d', strtotime($date));
+    $date = $_POST['Date'];
+    // $date = str_replace('/', '-', $var);
+    // //echo date('Y-m-d', strtotime($date));
+    //$Date =  date('Y-m-d', strtotime($date));
     $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
     $result = mysqli_query($Conn, $sql);
     $row = mysqli_fetch_assoc($result);
@@ -36,7 +36,7 @@
         // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
         $result = mysqli_query($Conn, $sql1);
         while ($row = mysqli_fetch_array($result)) {
-          $checkbalance = $row['Current_Amount	'] - $Requested_Amount;
+          $checkbalance = $row['Current_Amount'] - $Requested_Amount;
           if ($checkbalance <= 0) {
             $Investment_id = $row['Investment_id'];
             $rem_request = $Requested_Amount - $row['Current_Amount	']; //0/greater than 0
@@ -72,9 +72,12 @@
           //   echo "<script>alert('Verify account done, you may sign in now')</script>";
           // }
         }
-        $query = mysqli_query($Conn, "INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Date) 
-        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', '$Date'");
-            if($query){
+        $query="INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Date) 
+        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', '$date')";
+        $connect = mysqli_query($Conn, $query );
+        //echo "<script>alert(' now')</script>";
+            if($connect){
+
                     $ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";
                     $_POST['user_name'] = "";
                     $_POST['Field'] = "";
@@ -196,7 +199,7 @@
 
                 <div class="input-wrap">
                   <b>Bank Account : </b>
-                  <input type="number" name="Bank_Acc" class="input-field" autocomplete="off" required />
+                  <input type="text" name="Bank_Acc" class="input-field" autocomplete="off" required />
 
                 </div>
                 <div class="input-wrap">
