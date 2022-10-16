@@ -23,11 +23,13 @@ if (isset($_POST['submit']))
 		$row = mysqli_fetch_assoc($result);
         if($row['password']==$password)
         {
+
             $_SESSION['user_name'] = $row['user_name'];
             $_POST['password'] = "";
             $_POST['user_name'] = "";
             unset($user_name);
             header("Location: dashboard.php");
+
         }
         else 
         {
@@ -144,3 +146,4 @@ if (isset($_POST['submit']))
             </footer>
 </body>
 </html>
+//hehe
