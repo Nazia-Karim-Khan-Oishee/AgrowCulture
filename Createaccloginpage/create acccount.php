@@ -109,8 +109,7 @@ if (isset($_POST['submit']))
                         $mail->Body="<p>Dear user, </p> <h3>Your verify OTP code is $otp <br></h3>
                         <br><br>
                         <p>With regrads,</p>
-                        <b>Programming with Lam</b>
-                        https://www.youtube.com/channel/UCKRZp3mkvL1CBYKFIlxjDdg";
+                        <b>Agrowculture</b>";
         
                                 if(!$mail->send()){
                                 
