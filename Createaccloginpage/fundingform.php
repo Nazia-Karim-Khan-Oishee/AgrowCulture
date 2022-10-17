@@ -37,7 +37,7 @@
     } 
     else {
       if ($sum-$Requested_Amount >= 0) {
-        $sql1 = "SELECT * FROM  investment WHERE Status='p'";
+        $sql1 = "SELECT * FROM  investment WHERE Status='P'";
         // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
         $result = mysqli_query($Conn, $sql1);
         while ($row = mysqli_fetch_array($result)) {
@@ -176,10 +176,10 @@
               <div class="actual-form">
                 <div class="input-wrap">
                   <b>USER_NAME : </b>
-                  <span class="error"> <?php echo $Message; ?></span>
+                  <!--<span class="error"> <?php echo $Message; ?></span>-->
                   
                   <input type="text" name="user_name" minlength="4" class="input-field" autocomplete="off" required />
-                  <span class="error"> <?php echo $UserErr; ?></span>
+                  <!-- //<span class="error"> <?php echo $UserErr; ?></span> -->
 
                 </div>
 

@@ -11,7 +11,7 @@ $user_name = $_SESSION['user_name'];
     $result =mysqli_query($Conn,$sql);
     if($result->num_rows <= 0)
     {
-        $Message = "No Records To Show";
+        $Message = "No Records To Show.";
     }
     else{
         $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
@@ -22,7 +22,7 @@ $user_name = $_SESSION['user_name'];
         //     while($row3 = mysqli_fetch_array($result))
         //     {
                 // $amount=$row['Requested_Amount'];$date=$row['Date'];
-                $Message= "You requested for $sum3"." \n";
+                $Message= "You requested for BDT $sum3."." \n";
 
            // }
     }
@@ -30,7 +30,7 @@ $user_name = $_SESSION['user_name'];
     $result2 =mysqli_query($Conn,$sql2);
     if($result2->num_rows <= 0)
     {
-        $Message2 = "No Records To Show";
+        $Message2 = "No Records To Show.";
     }
     else{
     $query = "SELECT SUM(Current_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
@@ -46,7 +46,7 @@ $user_name = $_SESSION['user_name'];
         //     while($row2 = mysqli_fetch_array($result2))
         //     {
                 //$amount=$row2['Requested_Amount']-$row2['Current_Amount'];$
-                $Message2= "$invested has been invested from your balance $sum2"."."."your current balance is $sum";
+                $Message2= "BDT $invested has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
 
            // }
     }
@@ -54,7 +54,7 @@ $user_name = $_SESSION['user_name'];
     $result3 =mysqli_query($Conn,$sql3);
     if($result3->num_rows <= 0)
     {
-        $Message3 = "No Records To Show";
+        $Message3 = "No Records To Show.";
     }
     else{
         $Message3="\n";
@@ -62,7 +62,7 @@ $user_name = $_SESSION['user_name'];
             {
 
                 $quantity=$row3['Quantity'];$product=$row['Produuct'];$date=$row3['Date'];
-                $Message3= $Message3."<br>"."You provided  $quantity kg of  $product on  $date"." \n";
+                $Message3= $Message3."<br>"."You provided  $quantity kg of  $product on  $date."." \n";
 
             }
     }
@@ -70,7 +70,7 @@ $user_name = $_SESSION['user_name'];
     $result4 =mysqli_query($Conn,$sql4);
     if($result4->num_rows <= 0)
     {
-        $Message4 = "No Records To Show";
+        $Message4 = "No Records To Show.";
     }
     else{
        // $Message4="\n";
@@ -80,7 +80,7 @@ $user_name = $_SESSION['user_name'];
             {
 
                 $date=$row4['Date'];
-                $Message4= "<br>"."You last purchased from us on $date"." \n";
+                $Message4= "<br>"."You last purchased from us on $date."." \n";
 
            }
     }

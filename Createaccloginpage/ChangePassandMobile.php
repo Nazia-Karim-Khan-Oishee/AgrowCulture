@@ -21,29 +21,28 @@ if(isset($_SESSION['Just_Set']) && $_SESSION['Just_Set']==true)
 }
 if (isset($_POST['submit'])) 
 {
-    $user_name = $_SESSION['user_name'];
-    $currentpass = $_POST['currentpass'];
-    $checkpassword = $_POST['new_password'];
-    $new_password = md5($_POST['new_password']);
-    $cpassword = md5($_POST['cpassword']);
-    $uppercase = preg_match('@[A-Z]@', $checkpassword);
-    $lowercase = preg_match('@[a-z]@', $checkpassword);
-    $number    = preg_match('@[0-9]@', $checkpassword);
-    $specialchars = preg_match('@[^\w]@', $checkpassword);
-    $Validate= true;
-    if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) {
-        $Validate= false;
-    }
-    
-    if($Validate)
-    {
+  $user_name = $_SESSION['user_name'];
       $sql3 = "SELECT password FROM users WHERE user_name = '$user_name'";
        $result3 = mysqli_query($Conn , $sql3);
        $row=mysqli_fetch_assoc($result3);
       $hash = password_hash($row['password'], PASSWORD_DEFAULT);
       if(password_verify(md5($_POST['currentpass']),  $hash))
        {
-
+        $currentpass = $_POST['currentpass'];
+        $checkpassword = $_POST['new_password'];
+        $new_password = md5($_POST['new_password']);
+        $cpassword = md5($_POST['cpassword']);
+        $uppercase = preg_match('@[A-Z]@', $checkpassword);
+        $lowercase = preg_match('@[a-z]@', $checkpassword);
+        $number    = preg_match('@[0-9]@', $checkpassword);
+        $specialchars = preg_match('@[^\w]@', $checkpassword);
+        $Validate= true;
+        if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) 
+        {
+            $Validate= false;
+        }
+        if($Validate)
+    {
             if($new_password == $cpassword)
             {
                 $sql2 = "UPDATE users SET password = '$new_password' WHERE user_name = '$user_name' ";
@@ -70,8 +69,22 @@ if (isset($_POST['submit']))
                 $ShowMessage1 ="Password does not match";
             }
        }
+       else{
+        unset($cpassword);
+unset($new_password);
+unset($currentpass);
+$_POST['new_password'] = "";
+$_POST['cpassword'] = "";
+$_POST['cpassword'] = "";
+        $ShowMessage3 ="Password should contain at least one 
+        uppercase letter, one lowercase letter, one special character and one number ";
+       // echo "<p class='er'><big>Password should contain at least one 
+// uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
+       }
+      }
      else
-        {unset($cpassword);
+        {
+          unset($cpassword);
             unset($new_password);
             unset($currentpass);
             $_POST['new_password'] = "";
@@ -80,20 +93,7 @@ if (isset($_POST['submit']))
             //echo "<script>alert('Current Password does not match')</script>";
             $ShowMessage2 ="Current Password does not match";
          }
-        }
-        else{
-            unset($cpassword);
-    unset($new_password);
-    unset($currentpass);
-    $_POST['new_password'] = "";
-    $_POST['cpassword'] = "";
-    $_POST['cpassword'] = "";
-            $ShowMessage3 ="Password should contain at least one 
-            uppercase letter, one lowercase letter, one special character and one number ";
-           // echo "<p class='er'><big>Password should contain at least one 
-   // uppercase letter, one lowercase letter, one special character and one number </big>.</big></p>";
 
-        }
         unset($currpass);
         unset($new_password);
         unset($cpassword);
@@ -202,7 +202,7 @@ if (isset($_POST['submit']))
                 </div>
                 <div class="form__input-group">
                 <label for="exampleFormControlInput1" class="form-label">New Password</label> <br>           
-                    <input type="password" class="form__input" name="new_password" autofocus placeholder="NewPassword" onfocus="this.value=''"  required>
+                    <input type="password" class="form__input" name="new_password" autofocus placeholder="New Password" onfocus="this.value=''"  required>
                     <span class="error"> <?php echo $ShowMessage3;?></span>
                     <div class="form__input-error-message"></div>
                 </div>
@@ -219,8 +219,8 @@ if (isset($_POST['submit']))
                 <h3 class="form__title">Change Mobile Number</h3>
                 <div class="form__message form__message--error"></div>
                 <div class="form__input-group">
-                <label for="exampleFormControlInput1" class="form-label">Change Mobile Number</label><br>
-                    <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="MobileNumber" onfocus="this.value=''"  required>
+                <label for="exampleFormControlInput1" class="form-label">Mobile Number</label><br>
+                    <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" onfocus="this.value=''"  required>
                     <span class="error"> <?php echo $MobileError1;?></span>
                 <div class="form__input-error-message"></div>
                 </div>

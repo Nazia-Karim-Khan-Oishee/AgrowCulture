@@ -170,7 +170,7 @@ else{
                 <div class="input-wrap">
                   <b>Bank Account : </b>
                   <input
-                    type="number"
+                    type="text"
                    name="Bank_Acc"
                     class="input-field"
                     autocomplete="off"

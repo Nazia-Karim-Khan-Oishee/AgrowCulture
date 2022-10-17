@@ -217,37 +217,37 @@ else
             <!-- Name -->
             <div class="form__message form__message--error"></div>
             <div class="form__input-group">
-                <input type="text" class="form__input" name="Name" autofocus placeholder="Name" value="<?php echo $Name; ?>" required>
+                <input type="text" class="form__input" name="Name" autofocus placeholder="Name" autocomplete="off" value="<?php echo $Name; ?>" required>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Username -->
             <div class="form__input-group">
-                <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" value="<?php echo $user_name; ?>" required> 
+                <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" autocomplete="off" value="<?php echo $user_name; ?>" required> 
                 <span class="error"> <?php echo $usernameErr;?></span>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Email -->
             <div class="form__input-group">
-                <input type="text" class="form__input" name="email" autofocus placeholder="Email" value="<?php echo $email; ?>" required> 
+                <input type="text" class="form__input" name="email" autofocus placeholder="Email" autocomplete="off"  value="<?php echo $email; ?>" required> 
                 <span class="error"> <?php echo $emailErr;?></span>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Mobile Number -->
             <div class="form__input-group">
-                <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" value="<?php echo $MobileNumber; ?>" required>
+                <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" autocomplete="off" value="<?php echo $MobileNumber; ?>" required>
                 <span class="error"> <?php echo $MobileNumberErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <div class="form__input-group">
-                <input type="text" class="form__input" name="email" autofocus placeholder="email ID" value="<?php echo $email; ?>" required>
+                <input type="text" class="form__input" name="email" autofocus placeholder="email ID" autocomplete="off" value="<?php echo $email; ?>" required>
                 <span class="error"> <?php echo $emailErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
 
             <div class="form__input-group">
-                <input type="password" class="form__input" name="password" autofocus placeholder="Password" value="<?php echo $_POST['password']; ?>" required>
+                <input type="password" class="form__input" name="password" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                 <span class="error"> <?php echo $PassErr;?></span>
                 <div class="form__input-error-message"></div>
@@ -255,7 +255,7 @@ else
             </div>
             <!-- Confirm Password -->
             <div class="form__input-group">
-                <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" value="<?php echo $_POST['cpassword']; ?>" required>
+                <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" autocomplete="off" value="<?php echo $_POST['cpassword']; ?>" required>
                 <i class="bi bi-eye-slash" id="togglePassword"></i>
                <span class="error"> <?php echo $ConfirmErr;?></span>
                 <div class="form__input-error-message"></div>
@@ -267,6 +267,7 @@ else
             </p>
         </form>         
     </div>
+    <br>
 	</div>
 	
 	<footer>

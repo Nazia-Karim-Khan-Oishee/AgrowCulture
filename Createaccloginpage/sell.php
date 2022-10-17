@@ -143,7 +143,7 @@
                 <!-- Bank Account -->
                 <div class="input-wrap">
                   <b>Bank Account : </b>
-                  <input type="number" name = "Bank_Acc" class="input-field" autocomplete="off" required>
+                  <input type="text" name = "Bank_Acc" class="input-field" autocomplete="off" required>
                 </div>
                
               <input type="submit" name="submit" value="Apply" class="sign-btn" />
