@@ -4,7 +4,7 @@
 
   session_start();
 
-  echo "<script>alert('Verify account done, you may sign in now')</script>";
+ // echo "<script>alert('Verify account done, you may sign in now')</script>";
   if (isset($_POST['submit'])) {
     //echo "<script>alert('you may sign in now')</script>";
     $user_name = $_POST['user_name'];
@@ -23,12 +23,17 @@
     $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
     $rowCount = mysqli_num_rows($check_query);
     if ($rowCount <= 0) {
-      $UserErr = "Invalid User";
+      //$UserErr = "Invalid User";
       $_POST['user_name'] = "";
       $_POST['Field'] = "";
       $_POST['Bank_Acc'] = "";
       $_POST['Requested_Amount'] = "";
       $_POST['Date'] = "";
+      ?>
+                    <script>
+                        window.location.replace("InvalidUser.php");
+                    </script>
+                <?php    
     } 
     else {
       if ($sum-$Requested_Amount >= 0) {
@@ -78,29 +83,44 @@
         //echo "<script>alert(' now')</script>";
             if($connect){
 
-                    $ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";
+                    //$ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";
                     $_POST['user_name'] = "";
                     $_POST['Field'] = "";
                     $_POST['Bank_Acc'] = "";
                     $_POST['Requested_Amount'] = "";
                     $_POST['Date'] = ""; 
-            }
+                    ?>
+                    <script>
+                        window.location.replace("FundingAccepted.php");
+                    </script>
+                <?php       
+                           }
             else
             {
-              $ACMessage="SOMETHING WENT WRONG.PLEASE TRY AGAIN LATER";
+              //$ACMessage="SOMETHING WENT WRONG.PLEASE TRY AGAIN LATER";
               $_POST['user_name'] = "";
               $_POST['Field'] = "";
               $_POST['Bank_Acc'] = "";
               $_POST['Requested_Amount'] = "";
               $_POST['Date'] = ""; 
+              ?>
+              <script>
+                  window.location.replace("SomethingWentWrong.php");
+              </script>
+              <?php 
             }
       } else {
-        $Message = "Sorry!We can not accept your request now.Please try again later.";
+       // $Message = "Sorry!We can not accept your request now.Please try again later.";
         $_POST['user_name'] = "";
         $_POST['Field'] = "";
         $_POST['Bank_Acc'] = "";
         $_POST['Requested_Amount'] = "";
         $_POST['Date'] = "";
+        ?>
+                    <script>
+                        window.location.replace("FundingNotAccepted.php");
+                    </script>
+                <?php   
       }
     }
   }

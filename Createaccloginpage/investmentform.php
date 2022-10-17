@@ -6,7 +6,7 @@
 
   if (isset($_POST['submit'])) {
     $user_name = $_POST['user_name'];
-    $Date = $_POST['Date'];
+    $date = $_POST['Date'];
     $user_name = $_POST['user_name'];
 $Bank_Acc = $_POST['Bank_Acc'];
 $Provided_Amount = $_POST['Provided_Amount'];
@@ -14,7 +14,7 @@ $Field = $_POST['Field'];
 $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
 $rowCount = mysqli_num_rows($check_query);
 if ($rowCount <= 0) {
-  echo "<script>alert(' invalid')</script>";
+  //echo "<script>alert(' invalid')</script>";
 
   //$UserErr = "Invalid User";
   $_POST['user_name'] = "";
@@ -22,28 +22,44 @@ if ($rowCount <= 0) {
   $_POST['Bank_Acc'] = "";
   $_POST['Provided_Amount'] = "";
   $_POST['Date'] = "";
+  ?>
+                    <script>
+                        window.location.replace("InvalidUser.php");
+                    </script>
+                <?php    
 }
 else 
 {
   $query = "INSERT INTO investment (Investment_id, user_name, Field, Bank_Acc, Provided_Amount, Current_Amount, Status, Date) 
-VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Provided_Amount', '$Provided_Amount', 'p', '$Date')";
+VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Provided_Amount', '$Provided_Amount', 'p', '$date')";
  $connect = mysqli_query($Conn,$query);
  if($connect)
  {
-   echo "<script>alert('Verify account done, you may sign in now')</script>";
+   //echo "<script>alert('Verify account done, you may sign in now')</script>";
    $_POST['user_name'] = "";
   $_POST['Field'] = "";
   $_POST['Bank_Acc'] = "";
   $_POST['Provided_Amount'] = "";
   $_POST['Date'] = "";
+  ?>
+                    <script>
+                        window.location.replace("InvestmentAccepted.php");
+                    </script>
+                <?php  
+
 }
 else{
-  echo "<script>alert(' in now')</script>";
+  //echo "<script>alert(' in now')</script>";
   $_POST['user_name'] = "";
   $_POST['Field'] = "";
   $_POST['Bank_Acc'] = "";
   $_POST['Provided_Amount'] = "";
   $_POST['Date'] = "";
+  ?>
+                    <script>
+                        window.location.replace("SomethingWentWrong.php");
+                    </script>
+                <?php    
 }
 }
 }
@@ -100,7 +116,7 @@ else{
 
              <br> <div class="actual-form">
                 <div class="input-wrap">
-                  <b>USER_NAME : </b>
+                  <b>User Name</b>: </b>
                   <input
                     type="text" name="user_name"
                     minlength="4"
@@ -110,7 +126,36 @@ else{
                   />
                   
                 </div>
+                <script>
+                $(document).ready(function(){
+                  
+                    var dtToday = new Date();
+                    var month = dtToday.getMonth() +1;
+                    var day = dtToday.getDate();
+                    var year = dtToday.getFullYear();
+                    if(month<10)
+                    month='0' + month.toString();
+                    if(day<10)
+                    day='0' + day.toString;
+                    var maxDate= year + '-'+ month + '-' +day;
+                    $('#dateControl').attr('min',maxDate);
+                  
+                })
+               </script>
+               
 
+                <div class="input-wrap">
+                  <b>DATE : </b>
+                  <input
+                    type="date" name="Date"
+                    id="dateControl"
+                    minlength="4"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label></label>
+                </div>
               <!--  <div class="input-wrap">
                   <input
                     type="email"
