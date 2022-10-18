@@ -76,11 +76,10 @@
           //   $NewMoney = "";
           //   echo "<script>alert('Verify account done, you may sign in now')</script>";
           // }
-        
-        $query="INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Status, Date) 
-        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$date')";
+        echo "$user_name"."$Field"."$Bank_Acc"."$Requested_Amount"."$date";
+        $query="INSERT INTO funding ( user_name, Field, Bank_Acc, Requested_Amount, Status, Date) 
+        VALUES ( '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$date')";
         $connect = mysqli_query($Conn, $query );
-        //echo "<script>alert(' now')</script>";
             if($connect){
 
                     //$ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";

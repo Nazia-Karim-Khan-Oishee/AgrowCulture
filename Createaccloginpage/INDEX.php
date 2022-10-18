@@ -21,13 +21,13 @@ if (isset($_POST['submit']))
 	if ($result->num_rows > 0) 
     {
 		$row = mysqli_fetch_assoc($result);
-        if($row['password']==$password)
+        if($row['password']===$password)
         {
 
             $_SESSION['user_name'] = $row['user_name'];
             $_POST['password'] = "";
             $_POST['user_name'] = "";
-            unset($user_name);
+            //unset($user_name);
             header("Location: dashboard.php");
 
         }
@@ -36,7 +36,7 @@ if (isset($_POST['submit']))
             $WrongPass="Wrong Password.";
             $_POST['password'] = "";
             $_POST['user_name'] = "";
-            unset($user_name);
+            //unset($user_name);
             // echo "<p class='er'>Wrong Password.</big></p>";
         }
 	} 
@@ -45,7 +45,7 @@ if (isset($_POST['submit']))
         $WrongUser="Invalid User Name.";
         $_POST['password'] = "";
         $_POST['user_name'] = "";
-        unset($user_name);
+       // unset($user_name);
         // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
