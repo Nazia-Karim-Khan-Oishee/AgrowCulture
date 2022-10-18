@@ -1,4 +1,4 @@
-<!--<?php 
+<?php 
 
 include 'Config.php';
 
@@ -49,7 +49,7 @@ if (isset($_POST['submit']))
         // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
-?>-->
+?>
 
 <!DOCTYPE html>
 <html lang="en">
