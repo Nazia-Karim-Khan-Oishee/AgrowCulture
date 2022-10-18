@@ -162,7 +162,7 @@ $user_name = $_SESSION['user_name'];
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="investmentform.php"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 
                                 <h2>Investment</h2>

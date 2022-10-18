@@ -15,10 +15,10 @@
     // $date = str_replace('/', '-', $var);
     // //echo date('Y-m-d', strtotime($date));
     //$Date =  date('Y-m-d', strtotime($date));
-    $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
-    $result = mysqli_query($Conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $sum = $row['value_sum'];
+    // $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
+    // $result = mysqli_query($Conn, $sql);
+    // $row = mysqli_fetch_assoc($result);
+    // $sum = $row['value_sum'];
     //echo '$sum'; 
     $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
     $rowCount = mysqli_num_rows($check_query);
@@ -36,30 +36,30 @@
                 <?php    
     } 
     else {
-      if ($sum-$Requested_Amount >= 0) {
-        $sql1 = "SELECT * FROM  investment WHERE Status='P'";
-        // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
-        $result = mysqli_query($Conn, $sql1);
-        while ($row = mysqli_fetch_array($result)) {
-          $checkbalance = $row['Current_Amount'] - $Requested_Amount;
-          if ($checkbalance <= 0) {
-            $Investment_id = $row['Investment_id'];
-            $rem_request = $Requested_Amount - $row['Current_Amount	']; //0/greater than 0
-            $sql3 = "UPDATE investment set Current_Amount='0' WHERE Investment_id='$Investment_id'";
-            $result3 = mysqli_query($Conn, $sql3);
-            $sql2 = "UPDATE investment set Status='F' WHERE Investment_id='$Investment_id' ";
-            $result2 = mysqli_query($Conn, $sql2);
-          } else if ($checkbalance > 0) {
-            $Investment_id = $row['Investment_id'];
-            $rem_request = $Requested_Amount - $row['Current_Amount	']; //0
-            $sql3 = "UPDATE investment set Current_Amount='$checkbalance' WHERE Investment_id='$Investment_id'";
-            $result3 = mysqli_query($Conn, $sql3);
-            $sql2 = "UPDATE investment set Status='P' WHERE Investment_id='$Investment_id' ";
-            $result2 = mysqli_query($Conn, $sql2);
-          }
-          if ($rem_request == 0) {
-            break;
-          }
+      // if ($sum-$Requested_Amount >= 0) {
+      //   $sql1 = "SELECT * FROM  investment WHERE Status='P'";
+      //   // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+      //   $result = mysqli_query($Conn, $sql1);
+      //   while ($row = mysqli_fetch_array($result)) {
+      //     $checkbalance = $row['Current_Amount'] - $Requested_Amount;
+      //     if ($checkbalance <= 0) {
+      //       $Investment_id = $row['Investment_id'];
+      //       $rem_request = $Requested_Amount - $row['Current_Amount	']; //0/greater than 0
+      //       $sql3 = "UPDATE investment set Current_Amount='0' WHERE Investment_id='$Investment_id'";
+      //       $result3 = mysqli_query($Conn, $sql3);
+      //       $sql2 = "UPDATE investment set Status='F' WHERE Investment_id='$Investment_id' ";
+      //       $result2 = mysqli_query($Conn, $sql2);
+      //     } else if ($checkbalance > 0) {
+      //       $Investment_id = $row['Investment_id'];
+      //       $rem_request = $Requested_Amount - $row['Current_Amount	']; //0
+      //       $sql3 = "UPDATE investment set Current_Amount='$checkbalance' WHERE Investment_id='$Investment_id'";
+      //       $result3 = mysqli_query($Conn, $sql3);
+      //       $sql2 = "UPDATE investment set Status='P' WHERE Investment_id='$Investment_id' ";
+      //       $result2 = mysqli_query($Conn, $sql2);
+      //     }
+      //     if ($rem_request == 0) {
+      //       break;
+      //     }
 
           //   if ($row['Status'] == 'p') {
           //     echo "<script>alert('you may sign in now')</script>";
@@ -76,9 +76,9 @@
           //   $NewMoney = "";
           //   echo "<script>alert('Verify account done, you may sign in now')</script>";
           // }
-        }
-        $query="INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Date) 
-        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', '$date')";
+        
+        $query="INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Status, Date) 
+        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$date')";
         $connect = mysqli_query($Conn, $query );
         //echo "<script>alert(' now')</script>";
             if($connect){
@@ -109,21 +109,9 @@
               </script>
               <?php 
             }
-      } else {
-       // $Message = "Sorry!We can not accept your request now.Please try again later.";
-        $_POST['user_name'] = "";
-        $_POST['Field'] = "";
-        $_POST['Bank_Acc'] = "";
-        $_POST['Requested_Amount'] = "";
-        $_POST['Date'] = "";
-        ?>
-                    <script>
-                        window.location.replace("FundingNotAccepted.php");
-                    </script>
-                <?php   
-      }
+      } 
     }
-  }
+
   ?>
   <!DOCTYPE html>
   <html lang="en">
