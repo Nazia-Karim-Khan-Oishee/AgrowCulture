@@ -1,3 +1,76 @@
+<?php
+  include('Config.php');
+  error_reporting(0);
+
+  session_start();
+
+  if (isset($_POST['submit'])) {
+    $user_name = $_POST['user_name'];
+    $date = $_POST['Date'];
+    $user_name = $_POST['user_name'];
+$Bank_Acc = $_POST['Bank_Acc'];
+$Provided_Amount = $_POST['Provided_Amount'];
+$Field = $_POST['Field'];
+$check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
+$rowCount = mysqli_num_rows($check_query);
+if ($rowCount <= 0) {
+  //echo "<script>alert(' invalid')</script>";
+
+  //$UserErr = "Invalid User";
+  $_POST['user_name'] = "";
+  $_POST['Field'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Provided_Amount'] = "";
+  $_POST['Date'] = "";
+  ?>
+                    <script>
+                        window.location.replace("InvalidUser.php");
+                    </script>
+                <?php    
+}
+else 
+{
+  $query = "INSERT INTO investment (Investment_id, user_name, Field, Bank_Acc, Provided_Amount, Current_Amount, Status, Date) 
+VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Provided_Amount', '$Provided_Amount', 'p', '$date')";
+ $connect = mysqli_query($Conn,$query);
+ if($connect)
+ {
+   //echo "<script>alert('Verify account done, you may sign in now')</script>";
+   $_POST['user_name'] = "";
+  $_POST['Field'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Provided_Amount'] = "";
+  $_POST['Date'] = "";
+  ?>
+                    <script>
+                        window.location.replace("InvestmentAccepted.php");
+                    </script>
+                <?php  
+
+}
+else{
+  //echo "<script>alert(' in now')</script>";
+  $_POST['user_name'] = "";
+  $_POST['Field'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Provided_Amount'] = "";
+  $_POST['Date'] = "";
+  ?>
+                    <script>
+                        window.location.replace("SomethingWentWrong.php");
+                    </script>
+                <?php    
+}
+}
+}
+  ?>
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -29,7 +102,7 @@
               <a href="#" class="toggle"><h3>APPLY NOW!</h3></a>
             </form>
 
-            <form action="index.html" autocomplete="off" class="sign-up-form">
+            <form action="" method="POST" autocomplete="off" class="sign-up-form">
               <div class="logo">
                
                
@@ -43,9 +116,9 @@
 
              <br> <div class="actual-form">
                 <div class="input-wrap">
-                  <b>NAME : </b>
+                  <b>User Name</b>: </b>
                   <input
-                    type="text"
+                    type="text" name="user_name"
                     minlength="4"
                     class="input-field"
                     autocomplete="off"
@@ -53,17 +126,7 @@
                   />
                   
                 </div>
-
-              <!--  <div class="input-wrap">
-                  <input
-                    type="email"
-                    class="input-field"
-                    autocomplete="off"
-                    required
-                  />
-                  <label>Email</label>
-                </div> -->
-               <script>
+                <script>
                 $(document).ready(function(){
                   
                     var dtToday = new Date();
@@ -84,7 +147,7 @@
                 <div class="input-wrap">
                   <b>DATE : </b>
                   <input
-                    type="date"
+                    type="date" name="Date"
                     id="dateControl"
                     minlength="4"
                     class="input-field"
@@ -93,12 +156,22 @@
                   />
                   <label></label>
                 </div>
+              <!--  <div class="input-wrap">
+                  <input
+                    type="email"
+                    class="input-field"
+                    autocomplete="off"
+                    required
+                  />
+                  <label>Email</label>
+                </div> -->
+               
 
                 <div class="input-wrap">
                   <b>Bank Account : </b>
                   <input
-                    type="number"
-                   
+                    type="text"
+                   name="Bank_Acc"
                     class="input-field"
                     autocomplete="off"
                     required
@@ -108,7 +181,7 @@
                   <div class="input-wrap">
                     <b>Provided Amount : </b>
                     <input
-                      type="number"
+                      type="number" name="Provided_Amount"
                       minlength="4"
                       class="input-field"
                       autocomplete="off"
@@ -136,16 +209,17 @@
                 <input
                 type="radio"
                  name= "Field"
-                 value="Machinaries"
+                 value="Poultry"
                 required
               />   Poultry<br>
+              
               <h6>kkhs</h6>
               <h6>klahd</h6>
                 </div>
                 </div>
              
 
-              <br><br> <br> <input type="submit" value="Apply" class="sign-btn" />
+              <br><br> <br> <input type="submit" name="submit" value="Apply" class="sign-btn" />
 
                 <p class="text">
                   By Applying, I agree to the <a href="#">Terms of Services</a> and

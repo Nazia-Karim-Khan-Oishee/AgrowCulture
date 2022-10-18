@@ -4,7 +4,7 @@
 
   session_start();
 
-  echo "<script>alert('Verify account done, you may sign in now')</script>";
+ // echo "<script>alert('Verify account done, you may sign in now')</script>";
   if (isset($_POST['submit'])) {
     //echo "<script>alert('you may sign in now')</script>";
     $user_name = $_POST['user_name'];
@@ -15,46 +15,51 @@
     // $date = str_replace('/', '-', $var);
     // //echo date('Y-m-d', strtotime($date));
     //$Date =  date('Y-m-d', strtotime($date));
-    $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
-    $result = mysqli_query($Conn, $sql);
-    $row = mysqli_fetch_assoc($result);
-    $sum = $row['value_sum'];
+    // $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
+    // $result = mysqli_query($Conn, $sql);
+    // $row = mysqli_fetch_assoc($result);
+    // $sum = $row['value_sum'];
     //echo '$sum'; 
     $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
     $rowCount = mysqli_num_rows($check_query);
     if ($rowCount <= 0) {
-      $UserErr = "Invalid User";
+      //$UserErr = "Invalid User";
       $_POST['user_name'] = "";
       $_POST['Field'] = "";
       $_POST['Bank_Acc'] = "";
       $_POST['Requested_Amount'] = "";
       $_POST['Date'] = "";
+      ?>
+                    <script>
+                        window.location.replace("InvalidUser.php");
+                    </script>
+                <?php    
     } 
     else {
-      if ($sum-$Requested_Amount >= 0) {
-        $sql1 = "SELECT * FROM  investment WHERE Status='p'";
-        // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
-        $result = mysqli_query($Conn, $sql1);
-        while ($row = mysqli_fetch_array($result)) {
-          $checkbalance = $row['Current_Amount'] - $Requested_Amount;
-          if ($checkbalance <= 0) {
-            $Investment_id = $row['Investment_id'];
-            $rem_request = $Requested_Amount - $row['Current_Amount	']; //0/greater than 0
-            $sql3 = "UPDATE investment set Current_Amount='0' WHERE Investment_id='$Investment_id'";
-            $result3 = mysqli_query($Conn, $sql3);
-            $sql2 = "UPDATE investment set Status='F' WHERE Investment_id='$Investment_id' ";
-            $result2 = mysqli_query($Conn, $sql2);
-          } else if ($checkbalance > 0) {
-            $Investment_id = $row['Investment_id'];
-            $rem_request = $Requested_Amount - $row['Current_Amount	']; //0
-            $sql3 = "UPDATE investment set Current_Amount='$checkbalance' WHERE Investment_id='$Investment_id'";
-            $result3 = mysqli_query($Conn, $sql3);
-            $sql2 = "UPDATE investment set Status='P' WHERE Investment_id='$Investment_id' ";
-            $result2 = mysqli_query($Conn, $sql2);
-          }
-          if ($rem_request == 0) {
-            break;
-          }
+      // if ($sum-$Requested_Amount >= 0) {
+      //   $sql1 = "SELECT * FROM  investment WHERE Status='P'";
+      //   // $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
+      //   $result = mysqli_query($Conn, $sql1);
+      //   while ($row = mysqli_fetch_array($result)) {
+      //     $checkbalance = $row['Current_Amount'] - $Requested_Amount;
+      //     if ($checkbalance <= 0) {
+      //       $Investment_id = $row['Investment_id'];
+      //       $rem_request = $Requested_Amount - $row['Current_Amount	']; //0/greater than 0
+      //       $sql3 = "UPDATE investment set Current_Amount='0' WHERE Investment_id='$Investment_id'";
+      //       $result3 = mysqli_query($Conn, $sql3);
+      //       $sql2 = "UPDATE investment set Status='F' WHERE Investment_id='$Investment_id' ";
+      //       $result2 = mysqli_query($Conn, $sql2);
+      //     } else if ($checkbalance > 0) {
+      //       $Investment_id = $row['Investment_id'];
+      //       $rem_request = $Requested_Amount - $row['Current_Amount	']; //0
+      //       $sql3 = "UPDATE investment set Current_Amount='$checkbalance' WHERE Investment_id='$Investment_id'";
+      //       $result3 = mysqli_query($Conn, $sql3);
+      //       $sql2 = "UPDATE investment set Status='P' WHERE Investment_id='$Investment_id' ";
+      //       $result2 = mysqli_query($Conn, $sql2);
+      //     }
+      //     if ($rem_request == 0) {
+      //       break;
+      //     }
 
           //   if ($row['Status'] == 'p') {
           //     echo "<script>alert('you may sign in now')</script>";
@@ -71,39 +76,42 @@
           //   $NewMoney = "";
           //   echo "<script>alert('Verify account done, you may sign in now')</script>";
           // }
-        }
-        $query="INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Date) 
-        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', '$date')";
+        
+        $query="INSERT INTO funding (Funding_id, user_name, Field, Bank_Acc, Requested_Amount, Status, Date) 
+        VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$date')";
         $connect = mysqli_query($Conn, $query );
         //echo "<script>alert(' now')</script>";
             if($connect){
 
-                    $ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";
+                    //$ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";
                     $_POST['user_name'] = "";
                     $_POST['Field'] = "";
                     $_POST['Bank_Acc'] = "";
                     $_POST['Requested_Amount'] = "";
                     $_POST['Date'] = ""; 
-            }
+                    ?>
+                    <script>
+                        window.location.replace("FundingAccepted.php");
+                    </script>
+                <?php       
+                           }
             else
             {
-              $ACMessage="SOMETHING WENT WRONG.PLEASE TRY AGAIN LATER";
+              //$ACMessage="SOMETHING WENT WRONG.PLEASE TRY AGAIN LATER";
               $_POST['user_name'] = "";
               $_POST['Field'] = "";
               $_POST['Bank_Acc'] = "";
               $_POST['Requested_Amount'] = "";
               $_POST['Date'] = ""; 
+              ?>
+              <script>
+                  window.location.replace("SomethingWentWrong.php");
+              </script>
+              <?php 
             }
-      } else {
-        $Message = "Sorry!We can not accept your request now.Please try again later.";
-        $_POST['user_name'] = "";
-        $_POST['Field'] = "";
-        $_POST['Bank_Acc'] = "";
-        $_POST['Requested_Amount'] = "";
-        $_POST['Date'] = "";
-      }
+      } 
     }
-  }
+
   ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -155,11 +163,11 @@
               <br>
               <div class="actual-form">
                 <div class="input-wrap">
-                  <b>NAME : </b>
-                  <span class="error"> <?php echo $Message; ?></span>
+                  <b>USER_NAME : </b>
+                  <!--<span class="error"> <?php echo $Message; ?></span>-->
                   
                   <input type="text" name="user_name" minlength="4" class="input-field" autocomplete="off" required />
-                  <span class="error"> <?php echo $UserErr; ?></span>
+                  <!-- //<span class="error"> <?php echo $UserErr; ?></span> -->
 
                 </div>
 

@@ -71,7 +71,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Funding Form</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="sellstyle.css" />
+    <link rel="stylesheet" href="sell.css" />
   </head>
   <body>
     <main>
@@ -143,7 +143,7 @@
                 <!-- Bank Account -->
                 <div class="input-wrap">
                   <b>Bank Account : </b>
-                  <input type="number" name = "Bank_Acc" class="input-field" autocomplete="off" required>
+                  <input type="text" name = "Bank_Acc" class="input-field" autocomplete="off" required>
                 </div>
                
               <input type="submit" name="submit" value="Apply" class="sign-btn" />

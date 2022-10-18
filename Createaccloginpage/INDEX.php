@@ -73,7 +73,7 @@ if (isset($_POST['submit']))
             <ul>
                  <li><div class="zoom"><a href="getstartedpage.php">HOME</a></div></li> 
                   <li><div class="zoom"><a href="4optionss.php">SERVICES</a></div></li> 
-                    <li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> 
+                    <!--<li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> -->
             </ul>
            
         </nav>
@@ -90,13 +90,13 @@ if (isset($_POST['submit']))
             <div class="form__message form__message--error"></div>
             <!-- Username -->
             <div class="form__input-group">
-                <input type="text" class="form__input"  name="user_name" id="username" autofocus placeholder="Enter username" value="<?php echo $user_name; ?>" required>
+                <input type="text" class="form__input"  name="user_name" id="username" autofocus placeholder="Enter username" autocomplete="off" value="<?php echo $user_name; ?>" required>
                 <span class="error"> <?php echo $WrongUser;?></span>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Password -->
             <div class="form__input-group">
-                <input type="password" class="form__input" name="password" id="password" autofocus placeholder="Enter password" value="<?php echo $_POST['password']; ?>" required>
+                <input type="password" class="form__input" name="password" id="password" autofocus placeholder="Enter password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
                 <span class="error"> <?php echo $WrongPass;?></span>
                 <div class="form__input-error-message"></div>
             </div>

@@ -6,7 +6,86 @@ error_reporting(0);
 session_start();
 
 $user_name = $_SESSION['user_name'];
-?>
+//$user_name = $_SESSION['user_name'];
+    $sql = "SELECT * FROM  funding WHERE user_name= '$user_name'";
+    $result =mysqli_query($Conn,$sql);
+    if($result->num_rows <= 0)
+    {
+        $Message = "No Records To Show.";
+    }
+    else{
+        $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
+    $con3 = mysqli_query($Conn, $query3);
+    $rows3 = mysqli_fetch_assoc($con3);
+    $sum3 = $rows3['valuesum'];
+        // $Message="\n";
+        //     while($row3 = mysqli_fetch_array($result))
+        //     {
+                // $amount=$row['Requested_Amount'];$date=$row['Date'];
+                $Message= "You requested for BDT $sum3."." \n";
+
+           // }
+    }
+    $sql2 = "SELECT * FROM  investment WHERE user_name= '$user_name'";
+    $result2 =mysqli_query($Conn,$sql2);
+    if($result2->num_rows <= 0)
+    {
+        $Message2 = "No Records To Show.";
+    }
+    else{
+    $query = "SELECT SUM(Current_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
+    $con = mysqli_query($Conn, $query);
+    $rows = mysqli_fetch_assoc($con);
+    $sum = $rows['value_sum'];
+    $query2 = "SELECT SUM(Provided_Amount) AS balance FROM investment WHERE user_name= '$user_name'";
+    $con2 = mysqli_query($Conn, $query2);
+    $rows2 = mysqli_fetch_assoc($con2);
+    $sum2 = $rows2['balance'];
+    $invested=$sum2-$sum;
+        // $Message2="\n";
+        //     while($row2 = mysqli_fetch_array($result2))
+        //     {
+                //$amount=$row2['Requested_Amount']-$row2['Current_Amount'];$
+                $Message2= "BDT $invested has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
+
+           // }
+    }
+    $sql3 = "SELECT * FROM  sell WHERE user_name= '$user_name'";
+    $result3 =mysqli_query($Conn,$sql3);
+    if($result3->num_rows <= 0)
+    {
+        $Message3 = "No Records To Show.";
+    }
+    else{
+        $Message3="\n";
+            while($row3 = mysqli_fetch_array($result3))
+            {
+
+                $quantity=$row3['Quantity'];$product=$row['Produuct'];$date=$row3['Date'];
+                $Message3= $Message3."<br>"."You provided  $quantity kg of  $product on  $date."." \n";
+
+            }
+    }
+    $sql4 = "SELECT * FROM  purchase WHERE user_name= '$user_name'";
+    $result4 =mysqli_query($Conn,$sql4);
+    if($result4->num_rows <= 0)
+    {
+        $Message4 = "No Records To Show.";
+    }
+    else{
+       // $Message4="\n";
+       // $row4 = mysqli_fetch_array($result4);
+
+            while($row4 = mysqli_fetch_array($result4))
+            {
+
+                $date=$row4['Date'];
+                $Message4= "<br>"."You last purchased from us on $date."." \n";
+
+           }
+    }
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,11 +161,20 @@ $user_name = $_SESSION['user_name'];
                             <i class="fas fa-gift fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
                     </div>
-
                     <div class="col-md-3">
-                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                <h2>Exposure</h2>
+                                
+                                <h2>Investment</h2>
+                            </div>
+                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
+                        </div>
+                        </a>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                            <div>
+                            <a href="sell.php"><h2>Sell</h2>
                             </div>
                             <i
                                 class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -105,16 +193,7 @@ $user_name = $_SESSION['user_name'];
                         </a>
                     </div>
 
-                    <div class="col-md-3">
-                        <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                
-                                <h2>Investment</h2>
-                            </div>
-                            <i class="fas fa-chart-line fs-1 primary-text border rounded-full secondary-bg p-3"></i>
-                        </div>
-                        </a>
-                    </div>
+                   
                 </div>
 
                 <div class="row my-5">
@@ -129,7 +208,7 @@ $user_name = $_SESSION['user_name'];
                 </div>
                 <div class="input-wrap">
                     Funding : 
-                    <input
+                    <!-- <input
                       type="text"
                       minlength="4"
                       id="funding"
@@ -137,12 +216,14 @@ $user_name = $_SESSION['user_name'];
                       class="input-field"
                       autocomplete="off"
                       required
-                    />
+                    />   -->
+                    <span > <?php echo $Message;?></span>
+
                     
                   </div>
                   <div class="input-wrap">
-                    Selling : 
-                    <input
+                    Investment : 
+                    <!-- <input
                       type="text"
                       minlength="4"
                       id="Info"
@@ -150,12 +231,29 @@ $user_name = $_SESSION['user_name'];
                       class="input-field"
                       autocomplete="off"
                       required
-                    />
+                      />   -->
+                      <span > <?php echo $Message2;?></span>
                     
                   </div>
+
+                  <div class="input-wrap">
+                   Selling : 
+                    <!-- <input
+                      type="text"
+                      minlength="4"
+                      id="Info"
+                      name="Info"
+                      class="input-field"
+                      autocomplete="off"
+                      required
+                      />  < -->
+                        <span > <?php echo $Message3;?></span>
+                    
+                  </div>
+                  
                   <div class="input-wrap">
                     Purchase : 
-                    <input
+                    <!-- <input
                       type="text"
                       minlength="4"
                       id="Info"
@@ -163,22 +261,8 @@ $user_name = $_SESSION['user_name'];
                       class="input-field"
                       autocomplete="off"
                       required
-                    />
-                    
-                  </div>
-                  <div class="input-wrap">
-                   Investment : 
-                    <input
-                      type="text"
-                      minlength="4"
-                      id="Info"
-                      name="Info"
-                      class="input-field"
-                      autocomplete="off"
-                      required
-                    />
-                    
-                  </div>
+                      />   -->
+                      <span > <?php echo $Message4;?></span>
                               
                             </div>
                         </div>
