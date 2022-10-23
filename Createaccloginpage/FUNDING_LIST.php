@@ -55,7 +55,7 @@ $user_name = $_SESSION['user_name'];
 <?php
             while($db_row2 = mysqli_fetch_array($result2)){
                 ?>
-                <input type="checkbox" name="check_list[]" value="<?php echo $db_row2["Funding_id"] ?>" ><label><?php echo $db_row2["Funding_id"] ?></label>
+                <input type="checkbox" name="check_list[]" value="<?php echo $db_row2["Funding_id"] ?>" ><label></label>
                 <label><?php echo 'Requested for'. $db_row2["Requested_Amount"] ."<br>";?></label> 
     
     <!-- // $quantity=$row3['Quantity'];$product=$row['Produuct'];$date=$row3['Date'];

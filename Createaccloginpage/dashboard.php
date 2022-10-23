@@ -48,7 +48,7 @@ $user_name = $_SESSION['user_name'];
         //     {
                 //$amount=$row2['Requested_Amount']-$row2['Current_Amount'];$
                 // $Message2= "BDT $sum has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
-                $Message2= "BDT $sum has been invested from your balance.";
+                $Message2= "You have invested BDT $sum.";
 
            // }
     }

@@ -23,8 +23,8 @@ if (isset($_POST['submit']))
         $row = mysqli_fetch_assoc($result);
         if($row['status']==1)
         {
-
-            if($row['password']===$password )
+             
+            if(password_verify($password,$row['password']))
             {
     
                 $_SESSION['user_name'] = $row['user_name'];

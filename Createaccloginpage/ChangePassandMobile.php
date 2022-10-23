@@ -25,8 +25,8 @@ if (isset($_POST['submit']))
       $sql3 = "SELECT password FROM users WHERE user_name = '$user_name'";
        $result3 = mysqli_query($Conn , $sql3);
        $row=mysqli_fetch_assoc($result3);
-      $hash = password_hash($row['password'], PASSWORD_DEFAULT);
-      if(password_verify(md5($_POST['currentpass']),  $hash))
+      // $hash = password_hash($row['password'], PASSWORD_DEFAULT);
+      if(password_verify(md5($_POST['currentpass']),  $row['password']))
        {
         $currentpass = $_POST['currentpass'];
         $checkpassword = $_POST['new_password'];
@@ -45,6 +45,7 @@ if (isset($_POST['submit']))
     {
             if($new_password == $cpassword)
             {
+              $new_password=password_hash($new_password,PASSWORD_BCRYPT);
                 $sql2 = "UPDATE users SET password = '$new_password' WHERE user_name = '$user_name' ";
                 $result2 = mysqli_query($Conn , $sql2);
     unset($cpassword);
