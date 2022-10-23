@@ -15,17 +15,20 @@ $user_name = $_SESSION['user_name'];
         $Message = "No Records To Show.";
     }
     else{
-        $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
+        $query3 = "SELECT * FROM funding WHERE user_name= '$user_name' and Status= 'P' ";
     $con3 = mysqli_query($Conn, $query3);
-    $rows3 = mysqli_fetch_assoc($con3);
-    $sum3 = $rows3['valuesum'];
-        // $Message="\n";
-        //     while($row3 = mysqli_fetch_array($result))
-        //     {
-                // $amount=$row['Requested_Amount'];$date=$row['Date'];
-                $Message= "You requested for BDT $sum3."." \n";
+    // $rows3 = mysqli_fetch_assoc($con3);
+    //     $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
+    // $con3 = mysqli_query($Conn, $query3);
+    // $rows3 = mysqli_fetch_assoc($con3);
+    // $sum3 = $rows3['valuesum'];
+        $Message="";
+            while($row3 = mysqli_fetch_array($con3))
+            {
+                $amount=$row3['Requested_Amount'];;
+                $Message= "$Message"."Your request for BDT $amount is pending"."<br>";
 
-           // }
+           }
     }
     $sql2 = "SELECT * FROM  investment WHERE user_name= '$user_name'";
     $result2 =mysqli_query($Conn,$sql2);
