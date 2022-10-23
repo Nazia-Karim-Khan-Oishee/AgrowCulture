@@ -88,13 +88,13 @@ $MobileNumber = $row['MobileNumber'];
                                   <form>
                                   <div class="mb-3">
                                     <label for="exampleFormControlInput1" class="form-label"> Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $Name ?>" value="<?php echo $Name ?>">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="<?php echo $Name ?>" value="<?php echo $Name ?>">
                                     <label for="exampleFormControlInput1" class="form-label">User Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $user_name ?>" value="<?php echo $user_name ?>">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="<?php echo $user_name ?>" value="<?php echo $user_name ?>">
                                     <label for="exampleFormControlInput1" class="form-label">Email</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $email ?>" value="<?php echo $email ?>">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="<?php echo $email ?>" value="<?php echo $email ?>">
                                     <label for="exampleFormControlInput1" class="form-label">Mobile Number</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="<?php echo $MobileNumber ?>" value="<?php echo $MobileNumber?>">
+                                    <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="<?php echo $MobileNumber ?>" value="<?php echo $MobileNumber?>">
                                   </div>
                                 </form>
                           

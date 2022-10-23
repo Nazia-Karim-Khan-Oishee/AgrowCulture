@@ -2,7 +2,7 @@
 <html>
   <head>
     
-    <title>SPL</title>
+    <title>AgrowCulture</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -18,7 +18,7 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="getstartedpage.html">AgrowCulture</a>
+      <a class="navbar-brand" href="getstartedpage.php">AgrowCulture</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,9 +38,9 @@
               <a class="dropdown-item" href="create acccount.php"><b>Sign-Up</b></a>
               <a class="dropdown-item" href="INDEX.php">log-in</a>
              
-              <div class="dropdown-divider"></div>
+              <!-- <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Something else here</a>
-            </div>
+            </div> -->
           </li>
         
         </ul>
@@ -81,13 +81,13 @@
     <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
   </ul>
   <ul class="menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">About</a></li>
-    <li><a href="#">Services</a></li>
+    <li><a href="getstartedpage.php">Home</a></li>
+    <li><a href="aboutus.php">About</a></li>
+    <li><a href="4optionss.php">Services</a></li>
     <li><a href="#">Team</a></li>
     <li><a href="#">Contact</a></li>
   </ul>
-  <p>2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+  <p>2022 Copyright © Agrowculture. | Legal | Privacy Policy |</p>
 </footer>
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

@@ -11,7 +11,7 @@
     <link href="../css/message.css" type="text/css" rel="stylesheet">
   	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
     <!------ Include the above in your HEAD tag ---------->
-    <title>Funding Accepetd</title>
+    <title>ERROR</title>
 </head>
 <style>
 body { margin-top:30px; }

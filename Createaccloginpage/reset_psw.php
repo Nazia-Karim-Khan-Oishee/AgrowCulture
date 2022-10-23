@@ -94,7 +94,7 @@ else
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
 
-    <title>Login Form</title>
+    <title>Reset Password</title>
 </head>
 <body>
 
@@ -119,13 +119,13 @@ else
                            <!-- <label for="password" class="col-md-4 col-form-label text-md-right">Rest Password and log in to Continue.</label>-->
                                 <label for="password" class="col-md-4 col-form-label text-md-right">New Password</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="password" required autofocus>
+                                    <input type="password" id="password" class="form-control" name="password" autocomplete="off" required autofocus>
                                     <span class="error"> <?php echo $ShowMessage;?></span>
                                     <!--<i class="bi bi-eye-slash" id="togglePassword"></i>-->
                                 </div>
                                 <label for="Confirmpassword" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
                                 <div class="col-md-6">
-                                    <input type="password" id="password" class="form-control" name="cpassword" required autofocus>
+                                    <input type="password" id="password" class="form-control" name="cpassword" autocomplete="off"  required autofocus>
                                    <!-- <i class="bi bi-eye-slash" id="togglePassword"></i>-->
                                 </div>
                             </div>

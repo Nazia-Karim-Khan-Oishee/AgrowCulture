@@ -6,6 +6,7 @@ error_reporting(0);
 session_start();
 
 $user_name = $_SESSION['user_name'];
+
 //$user_name = $_SESSION['user_name'];
     $sql = "SELECT * FROM  funding WHERE user_name= '$user_name'";
     $result =mysqli_query($Conn,$sql);
@@ -33,23 +34,26 @@ $user_name = $_SESSION['user_name'];
         $Message2 = "No Records To Show.";
     }
     else{
-    $query = "SELECT SUM(Current_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
+    $query = "SELECT SUM(Provided_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
     $con = mysqli_query($Conn, $query);
     $rows = mysqli_fetch_assoc($con);
     $sum = $rows['value_sum'];
-    $query2 = "SELECT SUM(Provided_Amount) AS balance FROM investment WHERE user_name= '$user_name'";
-    $con2 = mysqli_query($Conn, $query2);
-    $rows2 = mysqli_fetch_assoc($con2);
-    $sum2 = $rows2['balance'];
-    $invested=$sum2-$sum;
+    // $query2 = "SELECT SUM(Provided_Amount) AS balance FROM investment WHERE user_name= '$user_name'";
+    // $con2 = mysqli_query($Conn, $query2);
+    // $rows2 = mysqli_fetch_assoc($con2);
+    // $sum2 = $rows2['balance'];
+    // $invested=$sum2-$sum;
         // $Message2="\n";
         //     while($row2 = mysqli_fetch_array($result2))
         //     {
                 //$amount=$row2['Requested_Amount']-$row2['Current_Amount'];$
-                $Message2= "BDT $invested has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
+                // $Message2= "BDT $sum has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
+                $Message2= "BDT $sum has been invested from your balance.";
 
            // }
     }
+            // echo $user_name;
+
     $sql3 = "SELECT * FROM  sell WHERE user_name= '$user_name'";
     $result3 =mysqli_query($Conn,$sql3);
     if($result3->num_rows <= 0)
@@ -162,7 +166,7 @@ $user_name = $_SESSION['user_name'];
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <a href="FUNDING_LIST.php"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 
                                 <h2>Investment</h2>
@@ -290,7 +294,7 @@ $user_name = $_SESSION['user_name'];
         <div class="row2">
             <div class="col2">
                 <h3>AGROWCULTURE</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+                <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
             </div>
             <div class="col2">
                 <h5>Address <div class="underline"><span></span></div></h5>
@@ -300,10 +304,10 @@ $user_name = $_SESSION['user_name'];
             <div class="col2">
                 <h5>Links <div class="underline"><span></span></div></h5>
                 <ul>
-                    <li><a href="getstartedpage.html">HOME</a></li>
-                    <li><a href="4optionss.html">SERVICES</a></li>
-                    <li><a href=""></a>ABOUT US</li>
-                    <li><a href=""></a>CONTACTS</li>
+                    <li><a href="getstartedpage.php">HOME</a></li>
+                    <li><a href="4optionss.php">SERVICES</a></li>
+                    <li><a href="aboutus.php">ABOUT US</a></li>
+                    <li><a href="aboutus.php">CONTACTS</a></li>
 
                 </ul>
             </div>

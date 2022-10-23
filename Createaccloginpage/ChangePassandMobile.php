@@ -143,7 +143,7 @@ $_POST['cpassword'] = "";
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
    
     <link rel="stylesheet" type="text/css" href="userprofile.css">
-    <title>User Profile</title>
+    <title>Security</title>
   </head>
   <body class="bg-right">
     <div class="container-fluid mt-5">
@@ -202,13 +202,13 @@ $_POST['cpassword'] = "";
                 </div>
                 <div class="form__input-group">
                 <label for="exampleFormControlInput1" class="form-label">New Password</label> <br>           
-                    <input type="password" class="form__input" name="new_password" autofocus placeholder="New Password" onfocus="this.value=''"  required>
+                    <input type="password" class="form__input" name="new_password" autofocus placeholder="New Password" autocomplete="off" onfocus="this.value=''"  required>
                     <span class="error"> <?php echo $ShowMessage3;?></span>
                     <div class="form__input-error-message"></div>
                 </div>
                 <div class="form__input-group">
                 <label for="exampleFormControlInput1" class="form-label">Confirm Password</label> <br>           
-                    <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" onfocus="this.value=''"  required>
+                    <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" autocomplete="off" onfocus="this.value=''"  required>
                     <span class="error"> <?php echo $ShowMessage1;?></span>
               <div class="form__input-error-message"></div>
                 </div>
@@ -220,7 +220,7 @@ $_POST['cpassword'] = "";
                 <div class="form__message form__message--error"></div>
                 <div class="form__input-group">
                 <label for="exampleFormControlInput1" class="form-label">Mobile Number</label><br>
-                    <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" onfocus="this.value=''"  required>
+                    <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" autocomplete="off" onfocus="this.value=''"  required>
                     <span class="error"> <?php echo $MobileError1;?></span>
                 <div class="form__input-error-message"></div>
                 </div>

@@ -3,7 +3,7 @@
     session_start();
     include('Config.php');
     error_reporting(0);
-
+    
 
     if(isset($_POST["verify"]))
     {
@@ -17,6 +17,9 @@
         {
             
                 $Message ="Invalid OTP.";
+                // $sql1="DELETE * FROM  users where user_name ='$user_name'";
+                // $CONN=mysqli_query($Conn,$sql1);
+                //header("Location: dashboard.php");
 
         }
         else
@@ -26,7 +29,8 @@
           $result= mysqli_query($Conn,$sql );
           if($result)
           {            //echo "<script>alert('Verify account done, you may sign in now')</script>"; 
-             header("Location: dashboard.php");
+
+             header("Location: INDEX.php");
          }
          else 
          {
@@ -105,7 +109,7 @@
                             <br>-->
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">OTP Code</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="otp" class="form-control" name="otp_code" required autofocus>
+                                    <input type="text" id="otp" class="form-control" name="otp_code" autocomplete="off" required autofocus>
                                     <span class="error"> <?php echo $Message;?></span>
                                 </div>
                             </div>

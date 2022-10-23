@@ -13,15 +13,17 @@
            
             $Message = "Sorry, no emails exists ";
             
-        }else if(  $fetch["status"] == 0)
-        {
-                  // alert("Sorry, your account must verify first, before you recover your password !");
-                   $Message = "Sorry, your account must verify first, before you recover your password !";
-                   //window.location.replace("INDEX.php");
-                   $Message1 = "Go to verification.";
+        }
+        // else if(  $fetch["status"] != 1)
+        // {
+        //           // alert("Sorry, your account must verify first, before you recover your password !");
+        //            $Message = "Sorry, your account must verify first, before you recover your password !";
+        //            //window.location.replace("INDEX.php");
+        //            $Message1 = "Go to verification.";
 
                
-        }else{
+        // }
+        else{
             // generate token by binaryhexa 
             $token = bin2hex(random_bytes(50));
 
@@ -33,7 +35,7 @@
             $mail = new PHPMailer;
 
             $mail->isSMTP();
-            $mail->Host='';
+            $mail->Host='smtp-relay.sendinblue.com';
             $mail->Port=587;
             $mail->SMTPAuth=true;
             $mail->SMTPSecure='';
@@ -43,7 +45,7 @@
             $mail->Password='';
 
             // send by h-hotel email
-            $mail->setFrom('', '');
+            $mail->setFrom('', 'Password Reset');
             // get email from input
             $mail->addAddress($_POST["email"]);
             //$mail->addReplyTo('lamkaizhe16@gmail.com');
@@ -58,7 +60,7 @@
             
             <br><br>
             <p>With regrads,</p>
-            <b>Programming with Lam</b>";
+            <b>Agrowculture.</b>";
 
             if(!$mail->send())
             {    
@@ -92,6 +94,8 @@
 <!doctype html>
 <html lang="en">
 <head>
+<title>Recover Password</title>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -107,7 +111,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 
-    <title>Login Form</title>
+    <!-- <title>Login Form</title> -->
 </head>
 <body>
 
@@ -132,7 +136,7 @@
                             <div class="form-group row">
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                 <div class="col-md-6">
-                                    <input type="text" id="email_address" class="form-control" name="email" required autofocus>
+                                    <input type="text" id="email_address" class="form-control" name="email" autocomplete="off" required autofocus>
                                     <span class="error"> <?php echo $Message?> <a href="verification.php"><?php echo $Message1?></a></span>
                                 </div>
                             </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +40,7 @@ hr.message-inner-separator
                    <span class="glyphicon glyphicon-ok"></span> <strong>Success Message</strong>
                     <hr class="message-inner-separator">
                     <p>
-                    YOUR REQUEST IS ACCEPTED.THANKS FOR INVESTING AND STAYING WITH US.<i class="fas fa-envelope" style="color: black;"></i></p>
+                    YOUR REQUEST IS ACCEPTED.<i class="fas fa-envelope" style="color: black;"></i></p>
                     <p><a href="dashboard.php"><u>Go back to Dashboard</u></a></p>
                 </div>
             </div>

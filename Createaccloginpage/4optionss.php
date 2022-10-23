@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>4 options</title>
+        <title>Services</title>
         <link rel="stylesheet" href="4optionss.css">
         <link href="http://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
@@ -13,7 +13,7 @@
                 <nav>
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
-                        <li><a href="about us.php">ABOUT US</a></li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
                         <li><a href="INDEX.php">LOG IN</a></li>
                     </ul>
                 </nav>
@@ -91,7 +91,7 @@
             <div class="row">
                 <div class="col">
                     <h3>AGROWCULTURE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+                    <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
                 </div>
                 <div class="col">
                     <h5>Address <div class="underline"><span></span></div></h5>
@@ -101,10 +101,10 @@
                 <div class="col">
                     <h5>Links <div class="underline"><span></span></div></h5>
                     <ul>
-                        <li><a href="getstartedpage.html">HOME</a></li>
-                        <li><a href="4optionss.html">SERVICES</a></li>
-                        <li><a href=""></a>ABOUT US</li>
-                        <li><a href=""></a>CONTACTS</li>
+                        <li><a href="getstartedpage.php">HOME</a></li>
+                        <li><a href="4optionss.php">SERVICES</a></li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
+                        <li><a href="aboutus.php">CONTACTS</a></li>
 
                     </ul>
                 </div>

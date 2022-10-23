@@ -20,24 +20,37 @@ if (isset($_POST['submit']))
 	$result = mysqli_query($Conn, $sql);
 	if ($result->num_rows > 0) 
     {
-		$row = mysqli_fetch_assoc($result);
-        if($row['password']===$password)
+        $row = mysqli_fetch_assoc($result);
+        if($row['status']==1)
         {
 
-            $_SESSION['user_name'] = $row['user_name'];
-            $_POST['password'] = "";
-            $_POST['user_name'] = "";
-            //unset($user_name);
-            header("Location: dashboard.php");
-
+            if($row['password']===$password )
+            {
+    
+                $_SESSION['user_name'] = $row['user_name'];
+                $_POST['password'] = "";
+                $_POST['user_name'] = "";
+                //unset($user_name);
+                header("Location: dashboard.php");
+    
+            }
+            else 
+            {
+                $WrongPass="Wrong Password.";
+                $_POST['password'] = "";
+                $_POST['user_name'] = "";
+                unset($user_name);
+            }
         }
         else 
         {
-            $WrongPass="Wrong Password.";
+            $sql1="DELETE  FROM  users where user_name ='$user_name'";
+            $CONN=mysqli_query($Conn,$sql1);
+            // echo "Wrong Password.";
+            $WrongUser="Invalid User.";
             $_POST['password'] = "";
             $_POST['user_name'] = "";
-            //unset($user_name);
-            // echo "<p class='er'>Wrong Password.</big></p>";
+            unset($user_name);
         }
 	} 
     else 
@@ -45,7 +58,7 @@ if (isset($_POST['submit']))
         $WrongUser="Invalid User Name.";
         $_POST['password'] = "";
         $_POST['user_name'] = "";
-       // unset($user_name);
+        unset($user_name);
         // echo "<p class='er'>Wrong Password.</big></p>";
 	}
 }
@@ -112,27 +125,28 @@ if (isset($_POST['submit']))
             </form>         
         </div>
     </div>
-        <footer>
-        <div class="row">
-            <div class="col">
-                <h3>AGROWCULTURE</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
-            </div>
-            <div class="col">
+    <footer>
+            <div class="row">
+                <div class="col">
+                    <h3>AGROWCULTURE</h3>
+                    <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
+                </div>
+                <div class="col">
                     <h5>Address <div class="underline"><span></span></div></h5>
                     <p>Islamic University of Technology</p>
                     <p>Boardbazar,Gazipur</p>
-            </div>
-            <div class="col">
+                </div>
+                <div class="col">
                     <h5>Links <div class="underline"><span></span></div></h5>
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
                         <li><a href="4optionss.php">SERVICES</a></li>
-                        <li><a href=""></a>ABOUT US</li>
-                        <li><a href=""></a>CONTACTS</li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
+                        <li><a href="aboutus.php">CONTACTS</a></li>
 
                     </ul>
-            </div>
+                </div>
+            
                 <ul class="social_icon">
                     <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
                     <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
@@ -142,8 +156,9 @@ if (isset($_POST['submit']))
                 </div>
                 <hr>
                 <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+                
             </div> 
-            </footer>
+            </footer>  
+       
 </body>
 </html>
-//hehe

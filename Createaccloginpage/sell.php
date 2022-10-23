@@ -69,7 +69,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Funding Form</title>
+    <title>Selling Form</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="sell.css" />
   </head>
@@ -82,12 +82,12 @@
               <div class="logo">
                 <!-- Heading -->
                 <div class="heading">
-                  <h2>Welcome!</h2>
+                  <h2>Welcome!</h2><br>
                   <h4>START SELLING WITH ONE CLICK!</h4>  
                 </div>
                 <div class="actual-form"></div>
               </div>
-              <a href="#" class="toggle"><h3>SELL!</h3></a>
+              <a href="#" class="toggle"><h3><u>SELL!</u></h3></a>
             </form>
             
             <form action="" method="POST" autocomplete="off" class="sign-up-form">
@@ -180,7 +180,7 @@
       <div class="row">
           <div class="col">
               <h1>AGROWCULTURE</h1>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+              <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
           </div>
           <div class="col">
               <h5>Address <div class="underline"><span></span></div></h5>
@@ -192,8 +192,8 @@
               <ul>
                   <li><a href="getstartedpage.php">HOME</a></li>
                   <li><a href="4optionss.php">SERVICES</a></li>
-                  <li><a href="about us.php"></a>ABOUT US</li>
-                  <li><a href="#"></a>CONTACTS</li>
+                  <li><a href="aboutus.php">ABOUT US</a></li>
+                  <li><a href="aboutus.php">CONTACTS</a></li>
 
               </ul>
           </div>

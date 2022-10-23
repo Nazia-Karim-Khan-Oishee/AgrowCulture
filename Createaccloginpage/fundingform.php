@@ -3,6 +3,7 @@
   error_reporting(0);
 
   session_start();
+  $Suser_name = $_SESSION['user_name'];
 
  // echo "<script>alert('Verify account done, you may sign in now')</script>";
   if (isset($_POST['submit'])) {
@@ -10,6 +11,7 @@
     $user_name = $_POST['user_name'];
     $Field = $_POST['Field'];
     $Bank_Acc = $_POST['Bank_Acc'];
+    $DESCRIPTION = $_POST['DESCRIPTION'];
     $Requested_Amount = $_POST['Requested_Amount'];
     $date = $_POST['Date'];
     // $date = str_replace('/', '-', $var);
@@ -22,11 +24,12 @@
     //echo '$sum'; 
     $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
     $rowCount = mysqli_num_rows($check_query);
-    if ($rowCount <= 0) {
+    if ($rowCount <= 0 || $user_name!=$Suser_name) {
       //$UserErr = "Invalid User";
       $_POST['user_name'] = "";
       $_POST['Field'] = "";
       $_POST['Bank_Acc'] = "";
+      $_POST['DESCRIPTION'] = "";
       $_POST['Requested_Amount'] = "";
       $_POST['Date'] = "";
       ?>
@@ -76,9 +79,9 @@
           //   $NewMoney = "";
           //   echo "<script>alert('Verify account done, you may sign in now')</script>";
           // }
-        echo "$user_name"."$Field"."$Bank_Acc"."$Requested_Amount"."$date";
-        $query="INSERT INTO funding ( user_name, Field, Bank_Acc, Requested_Amount, Status, Date) 
-        VALUES ( '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$date')";
+        //echo "$user_name"."$Field"."$Bank_Acc"."$Requested_Amount"."$date";
+        $query="INSERT INTO funding ( user_name, Field, Bank_Acc, Requested_Amount, Status, DESCRIPTION, Date) 
+        VALUES ( '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$DESCRIPTION','$date')";
         $connect = mysqli_query($Conn, $query );
             if($connect){
 
@@ -86,6 +89,7 @@
                     $_POST['user_name'] = "";
                     $_POST['Field'] = "";
                     $_POST['Bank_Acc'] = "";
+                    $_POST['DESCRIPTION'] = "";
                     $_POST['Requested_Amount'] = "";
                     $_POST['Date'] = ""; 
                     ?>
@@ -101,6 +105,7 @@
               $_POST['Field'] = "";
               $_POST['Bank_Acc'] = "";
               $_POST['Requested_Amount'] = "";
+              $_POST['DESCRIPTION'] = "";
               $_POST['Date'] = ""; 
               ?>
               <script>
@@ -116,10 +121,15 @@
   <html lang="en">
 
   <head>
+  <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Funding Form</title>
+    <title>Funding Request</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="fundingform.css" />
   </head>
@@ -134,7 +144,7 @@
 
 
                 <div class="heading">
-                  <h2>Welcome!</h2>
+                  <h2>Welcome!</h2><br>
                   <h4>Apply now and get funded</h4>
 
                 </div>
@@ -143,7 +153,7 @@
                 </div>
               </div>
               <a href="#" class="toggle">
-                <h3>APPLY NOW!</h3>
+                <h3><u>APPLY NOW!</u></h3>
               </a>
             </form>
 
@@ -165,7 +175,7 @@
                   <b>USER_NAME : </b>
                   <!--<span class="error"> <?php echo $Message; ?></span>-->
                   
-                  <input type="text" name="user_name" minlength="4" class="input-field" autocomplete="off" required />
+                  <input type="text" name="user_name"  class="input-field" autocomplete="off" required />
                   <!-- //<span class="error"> <?php echo $UserErr; ?></span> -->
 
                 </div>
@@ -198,7 +208,7 @@
 
                 <div class="input-wrap">
                   <b>DATE : </b>
-                  <input type="date" name="Date" id="dateControl" minlength="4" class="input-field" autocomplete="off" required />
+                  <input type="date" name="Date" id="dateControl"  class="input-field" autocomplete="off" required />
                   <label></label>
                 </div>
 
@@ -211,20 +221,27 @@
                 </div>
                 <div class="input-wrap">
                   <b>Requested Amount : </b>
-                  <input type="number" name="Requested_Amount" minlength="4" class="input-field" autocomplete="off" required />
-                  <br>
+                  <input type="number" name="Requested_Amount"  class="input-field" autocomplete="off" required /></div>
 
-                  <h6>lkjigydt</h6>
-                  <h6>klahd</h6>
+                  <!-- <h6>lkjigydt</h6>
+                  <h6>klahd</h6> -->
                   <div class="input-wrap">
                     <b>FIELD : </b><br>
-                    <h6>lhk</h6>
-                    <input type="radio" name="Field" name="Field" value="Crops" required /> Crops
-                    <input type="radio" name="Field" value="Machinaries" required /> Machineries<br>
-                    <h6>kkhs</h6>
-                    <h6>klahd</h6>
-                  </div>
+                    <!-- <h6>lhk</h6> -->
+                    <input type="radio" name="Field" value="Crops" required /> Crops
+                    <input type="radio"  name="Field" value="Poultry" required /> Poultry<br>
+                    <input type="radio"  name="Field" value="Fisheries" required /> Fisheries
+                    <input type="radio"  name="Field" value="Farming" required /> Farming<br>
+                    <input type="radio" name="Field" value="Machineries" required /> Machineries
+                    <div class="input-wrap">
+                 <br> <b>Description : </b>
+                  <input type="text" name="DESCRIPTION" class="input-field" autocomplete="off" required />
+
                 </div>
+                    <!-- <h6>kkhs</h6>
+                    <h6>klahd</h6> -->
+                  </div>
+                <!-- </div> -->
 
 
                 <br><br> <br> <input type="submit" name="submit" value="Apply" class="sign-btn" ><span class="error"> <?php echo $Message; ?></span>
@@ -270,7 +287,7 @@
       <div class="row">
         <div class="col">
           <h1>AGROWCULTURE</h1>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+          <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
         </div>
         <div class="col">
           <h5>Address <div class="underline"><span></span></div>
@@ -284,8 +301,8 @@
           <ul>
             <li><a href="getstartedpage.php">HOME</a></li>
             <li><a href="4optionss.php">SERVICES</a></li>
-            <li><a href="about us.php"></a>ABOUT US</li>
-            <li><a href="#"></a>CONTACTS</li>
+            <li><a href="aboutus.php">ABOUT US</a></li>
+            <li><a href="aboutus.php">CONTACTS</a></li>
 
           </ul>
         </div>
