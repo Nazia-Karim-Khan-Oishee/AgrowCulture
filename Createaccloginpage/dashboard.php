@@ -26,7 +26,7 @@ $user_name = $_SESSION['user_name'];
             while($row3 = mysqli_fetch_array($con3))
             {
                 $amount=$row3['Requested_Amount'];;
-                $Message= "$Message"."Your request for BDT $amount is pending"."<br>";
+                $Message= "$Message"."Your request for BDT $amount is pending."."<br>";
 
            }
     }
