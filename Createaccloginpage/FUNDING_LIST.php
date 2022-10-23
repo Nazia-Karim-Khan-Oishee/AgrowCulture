@@ -25,8 +25,9 @@ $user_name = $_SESSION['user_name'];
 </head>
 <body>
 
-<p> Phsical Alignments</p>
+<!-- <p> Phsical Alignments</p> -->
 <b>FIELD : </b><br>
+/////
 <form action="" method="POST" autocomplete="off" class="sign-up-form">
 
                     <!-- <h6>lhk</h6> -->
@@ -70,6 +71,7 @@ $user_name = $_SESSION['user_name'];
 }
     }
 ?>
+//////////
 <!-- </form> -->
 
 
