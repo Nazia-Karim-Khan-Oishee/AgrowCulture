@@ -6,7 +6,7 @@
   $Suser_name = $_SESSION['user_name'];
   if(isset($_POST['apply']))
   {
-    echo "comes here";
+    // echo "comes here";
   $_SESSION['check_list']=$_POST['check_list'];
   // echo "Hello, world";
   
