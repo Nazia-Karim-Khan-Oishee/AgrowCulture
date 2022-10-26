@@ -1,68 +1,171 @@
 <?php
   include('Config.php');
   error_reporting(0);
-
+  
   session_start();
+  $Suser_name = $_SESSION['user_name'];
+  if(isset($_POST['apply']))
+  {
+    // echo "comes here";
+  $_SESSION['check_list']=$_POST['check_list'];
+  // echo "Hello, world";
+  
+  // if(!empty($_POST['check_list'])) {
+  //   // $_SESSION['check_list']='check_list'];
+  
+  //   // $_SESSION['check_list'] = $_POST['check_list'];
+    
+  // //       foreach($_POST['check_list'] as $selected){
+            
+  // // }
+  // }
 
-  if (isset($_POST['submit'])) {
-    $user_name = $_POST['user_name'];
-    $date = $_POST['Date'];
-    $user_name = $_POST['user_name'];
-$Bank_Acc = $_POST['Bank_Acc'];
-$Provided_Amount = $_POST['Provided_Amount'];
-$Field = $_POST['Field'];
-$check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
-$rowCount = mysqli_num_rows($check_query);
-if ($rowCount <= 0) {
-  //echo "<script>alert(' invalid')</script>";
-
-  //$UserErr = "Invalid User";
-  $_POST['user_name'] = "";
-  $_POST['Field'] = "";
-  $_POST['Bank_Acc'] = "";
-  $_POST['Provided_Amount'] = "";
-  $_POST['Date'] = "";
-  ?>
-                    <script>
-                        window.location.replace("InvalidUser.php");
-                    </script>
-                <?php    
-}
-else 
+  }
+if(isset($_POST['submit']))
 {
-  $query = "INSERT INTO investment (Investment_id, user_name, Field, Bank_Acc, Provided_Amount, Current_Amount, Status, Date) 
-VALUES (NULL, '$user_name', '$Field', '$Bank_Acc', '$Provided_Amount', '$Provided_Amount', 'p', '$date')";
- $connect = mysqli_query($Conn,$query);
- if($connect)
- {
-   //echo "<script>alert('Verify account done, you may sign in now')</script>";
-   $_POST['user_name'] = "";
-  $_POST['Field'] = "";
-  $_POST['Bank_Acc'] = "";
-  $_POST['Provided_Amount'] = "";
-  $_POST['Date'] = "";
-  ?>
-                    <script>
-                        window.location.replace("InvestmentAccepted.php");
-                    </script>
-                <?php  
+  
+  $user_name = $_POST['user_name'];
+      $date = $_POST['Date'];
+  $Bank_Acc = $_POST['Bank_Acc'];
+  // echo "<script>alert('$Suser_name')</script>";
+  $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
+$rowCount = mysqli_num_rows($check_query);
+if ($rowCount <= 0 || $user_name!=$Suser_name) {
 
-}
-else{
-  //echo "<script>alert(' in now')</script>";
+// //   //$UserErr = "Invalid User";
+// //   $_POST['Provided_Amount'] = "";
+// //   $_POST['Field'] = "";
   $_POST['user_name'] = "";
-  $_POST['Field'] = "";
   $_POST['Bank_Acc'] = "";
-  $_POST['Provided_Amount'] = "";
   $_POST['Date'] = "";
-  ?>
+
+             ?>
                     <script>
-                        window.location.replace("SomethingWentWrong.php");
-                    </script>
-                <?php    
+                         window.location.replace("InvalidUser.php");
+                  </script>                 
+                   <?php    
+ }
+ else{
+  
+
+
+   foreach($_SESSION['check_list'] as $selected)
+ {
+
+  $sql2 = "UPDATE funding SET Status = 'A' where Funding_ID='$selected'";
+  $result = mysqli_query($Conn,$sql2);
+  // $array=array();
+  // array_push($array,$selected);
+              // $_SESSION;
+  if($result)
+  {
+      // $row=mysqli_fetch_array($result);
+      // echo  "$row[Funding_ID]";
+      // echo "selected.";
+          // echo $selected."</br>";
+      }
+  
+// }
+//    $SESSION['array'] =$array
+   // echo "<script>alert('Wow!.')</script>";
+ 
+  $sql2 = "SELECT * FROM funding where Funding_ID='$selected'";
+  $result = mysqli_query($Conn,$sql2);
+   //  echo "<script>alert('here!.')</script>";
+ 
+  $row=mysqli_fetch_assoc($result);
+ //  echo "<script>alert('ASSOC!.')</script>";
+ 
+  $Field= $row['Field']; $Amount= $row['Requested_Amount'];
+  $query = "INSERT INTO investment ( user_name, Field, Bank_Acc, Provided_Amount,  Status, Date) 
+    VALUES ('$user_name', '$Field', '$Bank_Acc', '$Amount' ,  'D', '$date')";
+    $connect = mysqli_query($Conn,$query);
+   //  echo "<script>alert( 'Wow! User Registration Completed.')</script>";
+    
+   }
+   ?>
+   <script>
+         window.location.replace("InvestmentAccepted.php");
+   </script>
+ <?php    
+ }
 }
-}
-}
+//   if (isset($_POST['submit'])) {
+  //     $user_name = $_POST['user_name'];
+  //     $date = $_POST['Date'];
+  //  header("Location: dashboard.php");
+// $Bank_Acc = $_POST['Bank_Acc'];
+// $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
+// $rowCount = mysqli_num_rows($check_query);
+// if ($rowCount <= 0) {
+
+// // //   //$UserErr = "Invalid User";
+// // //   $_POST['Provided_Amount'] = "";
+// // //   $_POST['Field'] = "";
+//   $_POST['user_name'] = "";
+//   $_POST['Bank_Acc'] = "";
+//   $_POST['Date'] = "";
+
+//               
+//                     <script>
+//                          window.location.replace("InvalidUser.php");
+//                   </script>                 
+//                    <?php    
+//  }
+//  else 
+//  {
+//   echo "<script>alert('Wow!.')</script>";
+
+//    foreach($_SESSION['check_list'] as $selected)
+//    {
+//      $sql2 = "SELECT * FROM funding where Funding_ID='$selected'";
+//      $result = mysqli_query($Conn,$sql2);
+//      $row=mysqli_fetch_array($result);
+//      $Field= $row['Field']; $Amount= $row['Requested_Amount'];
+//      echo "<script>alert('Wow! User Registration Completed.')</script>";
+//       $query = "INSERT INTO investment ( user_name, Field, Bank_Acc, Provided_Amount,  Status, Date) 
+//  VALUES ('$user_name', '$Field', '$Bank_Acc', '$Amount',  'D', '$date')";
+//   $connect = mysqli_query($Conn,$query);
+//         // echo  "$row[Funding_ID]";
+//             // echo $selected."</br>";
+//         }
+//     //     unset($_SESSION['check_list']);
+//     //     
+//     //     <script>
+//     //         window.location.replace("FundingAccepted.php");
+//     //     </script>
+//     // <?php    
+    
+// }
+//   }
+//   $query = "INSERT INTO investment (, user_name, Field, Bank_Acc, Provided_Amount, Current_Amount, Status, Date) 
+// VALUES ('$user_name', '$Field', '$Bank_Acc', '$Provided_Amount', '$Provided_Amount', 'p', '$date')";
+//  $connect = mysqli_query($Conn,$query);
+//  if($connect)
+//  {
+//    //echo "<script>alert('Verify account done, you may sign in now')</script>";
+//    $_POST['user_name'] = "";
+//   $_POST['Field'] = "";
+//   $_POST['Bank_Acc'] = "";
+//   $_POST['Provided_Amount'] = "";
+//   $_POST['Date'] = "";
+//   
+
+// }
+// else{
+//   //echo "<script>alert(' in now')</script>";
+//   $_POST['user_name'] = "";
+//   $_POST['Field'] = "";
+//   $_POST['Bank_Acc'] = "";
+//   $_POST['Provided_Amount'] = "";
+//   $_POST['Date'] = "";
+// 
+//                         window.location.replace("SomethingWentWrong.php");
+//                     </script>
+
+// }
+// }
+// }
   ?>
 
 
@@ -74,6 +177,11 @@ else{
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -86,7 +194,7 @@ else{
       <div class="box">
         <div class="inner-box">
           <div class="forms-wrap">
-            <form action="index.html" autocomplete="off" class="sign-in-form">
+            <form action="" autocomplete="off" class="sign-in-form">
               <div class="logo">
             
 
@@ -178,7 +286,7 @@ else{
                   />
                
                 </div>
-                  <div class="input-wrap">
+                  <!-- <div class="input-wrap">
                     <b>Provided Amount : </b>
                     <input
                       type="number" name="Provided_Amount"
@@ -187,11 +295,11 @@ else{
                       autocomplete="off"
                       required
                     />
-                    <br>
+                    <br> -->
                     
-                  <h6>lkjigydt</h6>
-                  <h6>klahd</h6>
-                <div class="input-wrap">
+                  <!-- <h6>lkjigydt</h6>
+                  <h6>klahd</h6> -->
+                <!-- <div class="input-wrap">
                     <b>FIELD : </b><br> 
                     <h6>lhk</h6>
                 <input
@@ -215,8 +323,8 @@ else{
               
               <h6>kkhs</h6>
               <h6>klahd</h6>
-                </div>
-                </div>
+                </div> -->
+                <!-- </div> -->
              
 
               <br><br> <br> <input type="submit" name="submit" value="Apply" class="sign-btn" />

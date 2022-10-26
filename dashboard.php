@@ -6,6 +6,7 @@ error_reporting(0);
 session_start();
 
 $user_name = $_SESSION['user_name'];
+
 //$user_name = $_SESSION['user_name'];
     $sql = "SELECT * FROM  funding WHERE user_name= '$user_name'";
     $result =mysqli_query($Conn,$sql);
@@ -14,17 +15,20 @@ $user_name = $_SESSION['user_name'];
         $Message = "No Records To Show.";
     }
     else{
-        $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
+        $query3 = "SELECT * FROM funding WHERE user_name= '$user_name' and Status= 'P' ";
     $con3 = mysqli_query($Conn, $query3);
-    $rows3 = mysqli_fetch_assoc($con3);
-    $sum3 = $rows3['valuesum'];
-        // $Message="\n";
-        //     while($row3 = mysqli_fetch_array($result))
-        //     {
-                // $amount=$row['Requested_Amount'];$date=$row['Date'];
-                $Message= "You requested for BDT $sum3."." \n";
+    // $rows3 = mysqli_fetch_assoc($con3);
+    //     $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
+    // $con3 = mysqli_query($Conn, $query3);
+    // $rows3 = mysqli_fetch_assoc($con3);
+    // $sum3 = $rows3['valuesum'];
+        $Message="";
+            while($row3 = mysqli_fetch_array($con3))
+            {
+                $amount=$row3['Requested_Amount'];;
+                $Message= "$Message"."Your request for BDT $amount is pending."."<br>";
 
-           // }
+           }
     }
     $sql2 = "SELECT * FROM  investment WHERE user_name= '$user_name'";
     $result2 =mysqli_query($Conn,$sql2);
@@ -33,23 +37,26 @@ $user_name = $_SESSION['user_name'];
         $Message2 = "No Records To Show.";
     }
     else{
-    $query = "SELECT SUM(Current_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
+    $query = "SELECT SUM(Provided_Amount) AS value_sum FROM investment WHERE user_name= '$user_name'";
     $con = mysqli_query($Conn, $query);
     $rows = mysqli_fetch_assoc($con);
     $sum = $rows['value_sum'];
-    $query2 = "SELECT SUM(Provided_Amount) AS balance FROM investment WHERE user_name= '$user_name'";
-    $con2 = mysqli_query($Conn, $query2);
-    $rows2 = mysqli_fetch_assoc($con2);
-    $sum2 = $rows2['balance'];
-    $invested=$sum2-$sum;
+    // $query2 = "SELECT SUM(Provided_Amount) AS balance FROM investment WHERE user_name= '$user_name'";
+    // $con2 = mysqli_query($Conn, $query2);
+    // $rows2 = mysqli_fetch_assoc($con2);
+    // $sum2 = $rows2['balance'];
+    // $invested=$sum2-$sum;
         // $Message2="\n";
         //     while($row2 = mysqli_fetch_array($result2))
         //     {
                 //$amount=$row2['Requested_Amount']-$row2['Current_Amount'];$
-                $Message2= "BDT $invested has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
+                // $Message2= "BDT $sum has been invested from your balance BDT $sum2"."."." "."Your current balance is BDT $sum.";
+                $Message2= "You have invested BDT $sum.";
 
            // }
     }
+            // echo $user_name;
+
     $sql3 = "SELECT * FROM  sell WHERE user_name= '$user_name'";
     $result3 =mysqli_query($Conn,$sql3);
     if($result3->num_rows <= 0)
@@ -162,7 +169,7 @@ $user_name = $_SESSION['user_name'];
                         </div>
                     </div>
                     <div class="col-md-3">
-                        <a href="#"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <a href="FUNDING_LIST.php"> <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
                                 
                                 <h2>Investment</h2>

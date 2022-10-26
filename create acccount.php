@@ -86,10 +86,11 @@ if (isset($_POST['submit']))
                         $result = mysqli_query($Conn, $sql);
                         if (!$result->num_rows > 0) 
                         {
+                            $password=password_hash($password,PASSWORD_BCRYPT);
                             $sql = "INSERT INTO users (Name, user_name, MobileNumber,email, password)
                                     VALUES ('$Name', '$user_name', '$MobileNumber', '$email', '$password')";
                             $result = mysqli_query($Conn, $sql);
-                            echo"hello world";
+                            // echo"hello world";
                             if ($result)
                             {
                                 $otp = rand(100000,999999);
@@ -104,10 +105,10 @@ if (isset($_POST['submit']))
                                 $mail->SMTPAuth=true;
                                 $mail->SMTPSecure='tls';
                 
-                                $mail->Username='malihazaman@iut-dhaka.edu';
-                                $mail->Password='VDUEk8dvO630ajmN';
+                                $mail->Username='###';
+                                $mail->Password='###';
                 
-                                $mail->setFrom('malihazaman@iut-dhaka.edu', 'OTP Verification');
+                                $mail->setFrom('#','OTP Verification');
                                 $mail->addAddress($_POST["email"]);
             
                                 $mail->isHTML(true);

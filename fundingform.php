@@ -3,6 +3,7 @@
   error_reporting(0);
 
   session_start();
+  $Suser_name = $_SESSION['user_name'];
 
   // echo "<script>alert('Verify account done, you may sign in now')</script>";
   if (isset($_POST['submit'])) 
@@ -24,7 +25,7 @@
     //echo '$sum'; 
     $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
     $rowCount = mysqli_num_rows($check_query);
-    if ($rowCount <= 0) {
+    if ($rowCount <= 0 || $user_name!=$Suser_name) {
       //$UserErr = "Invalid User";
       $_POST['user_name'] = "";
       $_POST['Field'] = "";
@@ -79,7 +80,8 @@
           //   $NewMoney = "";
           //   echo "<script>alert('Verify account done, you may sign in now')</script>";
           // }
-          $query="INSERT INTO funding ( user_name, Field, Bank_Acc, Requested_Amount, Status, DESCRIPTION, Date) 
+        //echo "$user_name"."$Field"."$Bank_Acc"."$Requested_Amount"."$date";
+        $query="INSERT INTO funding ( user_name, Field, Bank_Acc, Requested_Amount, Status, DESCRIPTION, Date) 
         VALUES ( '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$DESCRIPTION','$date')";
         $connect = mysqli_query($Conn, $query );
         if($connect){
@@ -121,6 +123,11 @@
   <html lang="en">
 
   <head>
+  <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -223,10 +230,10 @@
                   <div class="input-wrap">
                     <b>FIELD : </b><br>
                     <!-- <h6>lhk</h6> -->
-                    <input type="radio" name="Field" name="Field" value="Crops" required /> Crops
-                    <input type="radio" name="Field" name="Field" value="Crops" required /> Poultry<br>
-                    <input type="radio" name="Field" name="Field" value="Crops" required /> Fisheries
-                    <input type="radio" name="Field" name="Field" value="Crops" required /> Farming<br>
+                    <input type="radio" name="Field" value="Crops" required /> Crops
+                    <input type="radio"  name="Field" value="Poultry" required /> Poultry<br>
+                    <input type="radio"  name="Field" value="Fisheries" required /> Fisheries
+                    <input type="radio"  name="Field" value="Farming" required /> Farming<br>
                     <input type="radio" name="Field" value="Machineries" required /> Machineries
                     <div class="input-wrap">
                  <br> <b>Description : </b>

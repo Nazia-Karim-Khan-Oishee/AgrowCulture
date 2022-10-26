@@ -30,7 +30,7 @@
           if($result)
           {            //echo "<script>alert('Verify account done, you may sign in now')</script>"; 
 
-             header("Location: dashboard.php");
+             header("Location: INDEX.php");
          }
          else 
          {
