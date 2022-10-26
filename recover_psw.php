@@ -38,11 +38,11 @@
             $mail->Host='smtp-relay.sendinblue.com';
             $mail->Port=587;
             $mail->SMTPAuth=true;
-            $mail->SMTPSecure='';
+            $mail->SMTPSecure='tls';
 
             // h-hotel account
-            $mail->Username='';
-            $mail->Password='';
+            $mail->Username='malihazaman@iut-dhaka.edu';
+            $mail->Password='VDUEk8dvO630ajmN';
 
             // send by h-hotel email
             $mail->setFrom('', 'Password Reset');
@@ -56,7 +56,7 @@
             $mail->Body="<b>Dear User</b>
             <h3>We received a request to reset your password.</h3>
             <p>Kindly click the below link to reset your password</p>
-            http://localhost/AgrowCulture/Createaccloginpage/reset_psw.php
+            http://localhost/AgrowCulture/reset_psw.php
             
             <br><br>
             <p>With regrads,</p>

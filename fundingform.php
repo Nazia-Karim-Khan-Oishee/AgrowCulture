@@ -5,8 +5,9 @@
   session_start();
   $Suser_name = $_SESSION['user_name'];
 
- // echo "<script>alert('Verify account done, you may sign in now')</script>";
-  if (isset($_POST['submit'])) {
+  // echo "<script>alert('Verify account done, you may sign in now')</script>";
+  if (isset($_POST['submit'])) 
+  {
     //echo "<script>alert('you may sign in now')</script>";
     $user_name = $_POST['user_name'];
     $Field = $_POST['Field'];
@@ -15,7 +16,7 @@
     $Requested_Amount = $_POST['Requested_Amount'];
     $date = $_POST['Date'];
     // $date = str_replace('/', '-', $var);
-    // //echo date('Y-m-d', strtotime($date));
+    // echo date('Y-m-d', strtotime($date));
     //$Date =  date('Y-m-d', strtotime($date));
     // $sql = "SELECT SUM(Current_Amount) AS value_sum FROM investment";
     // $result = mysqli_query($Conn, $sql);
@@ -83,8 +84,9 @@
         $query="INSERT INTO funding ( user_name, Field, Bank_Acc, Requested_Amount, Status, DESCRIPTION, Date) 
         VALUES ( '$user_name', '$Field', '$Bank_Acc', '$Requested_Amount', 'P', '$DESCRIPTION','$date')";
         $connect = mysqli_query($Conn, $query );
-            if($connect){
-
+        if($connect){
+          
+          // echo "$user_name"."$Field"."$Bank_Acc"."$Requested_Amount"."$date"."$DESCRIPTION";
                     //$ACMessage="YOUR REQUEST IS ACCEPTED.FUNDS WILL BE TRANSFARRED TO YOUR ACCOUNT SOON.";
                     $_POST['user_name'] = "";
                     $_POST['Field'] = "";
