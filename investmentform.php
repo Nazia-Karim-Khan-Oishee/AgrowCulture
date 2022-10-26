@@ -46,7 +46,7 @@ if ($rowCount <= 0 || $user_name!=$Suser_name) {
                    <?php    
  }
  else{
-  
+  if (!empty($_POST['check_list'])) {
 
 
    foreach($_SESSION['check_list'] as $selected)
@@ -89,6 +89,18 @@ if ($rowCount <= 0 || $user_name!=$Suser_name) {
    </script>
  <?php    
  }
+ else 
+ {
+  $_POST['user_name'] = "";
+  $_POST['Bank_Acc'] = "";
+  $_POST['Date'] = "";
+  ?>
+  <script>
+        window.location.replace("InvestmentError.php");
+  </script>
+  <?php
+ }
+}
 }
 //   if (isset($_POST['submit'])) {
   //     $user_name = $_POST['user_name'];

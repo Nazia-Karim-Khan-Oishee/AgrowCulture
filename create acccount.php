@@ -154,6 +154,8 @@ if (isset($_POST['submit']))
                             else 
                             {
                                 $err="Something Wrong Went.Please try again later.";
+                                $delsql = "DELETE FROM users WHERE user_name = '$user_name'";
+                                    $result = mysqli_query($Conn, $delsql);
                                 unset($Name);
                 unset($user_name);
                 unset($MobileNumber);

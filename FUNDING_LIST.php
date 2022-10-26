@@ -21,13 +21,17 @@ $user_name = $_SESSION['user_name'];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Log in.css">
     <title>Log In</title>
-    
+    <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
 </head>
 <body>
 
 <!-- <p> Phsical Alignments</p> -->
 <b>FIELD : </b><br>
-/////
+<!-- ///// -->
 <form action="" method="POST" autocomplete="off" class="sign-up-form">
 
                     <!-- <h6>lhk</h6> -->
@@ -71,7 +75,7 @@ $user_name = $_SESSION['user_name'];
 }
     }
 ?>
-//////////
+<!-- ////////// -->
 <!-- </form> -->
 
 
