@@ -3,6 +3,7 @@
     error_reporting(0);
 
     session_start();
+    $Suser_name = $_SESSION['user_name'];
 
     if(isset($_POST['submit']))
     {
@@ -23,7 +24,7 @@
       //$sum = $row['value_sum'];
       $check_query = mysqli_query($Conn, "SELECT * FROM users where user_name ='$user_name'");
       $rowCount = mysqli_num_rows($check_query);
-      if($rowCount <= 0)
+      if($rowCount <= 0 || $user_name!=$Suser_name)
       {
         $UserErr = "Invalid User";
         unset($user_name);
@@ -104,6 +105,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
       <meta charset="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
