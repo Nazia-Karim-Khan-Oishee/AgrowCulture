@@ -46,7 +46,7 @@ if ($rowCount <= 0 || $user_name!=$Suser_name) {
                    <?php    
  }
  else{
-  if (!empty($_POST['check_list'])) {
+  if (!empty($_SESSION['check_list'])) {
 
 
    foreach($_SESSION['check_list'] as $selected)
