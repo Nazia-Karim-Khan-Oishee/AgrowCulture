@@ -85,7 +85,7 @@
     <li><a href="aboutus.php">About</a></li>
     <li><a href="4optionss.php">Services</a></li>
     <li><a href="#">Team</a></li>
-    <li><a href="#">Contact</a></li>
+    <li><a href="aboutus.php">Contact</a></li>
   </ul>
   <p>2022 Copyright © Agrowculture. | Legal | Privacy Policy |</p>
 </footer>

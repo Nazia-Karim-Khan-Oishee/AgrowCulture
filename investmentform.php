@@ -393,8 +393,8 @@ if ($rowCount <= 0 || $user_name!=$Suser_name) {
               <ul>
                   <li><a href="getstartedpage.php">HOME</a></li>
                   <li><a href="4optionss.php">SERVICES</a></li>
-                  <li><a href="about us.php"></a>ABOUT US</li>
-                  <li><a href="#"></a>CONTACTS</li>
+                  <li><a href="about us.php">ABOUT US</a></li>
+                  <li><a href="aboutus.php">CONTACTS</a></li>
 
               </ul>
           </div>

@@ -311,8 +311,8 @@ if (isset($_POST['submit']))
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
                         <li><a href="4optionss.php">SERVICES</a></li>
-                        <li><a href=""></a>ABOUT US</li>
-                        <li><a href=""></a>CONTACTS</li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
+                        <li><a href="aboutus.php">CONTACTS</a></li>
 
                     </ul>
                 </div>
