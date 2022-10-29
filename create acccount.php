@@ -105,10 +105,10 @@ if (isset($_POST['submit']))
                                 $mail->SMTPAuth=true;
                                 $mail->SMTPSecure='tls';
                 
-                                $mail->Username='###';
-                                $mail->Password='###';
+                                $mail->Username='#########';
+                                $mail->Password='###########';
                 
-                                $mail->setFrom('#','OTP Verification');
+                                $mail->setFrom('############','OTP Verification');
                                 $mail->addAddress($_POST["email"]);
             
                                 $mail->isHTML(true);
@@ -154,6 +154,8 @@ if (isset($_POST['submit']))
                             else 
                             {
                                 $err="Something Wrong Went.Please try again later.";
+                                $delsql = "DELETE FROM users WHERE user_name = '$user_name'";
+                                    $result = mysqli_query($Conn, $delsql);
                                 unset($Name);
                 unset($user_name);
                 unset($MobileNumber);
@@ -184,7 +186,7 @@ if (isset($_POST['submit']))
         }
         else 
         {
-            $ConfirmErr = "Password Not Matched.";
+            $ConfirmErr = "Password Doesn't Not Match.";
             unset($Name);
                 unset($user_name);
                 unset($MobileNumber);
@@ -241,46 +243,81 @@ if (isset($_POST['submit']))
             <!-- Name -->
             <div class="form__message form__message--error"></div>
             <span class="error"> <?php echo $err;?></span>
+           
             <div class="form__input-group">
-                <input type="text" class="form__input" name="Name" autofocus placeholder="Name" autocomplete="off" value="<?php echo $Name; ?>" required>
-                <div class="form__input-error-message"></div>
+                 <!-- <div class="tooltip"> -->
+            <input type="text" class="form__input" name="Name" autofocus placeholder="Name" autocomplete="off" value="<?php echo $Name; ?>" required>
+                <!-- <span class="tooltiptext">Tooltip text</span> -->
+            <!-- </div> -->
+            <div class="form__input-error-message"></div>
             </div>
             <!-- Username -->
-            <div class="form__input-group">
+            <div class="form__input-group"><div class="tooltip">
                 <input type="text" class="form__input" name="user_name" autofocus placeholder="Username" autocomplete="off" value="<?php echo $user_name; ?>" required> 
+                <span class="tooltiptext">Length of username should be at least 6 characters.</span>
+                </div>
                 <span class="error"> <?php echo $usernameErr;?></span>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Mobile Number -->
             <div class="form__input-group">
+                <!-- <div class="tooltip"> -->
                 <input type="text" class="form__input" name="MobileNumber" autofocus placeholder="Mobile Number" autocomplete="off" value="<?php echo $MobileNumber; ?>" required>
-                <span class="error"> <?php echo $MobileNumberErr;?></span>
+                <!-- <span class="tooltiptext">Tooltip text</span>
+                </div> -->
+              <span class="error"> <?php echo $MobileNumberErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Email -->
             <div class="form__input-group">
+                <!-- <div class="tooltip"> -->
                 <input type="text" class="form__input" name="email" autofocus placeholder="email ID" autocomplete="off" value="<?php echo $email; ?>" required>
-                <span class="error"> <?php echo $emailErr;?></span>
+                <!-- <span class="tooltiptext">Tooltip text</span>
+                </div> -->
+                   <span class="error"> <?php echo $emailErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
-            <!-- Password -->
+            <!-- Password --><div class="tooltip">
             <div class="form__input-group">
-                <input type="password" class="form__input" name="password" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                <input type="password" class="form__input" name="password" id="myInput" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
+                <input type="checkbox" onclick="myFunction()"><span class="error2">Show Password</span><br>
+                <span class="tooltiptext">Password should contain at least one uppercase letter, one lowercase letter, one special character and one number</span>
+                </div>
                 <span class="error"> <?php echo $PassErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
             <!-- Confirm Password -->
             <div class="form__input-group">
-                <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" autocomplete="off" value="<?php echo $_POST['cpassword']; ?>" required>
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
-               <span class="error"> <?php echo $ConfirmErr;?></span>
-                <div class="form__input-error-message"></div>
-                <div class="form__input-error-message"></div>
+                <!-- <div class="tooltip"> -->
+                <input type="password" class="form__input" name="cpassword" id="myInput2" autofocus placeholder="Confirm Password" autocomplete="off" value="<?php echo $_POST['cpassword']; ?>" required>
+                <input type="checkbox" onclick="myFunction2()"><span class="error2">Show Password</span><br>
+                <!-- <span class="tooltiptext">Tooltip text</span>
+                </div> -->
             </div>
+                 <span class="error"> <?php echo $ConfirmErr;?></span>
+                <div class="form__input-error-message"></div>
+                <div class="form__input-error-message"></div>
+            <script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+function myFunction2() {
+  var x = document.getElementById("myInput2");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+                </script>
             <!-- Submit -->
 			<input type="submit" name="submit" class="form__button" value="Continue"/>
             <br>
@@ -309,8 +346,8 @@ if (isset($_POST['submit']))
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
                         <li><a href="4optionss.php">SERVICES</a></li>
-                        <li><a href=""></a>ABOUT US</li>
-                        <li><a href=""></a>CONTACTS</li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
+                        <li><a href="aboutus.php">CONTACTS</a></li>
 
                     </ul>
                 </div>
@@ -330,16 +367,3 @@ if (isset($_POST['submit']))
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-<script>
-    const toggle = document.getElementById('togglePassword');
-    const password = document.getElementById('password');
-
-    toggle.addEventListener('click', function(){
-        if(password.type === "password"){
-            password.type = 'text';
-        }else{
-            password.type = 'password';
-        }
-        this.classList.toggle('bi-eye');
-    });
-</script>

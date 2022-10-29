@@ -75,6 +75,7 @@ if (isset($_POST['submit']))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   
     <link rel="stylesheet" href="Log in.css">
     <link href="http://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <title>Log In</title>
@@ -109,11 +110,32 @@ if (isset($_POST['submit']))
             </div>
             <!-- Password -->
             <div class="form__input-group">
-                <input type="password" class="form__input" name="password" id="password" autofocus placeholder="Enter password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
+                <input type="password" class="form__input" name="password" id="myInput" autofocus placeholder="Enter password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
+                <input type="checkbox" onclick="myFunction()"><span class="error2">Show Password</span><br>
                 <span class="error"> <?php echo $WrongPass;?></span>
                 <div class="form__input-error-message"></div>
             </div>
-
+            <script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+function myFunction2() {
+  var x = document.getElementById("myInput2");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+                </script>
+   
+            
+               
             <button class="form__button" type="submit" id="submitBtn" name="submit" value="Login" requied>Continue</button>
             </form>
                 <p class="form__text">
