@@ -108,7 +108,7 @@ if (isset($_POST['submit']))
                                 $mail->Username='#########';
                                 $mail->Password='###########';
                 
-                                $mail->setFrom('##########','OTP Verification');
+                                $mail->setFrom('############','OTP Verification');
                                 $mail->addAddress($_POST["email"]);
             
                                 $mail->isHTML(true);
@@ -279,11 +279,10 @@ if (isset($_POST['submit']))
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
-            <!-- Password -->
-            <div class="tooltip">
+            <!-- Password --><div class="tooltip">
             <div class="form__input-group">
-                <input type="password" class="form__input" name="password" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                <input type="password" class="form__input" name="password" id="myInput" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
+                <input type="checkbox" onclick="myFunction()"><span class="error2">Show Password</span>
                 <span class="tooltiptext">Password should contain at least one uppercase letter, one lowercase letter, one special character and one number</span>
                 </div>
                 <span class="error"> <?php echo $PassErr;?></span>
@@ -293,14 +292,32 @@ if (isset($_POST['submit']))
             <!-- Confirm Password -->
             <div class="form__input-group">
                 <!-- <div class="tooltip"> -->
-                <input type="password" class="form__input" name="cpassword" autofocus placeholder="Confirm Password" autocomplete="off" value="<?php echo $_POST['cpassword']; ?>" required>
-                <i class="bi bi-eye-slash" id="togglePassword"></i>
+                <input type="password" class="form__input" name="cpassword" id="myInput2" autofocus placeholder="Confirm Password" autocomplete="off" value="<?php echo $_POST['cpassword']; ?>" required>
+                <input type="checkbox" onclick="myFunction2()"><span class="error2">Show Password</span>
                 <!-- <span class="tooltiptext">Tooltip text</span>
                 </div> -->
+            </div>
                  <span class="error"> <?php echo $ConfirmErr;?></span>
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
-            </div>
+            <script>
+    function myFunction() {
+  var x = document.getElementById("myInput");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+function myFunction2() {
+  var x = document.getElementById("myInput2");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
+                </script>
             <!-- Submit -->
 			<input type="submit" name="submit" class="form__button" value="Continue"/>
             <br>
@@ -350,16 +367,3 @@ if (isset($_POST['submit']))
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-<script>
-    const toggle = document.getElementById('togglePassword');
-    const password = document.getElementById('password');
-
-    toggle.addEventListener('click', function(){
-        if(password.type === "password"){
-            password.type = 'text';
-        }else{
-            password.type = 'password';
-        }
-        this.classList.toggle('bi-eye');
-    });
-</script>

@@ -41,11 +41,11 @@
             $mail->SMTPSecure='tls';
 
             // h-hotel account
-            $mail->Username='malihazaman@iut-dhaka.edu';
-            $mail->Password='VDUEk8dvO630ajmN';
+            $mail->Username='##########';
+            $mail->Password='###########';
 
             // send by h-hotel email
-            $mail->setFrom('malihazaman@iut-dhaka.edu', 'Password Reset');
+            $mail->setFrom('############', 'Password Reset');
             // get email from input
             $mail->addAddress($_POST["email"]);
             //$mail->addReplyTo('lamkaizhe16@gmail.com');
