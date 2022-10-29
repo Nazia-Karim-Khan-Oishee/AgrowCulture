@@ -16,12 +16,17 @@ $user_name = $_SESSION['user_name'];
     }
     else{
         $query3 = "SELECT * FROM funding WHERE user_name= '$user_name' and Status= 'P' ";
-        $query = "SELECT SUM(Requested_Amount) AS value_sum FROM funding WHERE user_name= '$user_name'";
+        $con3 = mysqli_query($Conn, $query3);
+        if($con3->num_rows==0)
+        {
+            $Message = "All of your requests have been approved.";
+        }
+        else {
+        $query = "SELECT SUM(Requested_Amount) AS value_sum FROM funding WHERE user_name= '$user_name'  and Status= 'P'";
         $con = mysqli_query($Conn, $query);
     $rows = mysqli_fetch_assoc($con);
         $sum = $rows['value_sum'];
 
-    $con3 = mysqli_query($Conn, $query3);
     // $rows3 = mysqli_fetch_assoc($con3);
     //     $query3 = "SELECT SUM(Requested_Amount) AS valuesum FROM funding WHERE user_name= '$user_name'";
     // $con3 = mysqli_query($Conn, $query3);
@@ -39,6 +44,7 @@ $user_name = $_SESSION['user_name'];
            $Message= "Your $c request for net BDT $sum is pending."."<br>";
 
     }
+}
     $sql2 = "SELECT * FROM  investment WHERE user_name= '$user_name'";
     $result2 =mysqli_query($Conn,$sql2);
     if($result2->num_rows <= 0)

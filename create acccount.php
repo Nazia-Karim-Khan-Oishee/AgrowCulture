@@ -282,7 +282,7 @@ if (isset($_POST['submit']))
             <!-- Password --><div class="tooltip">
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" id="myInput" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
-                <input type="checkbox" onclick="myFunction()"><span class="error2">Show Password</span>
+                <input type="checkbox" onclick="myFunction()"><span class="error2">Show Password</span><br>
                 <span class="tooltiptext">Password should contain at least one uppercase letter, one lowercase letter, one special character and one number</span>
                 </div>
                 <span class="error"> <?php echo $PassErr;?></span>
@@ -293,7 +293,7 @@ if (isset($_POST['submit']))
             <div class="form__input-group">
                 <!-- <div class="tooltip"> -->
                 <input type="password" class="form__input" name="cpassword" id="myInput2" autofocus placeholder="Confirm Password" autocomplete="off" value="<?php echo $_POST['cpassword']; ?>" required>
-                <input type="checkbox" onclick="myFunction2()"><span class="error2">Show Password</span>
+                <input type="checkbox" onclick="myFunction2()"><span class="error2">Show Password</span><br>
                 <!-- <span class="tooltiptext">Tooltip text</span>
                 </div> -->
             </div>
