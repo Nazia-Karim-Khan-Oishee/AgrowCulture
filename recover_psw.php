@@ -45,7 +45,7 @@
             $mail->Password='VDUEk8dvO630ajmN';
 
             // send by h-hotel email
-            $mail->setFrom('', 'Password Reset');
+            $mail->setFrom('malihazaman@iut-dhaka.edu', 'Password Reset');
             // get email from input
             $mail->addAddress($_POST["email"]);
             //$mail->addReplyTo('lamkaizhe16@gmail.com');
@@ -87,7 +87,8 @@
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<style>.error {color:red;}
+<style>
+.error {color:red;}
 </style>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!------ Include the above in your HEAD tag ---------->
@@ -137,7 +138,9 @@
                                 <label for="email_address" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
                                 <div class="col-md-6">
                                     <input type="text" id="email_address" class="form-control" name="email" autocomplete="off" required autofocus>
-                                    <span class="error"> <?php echo $Message?> <a href="verification.php"><?php echo $Message1?></a></span>
+                                    <span class="error"> <?php echo $Message?> 
+                                    <!-- <a href="verification.php"></a> -->
+                                </span>
                                 </div>
                             </div>
 

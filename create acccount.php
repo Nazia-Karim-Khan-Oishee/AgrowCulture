@@ -279,7 +279,8 @@ if (isset($_POST['submit']))
                 <div class="form__input-error-message"></div>
                 <div class="form__input-error-message"></div>
             </div>
-            <!-- Password --><div class="tooltip">
+            <!-- Password -->
+            <div class="tooltip">
             <div class="form__input-group">
                 <input type="password" class="form__input" name="password" autofocus placeholder="Password" autocomplete="off" value="<?php echo $_POST['password']; ?>" required>
                 <i class="bi bi-eye-slash" id="togglePassword"></i>

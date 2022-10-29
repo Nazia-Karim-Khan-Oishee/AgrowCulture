@@ -87,7 +87,7 @@ $MobileNumber = $row['MobileNumber'];
                                   <hr>
                                   <form>
                                   <div class="mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label"> Name</label>
+                                    <label for="exampleFormControlInput1" class="form-label">Name</label>
                                     <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="<?php echo $Name ?>" value="<?php echo $Name ?>">
                                     <label for="exampleFormControlInput1" class="form-label">User Name</label>
                                     <input type="text" class="form-control" id="name" name="name" autocomplete="off" placeholder="<?php echo $user_name ?>" value="<?php echo $user_name ?>">

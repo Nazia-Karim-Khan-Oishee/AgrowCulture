@@ -31,6 +31,8 @@ if($Validate)
         $result3 = mysqli_query($Conn , $sql3);
         $row=mysqli_fetch_assoc($result3);
        $hash = password_hash($row['password'], PASSWORD_DEFAULT);
+       $password=password_hash($password,PASSWORD_BCRYPT);
+
         //$hash = password_hash( $password , PASSWORD_DEFAULT );
 
         // $sql = mysqli_query($Conn, "SELECT * FROM users WHERE email='$email'");
@@ -54,7 +56,8 @@ if($Validate)
                // $Message="Something went wrong.Please Try again.";
  
             }
-        }else{
+        }
+        else{
                          $ShowMessage ="Something went wrong.Please Try again.";
             }
     }
@@ -78,6 +81,11 @@ else
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -122,7 +130,7 @@ else
                                     <input type="password" id="password" class="form-control" name="password" autocomplete="off" required autofocus>
                                     <span class="error"> <?php echo $ShowMessage;?></span>
                                     <!--<i class="bi bi-eye-slash" id="togglePassword"></i>-->
-                                </div>
+                                </div><br><br><br>
                                 <label for="Confirmpassword" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
                                 <div class="col-md-6">
                                     <input type="password" id="password" class="form-control" name="cpassword" autocomplete="off"  required autofocus>
