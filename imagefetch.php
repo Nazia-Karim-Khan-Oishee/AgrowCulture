@@ -5,6 +5,7 @@
 </head>
 <body>
   
+
   <form method="POST" action="index.php" enctype="multipart/form-data">
   	  	
   	  <input type="file" name="image">  	
