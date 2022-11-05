@@ -26,13 +26,16 @@ if (isset($_POST['submit']))
     $lowercase = preg_match('@[a-z]@', $checkpassword);
     $number    = preg_match('@[0-9]@', $checkpassword);
     $specialchars = preg_match('@[^\w]@', $checkpassword);
+    
     if(!$uppercase || !$lowercase || !$number || !$specialchars || strlen($checkpassword)<5 ) 
     {
         $Validate= false;
     }
     
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
     if($Validate)
-	{                        
+	{        
+
         if ($password === $cpassword) 
         {
             if(strlen($MobileNumber)<11)
@@ -198,6 +201,7 @@ if (isset($_POST['submit']))
             $_POST['cpassword'] = "";
         }
     }
+
     else 
     {   
         $PassErr="Password should contain at least one uppercase letter, one lowercase letter, one special character and one number";
@@ -211,6 +215,21 @@ if (isset($_POST['submit']))
             $_POST['password'] = "";
             $_POST['cpassword'] = "";
     }
+}
+else 
+{
+    $emailErr="Invalid Email";
+                                    
+                                    unset($Name);
+                                    unset($user_name);
+                                    unset($MobileNumber);
+                                    unset($email);
+                                    $_POST['Name'] = "";
+                $_POST['user_name'] = "";
+                $_POST['email'] = "";
+                $_POST['password'] = "";
+                $_POST['cpassword'] = "";
+}
 }
 
 ?>
