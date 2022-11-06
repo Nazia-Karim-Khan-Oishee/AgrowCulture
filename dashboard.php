@@ -135,7 +135,7 @@ $user_name = $_SESSION['user_name'];
                         
                
                 <a href="4optionss.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-list"></i> Services</a>
-                <a href="about us.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-address-card"></i> About Us</a>
+                <a href="aboutus.php" class="list-group-item list-group-item-action bg-transparent second-text active"><i class="fa-solid fa-address-card"></i> About Us</a>
                 <a href="logout.php" class="list-group-item list-group-item-action bg-transparent text-danger fw-bold"><i
                         class="fas fa-power-off me-2"></i>Logout</a>
                         

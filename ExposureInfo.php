@@ -42,7 +42,7 @@
                         <div class="text">
                             <div>
                                 <h1>
-                                    Exposure <br /> 
+                                    Selling <br /> 
                                 </h1>
                                 <p>
                                 Are you tired of worrying upon pursuing vendors to sell your cultivation? Are you afraid of getting scammed by an intermediary ? Do you want a reliable source to put your crops on display?

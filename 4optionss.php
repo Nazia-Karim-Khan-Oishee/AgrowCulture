@@ -1,7 +1,7 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>4 options</title>
+        <title>Services</title>
         <link rel="stylesheet" href="4optionss.css">
         <link href="http://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     </head>
@@ -12,7 +12,7 @@
                 <nav>
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
-                        <li><a href="about us.php">ABOUT US</a></li>
+                        <li><a href="aboutus.php">ABOUT US</a></li>
                         <li><a href="INDEX.php">LOG IN</a></li>
                     </ul>
                 </nav>
