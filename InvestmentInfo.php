@@ -50,7 +50,7 @@ Start by investing through our website.<br>
 <!--<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
 What else do we provide?<br><a href="ExposureInfo.php"><b>Exposure</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br><a href="create acccount.php">
 Join AgrowCulture community to avail our services.</a>-->
-What else do we provide?<br><a href="ExposureInfo.php"><b>Seller</b></a><br><a href="fundingInfo.php"><b>Funding</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br>Join AgrowCulture community to avail our services.
+What else do we provide?<br><a href="ExposureInfo.php"><b>Selling</b></a><br><a href="fundingInfo.php"><b>Funding</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br>Join AgrowCulture community to avail our services.
 <!-- f5b1d29c0202a356a2c9d937a3a66e71d8248323:Createaccloginpage/FundingInfo.php-->
                                 </p>
                             </div>
