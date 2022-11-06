@@ -7,12 +7,15 @@
 
     if(isset($_POST['submit']))
     {
-      $file = $_FILES['image']["name"];
+      $Get_image_name = $_FILES['image']['name'];
       $user_name = $_POST['user_name'];
       $Field = $_POST['Field'];
       $Bank_Acc = $_POST['Bank_Acc'];
       $Quantity =$_POST['Quantity'];
       $date = $_POST['Date'];
+      $image_Path = "images/".basename($Get_image_name);
+      $product_name = $_POST['product_name'];
+      $unit_price = $_POST['unit_price'];
       // $var = $_POST['Date'];
       // $date = str_replace('/', '-', $var);
       // $Date =  date('Y-m-d', strtotime($date));
@@ -33,16 +36,20 @@
         unset($Quantity);
         unset($date);
         unset($image);
+        unset($product_name);
+        unset($unit_price);
         $_POST['user_name'] = "";
         $_POST['Field'] = "";
         $_POST['Bank_Acc'] = "";
         $_POST['Quantity'] = "";
         $_POST['Date'] = "";
         $_POST['image'] = "";
+        $_POST['product_name'] = "";
+        $_POST['unit_price'] = "";
         ?>
         <script>
-            window.location.replace("InvalidUser.php");
-        </script>
+          window.location.replace("InvalidUser.php");
+          </script>
         <?php  
       }
       else
@@ -50,12 +57,13 @@
         //$sql1 = "SELECT * FROM sell WHERE Status='p'";
         //$result = mysqli_query($Conn, $sql1);
         //$res = mysqli_query($con, $query);
-        $query =  "INSERT INTO sell (Seller_id, user_name, Field, Quantity, Bank_Acc, image, Status,Date) VALUES (NULL, '$user_name', '$Field','$Quantity','$Bank_Acc', '$file','p','$date')";
+        //$sql = "INSERT INTO sell (imagename, contact) VALUES ('$Get_image_name', 'USA')";
+        $query =  "INSERT INTO sell (Seller_id, user_name, Field, product_name, unit_price, Quantity, Bank_Acc, image, Status,Date) VALUES (NULL, '$user_name', '$Field','$product_name','$unit_price','$Quantity','$Bank_Acc', '$Get_image_name','p','$date')";
         $connect = mysqli_query($Conn, $query);
         
         if($connect)
         {
-          move_uploaded_file($_FILES['image']['tmp_name'],"$file");
+          move_uploaded_file($_FILES['image']['tmp_name'], $image_Path);
           $ACMessage="Your request is accepted. We will display it to our Purchase page soon!";
           unset($user_name);
           unset($Field);
@@ -63,12 +71,16 @@
           unset($Quantity);
           unset($date);
           unset($image);
+          unset($product_name);
+          unset($unit_price);
           $_POST['user_name'] = "";
           $_POST['Field'] = "";
           $_POST['Bank_Acc'] = "";
           $_POST['Quantity'] = "";
           $_POST['Date'] = ""; 
           $_POST['image'] = "";
+          $_POST['product_name'] = "";
+          $_POST['unit_price'] = "";
           //echo "<script>alert('connect hoise')</script>";
           ?>
           <script>
@@ -85,12 +97,16 @@
           unset($Quantity);
           unset($date);
           unset($image);
+          unset($product_name);
+          unset($unit_price);
           $_POST['user_name'] = "";
           $_POST['Field'] = "";
           $_POST['Bank_Acc'] = "";
           $_POST['image'] = "";
           $_POST['Quantity'] = "";
           $_POST['Date'] = "";
+          $_POST['product_name'] = "";
+          $_POST['unit_price'] = "";
           ?>
           <script>
               window.location.replace("SomethingWentWrong.php");
@@ -147,23 +163,33 @@
                     <b>user_name : </b>    
                     <input type="text" name = "user_name" minlength="4" class="input-field" autocomplete="off" required/>                
                   </div>
-                   <!-- Product -->
-                   <div class="input-wrap">
-                    <b>Product: </b>
+                   <!-- Product Type -->
+                  <div class="input-wrap">
+                    <b>Product Type: </b>
                     <br>
-                    <input type="radio" name="Field" value="Crops" required /> Crops
-                    <input type="radio" name="Field" value="Vegetables" required /> Vegetables<br>
-                    <input type="radio" name="Field" value="Fish" required /> Fish
-                    <input type="radio" name="Field" value="Fruits" required /> Fruits<br>
-                    <input type="radio" name="Field" value="Meat" required /> Meat
+                    <input type="radio" name="Field" value="Vegetables" required /> Vegetables
+                    <input type="radio" name="Field" value="Fish" required /> Fish<br>
+                    <input type="radio" name="Field" value="Fruits" required /> Fruits
+                    <input type="radio" name="Field" value="Meat" required /> Meat<br><br>
                   </div>
                   <br>
                   <br>
+                  <!-- Product Name -->
+                  <div class="input-wrap">
+                      <b>Product Name : </b>
+                      <input type="text" name="product_name" class="input-field" autocomplete="off" required>  
+                  </div>
+                  <!-- Unit Price -->
+                  <div class="input-wrap">
+                      <b>Unit price : </b>
+                      <input type="text" name="unit_price" class="input-field" autocomplete="off" required>  
+                  </div>
                   <!-- Image -->
                   <div class="input-wrap">
                       <b>Product Image : </b>
                       <input type="file" name="image" id="file" required/>                
                   </div>
+                  <br>
                   <!-- Quantity -->
                   <div class="input-wrap">
                       <b>Quantity : </b>

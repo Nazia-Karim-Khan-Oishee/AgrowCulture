@@ -43,7 +43,7 @@ $user_name = $_SESSION['user_name'];
                     
                     <br> <br><input type="submit" name="submit" value="Filter" class="sign-btn" ><br><br>
 </form>
-                    <?php if (isset($_POST['submit'])) 
+    <?php if (isset($_POST['submit'])) 
     {
         $Field = $_POST['Field'];
         $sql = "select * from funding where Field='$Field' and Status='P'";

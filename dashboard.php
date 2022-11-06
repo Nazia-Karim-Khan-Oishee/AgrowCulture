@@ -196,7 +196,7 @@ $user_name = $_SESSION['user_name'];
                     <div class="col-md-3">
                         <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                            <a href="sell.php"><h2>Sell</h2>
+                                <a href="sell.php"><h2>Sell</h2>
                             </div>
                             <i
                                 class="fas fa-hand-holding-usd fs-1 primary-text border rounded-full secondary-bg p-3"></i>
@@ -205,10 +205,9 @@ $user_name = $_SESSION['user_name'];
                     </div>
 
                     <div class="col-md-3">
-                        <a href="#"></a><div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
                             <div>
-                                
-                                <h2>Purchase</h2>
+                                <a href="purchase.php"><h2>Purchase</h2></a>
                             </div>
                             <i class="fas fa-truck fs-1 primary-text border rounded-full secondary-bg p-3"></i>
                         </div>
