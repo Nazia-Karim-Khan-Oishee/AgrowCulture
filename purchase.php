@@ -18,10 +18,10 @@
         <ul class="links-container">
         <li class="link-item"><a href="#" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
-        <li class="link-item"><a href="vegetables.html" class="link">VEGETABLES</a></li>
-        <li class="link-item"><a href="#" class="link">FRUITS</a></li>
-        <li class="link-item"><a href="#" class="link">FISH</a></li>
-        <li class="link-item"><a href="#" class="link">MEAT</a></li>
+        <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
+        <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
+        <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
+        <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
         </ul>
      </nav>
      <header class="hero-section">
@@ -29,7 +29,7 @@
             <img src="" class="" alt="">
         </div>
      </header>
-     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt soluta iusto distinctio ab, consequuntur minima natus omnis culpa magnam tempore dignissimos vitae explicabo illum quibusdam! Necessitatibus maiores veritatis quibusdam magnam.</p>
+     <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt soluta iusto distinctio ab, consequuntur minima natus omnis culpa magnam tempore dignissimos vitae explicabo illum quibusdam! Necessitatibus maiores veritatis quibusdam magnam.</p> -->
      <!-- <section class="product">
     <h2 class="product-category">Best Selling </h2>
     <button class="pre-btn"><img src="arrow.png" alt=""></button>
