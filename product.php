@@ -2,6 +2,13 @@
     include 'Config.php';
     error_reporting(0);
     session_start();
+    if(isset($_POST['apply']))
+    {
+        $value=$_POST['apply'];
+        $_SESSION['product_id']=$value;
+//         $value2=$_SESSION['product_id'];
+//    echo "<script>alert($value2)</script>";
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -28,7 +35,7 @@
             <ul class="links-container">
             <li class="link-item"><a href="#" class="link">HOME</a></li>
             <li class="link-item"><a href="#" class="link">SERVICES</a></li>
-            <li class="link-item"><a href="vegetables.html" class="link">VEGETABLES</a></li>
+            <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
             <li class="link-item"><a href="#" class="link">FRUITS</a></li>
             <li class="link-item"><a href="#" class="link">FISH</a></li>
             <li class="link-item"><a href="#" class="link">MEAT</a></li>
@@ -38,7 +45,8 @@
     <section class="product-section">
         <?php    
             // image fetching
-            $img = mysqli_query($Conn, "SELECT image FROM sell");
+            $selected_product=$_SESSION['product_id'];
+            $img = mysqli_query($Conn, "SELECT image FROM sell WHERE Seller_id = '$selected_product'");
             while ($row = mysqli_fetch_array($img)) 
             {     
                 echo "<img src='images/".$row['image']."' style = 'width:400px;height:400px;' >";   
@@ -47,11 +55,11 @@
         <div class="product-detail">
             <?php
                 //information fetching  
-                $field = mysqli_query($Conn, "SELECT product_name, user_name FROM sell");
+                $field = mysqli_query($Conn, "SELECT product_name, user_name FROM sell WHERE Seller_id = '$selected_product'");
                 while ($row = mysqli_fetch_array($field)) 
                 {     
                     echo "<h2 class='product-title'>".($row['product_name'])."</h2><br>";
-                    echo "<h3 >Seller name: ".($row['user_name'])."</h3><br>";
+                    // echo "<h3 >Seller name: ".($row['user_name'])."</h3><br>";
                 }
             ?>
             <div class="ratings">
