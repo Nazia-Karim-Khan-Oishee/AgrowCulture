@@ -23,7 +23,7 @@
             <h1>AGROWCULTURE</h1>
             <div class="nav-items">
                 <div class="cart">
-                    <a href="#"><img src="user.png" alt=""></a>
+                    <a href="dashboard.php"><img src="user.png" alt=""></a>
                 <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
             </div> 
            
@@ -43,6 +43,13 @@
          <?php    
                 // image fetching
                 $img = mysqli_query($Conn, "SELECT image, product_name, unit_price FROM sell where Field='Fruits'");
+                $rowCount = mysqli_num_rows($img);
+
+                if($rowCount==0)
+                {
+                  header("Location:ProductEmpty.php");
+                }
+                else{
                 while ($row = mysqli_fetch_array($img)) 
                 {   
                     ?>  
@@ -63,6 +70,7 @@
                     </div>
                     <?php
                 } 
+            }
                 ?> 
                 <!-- <img src="tomato.jpg" class="product-thumb" alt=""> -->
                 <!-- <h2 class="product-brand">Tomato</h2> -->

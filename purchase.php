@@ -16,8 +16,8 @@
             </div>
         </div>
         <ul class="links-container">
-        <li class="link-item"><a href="#" class="link">HOME</a></li>
-        <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
+        <li class="link-item"><a href="4optionss.php" class="link">SERVICES</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
@@ -108,7 +108,7 @@
             <img src="pexels-pixabay-219794.jpg" alt="">
             <h4 class="collection-title">VEGETABLES</h4>
         </a>
-        <a href="fruis.php" class="collection">
+        <a href="fruits.php" class="collection">
             <img src="pexels-jane-doan-1092730.jpg" alt="">
             <h4 class="collection-title">FRUITS</h4>
         </a>
