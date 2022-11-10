@@ -27,8 +27,8 @@
             <div class="nav-items">
                 <div class="cart">
                     <a href="#"><img src="user.png" alt=""></a>
-                <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
-            </div> 
+                    <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
+                </div> 
            
             </div>
         </div>

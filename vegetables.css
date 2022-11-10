@@ -1,24 +1,28 @@
 .product-container
 {
-    padding: 0 10vw;
+    padding: 0 5vw;
+    margin-bottom: 10px;
     display: flex;
-    overflow-x: auto;
+    flex-wrap: wrap;
+    /* display: inline-flex; */
     scroll-behavior: smooth;
 }
-.product-container::-webkit-scrollbar
+/* .product-container::-webkit-scrollbar
 {
-    display: none;
-}
+    display: block;
+} */
 .product-card
 {
+    margin-top: 40px;
     flex: 0 0 auto;
-    width: 250px;
+    width: 300px;
     height: 450px;
     margin-right: 40px;
-   
+    margin-bottom: 50px;
+    justify-content: space-around;
 }
 
-.product-image
+.product-image 
 {   
     position: relative;
     width: 100%;
