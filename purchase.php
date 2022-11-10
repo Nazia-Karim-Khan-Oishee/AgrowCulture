@@ -12,7 +12,7 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
             <div class="nav-items">
-                <a href="#"><img src="user.png" alt=""></a>  <a href="#"><img src="cart.png" alt=""></a>
+                <a href="dashboard.php"><img src="user.png" alt=""></a>  <a href="#"><img src="cart.png" alt=""></a>
             </div>
         </div>
         <ul class="links-container">
