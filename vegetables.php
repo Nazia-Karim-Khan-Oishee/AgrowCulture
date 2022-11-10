@@ -45,9 +45,10 @@
      <div class="product-container">
          <?php    
                 // image fetching
-                $img = mysqli_query($Conn, "SELECT image, product_name, unit_price FROM sell where Field='Vegetables'");
+                $img = mysqli_query($Conn, "SELECT image,Seller_id, product_name, unit_price FROM sell where Field='Vegetables'");
                 while ($row = mysqli_fetch_array($img)) 
                 {   
+                    
                     ?>  
                     <div class="product-card">
                     <div class="product-image">
@@ -60,8 +61,15 @@
                     <?php
                     echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
                     echo "<span class='price' >".($row['unit_price'])."</span><br><br>";
-                    echo "<a href='product.php'><button class='button-68' name='submit' role='button'>Details</button></a>";
+                    $NAME=$row['Seller_id'];
                     ?>
+                    <form action="product.php" method="POST" autocomplete="off" class="sign-up-form">
+        <?php
+                    echo "<button name='apply' value=$NAME class='button-68'  role='button'>Details</button>";
+                       // echo "<script>alert('Wow!.')</script>";
+
+                    ?>
+                    </form>
                     </div>
                     </div>
                     <?php
