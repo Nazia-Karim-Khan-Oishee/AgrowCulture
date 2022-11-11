@@ -43,6 +43,13 @@
          <?php    
                 // image fetching
                 $img = mysqli_query($Conn, "SELECT image, product_name, unit_price FROM sell where Field='Fish'");
+                $rowCount = mysqli_num_rows($img);
+
+                if($rowCount==0)
+                {
+                  header("Location:ProductEmpty.php");
+                }
+                else{
                 while ($row = mysqli_fetch_array($img)) 
                 {   
                     ?>  
@@ -63,6 +70,7 @@
                     </div>
                     <?php
                 } 
+            }
                 ?> 
                 <!-- <img src="tomato.jpg" class="product-thumb" alt=""> -->
                 <!-- <h2 class="product-brand">Tomato</h2> -->

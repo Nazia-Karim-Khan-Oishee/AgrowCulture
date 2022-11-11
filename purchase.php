@@ -12,16 +12,16 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
             <div class="nav-items">
-                <a href="#"><img src="user.png" alt=""></a>  <a href="cart.php"><img src="cart.png" alt=""></a>
+                <a href="dashboard.php"><img src="user.png" alt=""></a>  <a href="#"><img src="cart.png" alt=""></a>
             </div>
         </div>
         <ul class="links-container">
-        <li class="link-item"><a href="#" class="link">HOME</a></li>
-        <li class="link-item"><a href="#" class="link">SERVICES</a></li>
-        <li class="link-item"><a href="vegetables.html" class="link">VEGETABLES</a></li>
-        <li class="link-item"><a href="#" class="link">FRUITS</a></li>
-        <li class="link-item"><a href="#" class="link">FISH</a></li>
-        <li class="link-item"><a href="#" class="link">MEAT</a></li>
+        <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
+        <li class="link-item"><a href="4optionss.php" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
+        <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
+        <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
+        <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
         </ul>
      </nav>
     
@@ -120,11 +120,26 @@
         <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
       </ul>
     </div>
-    <hr>
-    <p class="copyright">2022 Copyright Â© Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
-    
-</div> 
-</footer>  
+     </section> -->
+     <section class="collection-container">
+        <a href="vegetables.php" class="collection">
+            <img src="pexels-pixabay-219794.jpg" alt="">
+            <h4 class="collection-title">VEGETABLES</h4>
+        </a>
+        <a href="fruits.php" class="collection">
+            <img src="pexels-jane-doan-1092730.jpg" alt="">
+            <h4 class="collection-title">FRUITS</h4>
+        </a>
+        <a href="fish.php" class="collection">
+            <img src="pexels-energepiccom-3650159.jpg" alt="">
+            <h4 class="collection-title">FISH</h4>
+        </a>
+        <a href="meat.php" class="collection">
+            <img src="pexels-skyler-ewing-10201880.jpg" alt="">
+            <h4 class="collection-title">MEAT</h4>
+        </a>
+     </section>
 
-</body>
+   <script src="home.js"></script>
+    </body>
 </html>

@@ -43,10 +43,18 @@
      <div class="product-container">
          <?php    
                 // image fetching
-                $img = mysqli_query($Conn, "SELECT image,Seller_id, product_name, unit_price FROM sell where Field='Vegetables'");
-                while ($row = mysqli_fetch_array($img)) 
+                $img = mysqli_query($Conn, "SELECT image, Seller_id, product_name, unit_price FROM sell where Field='Vegetables'");
+                $rowCount = mysqli_num_rows($img);
+
+                if($rowCount==0)
+                {
+                  header("Location:ProductEmpty.php");
+                }
+                else{
+                while($row=mysqli_fetch_array($img)) 
                 {   
-                    
+                   // echo "<script>alert('Wow!.')</script>";
+
                     ?>  
                     <div class="product-card">
                     <div class="product-image">
@@ -64,7 +72,6 @@
                     <form action="product.php" method="POST" autocomplete="off" class="sign-up-form">
         <?php
                     echo "<button name='apply' value=$NAME class='button-68'  role='button'>Details</button>";
-                       // echo "<script>alert('Wow!.')</script>";
 
                     ?>
                     </form>
@@ -72,6 +79,7 @@
                     </div>
                     <?php
                 } 
+            }
                 ?> 
                 <!-- <img src="tomato.jpg" class="product-thumb" alt=""> -->
                 <!-- <h2 class="product-brand">Tomato</h2> -->
