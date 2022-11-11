@@ -18,7 +18,6 @@
         <title>vegetables</title>
          <link rel="stylesheet" href="nav.css"> 
          <link rel="stylesheet" href="vegetables.css"> 
-        
     </head>
     <body>
      <nav class="navbar">
@@ -26,10 +25,9 @@
             <h1>AGROWCULTURE</h1>
             <div class="nav-items">
                 <div class="cart">
-                    <a href="#"><img src="user.png" alt=""></a>
+                    <a href="dashboard.php"><img src="user.png" alt=""></a>
                     <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
                 </div> 
-           
             </div>
         </div>
         <ul class="links-container">
@@ -54,7 +52,7 @@
                     <div class="product-image">
                     <?php
                     echo "<img src='images/".$row['image']."' class='product-thumb' style = 'width:400px;height:400px;' >";   
-                    echo "<a class='add-cart' href='#'>Add to cart</a>"; 
+                    // echo "<a class='add-cart' href='#'>Add to cart</a>"; 
                     ?>
                     </div>
                     <div class="product-info">

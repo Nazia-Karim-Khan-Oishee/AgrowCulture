@@ -12,116 +12,119 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
             <div class="nav-items">
-                <a href="#"><img src="user.png" alt=""></a>  <a href="#"><img src="cart.png" alt=""></a>
+                <a href="#"><img src="user.png" alt=""></a>  <a href="cart.php"><img src="cart.png" alt=""></a>
             </div>
         </div>
         <ul class="links-container">
         <li class="link-item"><a href="#" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
-        <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
-        <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
-        <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
-        <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
+        <li class="link-item"><a href="vegetables.html" class="link">VEGETABLES</a></li>
+        <li class="link-item"><a href="#" class="link">FRUITS</a></li>
+        <li class="link-item"><a href="#" class="link">FISH</a></li>
+        <li class="link-item"><a href="#" class="link">MEAT</a></li>
         </ul>
      </nav>
-     <header class="hero-section">
-        <div class="content">
-            <img src="" class="" alt="">
-        </div>
-     </header>
-     <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt soluta iusto distinctio ab, consequuntur minima natus omnis culpa magnam tempore dignissimos vitae explicabo illum quibusdam! Necessitatibus maiores veritatis quibusdam magnam.</p> -->
-     <!-- <section class="product">
-    <h2 class="product-category">Best Selling </h2>
-    <button class="pre-btn"><img src="arrow.png" alt=""></button>
-    <button class="next-btn"><img src="arrow.png" alt=""></button>
-    <div class="product-container">
-        <div class="product-card">
-            <div class="product-image">
-                <img src="pexels-suvan-chowdhury-428301.jpg"  class="product-thumb" alt="">
-                <button class="card-btn">add to cart</button>          
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Tomato</h2>
-                <p class="product-short-des"> About tomatoes</p>
-                <span class="price">130Tk/kg</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">
-                <img src="pexels-pixabay-144248.jpg" height="350px" width="450px" class="product-thumb" alt="">
-                <button class="card-btn">add to cart</button>          
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">POTATO</h2>
-                <p class="product-short-des"> About potatoes</p>
-                <span class="price">33Tk/kg</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">
-                <img src="pexels-pnw-production-8251401.jpg" height="350px" width="450px" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>          
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Rice</h2>
-                <p class="product-short-des"> About rice</p>
-                <span class="price">135Tk/kg</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">
-                <img src="pexels-any-lane-5945763.jpg" height="350px" width="450px" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>          
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Dragon Fruit</h2>
-                <p class="product-short-des"> About dragon fruit</p>
-                <span class="price">370Tk/kg</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">
-                <img src="pexels-dominika-roseclay-1021756.jpg" height="350px" width="450px" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>          
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Lemon</h2>
-                <p class="product-short-des"> About lemons</p>
-                <span class="price">25tk/4pc</span>
-            </div>
-        </div>
-        <div class="product-card">
-            <div class="product-image">
-                <img src="pexels-snapwire-7017.jpg" class="product-thumb" alt="">
-                <button class="card-btn">add to wishlist</button>          
-            </div>
-            <div class="product-info">
-                <h2 class="product-brand">Capsicum</h2>
-                <p class="product-short-des"> About capsicum</p>
-                <span class="price">250tk/0.5kg</span>
-            </div>
-        </div>
-    </div>
-     </section> -->
-     <section class="collection-container">
-        <a href="vegetables.php" class="collection">
-            <img src="pexels-pixabay-219794.jpg" alt="">
-            <h4 class="collection-title">VEGETABLES</h4>
-        </a>
-        <a href="fruis.php" class="collection">
-            <img src="pexels-jane-doan-1092730.jpg" alt="">
-            <h4 class="collection-title">FRUITS</h4>
-        </a>
-        <a href="fish.php" class="collection">
-            <img src="pexels-energepiccom-3650159.jpg" alt="">
-            <h4 class="collection-title">FISH</h4>
-        </a>
-        <a href="meat.php" class="collection">
-            <img src="pexels-skyler-ewing-10201880.jpg" alt="">
-            <h4 class="collection-title">MEAT</h4>
-        </a>
-     </section>
+    
+<div class="main">
 
-   <script src="home.js"></script>
-    </body>
+    <!--cards -->
+   
+   <div class="card">
+   
+   <div class="image">
+      <img src="pexels-pixabay-219794.jpg">
+   </div>
+   <div class="title">
+ 
+   </div>
+   <div class="des">
+
+  <a href="vegetables.php"><button><h4><b>VEGETABLES</b></h4></button></di></a>
+   </div>
+   </div>
+
+   <div class="card">
+   
+    <div class="image">
+       <img src="pexels-jane-doan-1092730.jpg">
+    </div>
+    <div class="title">
+    
+    </div>
+    <div class="des">
+   
+    <a href="fruits.php"><button><h4><b>FRUITS</b></h4></button></a>
+    </div>
+    </div>
+    <div class="card">
+   
+        <div class="image">
+           <img src="pexels-energepiccom-3650159.jpg" height="30%">
+        </div>
+        <div class="title">
+       
+        </div>
+        <div class="des">
+      
+        <a href="fish.php"><button><h4><b>FISH</b></h4></button></a>
+        </div>
+        </div>
+        <div class="card">
+        <div class="image">
+            <img src="pexels-skyler-ewing-10201880.jpg" height="250px">
+         </div>
+         <div class="title">
+    
+         </div>
+         <div class="des">
+    
+         <a href="meat.php"><button><h4><b>MEAT</b></h4></button></a>
+         </div>
+         </div>
+     
+            <div class="cont">
+       
+            </div>
+        </div>
+        
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+          
+</div> 
+<footer>
+<div class="row">
+    <div class="col">
+        <h3>AGROWCULTURE</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+    </div>
+    <div class="col">
+        <h5>Address <div class="underline"><span></span></div></h5>
+        <p>Islamic University of Technology</p>
+        <p>Boardbazar,Gazipur</p>
+    </div>
+    <div class="col">
+        <h5>Links <div class="underline"><span></span></div></h5>
+        <ul>
+            <li><a href="getstartedpage.html">HOME</a></li>
+            <li><a href="4optionss.html">SERVICES</a></li>
+            <li><a href=""></a>ABOUT US</li>
+            <li><a href=""></a>CONTACTS</li>
+
+        </ul>
+    </div>
+
+    <ul class="social_icon">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+      </ul>
+    </div>
+    <hr>
+    <p class="copyright">2022 Copyright Â© Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+    
+</div> 
+</footer>  
+
+</body>
 </html>
