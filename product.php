@@ -65,7 +65,7 @@
                     echo "<button name='add' value=$NAME class='button-68'  role='button'>Add to cart</button>";          
                 }
             ?>
-            <button><a class="add-cart" href="#">Add to cart</a></button>
+            <button><a class="add-cart" href="cart.php">Add to cart</a></button>
             <div class="ratings">
                 <img src="fill_star.png" class="star" alt="">
                 <img src="fill_star.png" class="star" alt="">
