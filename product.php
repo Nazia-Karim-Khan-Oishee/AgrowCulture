@@ -4,7 +4,7 @@
     session_start();
     if(isset($_POST['apply']))
     {
-        $value=$_POST['apply'];
+        $value = $_POST['apply'];
         $_SESSION['product_id']=$value;
 //         $value2=$_SESSION['product_id'];
 //    echo "<script>alert($value2)</script>";
@@ -57,14 +57,15 @@
         <div class="product-detail">
             <?php
                 //information fetching  
-                $field = mysqli_query($Conn, "SELECT product_name, user_name FROM sell WHERE Seller_id = '$selected_product'");
+                $field = mysqli_query($Conn, "SELECT Seller_id, product_name, user_name FROM sell WHERE Seller_id = '$selected_product'");
                 while ($row = mysqli_fetch_array($field)) 
                 {     
                     echo "<h2 class='product-title'>".($row['product_name'])."</h2><br>";
-                    // echo "<h3 >Seller name: ".($row['user_name'])."</h3><br>";
+                    echo "<h3 >Seller ID: ".($row['Seller_id'])."</h3><br>";
+                    echo "<button name='add' value=$NAME class='button-68'  role='button'>Add to cart</button>";          
                 }
             ?>
-            <button><a class="add-cart" href="#">Add to cart</a></button>
+            <!-- <button><a class="add-cart" href="#">Add to cart</a></button> -->
             <div class="ratings">
                 <img src="fill_star.png" class="star" alt="">
                 <img src="fill_star.png" class="star" alt="">

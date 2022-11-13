@@ -47,30 +47,32 @@
 
                 if($rowCount==0)
                 {
-                  header("Location:ProductEmpty.php");
+                    //   header("Location:ProductEmpty.php");
+                    echo "<p>No fruit for sale currently!</p>";
                 }
-                else{
-                while ($row = mysqli_fetch_array($img)) 
-                {   
-                    ?>  
-                    <div class="product-card">
-                    <div class="product-image">
-                    <?php
-                    echo "<img src='images/".$row['image']."' class='product-thumb' style = 'width:400px;height:400px;' >";   
-                    echo "<a class='add-cart' href='#'>Add to cart</a>"; 
-                    ?>
-                    </div>
-                    <div class="product-info">
-                    <?php
-                    echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
-                    echo "<span class='price' >".($row['unit_price'])."</span><br><br>";
-                    echo "<a href='product.php'><button class='button-68' name='submit' role='button'>Details</button></a>";
-                    ?>
-                    </div>
-                    </div>
-                    <?php
-                } 
-            }
+                else
+                {
+                    while ($row = mysqli_fetch_array($img)) 
+                    {   
+                        ?>  
+                        <div class="product-card">
+                        <div class="product-image">
+                        <?php
+                        echo "<img src='images/".$row['image']."' class='product-thumb' style = 'width:400px;height:400px;' >";   
+                        echo "<a class='add-cart' href='#'>Add to cart</a>"; 
+                        ?>
+                        </div>
+                        <div class="product-info">
+                        <?php
+                        echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
+                        echo "<span class='price' >".($row['unit_price'])."</span><br><br>";
+                        echo "<a href='product.php'><button class='button-68' name='submit' role='button'>Details</button></a>";
+                        ?>
+                        </div>
+                        </div>
+                        <?php
+                    } 
+                }
                 ?> 
                 <!-- <img src="tomato.jpg" class="product-thumb" alt=""> -->
                 <!-- <h2 class="product-brand">Tomato</h2> -->

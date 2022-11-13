@@ -16,7 +16,7 @@
             </div>
         </div>
         <ul class="links-container">
-        <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
+        <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
         <li class="link-item"><a href="4optionss.php" class="link">SERVICES</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>

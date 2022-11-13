@@ -47,7 +47,8 @@
 
                 if($rowCount==0)
                 {
-                  header("Location:ProductEmpty.php");
+                    //   header("Location:ProductEmpty.php");
+                    echo "<p>No fruit for sale currently!</p>";
                 }
                 else{
                 while ($row = mysqli_fetch_array($img)) 

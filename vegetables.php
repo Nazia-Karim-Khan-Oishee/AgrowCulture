@@ -3,10 +3,6 @@
     error_reporting(0);
     session_start();
 
-    if(isset($_POST['submit']))
-    {
-        
-    }
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +27,7 @@
             </div>
         </div>
         <ul class="links-container">
-        <li class="link-item"><a href="#" class="link">HOME</a></li>
+        <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
@@ -48,7 +44,8 @@
 
                 if($rowCount==0)
                 {
-                  header("Location:ProductEmpty.php");
+                //   header("Location:ProductEmpty.php");
+                echo "<p>No fruit for sale currently!</p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
@@ -70,7 +67,7 @@
                     $NAME=$row['Seller_id'];
                     ?>
                     <form action="product.php" method="POST" autocomplete="off" class="sign-up-form">
-        <?php
+                    <?php
                     echo "<button name='apply' value=$NAME class='button-68'  role='button'>Details</button>";
 
                     ?>
