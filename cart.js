@@ -1,3 +1,5 @@
+
+
 let carts = document.querySelectorAll('.add-cart');
 let products = [
     {
@@ -204,3 +206,4 @@ function deleteButtons()
 
 onLoadCartNumbers();
 displayCart();
+

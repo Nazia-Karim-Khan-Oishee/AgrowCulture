@@ -1,3 +1,20 @@
+<?php
+    include 'Config.php';
+    error_reporting(0);
+    session_start();
+    // foreach($_SESSION['array'] as $key=>$value)
+    // {
+    // // and print out the values
+    // echo 'The value of $_SESSION['."'".$key."'".'] is '."'".$value."'".' <br />';
+    // }
+    // if(isset($_POST['apply']))
+    // {
+    //     $value = $_POST['apply'];
+    //     $_SESSION['product_id']=$value;
+//         $value2=$_SESSION['product_id'];
+//    echo "<script>alert($value2)</script>";
+// }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +36,7 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
                 <div class="cart">
-                    <a href="#"><img src="user.png" alt=""></a>
+                    <a href="dashboard.php"><img src="user.png" alt=""></a>
                 <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
             </div> 
            
@@ -45,7 +62,7 @@
         <div class="products">
         </div>
     </div>
-    <script src="cart.js"></script>
+    <!-- <script src="cart.js"></script> -->
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
 </html>

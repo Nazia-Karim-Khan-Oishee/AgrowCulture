@@ -83,6 +83,6 @@
                 <!-- <span class="price">130Tk/kg</span><br> -->
 
      </div>
-     <script src="cart.js"></script>
+     <!-- <script src="cart.js"></script> -->
     </body>
 </html>

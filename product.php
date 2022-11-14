@@ -9,6 +9,18 @@
 //         $value2=$_SESSION['product_id'];
 //    echo "<script>alert($value2)</script>";
 }
+
+// if(isset($_POST['add']))
+// {
+//     $sold=$_POST['add'];
+//     $_SESSION['array'][$_SESSION[$i]]=$sold;
+//     $_SESSION[$i]++;
+//     $_SESSION['array'][$_SESSION[$i]]=$sold;
+    
+
+//    echo "<script>alert($_SESSION[$i])</script>";
+   
+// }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +42,8 @@
                 <div class="nav-items">
                 <div class="cart">
                     <a href="dashboard.php"><img src="user.png" alt=""></a>
-                    <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
+                    <a href="cart.php"><img src="cart.png" alt=""></a>
+                    <!-- <span>0</span></a> -->
                 </div> 
                 </div>
             </div>
@@ -62,10 +75,17 @@
                 {     
                     echo "<h2 class='product-title'>".($row['product_name'])."</h2><br>";
                     echo "<h3 >Seller ID: ".($row['Seller_id'])."</h3><br>";
-                    echo "<button name='add' value=$NAME class='button-68'  role='button'>Add to cart</button>";          
+                    ?>
+                    <form action="" method="POST" autocomplete="off" class="sign-up-form">
+                        <?php 
+
+                    echo"<button name='add' value=$selected_product class='button-68'  role='button'>Add to cart</button>";
+                    ?>
+                         </form>
+                    <?php        
                 }
             ?>
-            <!-- <button><a class="add-cart" href="#">Add to cart</a></button> -->
+            <!-- <button><a value=$NAME class="add-cart" href="#">Add to cart</a></button> -->
             <div class="ratings">
                 <img src="fill_star.png" class="star" alt="">
                 <img src="fill_star.png" class="star" alt="">
@@ -130,6 +150,6 @@
     </div>
     </div>
     </section>
-    <script src="cart.js"></script>
+    <!-- <script src="cart.js"></script> -->
 </body>
 </html>
