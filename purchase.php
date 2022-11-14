@@ -1,15 +1,15 @@
 <?php 
-    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
-    $url = "https://";   
-else  
-    $url = "http://";   
-// Append the host(domain name, ip) to the URL.   
-$url.= $_SERVER['HTTP_HOST'];   
+//     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+//     $url = "https://";   
+// else  
+//     $url = "http://";   
+// // Append the host(domain name, ip) to the URL.   
+// $url.= $_SERVER['HTTP_HOST'];   
 
-// Append the requested resource location to the URL   
-$url.= $_SERVER['REQUEST_URI'];    
+// // Append the requested resource location to the URL   
+// $url.= $_SERVER['REQUEST_URI'];    
  
-echo $url;  
+// echo $url;  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -126,33 +126,6 @@ echo $url;
         </ul>
     </div>
 </footer>
-    <!-- <ul class="social_icon">
-        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-      </ul>
-    </div>
-     </section> 
-     <section class="collection-container">
-        <a href="vegetables.php" class="collection">
-            <img src="pexels-pixabay-219794.jpg" alt="">
-            <h4 class="collection-title">VEGETABLES</h4>
-        </a>
-        <a href="fruits.php" class="collection">
-            <img src="pexels-jane-doan-1092730.jpg" alt="">
-            <h4 class="collection-title">FRUITS</h4>
-        </a>
-        <a href="fish.php" class="collection">
-            <img src="pexels-energepiccom-3650159.jpg" alt="">
-            <h4 class="collection-title">FISH</h4>
-        </a>
-        <a href="meat.php" class="collection">
-            <img src="pexels-skyler-ewing-10201880.jpg" alt="">
-            <h4 class="collection-title">MEAT</h4>
-        </a>
-     </section>
-
-   <script src="home.js"></script> -->
+    
     </body>
 </html>

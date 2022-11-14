@@ -40,40 +40,48 @@
      </nav> 
     
      <div class="product-container">
-         <?php    
+     <?php    
                 // image fetching
-                $img = mysqli_query($Conn, "SELECT image, product_name, unit_price FROM sell where Field='Meat'");
+                $img = mysqli_query($Conn, "SELECT image, Seller_id, product_name, unit_price FROM sell where Field='Meat'");
                 $rowCount = mysqli_num_rows($img);
 
                 if($rowCount==0)
                 {
-                    //   header("Location:ProductEmpty.php");
-                    echo "<p>No fruit for sale currently!</p>";
+                //   header("Location:ProductEmpty.php");
+                echo "<p>No fruit for sale currently!</p>";
                 }
                 else{
-                while ($row = mysqli_fetch_array($img)) 
+                while($row=mysqli_fetch_array($img)) 
                 {   
+                   // echo "<script>alert('Wow!.')</script>";
+
                     ?>  
                     <div class="product-card">
                     <div class="product-image">
                     <?php
                     echo "<img src='images/".$row['image']."' class='product-thumb' style = 'width:400px;height:400px;' >";   
-                    echo "<a class='add-cart' href='#'>Add to cart</a>"; 
+                    // echo "<a class='add-cart' href='#'>Add to cart</a>"; 
                     ?>
                     </div>
                     <div class="product-info">
                     <?php
                     echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
                     echo "<span class='price' >".($row['unit_price'])."</span><br><br>";
-                    echo "<a href='product.php'><button class='button-68' name='submit' role='button'>Details</button></a>";
+                    $NAME=$row['Seller_id'];
                     ?>
+                    <form action="product.php" method="POST" autocomplete="off" class="sign-up-form">
+                    <?php
+                    echo "<button name='apply' value=$NAME class='button-68'  role='button'>Details</button>";
+
+                    ?>
+                    </form>
                     </div>
                     </div>
                     <?php
                 } 
             }
                 ?> 
-                <!-- <img src="tomato.jpg" class="product-thumb" alt=""> -->
+            <!-- <img src="tomato.jpg" class="product-thumb" alt=""> -->
                 <!-- <h2 class="product-brand">Tomato</h2> -->
                 <!-- <span class="price">130Tk/kg</span><br> -->
 
