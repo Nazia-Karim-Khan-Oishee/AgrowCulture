@@ -120,26 +120,5 @@
         <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
       </ul>
     </div>
-     </section> -->
-     <section class="collection-container">
-        <a href="vegetables.php" class="collection">
-            <img src="pexels-pixabay-219794.jpg" alt="">
-            <h4 class="collection-title">VEGETABLES</h4>
-        </a>
-        <a href="fruits.php" class="collection">
-            <img src="pexels-jane-doan-1092730.jpg" alt="">
-            <h4 class="collection-title">FRUITS</h4>
-        </a>
-        <a href="fish.php" class="collection">
-            <img src="pexels-energepiccom-3650159.jpg" alt="">
-            <h4 class="collection-title">FISH</h4>
-        </a>
-        <a href="meat.php" class="collection">
-            <img src="pexels-skyler-ewing-10201880.jpg" alt="">
-            <h4 class="collection-title">MEAT</h4>
-        </a>
-     </section>
-
-   <script src="home.js"></script>
     </body>
 </html>
