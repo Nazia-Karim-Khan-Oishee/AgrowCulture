@@ -19,7 +19,7 @@ $user_name = $_SESSION['user_name'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Log in.css">
+    <link rel="stylesheet" href="FundingListCSS.css">
     <title>Log In</title>
     <script>
       if(window.history.replaceState){
@@ -28,7 +28,10 @@ $user_name = $_SESSION['user_name'];
     </script>
 </head>
 <body>
-
+<div class="container">
+   <div class="contact-box">
+    <div class="left"></div>
+    <div class="right">
 <!-- <p> Phsical Alignments</p> -->
 <b>FIELD : </b><br>
 <!-- ///// -->
@@ -85,5 +88,8 @@ $user_name = $_SESSION['user_name'];
 
     <!-- <form action="{next_page}" method="POST" autocomplete="off" class="sign-up-form">
 </form>    -->
+</div>
+   </div>
+    </div>
 </body>   
 </html>
