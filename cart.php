@@ -2,6 +2,7 @@
     include 'Config.php';
     error_reporting(0);
     session_start();
+    $user_name = $_SESSION['user_name'];
     // foreach($_SESSION['array'] as $key=>$value)
     // {
     // // and print out the values
@@ -14,6 +15,10 @@
 //         $value2=$_SESSION['product_id'];
 //    echo "<script>alert($value2)</script>";
 // }
+    if(isset($_POST['apply']))
+    {
+
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,8 +41,13 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
                 <div class="cart">
-                    <a href="dashboard.php"><img src="user.png" alt=""></a>
-                <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a>
+                    <a href="dashboard.php">
+                        <!-- <img src="user.png" alt=""> -->
+                        <?php
+                            echo $user_name;
+                        ?>
+                    </a>
+                <!-- <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a> -->
             </div> 
            
             </div>
@@ -58,6 +68,50 @@
             <h5 class="price">PRICE</h5>
             <h5 class="quantity">QUANTITY</h5>
             <h5 class="total">TOTAL</h5>
+            <?php    
+                // image fetching
+                $cart = mysqli_query($Conn, "SELECT Seller_id, Quantity FROM temporary");
+                $rowCount = mysqli_num_rows($cart);
+                if($rowCount==0)
+                {
+                    echo "<p>Cart is empty! <a href='Purchase.php'>Continue shopping</a></p>";
+                }
+                else{
+                    
+                while($row=mysqli_fetch_array($cart)) 
+                {   
+                    $ID = $row['Seller_id'];
+                    $Quan = $row['Quantity'];
+                    $sales = mysqli_query($Conn, "SELECT Seller_id, product_name, unit_price, Quantity FROM sell where Seller_id='$ID'");
+                    $rowCount1 = mysqli_num_rows($sales);
+                    // echo "<script>alert('Wow!.')</script>";
+                    ?>  
+                
+                    
+                    <div class="product-info">
+                    <?php
+                    echo "<h2 class='product-name'>".($row['product_name'])."</h2>";
+                    // echo "<span class='price' >Seller ID: ".($row['Seller_id'])."</span><br>";
+                    echo "<span class='price' >".($row['unit_price'])."Tk/kg</span><br>";
+                    echo "<span class='price' >".($Quan)."</span><br>";
+                    $total = $row['unit_price'] * $Quan;
+                    echo "<span class='price' >".($total)."</span><br><br>";
+                    
+                    ?>
+                        <!-- <form action="" method="POST" autocomplete="off" class="sign-up-form"> -->
+                    <?php 
+                            // echo "<input type='hidden' name='meh_id' value = $NAME>";
+                            // echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";
+                    
+
+                    ?>
+                    </form>
+                    
+                    </div>
+                    <?php
+                } 
+                }
+                ?> 
         </div>
         <div class="products">
         </div>

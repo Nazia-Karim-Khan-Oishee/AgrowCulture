@@ -6,21 +6,8 @@
     {
         $value = $_POST['apply'];
         $_SESSION['product_id']=$value;
-//         $value2=$_SESSION['product_id'];
-//    echo "<script>alert($value2)</script>";
-}
-
-// if(isset($_POST['add']))
-// {
-//     $sold=$_POST['add'];
-//     $_SESSION['array'][$_SESSION[$i]]=$sold;
-//     $_SESSION[$i]++;
-//     $_SESSION['array'][$_SESSION[$i]]=$sold;
-    
-
-//    echo "<script>alert($_SESSION[$i])</script>";
-   
-// }
+        // echo "<script>alert($value2)</script>";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +30,6 @@
                 <div class="cart">
                     <a href="dashboard.php"><img src="user.png" alt=""></a>
                     <a href="cart.php"><img src="cart.png" alt=""></a>
-                    <!-- <span>0</span></a> -->
                 </div> 
                 </div>
             </div>
@@ -56,7 +42,7 @@
             <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
             </ul>
          </nav>
-       <!-- product detail -->
+        <!-- product detail -->
     <section class="product-section">
         <?php    
             // image fetching
@@ -77,11 +63,10 @@
                     echo "<h3 >Seller ID: ".($row['Seller_id'])."</h3><br>";
                     ?>
                     <form action="" method="POST" autocomplete="off" class="sign-up-form">
-                        <?php 
-
+                    <?php
                     echo"<button name='add' value=$selected_product class='button-68'  role='button'>Add to cart</button>";
                     ?>
-                         </form>
+                    </form>
                     <?php        
                 }
             ?>
@@ -99,14 +84,11 @@
             </div>
         </div>
     </section>
-    
     <!-- <section class="detail-des">
         <h1 class="section-title">details</h1>
         <p class="des">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo accusantium, modi nihil fugiat atque voluptas accusamus quae tempora culpa unde a ut sapiente minus laboriosam repellendus? Minima rerum qui hic est in soluta impedit itaque provident, exercitationem vel magnam perspiciatis esse? Quasi vero nihil ducimus assumenda obcaecati fugiat maxime officiis quaerat asperiores architecto sed, iure sapiente, sint ipsam laudantium at a nemo deserunt quod in repudiandae, sunt reiciendis. Cumque quod ullam ipsam sunt a expedita earum laboriosam ea deleniti iusto eligendi quis labore similique, harum iure! Repudiandae architecto corporis excepturi ipsum aspernatur neque! Aperiam doloribus, dicta ullam, architecto non, nam possimus numquam excepturi magnam vero sunt nihil quia alias tempora laborum dolor rem nobis? Debitis sint, consectetur quos a expedita, excepturi incidunt nam voluptatibus optio aut, alias in magnam aliquam autem inventore non nostrum itaque fuga cumque voluptatem possimus voluptas! Ipsa accusamus sint quia suscipit totam commodi natus ratione id? <br><br> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eveniet laboriosam iusto sunt inventore nam eos pariatur dolores in, nostrum asperiores optio quod quis voluptatibus consectetur sed repudiandae id magni cupiditate voluptatum cum nobis? Quibusdam nam reiciendis maxime veniam at magnam quisquam tempora officiis ipsam asperiores, dolore fugit est officia velit fuga dolor quos pariatur repellendus molestias non! Rerum cupiditate labore necessitatibus veritatis est saepe, perferendis quasi exercitationem obcaecati sunt nam, quia eligendi neque autem sint quisquam, natus omnis optio. Velit eum aut, odit aliquam corrupti sequi commodi ipsum iste. Quasi corporis sit repellat. Debitis, atque eius tempore, unde perferendis dolores consectetur totam omnis esse labore ab reiciendis? Quia debitis similique, ut architecto assumenda non id corrupti nihil, dignissimos accusamus consequatur nobis asperiores voluptatem. Molestias voluptas repellat beatae commodi, hic voluptate, dolor nemo soluta doloribus, placeat aspernatur eum. Dignissimos aspernatur a repellat, iste itaque, laudantium aperiam necessitatibus mollitia, pariatur molestiae ratione.</p>
 
     </section> -->
-
-    
     <!-- add review form -->
     <section class="add-review-section">
         <h1 class="section-title">add a review</h1>
