@@ -49,7 +49,7 @@
         ?>
         <script>
           window.location.replace("InvalidUser.php");
-          </script>
+        </script>
         <?php  
       }
       else
