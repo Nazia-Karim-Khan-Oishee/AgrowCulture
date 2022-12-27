@@ -115,11 +115,12 @@
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No fruit for sale currently!</p>";
+                echo "<p>No vegetable for sale currently!</p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
                 {   
+                    // echo"HERE";
                    // echo "<script>alert('Wow!.')</script>";
 
                     ?>  
@@ -144,8 +145,12 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button>";
-                            
+                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button> ";
+                            echo "  ";
+                            echo "<button name='review' class='button-68'  role='button'>Add Review</button>";
+                            ?>
+                        </form>
+                        <?php
                     }
                     else
                     {
@@ -155,7 +160,12 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";
+                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";echo "  ";
+                            echo "<button name='review' class='button-68'  role='button'>Add Review</button>";
+                            ?>
+                        </form>
+                        <?php
+
                     }
 
                     ?>
