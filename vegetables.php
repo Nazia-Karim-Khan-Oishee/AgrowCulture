@@ -67,6 +67,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -164,13 +169,10 @@
                             echo "<button name='review' class='button-68'  role='button'>Add Review</button>";
                             ?>
                         </form>
-                        <?php
-
-                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button><br>";
-                            echo "<button name='review' class='button-68'  role='button'>Add review</button>";
+                       <?php 
                     }
-                    ?>
-                    </form>
+                    
+                ?>
                     </div>
                     </div>
                     <?php
