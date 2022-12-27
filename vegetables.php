@@ -129,10 +129,12 @@
                 else{
                 while($row=mysqli_fetch_array($img)) 
                 {   
-                    // $ID=$row['Seller_id'];
+                    $ID=$row['Seller_id'];
                     // echo $ID;
-                    //  $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) FROM review WHERE Seller_id='$ID'" );
-                    //  echo $ID;
+                     $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) AS avg_rev FROM review WHERE Seller_id='$ID'" );
+                     $rows = mysqli_fetch_assoc($fetch_rev);
+                     $sum = $rows['avg_rev'];
+                    //  echo $sum;
 
                    // echo "<script>alert('Wow!.')</script>";
 
@@ -147,7 +149,7 @@
                     <div class="product-info">
                     <?php
                     echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
-                    echo "<span class='price' >Seller ID: ".($row['Seller_id'])."</span><br>";
+                    echo "<span class='price' >Seller ID: ".($row['Seller_id'])."    (Rating: ".$sum."/5"."</span><br>";
                     echo "<span class='price' >Unit Price: ".($row['unit_price'])."Tk/kg</span><br>";
                     $Quantity = $row['Quantity'];
                     if($Quantity == 0)
