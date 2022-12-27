@@ -68,6 +68,57 @@
             <h5 class="price">PRICE</h5>
             <h5 class="quantity">QUANTITY</h5>
             <h5 class="total">TOTAL</h5>
+    <table>
+
+      <thead>
+
+         <th>Name</th>
+         <th>Unit price</th>
+         <th>Quantity</th>
+         <th>total price</th>
+         <th>action</th>
+      </thead>
+
+      <tbody>
+
+        <?php  
+        $select_cart = mysqli_query($conn, "SELECT * FROM `temporary`");
+        $cart_id = $row['Seller_id'];
+        $grand_total = 0;
+        if(mysqli_num_rows($select_cart) > 0)
+        {
+            while($fetch_cart = mysqli_fetch_assoc($select_cart))
+            {
+            ?>
+
+            <tr>
+                <td><?php echo $fetch_cart['name']; ?></td>
+                <td>$<?php echo number_format($fetch_cart['price']); ?>/-</td>
+                <td>
+                <form action="" method="post">
+                    <input type="hidden" name="update_quantity_id"  value="<?php echo $fetch_cart['id']; ?>" >
+                    <input type="number" name="update_quantity" min="1"  value="<?php echo $fetch_cart['quantity']; ?>" >
+                    <input type="submit" value="update" name="update_update_btn">
+                </form>   
+                </td>
+                <td>$<?php echo $sub_total = number_format($fetch_cart['price'] * $fetch_cart['quantity']); ?>/-</td>
+                <td><a href="cart.php?remove=<?php echo $fetch_cart['id']; ?>" onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a></td>
+            </tr>
+            <?php
+            $grand_total += $sub_total;  
+            };
+        };
+            ?>
+        <tr class="table-bottom">
+            <td><a href="products.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
+            <td colspan="3">grand total</td>
+            <td>$<?php echo $grand_total; ?>/-</td>
+            <td><a href="cart.php?delete_all" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td>
+        </tr>
+
+      </tbody>
+
+   </table>
             <?php    
                 // image fetching
                 $cart = mysqli_query($Conn, "SELECT Seller_id, Quantity FROM temporary");
