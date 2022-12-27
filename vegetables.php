@@ -133,7 +133,7 @@
                     // echo $ID;
                      $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) AS avg_rev FROM review WHERE Seller_id='$ID'" );
                      $rows = mysqli_fetch_assoc($fetch_rev);
-                     $sum = $rows['avg_rev'];
+                     $sum = (int)$rows['avg_rev'];
                     //  echo $sum;
 
                    // echo "<script>alert('Wow!.')</script>";
@@ -149,7 +149,7 @@
                     <div class="product-info">
                     <?php
                     echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
-                    echo "<span class='price' >Seller ID: ".($row['Seller_id'])."    (Rating: ".$sum."/5"."</span><br>";
+                    echo "<span class='price' >Seller ID: ".($row['Seller_id'])."    (Rating: ".$sum."/5)"."</span><br>";
                     echo "<span class='price' >Unit Price: ".($row['unit_price'])."Tk/kg</span><br>";
                     $Quantity = $row['Quantity'];
                     if($Quantity == 0)
@@ -179,7 +179,7 @@
                             ?>
                         <form action="Review.php" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
-                            echo'<a href="Review.php?resid='.$NAME.'">Add Review</a>';
+                            echo'<a class="btn" href="Review.php?resid='.$NAME.'">Add Review</a>';
                             ?>
                         </form>
                         </form>
