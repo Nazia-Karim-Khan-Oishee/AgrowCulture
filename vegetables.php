@@ -166,8 +166,9 @@
                         </form>
                         <?php
 
+                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button><br>";
+                            echo "<button name='review' class='button-68'  role='button'>Add review</button>";
                     }
-
                     ?>
                     </form>
                     </div>
