@@ -89,6 +89,7 @@
         {
             while($fetch_cart = mysqli_fetch_assoc($select_cart))
             {
+                $select_product = mysqli_query($conn, "SELECT * FROM `sell` where `Seller_id`=$ID");
             ?>
 
             <tr>
