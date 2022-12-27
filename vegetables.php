@@ -104,10 +104,12 @@
         <ul class="links-container">
         <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
         <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
+
         </ul>
      </nav> 
     
