@@ -5,17 +5,12 @@
 
     if(isset($_POST['apply']))
     {
-        
         $product_name = $_POST['meh_id'];
         $query =  mysqli_query($Conn, "SELECT * FROM `temporary` where Seller_id ='$product_name'");
         $rowCount = mysqli_num_rows($query);
         
         if($rowCount > 0)                                            
         {
-            if($Quantity == 0)
-            {
-
-            }
             $check_query = mysqli_query($Conn, "UPDATE temporary SET `Quantity`=`Quantity`+1 WHERE `Seller_id` = '$product_name'");
             $ch_query = mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`-1 WHERE `Seller_id` = '$product_name'");
            if($ch_query&&$check_query)
@@ -144,7 +139,7 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button>";
+                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button><br><br>";
                             
                     }
                     else
@@ -155,8 +150,8 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button><br>";
-                            echo "<button name='review' class='button-68'  role='button'>Add review</button>";
+                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button><br><br>";
+                            // echo "<button name='review' class='button-68'  role='button'>Add review</button>";
                     }
                     ?>
                     </form>
