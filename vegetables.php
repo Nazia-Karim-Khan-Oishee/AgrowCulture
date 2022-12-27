@@ -58,10 +58,16 @@
             }
         }
     }
+    
 ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -94,10 +100,12 @@
         <ul class="links-container">
         <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
         <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
+
         </ul>
      </nav> 
     
@@ -105,16 +113,24 @@
          <?php    
                 // image fetching
                 $img = mysqli_query($Conn, "SELECT image, Seller_id, product_name, unit_price, Quantity FROM sell where Field='Vegetables'");
+
                 $rowCount = mysqli_num_rows($img);
                 
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No fruit for sale currently!</p>";
+                echo "<p>No vegetable for sale currently!</p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
                 {   
+                    $ID=$row['Seller_id'];
+                    // echo $ID;
+                     $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) AS avg_rev FROM review WHERE Seller_id='$ID'" );
+                     $rows = mysqli_fetch_assoc($fetch_rev);
+                     $sum = (int)$rows['avg_rev'];
+                    //  echo $sum;
+
                    // echo "<script>alert('Wow!.')</script>";
 
                     ?>  
@@ -128,7 +144,7 @@
                     <div class="product-info">
                     <?php
                     echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
-                    echo "<span class='price' >Seller ID: ".($row['Seller_id'])."</span><br>";
+                    echo "<span class='price' >Seller ID: ".($row['Seller_id'])."    (Rating: ".$sum." out of 5)"."</span><br>";
                     echo "<span class='price' >Unit Price: ".($row['unit_price'])."Tk/kg</span><br>";
                     $Quantity = $row['Quantity'];
                     if($Quantity == 0)
@@ -139,8 +155,12 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button><br><br>";
-                            
+                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button> ";
+                            echo "  ";
+                            echo "<button name='review' value = $NAME class='button-68'  role='button'><a href='Review.php'>Add Review</a></button>";
+                            ?>
+                        </form>
+                        <?php
                     }
                     else
                     {
@@ -150,11 +170,18 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button><br><br>";
-                            // echo "<button name='review' class='button-68'  role='button'>Add review</button>";
+                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";echo "  ";
+                            ?>
+                        <form action="Review.php" method="POST" autocomplete="off" class="sign-up-form">
+                            <?php
+                            echo'<a class="btn" href="Review.php?resid='.$NAME.'">Add Review</a>';
+                            ?>
+                        </form>
+                        </form>
+                       <?php 
                     }
-                    ?>
-                    </form>
+                    
+                ?>
                     </div>
                     </div>
                     <?php

@@ -12,14 +12,18 @@
         
         if($rowCount > 0)                                            
         {
-           $check_query = mysqli_query($Conn, "UPDATE temporary SET `Quantity`=`Quantity`+1 WHERE `Seller_id` = '$product_name'");
-           $ch_query = mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`-1 WHERE `Seller_id` = '$product_name'");
+            if($Quantity == 0)
+            {
+
+            }
+            $check_query = mysqli_query($Conn, "UPDATE temporary SET `Quantity`=`Quantity`+1 WHERE `Seller_id` = '$product_name'");
+            $ch_query = mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`-1 WHERE `Seller_id` = '$product_name'");
            if($ch_query&&$check_query)
            {
                 unset($product_name);
                 ?>
                 <script>
-                window.location.replace("Fish.php");
+                window.location.replace("fish.php");
                 </script>
                 <?php
            }
@@ -29,7 +33,7 @@
                 echo "Cannot update sell";
                 ?>
                 <script>
-                  window.location.replace("Fish.php");
+                  window.location.replace("fish.php");
                 </script>
                 <?php
            }
@@ -44,7 +48,7 @@
             {
                 ?>
                 <script>
-                window.location.replace("Fish.php");
+                window.location.replace("fish.php");
                 </script>
                 <?php
             }
@@ -53,7 +57,7 @@
                 echo "Error found";
                 ?>
                 <script>
-                window.location.replace("Fish.php");
+                window.location.replace("fish.php");
                 </script>
                 <?php
             }
@@ -63,6 +67,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    <script>
+      if(window.history.replaceState){
+        window.history.replaceState(null,null,window.location.href);
+      }
+    </script>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -107,15 +116,16 @@
                 // image fetching
                 $img = mysqli_query($Conn, "SELECT image, Seller_id, product_name, unit_price, Quantity FROM sell where Field='Fish'");
                 $rowCount = mysqli_num_rows($img);
-
+                
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No fruit for sale currently!</p>";
+                echo "<p>No fish for sale currently!</p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
                 {   
+                    // echo"HERE";
                    // echo "<script>alert('Wow!.')</script>";
 
                     ?>  
@@ -131,17 +141,38 @@
                     echo "<h2 class='product-brand'>".($row['product_name'])."</h2>";
                     echo "<span class='price' >Seller ID: ".($row['Seller_id'])."</span><br>";
                     echo "<span class='price' >Unit Price: ".($row['unit_price'])."Tk/kg</span><br>";
-                    echo "<span class='price' >Quantity: ".($row['Quantity'])."</span><br><br>";
                     $Quantity = $row['Quantity'];
-                    $NAME = $row['Seller_id'];
-                    ?>
-                    <form action="" method="POST" autocomplete="off" class="sign-up-form">
+                    if($Quantity == 0)
+                    {
+                        echo "<span class='price' >Quantity: Sold out</span><br><br>";
+                        $NAME = $row['Seller_id'];
+                        ?>
+                        <form action="" method="POST" autocomplete="off" class="sign-up-form">
+                            <?php
+                            echo "<input type='hidden' name='meh_id' value = $NAME>";
+                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button> ";
+                            echo "  ";
+                            echo "<button name='review' class='button-68'  role='button'>Add Review</button>";
+                            ?>
+                        </form>
                         <?php
-                        echo "<input type='hidden' name='meh_id' value = $NAME>";
-                        echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";
-
-                    ?>
-                    </form>
+                    }
+                    else
+                    {
+                        echo "<span class='price' >Quantity: ".($row['Quantity'])."</span><br><br>";
+                        $NAME = $row['Seller_id'];
+                        ?>
+                        <form action="" method="POST" autocomplete="off" class="sign-up-form">
+                            <?php
+                            echo "<input type='hidden' name='meh_id' value = $NAME>";
+                            echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";echo "  ";
+                            echo "<button name='review' class='button-68'  role='button'>Add Review</button>";
+                            ?>
+                        </form>
+                       <?php 
+                    }
+                    
+                ?>
                     </div>
                     </div>
                     <?php
