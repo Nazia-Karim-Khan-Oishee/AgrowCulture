@@ -45,8 +45,7 @@
                                     Investment <br /> 
                                 </h1>
                                 <p>
-                                Do you  want to invest in agriculture  but scared of losses? Don't you have a huge budget for a whole startup? Then you have come to the right place.
-Start by investing through our website.<br>
+                                Do you want to invest in agriculture but scared of losses? Don't you have a huge budget for a whole startup? Then you have come to the right place. Start by investing through our website.<br>
 <!--<<<<<<<< HEAD:Createaccloginpage/FundinInfo.php
 What else do we provide?<br><a href="ExposureInfo.php"><b>Exposure</b></a><br><a href="InvestmentInfo.php"><b>Investment</b></a><br><a href="purchaseInfo.php"><b>Purchase</b></a><br><a href="create acccount.php">
 Join AgrowCulture community to avail our services.</a>-->
@@ -63,12 +62,12 @@ What else do we provide?<br><a href="ExposureInfo.php"><b>Selling</b></a><br><a 
             <div class="row">
                 <div class="col">
                     <h3>AGROWCULTURE</h3>
-                    <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
+                    <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
                 </div>
                 <div class="col">
                     <h5>Address <div class="underline"><span></span></div></h5>
                     <p>Islamic University of Technology</p>
-                    <p>Boardbazar,Gazipur</p>
+                    <p>Boardbazar, Gazipur</p>
                 </div>
                 <div class="col">
                     <h5>Links <div class="underline"><span></span></div></h5>

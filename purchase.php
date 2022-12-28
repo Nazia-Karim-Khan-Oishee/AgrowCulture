@@ -96,8 +96,18 @@
          <a href="meat.php"><button><h4><b>MEAT</b></h4></button></a>
          </div>
          </div>
-     
-            <div class="cont">
+         <div class="card">
+        <div class="image">
+            <img src="pexels-skyler-ewing-10201880.jpg" height="250px">
+         </div>
+         <div class="title">
+    
+         </div>
+         <div class="des">
+    
+         <a href="meat.php"><button><h4><b>MEAT</b></h4></button></a>
+         </div>
+         </div>
        
             </div>
         </div>
