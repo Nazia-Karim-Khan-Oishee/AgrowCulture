@@ -84,8 +84,9 @@
         </div>
         </div>
         <div class="card">
+
         <div class="image">
-            <img src="pexels-skyler-ewing-10201880.jpg" height="250px">
+            <img src="kyle-mackie-QH8SHBARVVk-unsplash.jpg" height="70%">
          </div>
          <div class="title">
     

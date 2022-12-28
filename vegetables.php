@@ -128,7 +128,9 @@
                     // echo $ID;
                      $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) AS avg_rev FROM review WHERE Seller_id='$ID'" );
                      $rows = mysqli_fetch_assoc($fetch_rev);
-                     $sum = (int)$rows['avg_rev'];
+                      $sum=number_format((float) $rows['avg_rev'], 2, '.', ''); 
+
+                     //$sum = (int)$rows['avg_rev'];
                     //  echo $sum;
 
                    // echo "<script>alert('Wow!.')</script>";
