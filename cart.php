@@ -179,8 +179,9 @@
                     <form action="" method="post">
                         <input type="hidden" name="up_quantity" min="1"  value="<?php echo $row['Quantity']; ?>" >
                         <input type="hidden" name="update_quantity_id"  value="<?php echo $row['Seller_id']; ?>" >
-                        <input type="number" name="update_quantity" min="1"  value="<?php echo $row['Quantity']; ?>" >
+                        <div class="tooltip"><input type="number" name="update_quantity" min="1"  value="<?php echo $row['Quantity']; ?>" >
                         <input type="submit" value="update" name="update_update_btn">
+                        <span class="tooltiptext">Click the update button to save changes.</span></div>
                     </form>   
                     </td>
                     <td>Tk<?php echo $sub_total = number_format($fetch_product['unit_price'] * $row['Quantity']); ?>/-</td>
