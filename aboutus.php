@@ -19,7 +19,7 @@
                     </ul>
                 </nav>
                 </div>
-            <h1>Welcome To Agrowculture</h1>
+            <h1>Welcome To AgrowCulture</h1>
         </div>
         <div class="container">
             <h2>About Us</h2>
@@ -27,9 +27,9 @@
             <div class="roww">
                 <div class="coll">
                     <p>
-                       <strong >A</strong>growculture is a platform created to expand the exposure of the people working in the agricultural sector who work very hard but get very less return. On a single platform, Agrowculture connects these people with funders and customers. 
+                       <strong >A</strong>growculture is a platform created to expand the exposure of the people working in the agricultural sector who work very hard but get very less return. On a single platform, AgrowCulture connects these people with funders and customers. 
                         Through our website we are eliminating intermediaries and our farmers will get better prices and consistent demand. 
-                        Agrowculture also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers. 
+                        AgrowCulture also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers. 
                     </p>
 
                 </div>
@@ -52,12 +52,12 @@
             <div class="row">
                 <div class="col">
                     <h3>AGROWCULTURE</h3>
-                    <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
+                    <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
                 </div>
                 <div class="col">
                     <h5>Address <div class="underline"><span></span></div></h5>
                     <p>Islamic University of Technology</p>
-                    <p>Boardbazar,Gazipur</p>
+                    <p>Boardbazar, Gazipur</p>
                 </div>
                 <div class="col">
                     <h5>Links <div class="underline"><span></span></div></h5>
@@ -78,7 +78,7 @@
                   </ul>
                 </div>
                 <hr>
-                <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+                <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Design by Namiha</p>
                
                 
             </div> 
