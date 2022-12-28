@@ -226,7 +226,7 @@
    </div>
    <hr>
    <div class="copyright">
-         <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Design by Namiha</p>
+         <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Designed by Namiha</p>
          </div>
 </footer>
     
