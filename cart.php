@@ -180,7 +180,7 @@
                 ?>
             <tr class="table-bottom">
                 <td><a href="purchase.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
-                <td colspan="2">grand total</td>
+                <td colspan="2" class="grand-total">Grand Total:</td>
                 <td>$<?php echo $grand_total; ?>/-</td>
                 <!-- <td><a href="cart.php?delete_all" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td> -->
             </tr>
@@ -189,10 +189,11 @@
 
     </table>
     <form action="" method="post">
-        <div class="checkout-btn">
-            <p>Address</p>
-            <input type="text" name="Address" value="" ><span><?php echo $message?></span>
-            <input type="submit" value="checkout" name="checkout">
+        <div class="checkout-btn">  
+            <!-- <p class="address-label">Address: <input class="address-input" type="text" name="Address" value=""><span></span></p> -->
+            <label class="address-label"><b>Address: </b></label>
+            <input type="text" id="address-input" name="Address" value="" autofocus placeholder="Input Address Here" autocomplete="off"><span class="error"> <?php echo $message;?></span><br>
+            <button><input type="submit" value="checkout" name="checkout"></button>
             
             <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->
         </form>

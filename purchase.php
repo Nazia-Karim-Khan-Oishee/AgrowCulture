@@ -86,7 +86,7 @@
         <div class="card">
 
         <div class="image">
-            <img src="kyle-mackie-QH8SHBARVVk-unsplash.jpg" height="70%">
+            <img src="kyle-mackie-QH8SHBARVVk-unsplash.jpg" height="80%">
          </div>
          <div class="title">
     
