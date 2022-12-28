@@ -49,7 +49,7 @@
     {
         if(mysqli_num_rows(mysqli_query($Conn,"Select * from `temporary`"))==0)
         {
-            echo "Cart is empty";
+            $message="Cart is empty";
         }
         else {
 

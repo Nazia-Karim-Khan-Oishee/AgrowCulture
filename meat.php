@@ -98,7 +98,7 @@
             </div>
         </div>
         <ul class="links-container">
-        <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
+        <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
         <li class="link-item"><a href="Crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
