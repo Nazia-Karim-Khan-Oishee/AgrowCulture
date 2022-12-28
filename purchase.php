@@ -29,9 +29,10 @@
             </div>
         </div>
         <ul class="links-container">
-        <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
+        <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
         <li class="link-item"><a href="4optionss.php" class="link">SERVICES</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
+        <li class="link-item"><a href="crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
         <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
@@ -108,7 +109,7 @@
 <div class="row">
     <div class="col">
         <h3>AGROWCULTURE</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+        <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
     </div>
     <div class="col">
         <h5>Address <div class="underline"><span></span></div></h5>
@@ -118,10 +119,10 @@
     <div class="col">
         <h5>Links <div class="underline"><span></span></div></h5>
         <ul>
-            <li><a href="getstartedpage.html">HOME</a></li>
-            <li><a href="4optionss.html">SERVICES</a></li>
-            <li><a href=""></a>ABOUT US</li>
-            <li><a href=""></a>CONTACTS</li>
+            <li><a href="getstartedpage.php">HOME</a></li>
+            <li><a href="4optionss.php">SERVICES</a></li>
+            <li><a href="aboutus.php">ABOUT US</a</li>
+            <li><a href="aboutus.php">CONTACTS</a</li>
 
         </ul>
     </div>
@@ -133,5 +134,6 @@
         <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
       </ul>
     </div>
+</footer>
     </body>
 </html>

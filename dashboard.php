@@ -41,7 +41,7 @@ $user_name = $_SESSION['user_name'];
                 // $Message= "$Message"."Your request for BDT $amount is pending."."<br>";
 
            }
-           $Message= "Your $c request for net BDT $sum is pending."."<br>";
+           $Message= "Your last $c requests for net BDT $sum is pending."."<br>";
 
     }
 }
