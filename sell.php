@@ -170,6 +170,7 @@
                     <input type="radio" name="Field" value="Vegetables" required /> Vegetables
                     <input type="radio" name="Field" value="Fish" required /> Fish<br>
                     <input type="radio" name="Field" value="Fruits" required /> Fruits
+                    <input type="radio" name="Field" value="Crops" required /> Crops
                     <input type="radio" name="Field" value="Meat" required /> Meat<br><br>
                   </div>
                   <br>

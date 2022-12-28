@@ -102,7 +102,7 @@ $user_name = $_SESSION['user_name'];
             {
 
                 $date=$row4['Date'];
-                $Message4= "You last purchased from us on $date."." \n";
+                $Message4= "You last purchased on $date."." \n";
 
            }
     }
