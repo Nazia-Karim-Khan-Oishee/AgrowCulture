@@ -6,50 +6,73 @@
     
     if(isset($_POST['update_update_btn']))
     {
-        $quantity = $_POST['up_quantity'];
-        $update_value = $_POST['update_quantity'];
-        $update_id = $_POST['update_quantity_id'];
-        $update_sell_page = mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`+ ('$quantity' -'$update_value') WHERE Seller_id = '$update_id'");
-        $update_quantity_query = mysqli_query($Conn, "UPDATE `temporary` SET `Quantity` = '$update_value' WHERE Seller_id = '$update_id'");
-        if($update_quantity_query && $update_sell_page){
-            header('location:cart.php');
-        }
-        else
+        if(mysqli_num_rows(mysqli_query($Conn,"Select * from `temporary`"))==0)
         {
-            echo "An error occurred";
-            header('cart.php');
+             $message="Cart is empty";
+
+        }
+        else{
+
+            $quantity = $_POST['up_quantity'];
+            $update_value = $_POST['update_quantity'];
+            $update_id = $_POST['update_quantity_id'];
+            $update_sell_page = mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`+ ('$quantity' -'$update_value') WHERE Seller_id = '$update_id'");
+            $update_quantity_query = mysqli_query($Conn, "UPDATE `temporary` SET `Quantity` = '$update_value' WHERE Seller_id = '$update_id'");
+            if($update_quantity_query && $update_sell_page){
+                header('location:cart.php');
+            }
+            else
+            {
+                echo "An error occurred";
+                header('cart.php');
+            }
         }
     }
      
     if(isset($_POST['remove']))
     {
-        $update_value = $_POST['up_quantity'];
-        $remove_id = $_POST['remove_id'];
-        mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$remove_id'");
-        mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`+'$update_value' WHERE Seller_id = '$remove_id'");
-        header('location:cart.php');
-    }
-    if(isset($_POST['checkout']))
-    {
-        $address = $_POST['Address'];
-        if($address==null)
+        if(mysqli_num_rows(mysqli_query($Conn,"Select * from `temporary`"))==0)
         {
-            $message="Insert an address first";
+            echo "Cart is empty";
+
         }
         else{
 
-            $purchase = mysqli_query($Conn, "SELECT * FROM `temporary`");
-            if($purchase)
+            $update_value = $_POST['up_quantity'];
+            $remove_id = $_POST['remove_id'];
+            mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$remove_id'");
+            mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`+'$update_value' WHERE Seller_id = '$remove_id'");
+            header('location:cart.php');
+        }
+    }
+    if(isset($_POST['checkout']))
+    {
+        if(mysqli_num_rows(mysqli_query($Conn,"Select * from `temporary`"))==0)
+        {
+            echo "Cart is empty";
+        }
+        else {
+
+            $address = $_POST['Address'];
+            if($address==null)
             {
-                while($rows = mysqli_fetch_array($purchase))
-                {
-                    $purSellerID = $rows['Seller_id'];
-                    $quant = $rows['Quantity'];
-                    mysqli_query($Conn, "INSERT into `purchase` (Purchase_id, user_name, Seller_id, Quantity, Address) VALUES (NULL,'$user_name','$purSellerID','$quant','$address')");
-                    mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$purSellerID'");
-                }
+                $message="Insert an address first";
             }
-            header('location:CheckingDone.php');
+            else{
+    
+                $purchase = mysqli_query($Conn, "SELECT * FROM `temporary`");
+                if($purchase)
+                {
+                    while($rows = mysqli_fetch_array($purchase))
+                    {
+                        $purSellerID = $rows['Seller_id'];
+                        $quant = $rows['Quantity'];
+                        mysqli_query($Conn, "INSERT into `purchase` (Purchase_id, user_name, Seller_id, Quantity, Address) VALUES (NULL,'$user_name','$purSellerID','$quant','$address')");
+                        mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$purSellerID'");
+                    }
+                }
+                header('location:CheckingDone.php');
+            }
         }
         //echo "Done";
     }
@@ -107,6 +130,7 @@
         <ul class="links-container">
         <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>

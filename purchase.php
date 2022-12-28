@@ -1,4 +1,8 @@
 <?php 
+include 'Config.php';
+error_reporting(0);
+session_start();
+$user_name = $_SESSION['user_name'];
 //     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
 //     $url = "https://";   
 // else  
@@ -25,7 +29,13 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
             <div class="nav-items">
-                <a href="dashboard.php"><img src="user.png" alt=""></a>  <a href="cart.php"><img src="cart.png" alt=""></a>
+                   <a href="dashboard.php">
+                    <!-- <img src="user.png" alt="">-->
+                    <?php
+                            echo $_SESSION['user_name'];
+                     ?>
+                </a>   
+                <a href="cart.php"><img src="cart.png" alt=""></a>
             </div>
         </div>
         <ul class="links-container">
