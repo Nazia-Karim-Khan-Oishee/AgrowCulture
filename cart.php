@@ -212,15 +212,39 @@
         </tbody>
 
     </table>
+
+    <br>
+
+
+
+
+        <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->
+
     <form action="" method="post">
-        <div class="checkout-btn">  
-            <!-- <p class="address-label">Address: <input class="address-input" type="text" name="Address" value=""><span></span></p> -->
-            <label class="address-label"><b>Address: </b></label>
+    <div class="checkout-btn">
+    <div class="container-center">
+  <div class="card">
+    <h2>Confirm Purchase</h2>
+    <hr/>
+    <p><b>Address :</b></p><br> <input type="text" name="Address" value="" autofocus placeholder="Input Address" ><hr/><span class="error"> <?php echo $message;?></span><br>
+    <br>
+    <!-- <p><b>Confirm Purchase:</b></p> -->
+    <!-- <br> <input type="text" name="Address" value="write address" ><hr/><br> -->
+
+    <input type="submit" value="checkout" name="checkout">
+    <!--<button>Next</button>-->
+  </div>
+</div>
+</form>
+    <!-- <form action="" method="post"> -->
+        <!-- <div class="checkout-btn">  
+             <p class="address-label">Address: <input class="address-input" type="text" name="Address" value=""><span></span></p> -->
+            <!-- <label class="address-label"><b>Address: </b></label>
             <input type="text" id="address-input" name="Address" value="" autofocus placeholder="Input Address Here" autocomplete="off"><span class="error"> <?php echo $message;?></span><br>
-            <button><input type="submit" value="checkout" name="checkout"></button>
+            <button><input type="submit" value="checkout" name="checkout"></button> -->
             
             <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->
-        </form>
+        <!-- </form> --> 
         <!-- <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a> -->
         </div>
     </section>
