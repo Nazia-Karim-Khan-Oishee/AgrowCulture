@@ -432,7 +432,7 @@ hr
 {
  width: 100%;
 
-    background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(vegetables.jpg);
+  background:linear-gradient(to right,#F6D285,#BBF0F3);
     background-position: center;
     background-size: cover;
     padding-left: 8%;

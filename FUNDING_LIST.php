@@ -23,11 +23,12 @@ $user_name = $_SESSION['user_name'];
     <title>Log In</title>
     <script>
       if(window.history.replaceState){
-        window.history.replaceState(null,null,window.location.href);
+        window.history.replaceState(null, null, window.location.href);
       }
     </script>
 </head>
 <body>
+    
 
 <div class="navbar">
         <nav>
@@ -42,11 +43,12 @@ $user_name = $_SESSION['user_name'];
         </nav>
         </div>
 <div class="container">
+    
    <div class="contact-box">
     <!-- <div class="left"></div> -->
     <div class="right">
 <!-- <p> Phsical Alignments</p> -->
-<b>FIELD : </b><br>
+<h4>FIELD : </h4><br>
 <!-- ///// -->
 <form action="" method="POST" autocomplete="off" class="sign-up-form">
 
@@ -104,6 +106,7 @@ $user_name = $_SESSION['user_name'];
 </div>
    </div>
     </div>
+
     <footer>
         <div class="row">
             <div class="col">
