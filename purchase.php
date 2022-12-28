@@ -38,7 +38,7 @@
         <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
         </ul>
      </nav>
-    
+     <div class="bg">
 <div class="main">
 
     <!--cards -->
@@ -103,7 +103,7 @@
         
         <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
         <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-          
+</div>    
 </div> 
 <footer>
 <div class="row">
