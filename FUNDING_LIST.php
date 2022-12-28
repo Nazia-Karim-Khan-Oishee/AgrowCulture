@@ -48,16 +48,16 @@ $user_name = $_SESSION['user_name'];
     <!-- <div class="left"></div> -->
     <div class="right">
 <!-- <p> Phsical Alignments</p> -->
-<h4>FIELD : </h4><br>
+<h4 class="field">CHOOSE A FIELD: </h4><br>
 <!-- ///// -->
 <form action="" method="POST" autocomplete="off" class="sign-up-form">
 
                     <!-- <h6>lhk</h6> -->
-                    <input type="radio" name="Field" value="Crops" required /> Crops
+                    <input type="radio" name="Field" value="Crops" required /> Crops<br>
                     <input type="radio"  name="Field" value="Poultry" required /> Poultry<br>
-                    <input type="radio"  name="Field" value="Fisheries" required /> Fisheries
+                    <input type="radio"  name="Field" value="Fisheries" required /> Fisheries<br>
                     <input type="radio"  name="Field" value="Farming" required /> Farming<br>
-                    <input type="radio" name="Field" value="Machineries" required /> Machineries
+                    <input type="radio" name="Field" value="Machineries" required /> Machineries<br>
                     
                     <br> <br><input type="submit" name="submit" value="Filter" class="sign-btn" ><br><br>
 </form>
@@ -111,12 +111,12 @@ $user_name = $_SESSION['user_name'];
         <div class="row">
             <div class="col">
                 <h3>AGROWCULTURE</h3>
-                <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
+                <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
             </div>
             <div class="col">
                 <h5>Address <div class="underline"><span></span></div></h5>
                 <p>Islamic University of Technology</p>
-                <p>Boardbazar,Gazipur</p>
+                <p>Boardbazar, Gazipur</p>
             </div>
             <div class="col">
                 <h5>Links <div class="underline"><span></span></div></h5>
@@ -135,9 +135,9 @@ $user_name = $_SESSION['user_name'];
                 <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
                 <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
               </ul>
-            </div>
-            <hr>
-            <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+            </div><br>
+            <!-- <hr> -->
+            <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Design by Namiha</p>
             
         </div> 
         </footer> 
