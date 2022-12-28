@@ -172,7 +172,7 @@
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
                             echo "<button name='apply' value = $NAME class='button-68'  role='button'>Add to cart</button>";echo "  ";
                             ?>
-                        <form action="Review.php" method="POST" autocomplete="off" class="sign-up-form">
+                            <form action="Review.php" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo'<a class="btn" href="Review.php?resid='.$NAME.'">Add Review</a>';
                             ?>

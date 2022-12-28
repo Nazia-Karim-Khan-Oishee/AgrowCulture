@@ -29,6 +29,23 @@
         mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`+'$update_value' WHERE Seller_id = '$remove_id'");
         header('location:cart.php');
     }
+    if(isset($_POST['checkout']))
+    {
+        $address = $_POST['Address'];
+        $purchase = mysqli_query($Conn, "SELECT * FROM `temporary`");
+        if($purchase)
+        {
+            while($rows = mysqli_fetch_array($purchase))
+            {
+                $purSellerID = $rows['Seller_id'];
+                $quant = $rows['Quantity'];
+                mysqli_query($Conn, "INSERT into `purchase` (Purchase_id, user_name, Seller_id, Quantity, Address) VALUES (NULL,'$user_name','$purSellerID','$quant','$address')");
+                mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$purSellerID'");
+            }
+        }
+        header('location:notification.php');
+        echo "Done";
+    }
      
     // if(isset($_POST['chekout']))
     // {
@@ -83,7 +100,7 @@
         <ul class="links-container">
         <li class="link-item"><a href="purchase.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
-        <li class="link-item"><a href="vegetables.html" class="link">VEGETABLES</a></li>
+        <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
         <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>
@@ -166,8 +183,10 @@
     <form action="" method="post">
         <div class="checkout-btn">
         <p>Address</p>
-        <input type="text" name="Address" value="Address" >
-        <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br>
+        <input type="text" name="Address" value="" >
+        <input type="submit" value="checkout" name="checkout">
+        
+        <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->
     </form>
       <!-- <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a> -->
     </div>
