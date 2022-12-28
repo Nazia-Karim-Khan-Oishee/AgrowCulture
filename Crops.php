@@ -18,7 +18,7 @@
                 unset($product_name);
                 ?>
                 <script>
-                window.location.replace("Meat.php");
+                window.location.replace("Crops.php");
                 </script>
                 <?php
            }
@@ -28,7 +28,7 @@
                 echo "Cannot update sell";
                 ?>
                 <script>
-                  window.location.replace("Meat.php");
+                  window.location.replace("Crops.php");
                 </script>
                 <?php
            }
@@ -43,7 +43,7 @@
             {
                 ?>
                 <script>
-                window.location.replace("Meat.php");
+                window.location.replace("Crops.php");
                 </script>
                 <?php
             }
@@ -52,7 +52,7 @@
                 echo "Error found";
                 ?>
                 <script>
-                window.location.replace("Meat.php");
+                window.location.replace("Crops.php");
                 </script>
                 <?php
             }
@@ -71,7 +71,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>Meat</title>
+        <title>Fruits</title>
          <link rel="stylesheet" href="nav.css"> 
          <link rel="stylesheet" href="vegetables.css"> 
     </head>
@@ -112,14 +112,14 @@
      <div class="product-container">
          <?php    
                 // image fetching
-                $img = mysqli_query($Conn, "SELECT image, Seller_id, product_name, unit_price, Quantity FROM sell where Field='Meat'");
+                $img = mysqli_query($Conn, "SELECT image, Seller_id, product_name, unit_price, Quantity FROM sell where Field='Crops'");
 
                 $rowCount = mysqli_num_rows($img);
                 
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No meat for sale currently!</p>";
+                echo "<p>No crops for sale currently!</p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 

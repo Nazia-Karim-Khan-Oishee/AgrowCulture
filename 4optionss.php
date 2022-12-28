@@ -1,3 +1,19 @@
+<?php 
+
+include 'Config.php';
+
+error_reporting(0);
+
+session_start();
+$user_name = $_SESSION['user_name'];
+if($user_name)
+{
+    $message =$user_name;
+}
+else {
+    $message= "LOG IN";
+}
+?>
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -13,7 +29,9 @@
                     <ul>
                         <li><a href="getstartedpage.php">HOME</a></li>
                         <li><a href="aboutus.php">ABOUT US</a></li>
-                        <li><a href="INDEX.php">LOG IN</a></li>
+                        <?php
+                        echo "<li><a href='INDEX.php'>$message</a></li>"
+                        ?>
                     </ul>
                 </nav>
             </div>

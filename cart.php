@@ -43,8 +43,8 @@
                 mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$purSellerID'");
             }
         }
-        header('location:notification.php');
-        echo "Done";
+        header('location:CheckingDone.php');
+        //echo "Done";
     }
      
     // if(isset($_POST['chekout']))
