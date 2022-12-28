@@ -107,7 +107,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Lato&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/87c14fe863.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="cart.css">
+    <link rel="stylesheet" href="cart2.css">
     <link rel="stylesheet" href="nav.css"> 
 </head>
 <body>
@@ -298,6 +298,41 @@
         <div class="products">
         </div>
     </div>
+    <footer>
+<div class="row">
+    <div class="col">
+        <h3>AGROWCULTURE</h3>
+        <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
+    </div>
+    <div class="col">
+        <h5>Address <div class="underline"><span></span></div></h5>
+        <p>Islamic University of Technology</p>
+        <p>Boardbazar,Gazipur</p>
+    </div>
+    <div class="col">
+        <h5>Links <div class="underline"><span></span></div></h5>
+        <ul>
+            <li><a href="getstartedpage.php">HOME</a></li>
+            <li><a href="4optionss.php">SERVICES</a></li>
+            <li><a href="aboutus.php">ABOUT US</a</li>
+            <li><a href="aboutus.php">CONTACTS</a</li>
+
+        </ul>
+    </div>
+
+    <ul class="social_icon">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+      </ul>
+    </div>
+    <hr>
+    <div class="copyright">
+          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+          </div>
+</footer>
+     <!-- <script src="cart.js"></script> -->
     <!-- <script src="cart.js"></script> -->
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
