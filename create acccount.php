@@ -353,12 +353,12 @@ function myFunction2() {
         <div class="row">
                 <div class="col">
                     <h3>AGROWCULTURE</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+                    <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
                 </div>
                 <div class="col">
                     <h5>Address <div class="underline"><span></span></div></h5>
                     <p>Islamic University of Technology</p>
-                    <p>Boardbazar,Gazipur</p>
+                    <p>Boardbazar, Gazipur</p>
                 </div>
                 <div class="col">
                     <h5>Links <div class="underline"><span></span></div></h5>
@@ -379,7 +379,7 @@ function myFunction2() {
                     </ul>
                 </div>
                 <hr>
-                <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+                <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Design by Namiha</p>
         </div> 
     </footer>
 	<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
