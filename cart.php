@@ -32,18 +32,25 @@
     if(isset($_POST['checkout']))
     {
         $address = $_POST['Address'];
-        $purchase = mysqli_query($Conn, "SELECT * FROM `temporary`");
-        if($purchase)
+        if($address==null)
         {
-            while($rows = mysqli_fetch_array($purchase))
-            {
-                $purSellerID = $rows['Seller_id'];
-                $quant = $rows['Quantity'];
-                mysqli_query($Conn, "INSERT into `purchase` (Purchase_id, user_name, Seller_id, Quantity, Address) VALUES (NULL,'$user_name','$purSellerID','$quant','$address')");
-                mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$purSellerID'");
-            }
+            $message="Insert an address first";
         }
-        header('location:CheckingDone.php');
+        else{
+
+            $purchase = mysqli_query($Conn, "SELECT * FROM `temporary`");
+            if($purchase)
+            {
+                while($rows = mysqli_fetch_array($purchase))
+                {
+                    $purSellerID = $rows['Seller_id'];
+                    $quant = $rows['Quantity'];
+                    mysqli_query($Conn, "INSERT into `purchase` (Purchase_id, user_name, Seller_id, Quantity, Address) VALUES (NULL,'$user_name','$purSellerID','$quant','$address')");
+                    mysqli_query($Conn, "DELETE FROM `temporary` WHERE Seller_id = '$purSellerID'");
+                }
+            }
+            header('location:CheckingDone.php');
+        }
         //echo "Done";
     }
      
@@ -183,7 +190,7 @@
     <form action="" method="post">
         <div class="checkout-btn">
         <p>Address</p>
-        <input type="text" name="Address" value="" >
+        <input type="text" name="Address" value="" ><span><?php echo $message?></span>
         <input type="submit" value="checkout" name="checkout">
         
         <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->

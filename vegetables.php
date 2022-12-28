@@ -108,7 +108,7 @@
 
         </ul>
      </nav> 
-    
+     <div class="bg">
      <div class="product-container">
          <?php    
                 // image fetching
@@ -128,7 +128,9 @@
                     // echo $ID;
                      $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) AS avg_rev FROM review WHERE Seller_id='$ID'" );
                      $rows = mysqli_fetch_assoc($fetch_rev);
-                     $sum = (int)$rows['avg_rev'];
+                      $sum=number_format((float) $rows['avg_rev'], 2, '.', ''); 
+
+                     //$sum = (int)$rows['avg_rev'];
                     //  echo $sum;
 
                    // echo "<script>alert('Wow!.')</script>";
@@ -193,40 +195,41 @@
                 <!-- <span class="price">130Tk/kg</span><br> -->
 
      </div>
-     <footer>
-        <div class="row">
-                <div class="col">
-                    <h3>AGROWCULTURE</h3>
-                    <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
-                </div>
-                <div class="col">
-                    <h5>Address <div class="underline"><span></span></div></h5>
-                    <p>Islamic University of Technology</p>
-                    <p>Boardbazar, Gazipur</p>
-                </div>
-                <div class="col">
-                    <h5>Links <div class="underline"><span></span></div></h5>
-                    <ul>
-                        <li><a href="getstartedpage.php">HOME</a></li>
-                        <li><a href="4optionss.php">SERVICES</a></li>
-                        <li><a href="aboutus.php">ABOUT US</a></li>
-                        <li><a href="aboutus.php">CONTACTS</a></li>
+            </div>
+            <footer>
+<div class="row">
+    <div class="col">
+        <h3>AGROWCULTURE</h3>
+        <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
+    </div>
+    <div class="col">
+        <h5>Address <div class="underline"><span></span></div></h5>
+        <p>Islamic University of Technology</p>
+        <p>Boardbazar,Gazipur</p>
+    </div>
+    <div class="col">
+        <h5>Links <div class="underline"><span></span></div></h5>
+        <ul>
+            <li><a href="getstartedpage.php">HOME</a></li>
+            <li><a href="4optionss.php">SERVICES</a></li>
+            <li><a href="aboutus.php">ABOUT US</a</li>
+            <li><a href="aboutus.php">CONTACTS</a</li>
 
-                    </ul>
-                </div>
-                <div>
-                    <ul class="social_icon">
-                        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-                        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-                        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-                        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-                    </ul>
-                </div>
-                <!-- <hr>
-                <div class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Designed by Namiha</div> -->
-        </div> 
-    </footer>
+        </ul>
+    </div>
 
+    <ul class="social_icon">
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+      </ul>
+    </div>
+    <hr>
+    <div class="copyright">
+          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+          </div>
+</footer>
      <!-- <script src="cart.js"></script> -->
     </body>
 </html>
