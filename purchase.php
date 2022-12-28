@@ -98,14 +98,14 @@
          </div>
          <div class="card">
         <div class="image">
-            <img src="pexels-skyler-ewing-10201880.jpg" height="250px">
+            <img src="sandy-ravaloniaina-Y678onxFoJI-unsplash.jpg" height="70%">
          </div>
          <div class="title">
     
          </div>
          <div class="des">
     
-         <a href="meat.php"><button><h4><b>MEAT</b></h4></button></a>
+         <a href="Crops.php"><button><h4><b>CROP</b></h4></button></a>
          </div>
          </div>
        
@@ -145,6 +145,10 @@
         <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
       </ul>
     </div>
+    <hr>
+    <div class="copyright">
+          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+          </div>
 </footer>
     </body>
 </html>
