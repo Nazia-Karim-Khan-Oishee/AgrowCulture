@@ -49,7 +49,7 @@
     {
         if(mysqli_num_rows(mysqli_query($Conn,"Select * from `temporary`"))==0)
         {
-            echo "Cart is empty";
+            $message="Cart is empty";
         }
         else {
 
@@ -205,7 +205,7 @@
             <tr class="table-bottom">
                 <td><a href="purchase.php" class="option-btn" style="margin-top: 0;">continue shopping</a></td>
                 <td colspan="2" class="grand-total">Grand Total:</td>
-                <td>$<?php echo $grand_total; ?>/-</td>
+                <td colspan="2">Tk<?php echo $grand_total; ?>/-</td>
                 <!-- <td><a href="cart.php?delete_all" onclick="return confirm('are you sure you want to delete all?');" class="delete-btn"> <i class="fas fa-trash"></i> delete all </a></td> -->
             </tr>
 
@@ -276,4 +276,6 @@
     <!-- <script src="cart.js"></script> -->
     <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
 </body>
+
+
 </html>
