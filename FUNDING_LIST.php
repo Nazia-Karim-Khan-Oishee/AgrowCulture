@@ -28,18 +28,19 @@ $user_name = $_SESSION['user_name'];
     </script>
 </head>
 <body>
-<div class="contain">
-    <div class="navbar">
-              
+
+<div class="navbar">
         <nav>
+   
             <ul>
-                <li><a href="getstartedpage.php">HOME</a></li>
-                <li><a href="about us.php">ABOUT US</a></li>
-                <li><a href="INDEX.php">LOG IN</a></li>
+                 <li><div class="zoom"><a href="getstartedpage.php">HOME<hr></a></div></li> 
+                  <li><div class="zoom"><a href="4optionss.php">SERVICES<hr></a></div></li> 
+                  <li><div class="zoom"><a href="INDEX.php">LOG IN<hr></a></div></li>
+                    <!--<li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> -->
             </ul>
+           
         </nav>
-    </div>
-    </div>
+        </div>
 <div class="container">
    <div class="contact-box">
     <!-- <div class="left"></div> -->
