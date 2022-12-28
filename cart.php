@@ -116,12 +116,12 @@
         <div class="nav">
             <h1>AGROWCULTURE</h1>
                 <div class="cart">
-                    <a href="dashboard.php">
+                <u><a href="dashboard.php">
                         <!-- <img src="user.png" alt=""> -->
                         <?php
                             echo $user_name;
                         ?>
-                    </a>
+                    </a></u>
                 <!-- <a href="cart.php"><img src="cart.png" alt=""><span>0</span></a> -->
             </div> 
            
