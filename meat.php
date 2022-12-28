@@ -224,7 +224,7 @@
     </div>
     <hr>
     <div class="copyright">
-          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
+          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Designed by Namiha</p>
           </div>
 </footer>
      <!-- <script src="cart.js"></script> -->
