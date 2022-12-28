@@ -25,7 +25,7 @@
            else
            {
                 unset($product_name);
-                echo "Cannot update sell";
+                echo "An error occurred. Please try again.";
                 ?>
                 <script>
                   window.location.replace("Vegetables.php");
@@ -49,7 +49,7 @@
             }
             else
             {
-                echo "Error found";
+                echo "An error occurred. Please try again.";
                 ?>
                 <script>
                 window.location.replace("Vegetables.php");

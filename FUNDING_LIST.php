@@ -36,7 +36,7 @@ $user_name = $_SESSION['user_name'];
             <ul>
                  <li><div class="zoom"><a href="getstartedpage.php">HOME<hr></a></div></li> 
                   <li><div class="zoom"><a href="4optionss.php">SERVICES<hr></a></div></li> 
-                  <li><div class="zoom"><a href="INDEX.php">LOG IN<hr></a></div></li>
+                  <li><div class="zoom"><a href="dashboard.php">DASHBOARD<hr></a></div></li>
                     <!--<li><div class="zoom"><a href="dashboard.php">DASHBOARD</a></div></li> -->
             </ul>
            
@@ -111,7 +111,7 @@ $user_name = $_SESSION['user_name'];
         <div class="row">
             <div class="col">
                 <h3>AGROWCULTURE</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta laudantium harum nulla deserunt consequatur nam, exercitationem velit. Accusamus eveniet asperiores atque qui delectus facilis necessitatibus ipsam quidem mollitia sapiente! Quos.</p>
+                <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
             </div>
             <div class="col">
                 <h5>Address <div class="underline"><span></span></div></h5>
