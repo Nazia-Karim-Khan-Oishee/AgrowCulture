@@ -115,6 +115,7 @@
      </nav> 
     
     <div class="products-container">
+        <section class="shopping-cart">
         <div class="product-header">
             <!-- <h5 class="product-title">PRODUCT</h5>
             <h5 class="price">PRICE</h5>
@@ -167,7 +168,7 @@
                         </form>
                         <!-- <a href="cart.php?remove=<?php 
                         // $val = $row['Quantity'];
-                        // echo $row['Seller_id']; I AM A GENIUS!! with the help of OISHEEEE!!!!
+                        // echo $row['Seller_id']; 
                         ?>" 
                         onclick="return confirm('remove item from cart?')" class="delete-btn"> <i class="fas fa-trash"></i> remove</a> -->
                     </td>
@@ -189,14 +190,15 @@
     </table>
     <form action="" method="post">
         <div class="checkout-btn">
-        <p>Address</p>
-        <input type="text" name="Address" value="" ><span><?php echo $message?></span>
-        <input type="submit" value="checkout" name="checkout">
-        
-        <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->
-    </form>
-      <!-- <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a> -->
-    </div>
+            <p>Address</p>
+            <input type="text" name="Address" value="" ><span><?php echo $message?></span>
+            <input type="submit" value="checkout" name="checkout">
+            
+            <!-- <button name="checkout" role='button'><a href="checkout.php">procced to checkout</a></button><br><br> -->
+        </form>
+        <!-- <a href="checkout.php" class="btn <?= ($grand_total > 1)?'':'disabled'; ?>">procced to checkout</a> -->
+        </div>
+    </section>
 
             <?php    
                 // // image fetching
