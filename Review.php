@@ -49,6 +49,7 @@ $user_name = $_SESSION['user_name'];
         <title>Product</title>
         <link rel="stylesheet" href="review.css">
         <link rel="stylesheet" href="nav.css">
+        <link rel="stylesheet" href="product.css">
      
 <script>
       if(window.history.replaceState){
@@ -120,17 +121,19 @@ $user_name = $_SESSION['user_name'];
 
       <!-- <input type="radio" name="rating" value="3" /> 3 <input type="radio"
       name="rating" value="4" /> 4 <input type="radio" name="rating" value="5" /> 5</p></div> -->
-    <!-- <p><label for="review">Review</label><textarea name="review" rows="8" cols="40">
-       </textarea></p> -->
+    <!-- <p><label for="review">Review</label>-->
+  <br> <textarea placeholder="Write review here.." class="review-field"></textarea>
       <br> <span class="ERR"> <?php echo $Err ;?></span>
-       <span> <?php echo $Err1 ;?></span>
+       <span class="ERR1"> <?php echo $Err1 ;?></span>
        <p><input type="submit" name="reviewing" value="Submit Review">
        <a href="purchase.php">Continue Shopping</a></p>
     <!-- <input type="hidden" name="product_type" value="actual_product_type" id="product_type">
     <input type="hidden" name="product_id" value="actual_product_id" id="product_id"> -->
 </fieldset>
-<!-- </form>
-<footer>
+ </form>
+ 
+</body>
+<!-- <footer>
 <div class="row">
     <div class="col">
         <h3>AGROWCULTURE</h3>
@@ -163,6 +166,5 @@ $user_name = $_SESSION['user_name'];
     <div class="copyright">
           <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
           </div>
-</footer> -->
-</body>
+</footer>   -->
 </html>
