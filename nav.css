@@ -18,8 +18,9 @@
      top: 0;
      left: 0;
      width: 100%;
-     background:linear-gradient(to right,#2A2B2A,#9CEBB3);
+     background:linear-gradient(to right,#9CEBB3,#2A2B2A);
      z-index: 9;
+
 }
 .nav
 {
@@ -68,13 +69,13 @@
 h1
 {   color: #ffffff;
     font-size: 40px;
-    margin-left: 38% ;
-    font-family: 'Montserrat', sans-serif;
+    margin-left: 40% ;
+    font-family: 'Courier New', Courier, monospace;
 }
 h2
 {
     font-size: 40px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Courier New', Courier, monospace;
 }
 h3
 {
