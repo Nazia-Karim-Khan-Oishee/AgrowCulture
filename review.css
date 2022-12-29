@@ -628,6 +628,10 @@ footer
  flex-direction: column;
 
 } 
+.col p{
+  color: rgb(255, 255, 255);
+  font-weight: lighter;
+}
 .row
 {
  width: 85%;
@@ -667,6 +671,7 @@ ul li{
 }
 ul li a
 {
+  font-weight: lighter;
  text-decoration: none;
  color: white;
 }
