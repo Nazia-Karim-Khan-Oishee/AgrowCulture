@@ -98,12 +98,17 @@ body
 {
     background: #efefef;
 }
+.sp{
+  color: white;
+ text-decoration: underline;
+}
 span{
-    color: black;
+  color: black;
 }
 span:visited
 {
-    color: black;
+  color: #efefef;
+  text-decoration: underline;
 }
 
 
@@ -327,4 +332,14 @@ hr
   }
 
 }
-    
+.button-68 a:visited
+{
+  text-decoration: none;
+  color: white;
+}
+a{
+  text-decoration: none;
+}
+.col p{
+  color: white;
+}

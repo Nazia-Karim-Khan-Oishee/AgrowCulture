@@ -209,6 +209,7 @@ hr
 {
   margin-bottom: 20px;
  text-align: center;
+ color: white;
 }
 .underline
 {
@@ -325,4 +326,8 @@ label {
 .input-field.active + label {
   font-size: 0.75rem;
   top: -2px;
+}
+
+.col2 p{
+  color: white;
 }

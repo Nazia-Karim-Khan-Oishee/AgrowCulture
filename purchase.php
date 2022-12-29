@@ -61,7 +61,7 @@ $user_name = $_SESSION['user_name'];
    <div class="card">
    
    <div class="image">
-      <img src="pexels-pixabay-219794.jpg">
+      <img src="pexels-pixabay-219794.jpg" height="220px">
    </div>
    <div class="title">
  
@@ -75,7 +75,7 @@ $user_name = $_SESSION['user_name'];
    <div class="card">
    
     <div class="image">
-       <img src="pexels-jane-doan-1092730.jpg">
+       <img src="pexels-jane-doan-1092730.jpg" height="220px">
     </div>
     <div class="title">
     
@@ -88,7 +88,7 @@ $user_name = $_SESSION['user_name'];
     <div class="card">
    
         <div class="image">
-           <img src="pexels-energepiccom-3650159.jpg" height="30%">
+           <img src="pexels-energepiccom-3650159.jpg" height="220px">
         </div>
         <div class="title">
        
@@ -101,7 +101,7 @@ $user_name = $_SESSION['user_name'];
         <div class="card">
 
         <div class="image">
-            <img src="kyle-mackie-QH8SHBARVVk-unsplash.jpg" height="80%">
+            <img src="kyle-mackie-QH8SHBARVVk-unsplash.jpg" height="220px">
          </div>
          <div class="title">
     
@@ -113,7 +113,7 @@ $user_name = $_SESSION['user_name'];
          </div>
          <div class="card">
         <div class="image">
-            <img src="sandy-ravaloniaina-Y678onxFoJI-unsplash.jpg" height="70%">
+            <img src="sandy-ravaloniaina-Y678onxFoJI-unsplash.jpg" height="220px">
          </div>
          <div class="title">
     
@@ -165,5 +165,7 @@ $user_name = $_SESSION['user_name'];
           <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
           </div>
 </footer>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     </body>
 </html>

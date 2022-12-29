@@ -87,7 +87,7 @@
                             echo $_SESSION['user_name'];
                         ?>
                     </a>
-                    <a href="cart.php"><img src="cart.png" alt=""><span>
+                    <a href="cart.php"><img src="cart.png" alt=""><span class="sp">
                         <?php
                             $que = mysqli_query($Conn, "SELECT * from `temporary`");
                             $rowCount = mysqli_num_rows($que);
@@ -100,6 +100,7 @@
         <ul class="links-container">
         <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
         <li class="link-item"><a href="4optionss.php"  class="link">SERVICES</a></li>
+        <li class="link-item"><a href="purchase.php" class="link">PURCHASE</a></li>
         <li class="link-item"><a href="Crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
@@ -151,13 +152,13 @@
                     $Quantity = $row['Quantity'];
                     if($Quantity == 0)
                     {
-                        echo "<span class='price' >Quantity: Sold out</span><br><br>";
+                        echo "<span class='price' >Quantity: 0</span><br><br>";
                         $NAME = $row['Seller_id'];
                         ?>
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button> ";
+                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Unavailable</button> ";
                             echo "  ";
                             echo "<button name='review' value = $NAME class='button-68'  role='button'><a href='Review.php'>Add Review</a></button>";
                             ?>
@@ -230,6 +231,6 @@
           <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Designed by Namiha</p>
           </div>
 </footer>
-     <!-- <script src="cart.js"></script> -->
+     <script src="cart.js"></script>
     </body>
 </html>
