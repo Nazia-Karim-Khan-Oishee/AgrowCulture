@@ -198,11 +198,7 @@ p input[type="submit"]{
  
     margin-left: 150px;
    }
-   span{
-    color: black;
-    font-size: px;
-  margin-left: 65px;
-   }
+  
 
 .ERR{
     color: red;
@@ -231,23 +227,23 @@ html {
 
 }
 
-a:link,
+/* a:link,
 a:visited,
-a:hover,
+
 a:active {
 	color: rgb(255, 255, 255);
 	text-decoration: none;
-}
+} */
 
-a:hover,
-a:active {
+
+/* a:active {
 	border-bottom: 0.1em solid rgba(0, 0, 16, 0.8);
 	color: rgba(0, 0, 16, 0.8);
 	text-decoration: none;
-}
+} */
 
 span {
-	color: rgba(0, 0, 16, 0.4);
+	color: rgb(255, 255, 255);
 	font-size: 70%;
 }
 
@@ -462,6 +458,7 @@ input[class="super-sad"]:focus + svg {
 }
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 body {
+ 
 	background:linear-gradient(to right,#F6D285,#BBF0F3);
 }
 
@@ -472,7 +469,7 @@ h1#header {
   font-family: sans-serif;
   color: black;
   margin-left: -20px;
-  margin-top: -50px;
+    margin-top: -90px;  
 }
 
 .article-wrapper {
@@ -483,9 +480,9 @@ h1#header {
 }
 
 article {
-  position: center;
+  position: relative;
   padding-left: 180px;
-  padding-right: 180px;
+  padding-right: 75px;
   height: 150px;
   margin-bottom: 30px;
   background-color: #fff;
@@ -493,7 +490,7 @@ article {
   -webkit-border-radius: 150px;
   border-radius: 150px;
   cursor: pointer;
-  margin-left: 100%;
+  
 }
 article .img-wrapper {
   position: absolute;
@@ -524,22 +521,21 @@ article .img-wrapper img {
 article h6 {
   height: 75px;
   line-height: 75px;
-  width: fit-content;
-  font-size: 20px;
-  /* border-bottom: 2px solid #4daa51; */
+  font-size: 24px;
+  border-bottom: 2px solid #cde;
   color: #357938;
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  margin-left: -20px;
-  font-family: sans-serif;
 }
 article p {
-	padding-left: 40px;
+	/* padding-left: 40px;
   padding-right: 40px;
-  color: rgb(79, 78, 78);
+ 
   font-family: sans-serif;
+  margin-left: -70px; */
+  color: rgb(79, 78, 78);
 }
 article a {
   position: absolute;
@@ -566,21 +562,21 @@ article a {
   border-radius: 150px;
   font-family: "Pacifico";
   text-shadow: 0 1px 1px #aaa;
-  margin-top: 10px;
+
 }
-article:hover .img-wrapper {
+/* article:hover .img-wrapper {
   padding: 5px;
   -moz-transform: rotate(5deg);
   -ms-transform: rotate(5deg);
   -webkit-transform: rotate(5deg);
   transform: rotate(5deg);
-}
-article:hover .img-wrapper img {
+} */
+/* article:hover .img-wrapper img {
   width: 160px;
-}
-article:hover a {
+} */
+/* article:hover a {
   opacity: 1;
-}
+} */
 h1{
 	margin-left: -20px;
 }
@@ -722,17 +718,7 @@ text-align: center;
  left: 0;
  overflow: hidden;
 }
-.underline span
-{
- width: 15px;
- height: 100%;
- background: white;
- border-radius: 3px;
- position: absolute;
- top: 0;
- left: 10px;
- animation: moving 2s linear infinite;
-}
+
 @keyframes moving
 {
  0%

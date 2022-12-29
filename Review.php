@@ -77,14 +77,24 @@ $user_name = $_SESSION['user_name'];
                 <h1>AGROWCULTURE</h1>
                 <div class="nav-items">
                 <div class="cart">
-                    <a href="dashboard.php"><img src="user.png" alt=""></a>
-                    <a href="cart.php"><img src="cart.png" alt=""></a>
-                </div> 
+                    <a href="dashboard.php">
+                      <!-- <img src="user.png" alt=""> -->
+                      <?php
+                            echo $_SESSION['user_name'];
+                        ?>
+                    </a>
+                    <a href="cart.php"><img src="cart.png" alt=""><span class="sp"><?php
+                            $que = mysqli_query($Conn, "SELECT * from `temporary`");
+                            $rowCount = mysqli_num_rows($que);
+                            echo "$rowCount";?></span></a>
+                     </div> 
                 </div>
             </div>
             <ul class="links-container">
             <li class="link-item"><a href="#" class="link">HOME</a></li>
             <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+            <li class="link-item"><a href="purchase.php" class="link">PURCHASE</a></li>
+            <li class="link-item"><a href="crops.php" class="link">CROPS</a></li>
             <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
             <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
             <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
@@ -145,7 +155,7 @@ $user_name = $_SESSION['user_name'];
     <input type="hidden" name="product_id" value="actual_product_id" id="product_id"> -->
 </fieldset>
  </form>
- <h1 id="header" class="text-success">Reviews</h1>
+ <h1 id="header" class="text-success">See Previous Reviews</h1>
   
     
     <div class="container list-article">
@@ -153,6 +163,7 @@ $user_name = $_SESSION['user_name'];
     <div class="clearfix"></div>
     <div class="row">
     <div class="col-xs-12 article-wrapper">
+ 
         <?php
         $ID=$NAME;
         $rev = mysqli_query($Conn, "SELECT description,user_name FROM review WHERE Seller_id='$ID'" );
@@ -166,9 +177,10 @@ $user_name = $_SESSION['user_name'];
                     //  $rows = mysqli_fetch_assoc($fetch_rev);
                     //   $sum=number_format((float) $rows['avg_rev'], 2, '.', ''); 
                       ?>
-                      <article>
+                     
                         <!-- <a href=""class="more">more</a> -->
-                       
+                        <article>
+                          
                         <h6><?php echo $u_name.":"?></h6>
                         <p><?php echo $Desc?></p>
                       </article>
@@ -180,7 +192,7 @@ $user_name = $_SESSION['user_name'];
   </div>
 </div>
 </body>
-<!-- <footer>
+ <footer>
 <div class="row">
     <div class="col">
         <h3>AGROWCULTURE</h3>
@@ -213,5 +225,5 @@ $user_name = $_SESSION['user_name'];
     <div class="copyright">
           <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Design by Namiha</p>
           </div>
-</footer>   -->
+</footer>   
 </html>

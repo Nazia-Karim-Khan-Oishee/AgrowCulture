@@ -35,19 +35,19 @@ $user_name = $_SESSION['user_name'];
                             echo $_SESSION['user_name'];
                      ?>
                 </a>   
-                <a href="cart.php"><img src="cart.png" alt="">
+                <a href="cart.php"><img src="cart.png" alt=""><span class="sp">
                 <?php
                             $que = mysqli_query($Conn, "SELECT * from `temporary`");
                             $rowCount = mysqli_num_rows($que);
                             echo "$rowCount";
-                        ?></a>
+                        ?></span></a>
             </div>
         </div>
         <ul class="links-container">
         <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
         <li class="link-item"><a href="4optionss.php" class="link">SERVICES</a></li>
-        <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="crops.php" class="link">CROPS</a></li>
+        <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
         <li class="link-item"><a href="fish.php" class="link">FISH</a></li>
         <li class="link-item"><a href="meat.php" class="link">MEAT</a></li>

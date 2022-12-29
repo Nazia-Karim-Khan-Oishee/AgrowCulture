@@ -108,10 +108,10 @@ if (isset($_POST['submit']))
                                 $mail->SMTPAuth=true;
                                 $mail->SMTPSecure='tls';
                 
-                                $mail->Username='#########';
-                                $mail->Password='###########';
+                                $mail->Username='############';
+                                $mail->Password='#############3';
                 
-                                $mail->setFrom('############','OTP Verification');
+                                $mail->setFrom('###############','OTP Verification');
                                 $mail->addAddress($_POST["email"]);
             
                                 $mail->isHTML(true);
