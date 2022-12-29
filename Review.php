@@ -10,24 +10,38 @@ $user_name = $_SESSION['user_name'];
 
     
     $NAME=$_GET['resid'];    
-    
+    $ID=$NAME;
+    // $fetch_rev = mysqli_query($Conn, "SELECT `review_id` FROM `review` WHERE Seller_id='$ID');" );
+    // if($fetch_rev)
+    // {
+    //     echo "here";
+
+    // }
     
     if(isset($_POST['reviewing']))
     {
+        $description=$_POST['desc'];
         $Rating = $_POST['rating'];
-        if($Rating===null)
+        if($Rating===null )
         {
             $Err="Select Rating! ";
 
         }
         else{
+      if($description==null)
+      {
+        $Err="Share your experience.";
 
-            $connect = mysqli_query($Conn, "INSERT INTO `review`(`user_name`, `Seller_id`,`Review`) VALUES ('$user_name','$NAME','$Rating');");
-            if($connect)
-            {
-                $Err1="Your review has been submitted. ";
+      }
+      else{
 
-            }
+          $connect = mysqli_query($Conn, "INSERT INTO `review`(`user_name`, `Seller_id`,`Review`,`description`) VALUES ('$user_name','$NAME','$Rating','$description');");
+          if($connect)
+          {
+              $Err1="Your review has been submitted. ";
+
+          }
+      }
         }
     //     echo  $NAME;
     //    echo  $user_name;
@@ -122,7 +136,7 @@ $user_name = $_SESSION['user_name'];
       <!-- <input type="radio" name="rating" value="3" /> 3 <input type="radio"
       name="rating" value="4" /> 4 <input type="radio" name="rating" value="5" /> 5</p></div> -->
     <!-- <p><label for="review">Review</label>-->
-  <br> <textarea placeholder="Write review here.." class="review-field"></textarea>
+  <br> <textarea placeholder="Write review here.." name="desc" class="review-field"></textarea>
       <br> <span class="ERR"> <?php echo $Err ;?></span>
        <span class="ERR1"> <?php echo $Err1 ;?></span>
        <p><input type="submit" name="reviewing" value="Submit Review">
@@ -131,7 +145,40 @@ $user_name = $_SESSION['user_name'];
     <input type="hidden" name="product_id" value="actual_product_id" id="product_id"> -->
 </fieldset>
  </form>
- 
+ <h1 id="header" class="text-success">Reviews</h1>
+  
+    
+    <div class="container list-article">
+        
+    <div class="clearfix"></div>
+    <div class="row">
+    <div class="col-xs-12 article-wrapper">
+        <?php
+        $ID=$NAME;
+        $rev = mysqli_query($Conn, "SELECT description,user_name FROM review WHERE Seller_id='$ID'" );
+    //     if($rev)
+
+        while($row=mysqli_fetch_array($rev)) 
+        {   
+        
+                    $Desc=$row['description']; $u_name =$row['user_name'];
+                    // echo $ID;
+                    //  $rows = mysqli_fetch_assoc($fetch_rev);
+                    //   $sum=number_format((float) $rows['avg_rev'], 2, '.', ''); 
+                      ?>
+                      <article>
+                        <!-- <a href=""class="more">more</a> -->
+                       
+                        <h6><?php echo $u_name.":"?></h6>
+                        <p><?php echo $Desc?></p>
+                      </article>
+                      <?php
+                }
+                      ?>
+    </div>
+    
+  </div>
+</div>
 </body>
 <!-- <footer>
 <div class="row">

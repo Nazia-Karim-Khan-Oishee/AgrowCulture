@@ -1,4 +1,4 @@
-<?php 
+  <?php 
 
 include 'Config.php';
 
@@ -13,7 +13,7 @@ if($user_name)
 else {
     $message= "LOG IN";
 }
-?>
+?>  
 <html>
     <head>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
