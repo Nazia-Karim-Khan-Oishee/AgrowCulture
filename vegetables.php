@@ -162,7 +162,7 @@
                             echo "  ";?>
                             <form action="Review.php" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
-                            echo "<button name='review' value = $NAME class='button-68'  role='button'><a href='Review.php'>Add Review</a></button>";
+                            echo'<a class="btn" href="Review.php?resid='.$NAME.'">Add Review</a>';
                             ?>
                         </form>
                         <?php

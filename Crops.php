@@ -157,9 +157,9 @@
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
-                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Cannot add more</button> ";
+                            echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Unavailable</button> ";
                             echo "  ";
-                            echo "<button name='review' value = $NAME class='button-68'  role='button'><a href='Review.php'>Add Review</a></button>";
+                            echo'<a class="btn" href="Review.php?resid='.$NAME.'">Add Review</a>';
                             ?>
                         </form>
                         <?php
