@@ -35,7 +35,12 @@ $user_name = $_SESSION['user_name'];
                             echo $_SESSION['user_name'];
                      ?>
                 </a>   
-                <a href="cart.php"><img src="cart.png" alt=""></a>
+                <a href="cart.php"><img src="cart.png" alt="">
+                <?php
+                            $que = mysqli_query($Conn, "SELECT * from `temporary`");
+                            $rowCount = mysqli_num_rows($que);
+                            echo "$rowCount";
+                        ?></a>
             </div>
         </div>
         <ul class="links-container">

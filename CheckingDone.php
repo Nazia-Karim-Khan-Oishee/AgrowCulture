@@ -39,7 +39,7 @@ hr.message-inner-separator
                    <span class="glyphicon glyphicon-ok"></span> <strong>Success Message</strong>
                     <hr class="message-inner-separator">
                     <p>
-                    Thank you for shopping. <a href="dashboard.php">Go back to Dashboard</a></p>
+                    Thank you for shopping. <a href="purchase.php">Continue shopping</a></p>
                 </div>
             </div>
 </body>
