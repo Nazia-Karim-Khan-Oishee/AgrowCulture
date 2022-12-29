@@ -87,7 +87,7 @@
                             echo $_SESSION['user_name'];
                         ?>
                     </a>
-                    <a href="cart.php"><img src="cart.png" alt=""><span>
+                    <a href="cart.php"><img src="cart.png" alt=""><span class="sp">
                         <?php
                             $que = mysqli_query($Conn, "SELECT * from `temporary`");
                             $rowCount = mysqli_num_rows($que);
@@ -100,6 +100,7 @@
         <ul class="links-container">
         <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="purchase.php" class="link">PURCHASE</a></li>
         <li class="link-item"><a href="Crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
@@ -119,7 +120,7 @@
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No fish for sale currently!</p>";
+                echo "<p><h2>No fish for sale currently!</h2></p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
@@ -229,38 +230,5 @@
 </footer>
      <!-- <script src="cart.js"></script> -->
     </body>
-    <footer>
-<div class="row">
-   <div class="col">
-       <h3>AGROWCULTURE</h3>
-       <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
-   </div>
-   <div class="col">
-       <h5>Address <div class="underline"><span></span></div></h5>
-       <p>Islamic University of Technology</p>
-       <p>Boardbazar, Gazipur</p>
-   </div>
-   <div class="col">
-       <h5>Links <div class="underline"><span></span></div></h5>
-       <ul>
-           <li><a href="getstartedpage.php">HOME</a></li>
-           <li><a href="4optionss.php">SERVICES</a></li>
-           <li><a href="aboutus.php">ABOUT US</a</li>
-           <li><a href="aboutus.php">CONTACTS</a</li>
-
-       </ul>
-   </div>
-
-   <ul class="social_icon">
-       <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-       <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-       <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-       <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-     </ul>
-   </div>
-   <hr>
-   <div class="copyright">
-         <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Design by Namiha</p>
-         </div>
-</footer>
+    
 </html>

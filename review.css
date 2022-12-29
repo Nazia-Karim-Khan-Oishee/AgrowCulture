@@ -462,6 +462,7 @@ input[class="super-sad"]:focus + svg {
 }
 @import url(https://fonts.googleapis.com/css?family=Pacifico);
 body {
+ 
 	background:linear-gradient(to right,#F6D285,#BBF0F3);
 }
 
@@ -472,7 +473,7 @@ h1#header {
   font-family: sans-serif;
   color: black;
   margin-left: -20px;
-  margin-top: -50px;
+    margin-top: -90px;  
 }
 
 .article-wrapper {
@@ -483,9 +484,9 @@ h1#header {
 }
 
 article {
-  position: center;
+  position: relative;
   padding-left: 180px;
-  padding-right: 180px;
+  padding-right: 75px;
   height: 150px;
   margin-bottom: 30px;
   background-color: #fff;
@@ -493,7 +494,7 @@ article {
   -webkit-border-radius: 150px;
   border-radius: 150px;
   cursor: pointer;
-  margin-left: 100%;
+  
 }
 article .img-wrapper {
   position: absolute;
@@ -524,22 +525,21 @@ article .img-wrapper img {
 article h6 {
   height: 75px;
   line-height: 75px;
-  width: fit-content;
-  font-size: 20px;
-  /* border-bottom: 2px solid #4daa51; */
+  font-size: 24px;
+  border-bottom: 2px solid #cde;
   color: #357938;
   -moz-transition: all 0.4s;
   -o-transition: all 0.4s;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
-  margin-left: -20px;
-  font-family: sans-serif;
 }
 article p {
-	padding-left: 40px;
+	/* padding-left: 40px;
   padding-right: 40px;
-  color: rgb(79, 78, 78);
+ 
   font-family: sans-serif;
+  margin-left: -70px; */
+  color: rgb(79, 78, 78);
 }
 article a {
   position: absolute;
@@ -566,7 +566,7 @@ article a {
   border-radius: 150px;
   font-family: "Pacifico";
   text-shadow: 0 1px 1px #aaa;
-  margin-top: 10px;
+
 }
 article:hover .img-wrapper {
   padding: 5px;

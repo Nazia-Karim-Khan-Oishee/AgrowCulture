@@ -87,7 +87,7 @@
                             echo $_SESSION['user_name'];
                         ?>
                     </a>
-                    <a href="cart.php"><img src="cart.png" alt=""><span>
+                    <a href="cart.php"><img src="cart.png" alt=""><span class="sp">
                         <?php
                             $que = mysqli_query($Conn, "SELECT * from `temporary`");
                             $rowCount = mysqli_num_rows($que);
@@ -100,6 +100,7 @@
         <ul class="links-container">
         <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
         <li class="link-item"><a href="#" class="link">SERVICES</a></li>
+        <li class="link-item"><a href="purchase.php" class="link">PURCHASE</a></li>
         <li class="link-item"><a href="Crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
         <li class="link-item"><a href="fruits.php" class="link">FRUITS</a></li>
@@ -119,7 +120,7 @@
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No meat for sale currently!</p>";
+                echo "<p><h2>No meat for sale currently!<h2></p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
