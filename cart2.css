@@ -226,8 +226,8 @@ section{
    box-shadow: #333;
 }
 .error {
-   color: #FF0000;
-   font-size: medium;
+   color: black;
+   font-size: small;
 }
 
 
@@ -540,7 +540,7 @@ hr
   visibility: hidden;
   width: 400px;
   background-color: whitesmoke;
-  color: red;
+  color: black;
   text-align: center;
   border-radius: 6px;
   padding: 2.5px 0;
