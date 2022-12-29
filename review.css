@@ -183,7 +183,7 @@ p input[type="submit"]{
         margin-top: 100px;
         margin-left: 350px;
         margin-right: 10px;
-        height: 450px;
+        height: 428px;
         width: 20%;
         margin-bottom: 280px;
     }
@@ -204,12 +204,15 @@ p input[type="submit"]{
 .ERR{
     color: red;
   font-size: 27px;
-margin-left: 65px;
+margin-left: 78px;
+
 }
 .ERR1{
   color: black;
 font-size: 25px;
 margin-left: 0px;
+
+
 }
 
     @import url('https://fonts.googleapis.com/css?family=Roboto');
