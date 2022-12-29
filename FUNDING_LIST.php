@@ -55,10 +55,10 @@ $user_name = $_SESSION['user_name'];
 
                     <!-- <h6>lhk</h6> -->
                     <input type="radio" name="Field" value="Crops" required /> Crops<br>
-                    <input type="radio"  name="Field" value="Poultry" required /> Poultry<br>
+                    <input type="radio"  name="Field" value="Poultry" required />   Poultry<br>
                     <input type="radio"  name="Field" value="Fisheries" required /> Fisheries<br>
-                    <input type="radio"  name="Field" value="Farming" required /> Farming<br>
-                    <input type="radio" name="Field" value="Machineries" required /> Machineries<br>
+                    <input type="radio"  name="Field" value="Farming" required />   Farming<br>
+                    <input type="radio" name="Field" value="Machineries" required />Machineries<br>
                     
                     <br> <br><input type="submit" name="submit" value="Filter" class="sign-btn" ><br><br>
 </form>
