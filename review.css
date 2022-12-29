@@ -183,7 +183,7 @@ p input[type="submit"]{
         margin-top: 100px;
         margin-left: 350px;
         margin-right: 10px;
-        height: 400px;
+        height: 450px;
         width: 20%;
         margin-bottom: 280px;
     }
@@ -483,7 +483,7 @@ h1#header {
 article {
   position: relative;
   padding-left: 180px;
-  padding-right: 75px;
+  padding-right: 800px;
   height: 150px;
   margin-bottom: 30px;
   background-color: #fff;

@@ -167,6 +167,15 @@ $user_name = $_SESSION['user_name'];
         <?php
         $ID=$NAME;
         $rev = mysqli_query($Conn, "SELECT description,user_name FROM review WHERE Seller_id='$ID'" );
+        if(mysqli_num_rows($rev)==0)
+        {
+          ?>
+          <article>
+                          
+                        <h6>This seller is not rated yet.</h6>
+                      </article>
+                      <?php
+        }
     //     if($rev)
 
         while($row=mysqli_fetch_array($rev)) 
