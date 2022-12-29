@@ -198,11 +198,7 @@ p input[type="submit"]{
  
     margin-left: 150px;
    }
-   span{
-    color: black;
-    font-size: px;
-  margin-left: 65px;
-   }
+  
 
 .ERR{
     color: red;
@@ -231,23 +227,23 @@ html {
 
 }
 
-a:link,
+/* a:link,
 a:visited,
-a:hover,
+
 a:active {
 	color: rgb(255, 255, 255);
 	text-decoration: none;
-}
+} */
 
-a:hover,
-a:active {
+
+/* a:active {
 	border-bottom: 0.1em solid rgba(0, 0, 16, 0.8);
 	color: rgba(0, 0, 16, 0.8);
 	text-decoration: none;
-}
+} */
 
 span {
-	color: rgba(0, 0, 16, 0.4);
+	color: rgb(255, 255, 255);
 	font-size: 70%;
 }
 
@@ -568,19 +564,19 @@ article a {
   text-shadow: 0 1px 1px #aaa;
 
 }
-article:hover .img-wrapper {
+/* article:hover .img-wrapper {
   padding: 5px;
   -moz-transform: rotate(5deg);
   -ms-transform: rotate(5deg);
   -webkit-transform: rotate(5deg);
   transform: rotate(5deg);
-}
-article:hover .img-wrapper img {
+} */
+/* article:hover .img-wrapper img {
   width: 160px;
-}
-article:hover a {
+} */
+/* article:hover a {
   opacity: 1;
-}
+} */
 h1{
 	margin-left: -20px;
 }
@@ -722,17 +718,7 @@ text-align: center;
  left: 0;
  overflow: hidden;
 }
-.underline span
-{
- width: 15px;
- height: 100%;
- background: white;
- border-radius: 3px;
- position: absolute;
- top: 0;
- left: 10px;
- animation: moving 2s linear infinite;
-}
+
 @keyframes moving
 {
  0%

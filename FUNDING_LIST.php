@@ -48,7 +48,8 @@ $user_name = $_SESSION['user_name'];
     <!-- <div class="left"></div> -->
     <div class="right">
 <!-- <p> Phsical Alignments</p> -->
-<h4 class="field">CHOOSE A FIELD: </h4><br>
+<h4 class="field">CHOOSE A FIELD: </h4>
+<p><b>Select one category at a time.</b><p><br>
 <!-- ///// -->
 <form action="" method="POST" autocomplete="off" class="sign-up-form">
 
