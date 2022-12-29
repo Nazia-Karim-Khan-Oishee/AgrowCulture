@@ -43,7 +43,7 @@ else {
                <div class="card">
                
                <div class="image">
-                  <img src="funding.jpg">
+                  <img src="funding.jpg" height="24%">
                </div>
                <div class="title">
                 <h1>FUNDING</h1>
@@ -56,7 +56,7 @@ else {
                <div class="card">
                
                 <div class="image">
-                   <img src="exposure.jpg">
+                   <img src="exposure.jpg" height="24%">
                 </div>
                 <div class="title">
                  <h1>SELLING</h1>
@@ -72,7 +72,7 @@ else {
                        <img src="investment.jpg" height="24%">
                     </div>
                     <div class="title">
-                     <h1>INVESTMENT</h1>
+                     <h1>INVEST</h1>
                     </div>
                     <div class="des">
                      <p>Support the farmers.</p>
