@@ -83,8 +83,8 @@ $user_name = $_SESSION['user_name'];
             while($row3 = mysqli_fetch_array($result3))
             {
 
-                $quantity=$row3['Quantity'];$product=$row3['Field'];$date=$row3['Date'];
-                $Message3= "You last provided  $quantity kg of  $product on  $date."."<br>";
+                $quantity=$row3['Quantity'];$product=$row3['Field'];$date=$row3['Date'];$field=$row3['product_name'];
+                $Message3= "You last provided  $quantity kg of  $field on  $date."."<br>";
 
             }
     }

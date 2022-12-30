@@ -181,9 +181,9 @@ p input[type="submit"]{
     }
     fieldset{
         margin-top: 100px;
-        margin-left: 350px;
+        margin-left: 450px;
         margin-right: 10px;
-        height: 450px;
+        height: 435px;
         width: 20%;
         margin-bottom: 280px;
     }
@@ -619,7 +619,7 @@ footer
  background:linear-gradient(to right,#2A2B2A,#9CEBB3);
  min-height: 0px;
  margin-top: auto;
- font-size: 13px;
+ font-size: 16px;
  line-height: 20px;
  padding: 20px 50px;
  display: flex;
