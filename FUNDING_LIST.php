@@ -122,7 +122,7 @@ $user_name = $_SESSION['user_name'];
             <div class="col">
                 <h5>Links <div class="underline"><span></span></div></h5>
                 <ul>
-                    <li><a href="getstartedpage.hp">HOME</a></li>
+                <li><a href="getstartedpage.hp">HOME</a></li>
                     <li><a href="4optionss.php">SERVICES</a></li>
                     <li><a href="aboutus.php">ABOUT US</a></li>
                     <li><a href="aboutus.php">CONTACTS</a></li>
