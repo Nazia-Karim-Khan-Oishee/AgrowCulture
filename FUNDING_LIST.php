@@ -56,8 +56,8 @@ $user_name = $_SESSION['user_name'];
                     <!-- <h6>lhk</h6> -->
                     <input type="radio" name="Field" value="Crops" required /> Crops<br>
                     <input type="radio"  name="Field" value="Poultry" required />   Poultry<br>
-                    <input type="radio"  name="Field" value="Fisheries" required /> Fisheries<br>
                     <input type="radio"  name="Field" value="Farming" required />   Farming<br>
+                    <input type="radio"  name="Field" value="Fisheries" required /> Fisheries<br>
                     <input type="radio" name="Field" value="Machineries" required />Machineries<br>
                     
                     <br> <br><input type="submit" name="submit" value="Filter" class="sign-btn" ><br><br>
@@ -122,10 +122,10 @@ $user_name = $_SESSION['user_name'];
             <div class="col">
                 <h5>Links <div class="underline"><span></span></div></h5>
                 <ul>
-                    <li><a href="getstartedpage.html">HOME</a></li>
-                    <li><a href="4optionss.html">SERVICES</a></li>
-                    <li><a href=""></a>ABOUT US</li>
-                    <li><a href=""></a>CONTACTS</li>
+                    <li><a href="getstartedpage.hp">HOME</a></li>
+                    <li><a href="4optionss.php">SERVICES</a></li>
+                    <li><a href="aboutus.php">ABOUT US</a></li>
+                    <li><a href="aboutus.php">CONTACTS</a></li>
 
                 </ul>
             </div>

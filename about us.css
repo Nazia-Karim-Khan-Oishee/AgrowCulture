@@ -20,6 +20,7 @@ h1{
     margin: auto;
     text-align: center;
     padding-top: 10%;
+    font-size: 4em;
 }
 .container
 {
@@ -57,7 +58,7 @@ h1{
 {
   font-size: 18px;
   line-height: 30px;
-
+    color: black;
 }
 footer
 {
@@ -120,7 +121,7 @@ ul li a
 .col ul li a
 {
  /* text-decoration: none; */
- color: black;
+ color: white;
  font-size: 16px;   
 }
 .social_icon
@@ -160,6 +161,7 @@ hr
 {
  margin-bottom: 20px;
 text-align: center;
+color: white;
 }
 .underline
 {
@@ -216,11 +218,15 @@ nav{
 nav ul li a{
     text-decoration: none;
     color: #fff;
-    font-size: 15px;
+    font-size: 22px;
 }
 h2{
     color: black;
     margin: auto;
     text-align: center;
     margin-top: 5%;
+}
+.col p
+{
+    color: white;
 }

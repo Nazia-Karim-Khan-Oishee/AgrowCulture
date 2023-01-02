@@ -31,7 +31,7 @@ body
     background: white;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
 
-    
+
 }
 
 .product-image 
@@ -211,7 +211,7 @@ footer
   background:linear-gradient(to right,#2A2B2A,#9CEBB3);
   min-height: 0px;
   margin-top: 600px;
-  font-size: 13px;
+  font-size: 16px;
   line-height: 20px;
   padding: 20px 50px;
   display: flex;
@@ -299,6 +299,7 @@ hr
 {
   margin-bottom: 20px;
  text-align: center;
+ color: white;
 }
 .underline
 {
