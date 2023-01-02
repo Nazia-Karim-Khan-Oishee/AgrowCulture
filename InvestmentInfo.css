@@ -265,7 +265,7 @@ h3
 }
 .col h5
 {
- width: fit-content;
+ /* width: fit-content; */
  margin-bottom: 30px;
  position: relative;
  font-size: 20px;
@@ -380,12 +380,12 @@ nav{
     margin-top: 5%;
 }
 .col p{
-    color: black;
+    color: white;
       font-size: 15px;
       line-height: 30px;
 }
 .copyright p{
-    color: black;
+    color: white;
   font-size: 15px;
   line-height: 30px;
 
@@ -397,5 +397,5 @@ nav{
 .col ul li a
   {
    text-decoration: none;
-   color: black;
+   color: white;
   }

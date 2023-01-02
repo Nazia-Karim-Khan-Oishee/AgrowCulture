@@ -456,7 +456,7 @@ h3
 }
 .col h5
 {
- width: fit-content;
+ /* width: fit-content; */
  margin-bottom: 30px;
  position: relative;
  font-size: 20px;
@@ -466,7 +466,7 @@ h3
 ul li a
 {
  text-decoration: none;
- color: black;
+ color: white;
 }
 .social_icon
 {
@@ -505,6 +505,7 @@ hr
 {
  margin-bottom: 20px;
 text-align: center;
+color: white;
 }
 .underline
 {
@@ -548,12 +549,12 @@ text-align: center;
     margin-top: 5%;
 }
 .col p{
-    color: black;
+    color: white;
       font-size: 15px;
       line-height: 30px;
 }
 .copyright p{
-    color: black;
+    color: white;
   font-size: 15px;
   line-height: 30px;
 
@@ -565,7 +566,7 @@ text-align: center;
 .col ul li a
   {
    text-decoration: none;
-   color: black;
+   color: white;
   }
   
 .actual-form
@@ -578,3 +579,11 @@ h6
   color: white;
 }
 .error {color:red;}
+.col h1
+{
+  margin-bottom: 20px;
+}
+.col p
+{
+  color: white;
+}

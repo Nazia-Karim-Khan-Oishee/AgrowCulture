@@ -18,17 +18,17 @@
                 unset($product_name);
                 ?>
                 <script>
-                window.location.replace("Vegetables.php");
+                window.location.replace("vegetables.php");
                 </script>
                 <?php
            }
            else
            {
                 unset($product_name);
-                echo "An error occurred. Please try again.";
+                echo "An error occurred.Please try again later.";
                 ?>
                 <script>
-                  window.location.replace("Vegetables.php");
+                  window.location.replace("vegetables.php");
                 </script>
                 <?php
            }
@@ -43,16 +43,16 @@
             {
                 ?>
                 <script>
-                window.location.replace("Vegetables.php");
+                window.location.replace("vegetables.php");
                 </script>
                 <?php
             }
             else
             {
-                echo "An error occurred. Please try again.";
+                echo "An error occurred.Please try again.";
                 ?>
                 <script>
-                window.location.replace("Vegetables.php");
+                window.location.replace("vegetables.php");
                 </script>
                 <?php
             }
@@ -71,7 +71,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
-        <title>vegetables</title>
+        <title>Fruits</title>
          <link rel="stylesheet" href="nav.css"> 
          <link rel="stylesheet" href="vegetables.css"> 
     </head>
@@ -99,7 +99,7 @@
         </div>
         <ul class="links-container">
         <li class="link-item"><a href="getstartedpage.php" class="link">HOME</a></li>
-        <li class="link-item"><a href="4optionss.php"  class="link">SERVICES</a></li>
+        <li class="link-item"><a href="4optionss.php" class="link">SERVICES</a></li>
         <li class="link-item"><a href="purchase.php" class="link">PURCHASE</a></li>
         <li class="link-item"><a href="Crops.php" class="link">CROPS</a></li>
         <li class="link-item"><a href="vegetables.php" class="link">VEGETABLES</a></li>
@@ -109,7 +109,7 @@
 
         </ul>
      </nav> 
-     <div class="bg">
+    
      <div class="product-container">
          <?php    
                 // image fetching
@@ -120,7 +120,7 @@
                 if($rowCount==0)
                 {
                 //   header("Location:ProductEmpty.php");
-                echo "<p>No vegetable for sale currently!</p>";
+                echo "<p><h2>No vegetables for sale currently!</h2></p>";
                 }
                 else{
                 while($row=mysqli_fetch_array($img)) 
@@ -129,10 +129,8 @@
                     // echo $ID;
                      $fetch_rev = mysqli_query($Conn, "SELECT AVG(Review) AS avg_rev FROM review WHERE Seller_id='$ID'" );
                      $rows = mysqli_fetch_assoc($fetch_rev);
-                      $sum=number_format((float) $rows['avg_rev'], 2, '.', ''); 
-
-                     //$sum = (int)$rows['avg_rev'];
-                    //  echo $sum;
+                     $sum=number_format((float) $rows['avg_rev'], 2, '.', ''); 
+                     //  echo $sum;
 
                    // echo "<script>alert('Wow!.')</script>";
 
@@ -152,18 +150,20 @@
                     $Quantity = $row['Quantity'];
                     if($Quantity == 0)
                     {
-                        echo "<span class='price' >Quantity: 0</span><br><br>";
+                        echo "<span class='price' >Quantity: Sold out</span><br><br>";
                         $NAME = $row['Seller_id'];
                         ?>
                         <form action="" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo "<input type='hidden' name='meh_id' value = $NAME>";
                             echo "<button name='no_name' value = $NAME class='button-68'  role='button'>Unavailable</button> ";
-                            echo "  ";?>
+                            echo "  ";
+                            ?>
                             <form action="Review.php" method="POST" autocomplete="off" class="sign-up-form">
                             <?php
                             echo'<a class="btn" href="Review.php?resid='.$NAME.'">Add Review</a>';
                             ?>
+                        </form>
                         </form>
                         <?php
                     }
@@ -198,41 +198,41 @@
                 <!-- <span class="price">130Tk/kg</span><br> -->
 
      </div>
-            </div>
-            <footer>
-<div class="row">
-    <div class="col">
-        <h3>AGROWCULTURE</h3>
-        <p>Agrowculture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, Agrowculture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through Agrowculture to help finance our farmers.</p>
-    </div>
-    <div class="col">
-        <h5>Address <div class="underline"><span></span></div></h5>
-        <p>Islamic University of Technology</p>
-        <p>Boardbazar,Gazipur</p>
-    </div>
-    <div class="col">
-        <h5>Links <div class="underline"><span></span></div></h5>
-        <ul>
-            <li><a href="getstartedpage.php">HOME</a></li>
-            <li><a href="4optionss.php">SERVICES</a></li>
-            <li><a href="aboutus.php">ABOUT US</a</li>
-            <li><a href="aboutus.php">CONTACTS</a</li>
-
-        </ul>
-    </div>
-
-    <ul class="social_icon">
-        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-        <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
-        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
-      </ul>
-    </div>
-    <hr>
-    <div class="copyright">
-          <p class="copyright">2022 Copyright © Agrowculture. | Legal | Privacy Policy | Designed by Namiha</p>
-          </div>
-</footer>
-     <script src="cart.js"></script>
+     <!-- <script src="cart.js"></script> -->
     </body>
+    <footer>
+<div class="row">
+   <div class="col">
+       <h3>AGROWCULTURE</h3>
+       <p>AgrowCulture is a platform created to expand the exposure of the people working in the agricultural sector. On a single platform, AgrowCulture connects these people with funders and customers by eliminating intermediaries. It also enables Bangladesh agriculture financing. Anyone can connect through AgrowCulture to help finance our farmers.</p>
+   </div>
+   <div class="col">
+       <h5>Address <div class="underline"><span></span></div></h5>
+       <p>Islamic University of Technology</p>
+       <p>Boardbazar, Gazipur</p>
+   </div>
+   <div class="col">
+       <h5>Links <div class="underline"><span></span></div></h5>
+       <ul>
+           <li><a href="getstartedpage.php">HOME</a></li>
+           <li><a href="4optionss.php">SERVICES</a></li>
+           <li><a href="aboutus.php">ABOUT US</a</li>
+           <li><a href="aboutus.php">CONTACTS</a</li>
+
+       </ul>
+   </div>
+
+   <ul class="social_icon">
+       <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+       <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+       <li><a href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+       <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+     </ul>
+   </div>
+   <hr>
+   <div class="copyright">
+         <p class="copyright">2022 Copyright © AgrowCulture. | Legal | Privacy Policy | Designed by Namiha</p>
+         </div>
+</footer>
+    
 </html>

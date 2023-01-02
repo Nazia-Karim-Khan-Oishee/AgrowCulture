@@ -249,6 +249,10 @@ ul li a
 {
  transform: translateY(-10px);
 }
+.col p
+{
+  color: white;
+}
 hr
 { 
  width: 90%;
@@ -260,6 +264,8 @@ hr
 {
  margin-bottom: 20px;
 text-align: center;
+color: white;
+margin-left: 40%;
 }
 .underline
 {

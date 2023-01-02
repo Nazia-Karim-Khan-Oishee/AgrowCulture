@@ -314,6 +314,7 @@ hr
 {
  margin-bottom: 20px;
 text-align: center;
+color: white;
 }
 .underline
 {
@@ -380,14 +381,14 @@ nav{
     margin-top: 5%;
 }
 .col p{
-    color: black;
+    color: white;
       font-size: 15px;
       line-height: 30px;
 }
 .copyright p{
-    color: black;
-  font-size: 15px;
-  line-height: 30px;
+    font-size: 15px;
+    line-height: 30px;
+    color: white;
 
 }
 .col ul li{
@@ -397,6 +398,6 @@ nav{
 .col ul li a
   {
    text-decoration: none;
-   color: black;
+   color: white;
   }
   

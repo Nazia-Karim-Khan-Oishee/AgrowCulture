@@ -46,7 +46,7 @@
                     <br><br>
                     <p>With regrads,</p>
                     <b>Programming with Lam</b>
-                    https://www.youtube.com/channel/UCKRZp3mkvL1CBYKFIlxjDdg";
+                    ";
     
                             if(!$mail->send()){
                                 ?>
