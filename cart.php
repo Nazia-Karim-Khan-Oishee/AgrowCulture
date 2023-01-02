@@ -19,6 +19,7 @@
             $update_sell_page = mysqli_query($Conn, "UPDATE `sell` SET `Quantity`=`Quantity`+ ('$quantity' -'$update_value') WHERE Seller_id = '$update_id'");
             $update_quantity_query = mysqli_query($Conn, "UPDATE `temporary` SET `Quantity` = '$update_value' WHERE Seller_id = '$update_id'");
             if($update_quantity_query && $update_sell_page){
+                // if()
                 header('location:cart.php');
             }
             else

@@ -467,7 +467,7 @@ h3 {
 
 ul li a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .social_icon {
@@ -549,13 +549,13 @@ hr {
 }
 
 .col p {
-  color: black;
+  color: white;
   font-size: 15px;
   line-height: 30px;
 }
 
 .copyright p {
-  color: black;
+  color: white;
   font-size: 15px;
   line-height: 30px;
 
@@ -568,7 +568,7 @@ hr {
 
 .col ul li a {
   text-decoration: none;
-  color: black;
+  color: white;
 }
 
 .actual-form {
@@ -578,4 +578,8 @@ hr {
 
 h6 {
   color: white;
+}
+.col h1
+{
+  margin-bottom: 20px;
 }

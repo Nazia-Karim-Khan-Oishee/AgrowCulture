@@ -204,6 +204,7 @@ margin: 20px auto;
 {
 margin-bottom: 20px;
 text-align: center;
+color: white;
 }
 .underline
 {
@@ -242,7 +243,10 @@ animation: moving 2s linear infinite;
 h4{
 font-size: 30px;
 }
-
+.col p
+{
+  color: white;
+}
 nav ul{
   
 
