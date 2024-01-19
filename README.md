@@ -37,15 +37,14 @@ MySql
 - Ensure Apache and MySQL services are started using the XAMPP control panel.
 
 ### Access phpMyAdmin:
-Open your web browser and navigate to [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
+- Open your web browser and navigate to [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
 
 ### Import Database:
--In phpMyAdmin, create a new database (if not already created).
--Import the agrowculture.sql file into your newly created database.
+- In phpMyAdmin, create a new database (if not already created).
+- Import the agrowculture.sql file into your newly created database.
 
 ### Move Files to htdocs:
-Place the cloned Agrowculture project folder into the htdocs directory within your XAMPP installation.
+- Place the cloned Agrowculture project folder into the htdocs directory within your XAMPP installation.
 
 ### Access the Application:
-Open your web browser and enter the path of the INDEX.php file in your Agrowculture project.
-For example: http://localhost/agrowculture/index.php.
+- Open your web browser and enter the path of the INDEX.php file in your Agrowculture project. For example: http://localhost/agrowculture/index.php.
